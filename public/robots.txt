@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /admin-only/
+Disallow: /*?*
+
+Sitemap: https://www.toolbite.in/sitemap.xml
