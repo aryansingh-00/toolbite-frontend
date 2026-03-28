@@ -101,7 +101,7 @@ const ContactSection = () => {
                 <a href="/https://www.instagram.com/hello.toolbite?igsh=MThncHh4ejk5YzQzdg==" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-rose-500 hover:text-white hover:border-rose-500 transition-all shadow-sm">
                   <Instagram size={20} />
                 </a>
-                <a href="/https://www.linkedin.com/in/aryan-singh-56a32736b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">
+                <a href="https://www.linkedin.com/in/tool-bite-16ab8b3ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">
                   <Linkedin size={20} />
                 </a>
                 <a href="/https://github.com/aryansingh-00" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all shadow-sm">
