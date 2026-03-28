@@ -23,7 +23,7 @@ const Hero = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span className="flex h-2 w-2 rounded-full bg-teal-500 animate-pulse"></span>
-              <span className="text-sm font-bold text-slate-800 tracking-tight">Award-Winning Digital Agency</span>
+              <span className="text-sm font-bold texxt-slate-800 tracking-tight">Award-Winning Digital Agency</span>
             </motion.div>
 
             <motion.h1

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vitality Health Portal — Patient Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#f0fdf8;color:#0f2820;overflow-x:hidden}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #e0f2ed;height:72px;display:flex;align-items:center;padding:0 5%;justify-content:space-between;box-shadow:0 2px 12px rgba(16,185,129,0.06)}
+    .logo{display:flex;align-items:center;gap:.6rem}
+    .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,#10b981,#0891b2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+    .logo-text{font-size:1.25rem;font-weight:800;color:#0f2820;letter-spacing:-0.5px}
+    .logo-text span{color:#10b981}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:#475569;text-decoration:none;font-size:.88rem;font-weight:500;transition:.2s}
+    .nav-links a:hover{color:#10b981}
+    .nav-right{display:flex;gap:.75rem}
+    .btn-outline{background:transparent;color:#10b981;border:1.5px solid #10b981;padding:.55rem 1.25rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s}
+    .btn-outline:hover{background:#10b981;color:#fff}
+    .btn-solid{background:#10b981;color:#fff;border:none;padding:.6rem 1.4rem;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;transition:.2s}
+    .btn-solid:hover{background:#059669;transform:translateY(-1px)}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:120px 5% 80px;background:linear-gradient(135deg,#f0fdf8 60%,#ecfdf5)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#dcfce7;color:#166534;padding:.4rem 1rem;border-radius:100px;font-size:.78rem;font-weight:700;margin-bottom:2rem}
+    .hero h1{font-size:clamp(2.4rem,4vw,3.6rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:1.5rem;color:#0f2820}
+    .hero h1 span{color:#10b981}
+    .hero p{color:#475569;font-size:1.05rem;line-height:1.7;margin-bottom:2.5rem;max-width:480px}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+    .btn-hero{background:linear-gradient(135deg,#10b981,#0891b2);color:#fff;border:none;padding:.9rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s}
+    .btn-hero:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(16,185,129,0.25)}
+    .btn-hero-out{background:#fff;color:#0f2820;border:1.5px solid #d1fae5;padding:.9rem 2rem;border-radius:10px;font-weight:600;font-size:.95rem;cursor:pointer;transition:.2s}
+    .btn-hero-out:hover{border-color:#10b981;color:#10b981}
+    .compliance-badges{display:flex;gap:.75rem;flex-wrap:wrap}
+    .badge-pill{display:flex;align-items:center;gap:.4rem;background:#fff;border:1px solid #d1fae5;padding:.4rem .9rem;border-radius:100px;font-size:.75rem;font-weight:600;color:#166534}
+
+    /* DASHBOARD CARD */
+    .portal-card{background:#fff;border-radius:24px;border:1px solid #d1fae5;padding:1.75rem;box-shadow:0 20px 60px rgba(16,185,129,0.1)}
+    .portal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid #f0fdf8}
+    .portal-header h3{font-size:1rem;font-weight:700;color:#0f2820}
+    .portal-header .live-tag{background:#dcfce7;color:#166534;padding:.3rem .75rem;border-radius:100px;font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:.4rem}
+    .portal-header .live-tag::before{content:'';width:6px;height:6px;background:#22c55e;border-radius:50%;animation:blink 1.5s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .patient-list{display:flex;flex-direction:column;gap:.75rem}
+    .patient-row{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;background:#f8fffe;border-radius:12px;border:1px solid #ecfdf5}
+    .patient-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .patient-info{flex:1}
+    .patient-name{font-size:.88rem;font-weight:700;color:#0f2820}
+    .patient-detail{font-size:.75rem;color:#64748b;margin-top:.15rem}
+    .patient-status{font-size:.72rem;font-weight:700;padding:.3rem .7rem;border-radius:100px}
+    .s-stable{background:#dcfce7;color:#166534}
+    .s-review{background:#fef9c3;color:#854d0e}
+    .s-urgent{background:#fee2e2;color:#991b1b}
+    .portal-footer{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #f0fdf8;display:flex;justify-content:space-between;align-items:center}
+    .portal-footer span{font-size:.8rem;color:#64748b}
+    .portal-footer button{background:#10b981;color:#fff;border:none;padding:.5rem 1.1rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer}
+
+    /* FEATURES */
+    .features{padding:6rem 5%;background:#fff}
+    .section-label{color:#10b981;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem;color:#0f2820}
+    .section-sub{color:#64748b;max-width:520px;line-height:1.7;margin-bottom:3.5rem}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+    .feat{background:#f8fffe;border:1px solid #ecfdf5;border-radius:18px;padding:2rem;transition:.3s}
+    .feat:hover{border-color:#6ee7b7;box-shadow:0 10px 30px rgba(16,185,129,0.08);transform:translateY(-4px)}
+    .feat-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#dcfce7,#d1fae5);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+    .feat h4{font-size:1rem;font-weight:700;color:#0f2820;margin-bottom:.5rem}
+    .feat p{font-size:.87rem;color:#64748b;line-height:1.6}
+
+    /* CTA */
+    .cta{padding:5rem 5%;text-align:center;background:linear-gradient(135deg,#10b981,#0891b2);color:#fff}
+    .cta h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;letter-spacing:-1px;margin-bottom:1rem}
+    .cta p{opacity:.85;max-width:490px;margin:0 auto 2.5rem;line-height:1.7}
+    .btn-white{background:#fff;color:#10b981;border:none;padding:1rem 2.4rem;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(0,0,0,0.1)}
+
+    footer{padding:2.5rem 5%;background:#fff;border-top:1px solid #e0f2ed;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer p{color:#94a3b8;font-size:.83rem}
+    @media(max-width:768px){.hero{grid-template-columns:1fr}.features-grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">❤️</div>
+      <div class="logo-text">Vitality<span>Health</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">For Patients</a></li>
+      <li><a href="#">For Providers</a></li>
+      <li><a href="#">Compliance</a></li>
+      <li><a href="#">Pricing</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="btn-outline">Patient Login</button>
+      <button class="btn-solid">Book Appointment</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="hero-badge">🏥 HIPAA Compliant · SOC2 Certified</div>
+      <h1>Healthcare Made<br><span>Simpler, Safer,</span><br>Smarter.</h1>
+      <p>A HIPAA-compliant patient management portal that bridges legacy hospital systems with modern, accessible patient-facing diagnostics and reporting.</p>
+      <div class="hero-btns">
+        <button class="btn-hero">Book Appointment</button>
+        <button class="btn-hero-out">View Patient Portal</button>
+      </div>
+      <div class="compliance-badges">
+        <div class="badge-pill">✓ HIPAA Compliant</div>
+        <div class="badge-pill">✓ SOC2 Type II</div>
+        <div class="badge-pill">✓ HL7 FHIR Ready</div>
+        <div class="badge-pill">✓ WCAG 2.1 AA</div>
+      </div>
+    </div>
+    <div class="portal-card">
+      <div class="portal-header">
+        <h3>📋 Active Patient Queue</h3>
+        <div class="live-tag">Live System</div>
+      </div>
+      <div class="patient-list">
+        <div class="patient-row">
+          <div class="patient-avatar" style="background:#dcfce7">👩</div>
+          <div class="patient-info">
+            <div class="patient-name">Sarah Mitchell, 34</div>
+            <div class="patient-detail">Card. Review · Dr. Thompson · 9:00 AM</div>
+          </div>
+          <span class="patient-status s-stable">Stable</span>
+        </div>
+        <div class="patient-row">
+          <div class="patient-avatar" style="background:#fef9c3">👨</div>
+          <div class="patient-info">
+            <div class="patient-name">James O'Brien, 67</div>
+            <div class="patient-detail">Diab. Management · Dr. Patel · 9:30 AM</div>
+          </div>
+          <span class="patient-status s-review">Review</span>
+        </div>
+        <div class="patient-row">
+          <div class="patient-avatar" style="background:#fee2e2">👧</div>
+          <div class="patient-info">
+            <div class="patient-name">Aisha Karim, 28</div>
+            <div class="patient-detail">Neurology · Dr. Williams · 10:00 AM</div>
+          </div>
+          <span class="patient-status s-urgent">Priority</span>
+        </div>
+        <div class="patient-row">
+          <div class="patient-avatar" style="background:#e0f2fe">🧓</div>
+          <div class="patient-info">
+            <div class="patient-name">Robert Chen, 55</div>
+            <div class="patient-detail">Orthopaedics · Dr. Kumar · 10:30 AM</div>
+          </div>
+          <span class="patient-status s-stable">Stable</span>
+        </div>
+      </div>
+      <div class="portal-footer">
+        <span>24 patients scheduled today</span>
+        <button>View All →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-label">Platform Capabilities</div>
+    <h2 class="section-title">Built for Modern<br>Healthcare Systems</h2>
+    <p class="section-sub">Every feature designed with clinical workflows, patient safety, and regulatory compliance at the core.</p>
+    <div class="features-grid">
+      <div class="feat"><div class="feat-icon">🗓️</div><h4>Smart Scheduling</h4><p>AI-powered appointment booking with conflict detection, automated reminders, and waitlist management.</p></div>
+      <div class="feat"><div class="feat-icon">📊</div><h4>Diagnostic Reporting</h4><p>Real-time lab results, imaging reports, and vitals dashboards accessible to patients and clinicians.</p></div>
+      <div class="feat"><div class="feat-icon">🔗</div><h4>EHR Integration</h4><p>Seamless HL7 FHIR integration with Epic, Cerner, and all major electronic health record systems.</p></div>
+      <div class="feat"><div class="feat-icon">💊</div><h4>Prescription Management</h4><p>Digital prescriptions with pharmacy routing, refill alerts, and drug interaction checking built-in.</p></div>
+      <div class="feat"><div class="feat-icon">🔒</div><h4>End-to-End Encryption</h4><p>AES-256 encrypted data at rest and in transit. Zero-trust architecture with biometric MFA.</p></div>
+      <div class="feat"><div class="feat-icon">📱</div><h4>Patient Mobile App</h4><p>iOS and Android apps so patients can manage health data, book appointments, and message doctors.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Modernise<br>Your Practice?</h2>
+    <p>Join 850+ clinics and hospitals using Vitality to deliver faster, safer, and more connected care.</p>
+    <button class="btn-white">Request a Demo</button>
+  </section>
+
+  <footer>
+    <div class="logo"><div class="logo-icon" style="width:28px;height:28px;font-size:.85rem">❤️</div><div class="logo-text" style="font-size:1rem">Vitality<span>Health</span></div></div>
+    <p>© 2025 Vitality Health Systems. HIPAA Compliant. Built by ToolBite.</p>
+  </footer>
+</body>
+</html>

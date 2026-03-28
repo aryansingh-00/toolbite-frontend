@@ -2,30 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server } from 'lucide-react';
-import api from '../services/api';
+import staticTemplates from '../data/templates';
 
 const TemplateDetails = () => {
   const { id } = useParams();
   const [template, setTemplate] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchTemplate();
-  }, [id]);
-
-  const fetchTemplate = async () => {
-    try {
-      const { data } = await api.get(`/templates/${id}`);
-      setTemplate(data);
-    } catch (err) {
-      console.error('Failed to load template:', err);
-      setError('Template not found or an error occurred.');
-    } finally {
-      setLoading(false);
+    // Look up from static data — no backend required
+    const found = staticTemplates.find((t) => t._id === id);
+    if (found) {
+      setTemplate(found);
+    } else {
+      setError('Template not found.');
     }
-  };
+  }, [id]);
 
   if (loading) {
     return (
@@ -121,11 +115,8 @@ const TemplateDetails = () => {
             </p>
 
             <div className="flex items-center gap-6 mb-8 pb-8 border-b border-slate-200">
-              <div className="text-4xl font-black text-teal-600">
-                ${template.price}
-              </div>
               <a
-                href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n💰 *Price:* $${template.price}\n\nCould you please guide me through the next steps?`)}`}
+                href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\nCould you please guide me through the next steps?`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-4 px-8 bg-slate-900 text-white font-bold text-lg rounded-2xl hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/30 transform hover:-translate-y-1"

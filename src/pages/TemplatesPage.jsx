@@ -2,30 +2,19 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, ShoppingCart, Check, Search } from 'lucide-react';
-import api from '../services/api';
+import staticTemplates from '../data/templates';
 
 const TemplatesPage = () => {
   const [templates, setTemplates] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchTemplates();
+    // Use static data — no backend required
+    setTemplates(staticTemplates);
   }, []);
-
-  const fetchTemplates = async () => {
-    try {
-      // Fetch only active templates for public showcase
-      const { data } = await api.get('/templates?status=active');
-      setTemplates(data);
-    } catch (error) {
-      console.error("Failed to load templates:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Derive unique categories dynamically from the loaded database items
   const categories = useMemo(() => {
@@ -146,9 +135,8 @@ const TemplatesPage = () => {
                 
                 {/* Card Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex justify-between items-start mb-3 gap-2">
+                  <div className="mb-3">
                     <h4 className="text-xl font-bold text-slate-900 leading-tight">{tpl.title}</h4>
-                    <span className="text-lg font-extrabold text-teal-700 bg-teal-50 px-3 py-1 rounded-lg shrink-0">${tpl.price}</span>
                   </div>
                   
                   <p className="text-slate-600 text-sm mb-5 h-10 line-clamp-2" title={tpl.shortDescription}>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aura — Premium Streetwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #f0f0f0;padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.5rem;font-weight:900;letter-spacing:-1px;color:#111}
+    .logo em{font-style:normal;color:#f97316}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:#6b7280;text-decoration:none;font-size:.9rem;font-weight:500;transition:.2s;letter-spacing:.5px;text-transform:uppercase;font-size:.75rem}
+    .nav-links a:hover{color:#111}
+    .nav-right{display:flex;gap:1.25rem;align-items:center}
+    .cart-btn{background:#111;color:#fff;border:none;padding:.6rem 1.25rem;border-radius:6px;font-weight:700;font-size:.82rem;cursor:pointer;letter-spacing:.5px}
+    .cart-btn:hover{background:#f97316}
+
+    /* HERO */
+    .hero{margin-top:68px;min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:0}
+    .hero-left{padding:5% 4% 5% 6%;background:#fafafa}
+    .hero-tag{display:inline-block;background:#fef3c7;color:#d97706;padding:.4rem 1rem;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+    .hero-left h1{font-size:clamp(2.5rem,4vw,4rem);font-weight:900;line-height:1.0;letter-spacing:-2px;margin-bottom:1.5rem}
+    .hero-left h1 .accent{color:#f97316}
+    .hero-left p{color:#6b7280;font-size:1.05rem;line-height:1.7;max-width:460px;margin-bottom:2.5rem}
+    .btn-dark{background:#111;color:#fff;border:none;padding:1rem 2.2rem;border-radius:6px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s;letter-spacing:.5px}
+    .btn-dark:hover{background:#f97316;transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:#111;border:2px solid #111;padding:1rem 2.2rem;border-radius:6px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.2s;margin-left:1rem}
+    .btn-outline:hover{background:#111;color:#fff}
+    .hero-right{background:linear-gradient(135deg,#f97316,#ec4899);min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .hero-right::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .hero-product{width:280px;height:350px;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.3);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:0 40px 80px rgba(0,0,0,0.2)}
+    .product-emoji{font-size:5rem}
+    .product-name{color:#fff;font-size:1.1rem;font-weight:700}
+    .product-price{color:rgba(255,255,255,0.8);font-size:.9rem}
+    .badge{position:absolute;top:2rem;right:2rem;background:#fff;border-radius:50%;width:72px;height:72px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;text-align:center;line-height:1.2;color:#111;box-shadow:0 8px 20px rgba(0,0,0,0.15)}
+
+    /* PRODUCTS */
+    .products{padding:6rem 5%}
+    .section-label{font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#f97316;margin-bottom:.75rem}
+    .section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:.5rem}
+    .section-sub{color:#6b7280;max-width:460px;font-size:1rem;line-height:1.6;margin-bottom:3rem}
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+    .product-card{cursor:pointer;transition:.3s}
+    .product-card:hover{transform:translateY(-6px)}
+    .product-img{background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:16px;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:4rem;margin-bottom:1rem;transition:.3s;position:relative;overflow:hidden}
+    .product-card:hover .product-img{box-shadow:0 20px 40px rgba(249,115,22,0.2)}
+    .quick-add{position:absolute;bottom:-50px;left:0;right:0;background:#111;color:#fff;text-align:center;padding:.75rem;font-size:.8rem;font-weight:700;transition:.3s}
+    .product-card:hover .quick-add{bottom:0}
+    .product-card h4{font-size:.95rem;font-weight:700;margin-bottom:.25rem}
+    .product-card .price{font-size:.9rem;color:#6b7280;font-weight:600}
+
+    /* ABOUT STRIP */
+    .strip{background:#111;padding:4rem 5%;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+    .strip-item{text-align:center}
+    .strip-num{font-size:2.8rem;font-weight:900;color:#f97316}
+    .strip-lbl{color:#6b7280;margin-top:.25rem;font-size:.9rem}
+
+    /* NEWSLETTER */
+    .newsletter{padding:6rem 5%;background:#fafafa;text-align:center}
+    .newsletter h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;letter-spacing:-1px;margin-bottom:1rem}
+    .newsletter p{color:#6b7280;margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto}
+    .email-form{display:flex;gap:.75rem;max-width:480px;margin:0 auto}
+    .email-form input{flex:1;padding:1rem 1.25rem;border:2px solid #e5e7eb;border-radius:8px;font-size:.95rem;outline:none;transition:.2s}
+    .email-form input:focus{border-color:#f97316}
+    .email-form button{background:#111;color:#fff;border:none;padding:1rem 1.5rem;border-radius:8px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.2s}
+    .email-form button:hover{background:#f97316}
+
+    /* FOOTER */
+    footer{background:#111;color:#6b7280;padding:4rem 5% 2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+    footer h4{color:#fff;font-size:.9rem;font-weight:700;margin-bottom:1.25rem;letter-spacing:.5px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:.75rem}
+    footer ul li a{color:#6b7280;text-decoration:none;font-size:.85rem;transition:.2s}
+    footer ul li a:hover{color:#f97316}
+    .footer-logo{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:1rem}
+    .footer-desc{font-size:.85rem;line-height:1.6}
+    @media(max-width:768px){.hero{grid-template-columns:1fr}.hero-right{min-height:400px}.products-grid{grid-template-columns:repeat(2,1fr)}.strip{grid-template-columns:1fr}.footer{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">AURA<em>.</em></div>
+    <ul class="nav-links">
+      <li><a href="#">New In</a></li>
+      <li><a href="#">Mens</a></li>
+      <li><a href="#">Womens</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Sale</a></li>
+    </ul>
+    <div class="nav-right">
+      <span>🔍</span>
+      <button class="cart-btn">🛒 Cart (3)</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">✦ SS25 Collection — Now Live</div>
+      <h1>Street Culture.<br><span class="accent">Elevated.</span></h1>
+      <p>Premium quality streetwear crafted for those who set trends, not follow them. Limited drops. Unlimited edge.</p>
+      <div>
+        <button class="btn-dark">Shop SS25 →</button>
+        <button class="btn-outline">Lookbook</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="badge">NEW<br>DROP<br>SS25</div>
+      <div class="hero-product">
+        <div class="product-emoji">👕</div>
+        <div class="product-name">The Aura Oversized Tee</div>
+        <div class="product-price">$89 — Limited Stock</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip-item"><div class="strip-num">34%</div><div class="strip-lbl">Cart abandonment reduction since launch</div></div>
+    <div class="strip-item"><div class="strip-num">500K+</div><div class="strip-lbl">Units sold globally this season</div></div>
+    <div class="strip-item"><div class="strip-num">48h</div><div class="strip-lbl">Express worldwide shipping</div></div>
+  </div>
+
+  <section class="products">
+    <div class="section-label">Best Sellers</div>
+    <h2 class="section-title">Shop the Collection</h2>
+    <p class="section-sub">Crafted for movement. Built to impress. Free returns on all orders.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">🧥<div class="quick-add">+ Quick Add</div></div>
+        <h4>Aura Cargo Jacket</h4>
+        <div class="price">$189</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)">👟<div class="quick-add">+ Quick Add</div></div>
+        <h4>Street Runner Sneakers</h4>
+        <div class="price">$149</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">🩳<div class="quick-add">+ Quick Add</div></div>
+        <h4>Tactical Wide Shorts</h4>
+        <div class="price">$79</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">🧢<div class="quick-add">+ Quick Add</div></div>
+        <h4>Aura Signature Cap</h4>
+        <div class="price">$45</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="section-label">Stay in the Loop</div>
+    <h2>First Access. Always.</h2>
+    <p>Subscribe for exclusive drops, early access, and 10% off your first order.</p>
+    <div class="email-form">
+      <input type="email" placeholder="your@email.com" />
+      <button>Subscribe</button>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-logo">AURA.</div>
+      <p class="footer-desc">Premium streetwear for the culture. Every piece is a statement. Every drop is limited.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="#">New In</a></li><li><a href="#">Mens</a></li><li><a href="#">Womens</a></li><li><a href="#">Accessories</a></li><li><a href="#">Sale</a></li></ul>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <ul><li><a href="#">Track Order</a></li><li><a href="#">Returns</a></li><li><a href="#">Sizing Guide</a></li><li><a href="#">FAQ</a></li></ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul><li><a href="#">About Aura</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul>
+    </div>
+  </footer>
+</body>
+</html>

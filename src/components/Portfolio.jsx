@@ -77,10 +77,15 @@ const Portfolio = () => {
                 </div>
 
                 <div className="mt-auto pt-6 border-t border-slate-100">
-                  <button className="flex items-center gap-2 text-slate-900 font-bold hover:text-teal-600 transition-colors group/btn">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-slate-900 font-bold hover:text-teal-600 transition-colors group/btn"
+                  >
                     View Live Project
                     <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>

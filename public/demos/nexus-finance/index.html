@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexus — Financial Operating System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#050d1a;color:#e2e8f0;overflow-x:hidden}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0f172a}::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:3px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(5,13,26,0.85);border-bottom:1px solid rgba(99,179,237,0.1);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-0.5px}
+    .logo span{color:#3b82f6}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:#94a3b8;text-decoration:none;font-size:.9rem;font-weight:500;transition:.2s}
+    .nav-links a:hover{color:#3b82f6}
+    .nav-cta{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border:none;padding:.6rem 1.4rem;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;transition:.2s}
+    .nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:120px 5% 80px;background:radial-gradient(ellipse at 20% 50%,rgba(59,130,246,0.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(99,102,241,0.1) 0%,transparent 60%)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;color:#93c5fd;margin-bottom:2rem}
+    .hero-badge::before{content:'';width:8px;height:8px;background:#3b82f6;border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero h1{font-size:clamp(2.8rem,5vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem}
+    .hero h1 span{background:linear-gradient(135deg,#3b82f6,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.15rem;color:#64748b;max-width:540px;line-height:1.7;margin-bottom:2.5rem}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;border:none;padding:.9rem 2rem;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(59,130,246,0.3)}
+    .btn-secondary{background:transparent;color:#e2e8f0;border:1px solid rgba(148,163,184,0.3);padding:.9rem 2rem;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;transition:.2s}
+    .btn-secondary:hover{border-color:#3b82f6;color:#3b82f6}
+
+    /* STATS ROW */
+    .stats{padding:4rem 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)}
+    .stat{text-align:center}
+    .stat-num{font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,#3b82f6,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .stat-label{font-size:.85rem;color:#475569;margin-top:.25rem}
+
+    /* DASHBOARD PREVIEW */
+    .dashboard-section{padding:6rem 5%;background:linear-gradient(180deg,transparent,rgba(59,130,246,0.04))}
+    .section-label{text-align:center;color:#3b82f6;font-size:.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.75rem}
+    .section-title{text-align:center;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+    .section-sub{text-align:center;color:#64748b;max-width:500px;margin:0 auto 3rem}
+    .dashboard-mock{background:rgba(15,23,42,0.8);border:1px solid rgba(59,130,246,0.2);border-radius:20px;padding:2rem;max-width:900px;margin:0 auto;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+    .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .dash-header h3{font-size:1rem;font-weight:700}
+    .dash-header span{background:rgba(34,197,94,0.15);color:#4ade80;padding:.3rem .8rem;border-radius:100px;font-size:.75rem;font-weight:700}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem}
+    .metric{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:1.25rem}
+    .metric-val{font-size:1.8rem;font-weight:800;margin-bottom:.25rem}
+    .metric-val.blue{color:#3b82f6}.metric-val.green{color:#4ade80}.metric-val.purple{color:#a78bfa}
+    .metric-lbl{font-size:.8rem;color:#475569}
+    .metric-change{font-size:.75rem;color:#4ade80;margin-top:.35rem}
+    .chart-bars{display:flex;align-items:flex-end;gap:.5rem;height:120px;margin-top:1rem}
+    .bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#3b82f6,#1d4ed8);opacity:.7;transition:.3s}
+    .bar:hover{opacity:1}
+
+    /* FEATURES */
+    .features{padding:6rem 5%}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:3rem auto 0}
+    .feat-card{background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:1.75rem;transition:.3s}
+    .feat-card:hover{border-color:rgba(59,130,246,0.4);transform:translateY(-4px)}
+    .feat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+    .feat-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+    .feat-card p{font-size:.85rem;color:#475569;line-height:1.6}
+
+    /* CTA */
+    .cta{padding:6rem 5%;text-align:center;background:radial-gradient(ellipse at 50% 50%,rgba(59,130,246,0.1),transparent 70%)}
+    .cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:1.5rem}
+    .cta p{color:#64748b;max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+
+    /* FOOTER */
+    footer{padding:3rem 5%;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer p{color:#334155;font-size:.85rem}
+    .footer-links{display:flex;gap:2rem}
+    .footer-links a{color:#334155;text-decoration:none;font-size:.85rem;transition:.2s}
+    .footer-links a:hover{color:#3b82f6}
+
+    @media(max-width:768px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .features-grid{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Nexus<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Analytics</a></li>
+      <li><a href="#">Payments</a></li>
+      <li><a href="#">Security</a></li>
+    </ul>
+    <button class="nav-cta">Get Started Free</button>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="hero-badge">🏦 Trusted by 12,000+ institutions globally</div>
+      <h1>The Future of<br><span>Financial Operations</span></h1>
+      <p>Nexus is the all-in-one banking OS that processes millions in daily transactions with zero-latency analytics, enterprise-grade security, and real-time reporting.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Start Free Trial</button>
+        <button class="btn-secondary">Watch Demo →</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">$2.4B+</div><div class="stat-label">Daily Volume Processed</div></div>
+    <div class="stat"><div class="stat-num">99.99%</div><div class="stat-label">Platform Uptime SLA</div></div>
+    <div class="stat"><div class="stat-num">12K+</div><div class="stat-label">Enterprise Clients</div></div>
+    <div class="stat"><div class="stat-num">0ms</div><div class="stat-label">Avg. Transaction Latency</div></div>
+  </div>
+
+  <section class="dashboard-section">
+    <div class="section-label">Live Platform</div>
+    <h2 class="section-title">Real-time Financial Intelligence</h2>
+    <p class="section-sub">Monitor every dollar. Automate every workflow. One command center for your entire financial ecosystem.</p>
+    <div class="dashboard-mock">
+      <div class="dash-header">
+        <h3>📊 Revenue Overview — Q1 2025</h3>
+        <span>● Live</span>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val blue">$4.7M</div><div class="metric-lbl">Total Revenue</div><div class="metric-change">↑ +18.3% vs last month</div></div>
+        <div class="metric"><div class="metric-val green">$892K</div><div class="metric-lbl">Net Profit</div><div class="metric-change">↑ +24.1% vs last month</div></div>
+        <div class="metric"><div class="metric-val purple">3,841</div><div class="metric-lbl">Transactions</div><div class="metric-change">↑ +9.7% vs last month</div></div>
+      </div>
+      <div class="chart-bars">
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:45%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar" style="height:90%"></div>
+        <div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:100%"></div>
+        <div class="bar" style="height:85%"></div>
+        <div class="bar" style="height:75%"></div>
+        <div class="bar" style="height:95%"></div>
+        <div class="bar" style="height:88%"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="section-label">Core Platform</div>
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-sub">Built for CFOs, finance teams, and developers alike.</p>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(59,130,246,0.15)">⚡</div><h4>Zero-Latency Processing</h4><p>Sub-millisecond transaction routing with distributed edge infrastructure across 47 data centers.</p></div>
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(168,85,247,0.15)">🔐</div><h4>Bank-Grade Security</h4><p>256-bit AES encryption, SOC2 Type II certified, biometric authentication layers.</p></div>
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(34,197,94,0.15)">📈</div><h4>Predictive Analytics</h4><p>AI-powered forecasting models trained on 10M+ financial data points in real-time.</p></div>
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(251,191,36,0.15)">🔗</div><h4>300+ Integrations</h4><p>Connect Stripe, Plaid, QuickBooks, SAP, and every major financial API in minutes.</p></div>
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(239,68,68,0.15)">🌍</div><h4>Multi-Currency Global</h4><p>Support 180+ currencies with live FX rates and automatic cross-border compliance.</p></div>
+      <div class="feat-card"><div class="feat-icon" style="background:rgba(20,184,166,0.15)">📋</div><h4>Automated Reporting</h4><p>Schedule board-ready PDF reports, real-time dashboards, and custom KPI alerts.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Transform Your<br>Financial Infrastructure?</h2>
+    <p>Join 12,000+ institutions already processing billions with Nexus. No credit card required.</p>
+    <button class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem">Start Free 30-Day Trial</button>
+  </section>
+
+  <footer>
+    <div class="logo" style="font-size:1.1rem">Nexus<span>.</span></div>
+    <p>© 2025 Nexus Financial OS. All rights reserved. Built by ToolBite.</p>
+    <div class="footer-links">
+      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a>
+    </div>
+  </footer>
+</body>
+</html>
