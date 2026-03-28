@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingChat from './components/FloatingChat';
+import CookieConsent from './components/CookieConsent';
 import HomePage from './pages/HomePage';
 import TemplatesPage from './pages/TemplatesPage';
 import TemplateDetails from './pages/TemplateDetails';
@@ -46,6 +47,7 @@ function App() {
           <>
             <Footer />
             <FloatingChat />
+            <CookieConsent />
           </>
         )}
       </div>
