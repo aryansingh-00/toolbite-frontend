@@ -15,6 +15,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    import('https://esm.sh/animejs').then(({ animate, svg, stagger }) => {
+      if (typeof svg?.createDrawable === 'function') {
+        animate(svg.createDrawable('.logo-line'), {
+          draw: ['0 0', '0 1', '1 1'],
+          ease: 'inOutQuad',
+          duration: 2000,
+          delay: stagger(100),
+          loop: true
+        });
+      }
+    }).catch(err => console.error("Failed to jumpstart animejs:", err));
+  }, []);
+
   const navLinks = [
     { name: 'Services', href: '#services' },
     { name: 'Templates', href: '#ready-made' },
@@ -30,11 +44,45 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/#" className="flex items-center">
-              <img
-                src="/logo.svg"
-                alt="ToolBite"
-                className="h-14 w-auto object-contain"
-              />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 80" fill="none" className="h-14 w-auto object-contain">
+                <path
+                  className="logo-line"
+                  d="M 57,10 L 23,10 L 6,39 L 23,68 L 57,68"
+                  stroke="#0f172a"
+                  strokeWidth="4.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  className="logo-line"
+                  d="M 52,19 L 27,19 L 15,39 L 27,59 L 52,59"
+                  stroke="#0f172a"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <polygon points="22,26 22,52 56,39" fill="#0f172a" />
+                <text
+                  x="80"
+                  y="53"
+                  fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif"
+                  fontWeight="900"
+                  fontSize="34"
+                  fill="#0f172a"
+                  letterSpacing="1"
+                >TOOL</text>
+                <text
+                  x="180"
+                  y="53"
+                  fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif"
+                  fontWeight="900"
+                  fontSize="34"
+                  fill="#14b8a6"
+                  letterSpacing="1"
+                >BITE</text>
+              </svg>
             </a>
           </div>
 

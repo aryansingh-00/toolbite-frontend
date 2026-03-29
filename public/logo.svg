@@ -3,6 +3,7 @@
 
   <!-- Outer C-shape hexagon (open on right side) -->
   <path
+    class="line"
     d="M 57,10 L 23,10 L 6,39 L 23,68 L 57,68"
     stroke="#0f172a"
     stroke-width="4.5"
@@ -13,6 +14,7 @@
 
   <!-- Inner C-shape hexagon (double-line effect) -->
   <path
+    class="line"
     d="M 52,19 L 27,19 L 15,39 L 27,59 L 52,59"
     stroke="#0f172a"
     stroke-width="4"
