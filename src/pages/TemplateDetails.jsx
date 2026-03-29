@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server } from 'lucide-react';
+import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone } from 'lucide-react';
 import staticTemplates from '../data/templates';
 
 const TemplateDetails = () => {
@@ -9,6 +9,7 @@ const TemplateDetails = () => {
   const [template, setTemplate] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [deviceView, setDeviceView] = useState('desktop');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,17 +71,71 @@ const TemplateDetails = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col gap-6 sticky top-28"
           >
-            <div className="relative group bg-white rounded-[2rem] p-2 border border-slate-200 shadow-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              <img 
-                src={template.imageUrl} 
-                alt={template.title} 
-                className="w-full h-auto aspect-[4/3] object-cover rounded-[1.5rem] transform transition-transform duration-700 hover:scale-[1.02]"
-              />
-              <div className="absolute top-6 left-6 flex gap-2">
-                <span className="px-4 py-1.5 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-black tracking-widest uppercase rounded-full shadow-sm">
-                  {template.category}
-                </span>
+            <div className="relative flex flex-col bg-white rounded-[2rem] p-2 border border-slate-200 shadow-xl overflow-hidden group">
+              {/* Device Toggle Header */}
+              {template.previewLink && (
+                <div className="flex items-center justify-between px-4 py-3 bg-slate-50 rounded-t-[1.5rem] border-b border-slate-100 mb-2">
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => setDeviceView('desktop')}
+                      className={`p-2 rounded-lg transition-colors ${deviceView === 'desktop' ? 'bg-teal-100 text-teal-700' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200'}`}
+                      title="Desktop View"
+                    >
+                      <Monitor className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={() => setDeviceView('tablet')}
+                      className={`p-2 rounded-lg transition-colors ${deviceView === 'tablet' ? 'bg-teal-100 text-teal-700' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200'}`}
+                      title="Tablet View"
+                    >
+                      <Tablet className="w-5 h-5" />
+                    </button>
+                    <button 
+                      onClick={() => setDeviceView('mobile')}
+                      className={`p-2 rounded-lg transition-colors ${deviceView === 'mobile' ? 'bg-teal-100 text-teal-700' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-200'}`}
+                      title="Mobile View"
+                    >
+                      <Smartphone className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="px-3 py-1 bg-white text-slate-800 text-xs font-black uppercase rounded-full shadow-sm border border-slate-200">
+                      {template.category}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Preview Container */}
+              <div className="relative bg-slate-100 rounded-[1.5rem] overflow-hidden flex justify-center items-start min-h-[400px]">
+                {template.previewLink ? (
+                  <div 
+                    className={`transition-all duration-500 ease-in-out h-[600px] overflow-hidden shadow-2xl bg-white mx-auto ${
+                      deviceView === 'desktop' ? 'w-full' : 
+                      deviceView === 'tablet' ? 'w-full max-w-[768px]' : 'w-full max-w-[375px]'
+                    }`}
+                  >
+                    <iframe
+                      src={template.previewLink}
+                      title={`${template.title} preview`}
+                      className="w-full h-full border-0"
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <img 
+                      src={template.imageUrl} 
+                      alt={template.title} 
+                      className="w-full h-auto aspect-[4/3] object-cover"
+                    />
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <span className="px-4 py-1.5 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-black tracking-widest uppercase rounded-full shadow-sm">
+                        {template.category}
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
