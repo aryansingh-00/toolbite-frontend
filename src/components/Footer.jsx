@@ -19,7 +19,7 @@ const Footer = () => {
             <p className="text-slate-400">Join 500+ ambitious brands launching premium websites today.</p>
           </div>
           <div className="flex shrink-0">
-            <a href="/#custom-order" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-teal-500 text-slate-900 font-bold hover:bg-teal-400 transition-all shadow-lg hover:shadow-teal-500/25">
+            <a href="/start-project" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-teal-500 text-slate-900 font-bold hover:bg-teal-400 transition-all shadow-lg hover:shadow-teal-500/25">
               Order Your Website
               <ArrowRight size={18} />
             </a>

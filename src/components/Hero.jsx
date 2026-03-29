@@ -50,7 +50,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row flex-wrap items-center gap-5 mb-14"
             >
-              <a href="/#custom-order" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-glow-slate hover:shadow-glow transform hover:-translate-y-1">
+              <a href="/start-project" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-glow-slate hover:shadow-glow transform hover:-translate-y-1">
                 <Code size={20} />
                 Start Custom Project
               </a>

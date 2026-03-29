@@ -47,7 +47,7 @@ const Navbar = () => {
               ))}
             </div>
             
-            <a href="/#custom-order" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-teal-500 transition-all shadow-glow-slate hover:shadow-glow hover:-translate-y-0.5 group">
+            <a href="/start-project" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-teal-500 transition-all shadow-glow-slate hover:shadow-glow hover:-translate-y-0.5 group">
               Start Project
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
@@ -82,7 +82,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <a href="/#custom-order" onClick={() => setIsOpen(false)} className="w-full mt-4 py-4 text-center rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 transition-all">
+              <a href="/start-project" onClick={() => setIsOpen(false)} className="w-full mt-4 py-4 text-center rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 transition-all">
                 Start Project
               </a>
             </div>

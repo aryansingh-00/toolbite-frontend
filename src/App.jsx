@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import FloatingChat from './components/FloatingChat';
 import CookieConsent from './components/CookieConsent';
 import HomePage from './pages/HomePage';
+import StartProjectPage from './pages/StartProjectPage';
 import TemplatesPage from './pages/TemplatesPage';
 import TemplateDetails from './pages/TemplateDetails';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
@@ -29,6 +30,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/start-project" element={<StartProjectPage />} />
             <Route path="/templates" element={<TemplatesPage />} />
             <Route path="/template/:id" element={<TemplateDetails />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
