@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { pricingPlans } from '../data/content';
 
 const Pricing = () => {
@@ -62,9 +63,9 @@ const Pricing = () => {
                 ))}
               </div>
               
-              <a href="/start-project" className={`w-full py-4 text-center rounded-xl font-bold transition-all shadow-sm ${plan.highlight ? 'bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-900 hover:shadow-teal-500/25 hover:scale-[1.02]' : 'bg-slate-700 text-white hover:bg-slate-600 hover:scale-[1.02] border border-slate-600 hover:border-slate-500'}`}>
+              <Link to="/start-project" className={`w-full py-4 text-center rounded-xl font-bold transition-all shadow-sm ${plan.highlight ? 'bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-900 hover:shadow-teal-500/25 hover:scale-[1.02]' : 'bg-slate-700 text-white hover:bg-slate-600 hover:scale-[1.02] border border-slate-600 hover:border-slate-500'}`}>
                 {plan.buttonText}
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>

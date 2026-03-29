@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -50,10 +51,10 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row flex-wrap items-center gap-5 mb-14"
             >
-              <a href="/start-project" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-glow-slate hover:shadow-glow transform hover:-translate-y-1">
+              <Link to="/start-project" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-glow-slate hover:shadow-glow transform hover:-translate-y-1">
                 <Code size={20} />
                 Start Custom Project
-              </a>
+              </Link>
               <a href="/#ready-made" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-900 font-bold flex items-center justify-center gap-3 hover:bg-slate-50 border border-slate-200 transition-all shadow-sm hover:shadow-md transform hover:-translate-y-1">
                 <Layout size={20} className="text-teal-500" />
                 Browse Premium Vault
