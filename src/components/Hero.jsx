@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MagicText from './MagicText';
+import TypingText from './TypingText';
 
 const Hero = () => {
   return (
@@ -34,7 +35,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 mb-8 leading-[1.05]"
             >
-              Digital Engineering for <MagicText>Ambitious </MagicText>
+              Digital Engineering for <MagicText><TypingText /></MagicText>
                 <br />
                 Brands
             </motion.h1>
