@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import MagicText from './MagicText';
 
 const Hero = () => {
   return (
@@ -33,7 +34,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 mb-8 leading-[1.05]"
             >
-              Digital Engineering for <span className="text-gradient">Ambitious Brands.</span>
+              Digital Engineering for <MagicText>Ambitious Brands.</MagicText>
             </motion.h1>
 
             <motion.p
