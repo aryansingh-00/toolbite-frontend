@@ -34,7 +34,9 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 mb-8 leading-[1.05]"
             >
-              Digital Engineering for <MagicText>Ambitious Brands.</MagicText>
+              Digital Engineering for <MagicText>Ambitious 
+                <br />
+                Brands.</MagicText>
             </motion.h1>
 
             <motion.p
