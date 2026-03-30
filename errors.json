@@ -1,0 +1,145 @@
+[
+  {
+    "f": "C:\\toolbite\\src\\components\\ContactSection.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "28: 'error' is defined but never used."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\CookieConsent.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\FAQ.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\FloatingChat.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Hero.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Navbar.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\OrderForm.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "30: 'error' is defined but never used."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Portfolio.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Pricing.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\ReadyMade.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\ScrollVelocityGallery.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "10: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Services.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\Testimonials.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\components\\WhyChooseUs.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\contexts\\AuthContext.jsx",
+    "m": [
+      "7: Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.",
+      "16: Error: Calling setState synchronously within an effect can trigger cascading renders\n\nEffects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:\n* Update external systems with the latest state from React.\n* Subscribe for updates from some external system, calling setState in a callback function when external state changes.\n\nCalling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).\n\n  14 |     const userInfo = localStorage.getItem('adminInfo');\n  15 |     if (userInfo) {\n> 16 |       setAdmin(JSON.parse(userInfo));\n     |       ^^^^^^^^ Avoid calling setState() directly within an effect\n  17 |     }\n  18 |     setLoading(false);\n  19 |   }, []);"
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\TemplateDetails.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "10: 'setLoading' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "19: Error: Calling setState synchronously within an effect can trigger cascading renders\n\nEffects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:\n* Update external systems with the latest state from React.\n* Subscribe for updates from some external system, calling setState in a callback function when external state changes.\n\nCalling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).\n\n  17 |     const found = staticTemplates.find((t) => t._id === id);\n  18 |     if (found) {\n> 19 |       setTemplate(found);\n     |       ^^^^^^^^^^^ Avoid calling setState() directly within an effect\n  20 |     } else {\n  21 |       setError('Template not found.');\n  22 |     }"
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\TemplatesPage.jsx",
+    "m": [
+      "3: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "9: 'setLoading' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u.",
+      "16: Error: Calling setState synchronously within an effect can trigger cascading renders\n\nEffects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:\n* Update external systems with the latest state from React.\n* Subscribe for updates from some external system, calling setState in a callback function when external state changes.\n\nCalling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).\n\n  14 |     window.scrollTo(0, 0);\n  15 |     // Use static data — no backend required\n> 16 |     setTemplates(staticTemplates);\n     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect\n  17 |   }, []);\n  18 |\n  19 |   // Derive unique categories dynamically from the loaded database items"
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\admin\\TemplateForm.jsx",
+    "m": [
+      "32: React Hook useEffect has missing dependencies: 'fetchTemplate' and 'isEditMode'. Either include them or remove the dependency array.",
+      "48: 'error' is defined but never used."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\admin\\TemplateList.jsx",
+    "m": [
+      "24: 'error' is defined but never used.",
+      "37: 'error' is defined but never used.",
+      "48: 'error' is defined but never used."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\legal\\CookiePolicy.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\legal\\PrivacyPolicy.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  },
+  {
+    "f": "C:\\toolbite\\src\\pages\\legal\\TermsOfService.jsx",
+    "m": [
+      "2: 'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u."
+    ]
+  }
+]
