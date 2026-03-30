@@ -50,10 +50,10 @@ const TypingText = () => {
   }, []);
 
   return (
-    <span className="inline-block relative">
+    <>
       {text}
-      <span className="animate-pulse border-r-2 border-slate-900 ml-1 h-[0.9em] absolute top-[5%]"></span>
-    </span>
+      <span className="animate-pulse border-r-[4px] border-slate-900 ml-2 inline-block h-[0.9em] align-middle -translate-y-1"></span>
+    </>
   );
 };
 
