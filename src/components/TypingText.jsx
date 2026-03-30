@@ -51,7 +51,7 @@ const TypingText = () => {
 
   return (
     <>
-      {text}
+      {text || '\u200B'}
       <span className="animate-pulse border-r-[4px] border-slate-900 ml-2 inline-block h-[0.9em] align-middle -translate-y-1"></span>
     </>
   );
