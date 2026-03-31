@@ -14,10 +14,15 @@ const OrderForm = () => {
     try {
       const form = e.target;
       const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
       
       const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
         method: "POST",
-        body: formData
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
       });
       
       if (response.ok) {
