@@ -219,6 +219,67 @@ const TemplateDetails = () => {
           </motion.div>
 
         </div>
+
+        {/* User Reviews & Comments Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mt-20 pt-16 border-t border-slate-200"
+        >
+          <div className="max-w-3xl">
+            <h3 className="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
+              User Reviews & Comments
+              <span className="bg-teal-100 text-teal-700 text-sm py-1 px-3 rounded-full">3</span>
+            </h3>
+            
+            <div className="space-y-8 mb-12">
+              {[
+                { name: "Sarah Jenkins", role: "Agency Owner", date: "2 days ago", comment: "We used this template for a client last week and the conversion rates have already jumped by 22%. The code quality is absolutely pristine. Highly recommend!" },
+                { name: "Marcus Torres", role: "Freelance Developer", date: "1 week ago", comment: "The design is gorgeous, but what really sold me was how easy it was to customize. The Tailwind structure is very logical. Saved me at least 40 hours of work." },
+                { name: "Elena Rostova", role: "Marketing Director", date: "3 weeks ago", comment: "Beautiful animations and the responsive design works flawlessly on all devices we tested. Support was also very quick to answer a minor question I had." }
+              ].map((review, i) => (
+                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex gap-4 items-start">
+                  <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold text-lg shrink-0">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="font-bold text-slate-900">{review.name}</h4>
+                      <span className="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">{review.role}</span>
+                    </div>
+                    <div className="text-xs text-slate-400 mb-3">{review.date}</div>
+                    <p className="text-slate-600 leading-relaxed">{review.comment}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200">
+              <h4 className="text-xl font-bold text-slate-900 mb-6">Leave a Reply</h4>
+              <p className="text-sm text-slate-500 mb-6">Your email address will not be published. Required fields are marked *</p>
+              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your comment! It is pending moderation."); }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Name *</label>
+                    <input type="text" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">Email *</label>
+                    <input type="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Comment *</label>
+                  <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 resize-none"></textarea>
+                </div>
+                <button type="submit" className="mt-4 bg-slate-900 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
+                  Post Comment
+                </button>
+              </form>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

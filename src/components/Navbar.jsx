@@ -31,11 +31,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Templates', href: '#ready-made' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Templates', href: '/#ready-made' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -91,9 +92,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-8">
               {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="text-sm font-bold text-slate-600 hover:text-teal-600 transition-colors">
+                <Link key={link.name} to={link.href} className="text-sm font-bold text-slate-600 hover:text-teal-600 transition-colors">
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
             
@@ -123,14 +124,14 @@ const Navbar = () => {
           >
             <div className="glass-card rounded-3xl p-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-bold text-slate-800 hover:text-teal-600 transition-colors py-2 border-b border-slate-100/50"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Link to="/start-project" onClick={() => setIsOpen(false)} className="w-full mt-4 py-4 text-center rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 transition-all">
                 Start Project
