@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const BlogPage = () => {
   useEffect(() => {
@@ -48,6 +49,11 @@ const BlogPage = () => {
 
   return (
     <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
+      <SEO 
+        title="Web Design Blog & Digital Strategy Insights"
+        description="Stay ahead of the curve with the ToolBite blog. We share insights on modern web design, SEO, e-commerce optimization, and digital growth strategies."
+        keywords="web design blog, digital strategy, SEO tips, e-commerce optimization, UI/UX trends 2026, website development insights"
+      />
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Our <span className="text-teal-500">Blog</span></h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">

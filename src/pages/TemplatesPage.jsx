@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, ShoppingCart, Check, Search } from 'lucide-react';
 import staticTemplates from '../data/templates';
+import SEO from '../components/SEO';
 
 const TemplatesPage = () => {
   const [templates, setTemplates] = useState([]);
@@ -35,6 +36,11 @@ const TemplatesPage = () => {
 
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+      <SEO 
+        title="Premium React Website Templates & Marketplace"
+        description="Browse our collection of high-performance, ready-to-deploy React website templates. Perfect for SaaS, E-commerce, Portfolios, and Business sites."
+        keywords="react templates, website marketplace, premium web templates, saas landing pages, ecommerce templates, tailwind css components"
+      />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Marketplace Header */}

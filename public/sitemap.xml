@@ -17,26 +17,55 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Main Pages -->
+  <url>
+    <loc>https://www.toolbite.in/about</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.toolbite.in/contact</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.toolbite.in/blog</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.toolbite.in/start-project</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Legal Pages -->
   <url>
     <loc>https://www.toolbite.in/privacy-policy</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.toolbite.in/terms-of-service</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.toolbite.in/cookie-policy</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

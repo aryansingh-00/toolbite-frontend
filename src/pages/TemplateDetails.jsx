@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone } from 'lucide-react';
 import staticTemplates from '../data/templates';
+import SEO from '../components/SEO';
 
 const TemplateDetails = () => {
   const { id } = useParams();
@@ -50,6 +51,13 @@ const TemplateDetails = () => {
 
   return (
     <div className="pt-24 pb-24 bg-slate-50 min-h-screen">
+      <SEO 
+        title={`${template.title} Template`}
+        description={template.shortDescription}
+        image={template.imageUrl}
+        type="article"
+        keywords={`${template.title}, ${template.category} template, react website, premium web design, toolbite marketplace`}
+      />
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb / Back Navigation */}
