@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className={`flex items-center justify-between px-6 py-4 rounded-full transition-all duration-500 ${isScrolled ? 'glass-card' : 'bg-transparent'}`}>
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 80" fill="none" className="h-14 w-auto object-contain">
                 <path
                   className="logo-line"
@@ -85,7 +85,7 @@ const Navbar = () => {
                   letterSpacing="1"
                 >BITE</text>
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu */}

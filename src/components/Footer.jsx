@@ -31,9 +31,9 @@ const Footer = () => {
           
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <a href="/#" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6">
               <span className="text-3xl font-bold tracking-tight text-white">Tool<span className="text-teal-500">Bite</span></span>
-            </a>
+            </Link>
             <p className="text-slate-400 leading-relaxed mb-6 max-w-sm">
               The ultimate agency platform delivering ready-made premium templates and high-performance custom web applications for modern businesses.
             </p>
