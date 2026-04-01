@@ -18,15 +18,31 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission for AdSense approval pages
     setStatus('sending');
-    setTimeout(() => {
-      setStatus('sent');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus(''), 3000);
-    }, 1500);
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        setStatus('sent');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('');
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus('');
+      alert("Something went wrong. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -59,7 +75,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-bold text-slate-900">Email Us</h4>
-                  <p className="text-slate-600">hello@toolbite.com</p>
+                  <p className="text-slate-600">hello.toolbite@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

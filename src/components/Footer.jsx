@@ -94,7 +94,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-teal-500 shrink-0" />
-                <a href="mailto:hello@toolbite.com" className="text-slate-400 hover:text-white transition-colors">hello@toolbite.com</a>
+                <a href="mailto:hello.toolbite@gmail.com" className="text-slate-400 hover:text-white transition-colors">hello.toolbite@gmail.com</a>
               </li>
             </ul>
           </div>
