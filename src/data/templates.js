@@ -20,7 +20,7 @@ const templates = [
       "SEO meta tags included",
     ],
     imageUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/nexus-finance/index.html",
     status: "active",
   },
   {
@@ -41,7 +41,7 @@ const templates = [
       "Performance optimized",
     ],
     imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/visionary-studio/index.html",
     status: "active",
   },
   {
@@ -62,7 +62,7 @@ const templates = [
       "Accessible & keyboard navigable",
     ],
     imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/aura-streetwear/index.html",
     status: "active",
   },
   {
@@ -83,7 +83,7 @@ const templates = [
       "Reading time estimator",
     ],
     imageUrl: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -104,7 +104,7 @@ const templates = [
       "WhatsApp order integration",
     ],
     imageUrl: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -125,7 +125,7 @@ const templates = [
       "Scroll-triggered animations",
     ],
     imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -146,7 +146,7 @@ const templates = [
       "Mobile-optimized touch gestures",
     ],
     imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/monarch-realestate/index.html",
     status: "active",
   },
   {
@@ -167,7 +167,7 @@ const templates = [
       "Gym location map embed",
     ],
     imageUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -188,7 +188,7 @@ const templates = [
       "Discussion / Q&A thread UI",
     ],
     imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -209,7 +209,7 @@ const templates = [
       "Emergency contact sticky bar",
     ],
     imageUrl: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/vitality-health/index.html",
     status: "active",
   },
 
@@ -233,7 +233,7 @@ const templates = [
       "Trust badge & bar association logos",
     ],
     imageUrl: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -254,7 +254,7 @@ const templates = [
       "Instagram feed integration section",
     ],
     imageUrl: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -275,7 +275,7 @@ const templates = [
       "Minimal distraction-free layout",
     ],
     imageUrl: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -296,7 +296,7 @@ const templates = [
       "Social media feed section",
     ],
     imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -317,7 +317,7 @@ const templates = [
       "Google Analytics integration ready",
     ],
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: "/demos/quantix-ai/index.html",
     status: "active",
   },
   {
@@ -338,7 +338,7 @@ const templates = [
       "Dark-mode exclusive design",
     ],
     imageUrl: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -359,7 +359,7 @@ const templates = [
       "Editorial typography & layout",
     ],
     imageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -380,7 +380,7 @@ const templates = [
       "Content-first minimal design",
     ],
     imageUrl: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -401,7 +401,7 @@ const templates = [
       "Warm, playful color palette",
     ],
     imageUrl: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
   {
@@ -422,7 +422,7 @@ const templates = [
       "Dark-mode with gold & cyan accents",
     ],
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop",
-    previewLink: "https://toolbite.vercel.app",
+    previewLink: null,
     status: "active",
   },
 ];
