@@ -1,14 +1,19 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 const SEO = ({ 
   title, 
   description, 
   keywords, 
   image = '/logo.png', 
-  url = 'https://www.toolbite.in',
+  url,
   type = 'website' 
 }) => {
+  const location = useLocation();
+  const domain = 'https://www.toolbite.in';
+  const canonicalUrl = url || `${domain}${location.pathname}${location.search}`;
+  
   const siteName = 'ToolBite';
   const fullTitle = title ? `${title} | ${siteName}` : `${siteName} — Premium Web Design Agency`;
   const metaDescription = description || 'ToolBite is a premium web design agency providing high-performance website templates and custom development services for modern brands.';
@@ -19,14 +24,14 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph (Facebook/WhatsApp/LinkedIn) */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={siteName} />
 
       {/* Twitter Cards */}
@@ -46,7 +51,7 @@ const SEO = ({
           "@type": "ProfessionalService",
           "name": siteName,
           "description": metaDescription,
-          "url": url,
+          "url": canonicalUrl,
           "logo": "https://www.toolbite.in/logo.png",
           "contactPoint": {
             "@type": "ContactPoint",

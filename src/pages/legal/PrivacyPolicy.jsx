@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../../components/SEO';
 
 const PrivacyPolicy = () => {
   useEffect(() => {
@@ -9,6 +10,11 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+      <SEO 
+        title="Privacy Policy"
+        description="Read the ToolBite Privacy Policy to understand how we collect, use, and protect your personal data when you use our web design services and templates."
+        keywords="privacy policy, data protection, toolbite privacy, user data safety"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

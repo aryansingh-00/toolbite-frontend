@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../../components/SEO';
 
 const TermsOfService = () => {
   useEffect(() => {
@@ -9,6 +10,11 @@ const TermsOfService = () => {
 
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+      <SEO 
+        title="Terms of Service"
+        description="Review the ToolBite Terms of Service. This agreement governs your use of our website, digital marketplace, and custom web development services."
+        keywords="terms of service, legal agreement, toolbite terms, website usage rules"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

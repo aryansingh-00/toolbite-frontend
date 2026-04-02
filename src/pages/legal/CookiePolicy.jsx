@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SEO from '../../components/SEO';
 
 const CookiePolicy = () => {
   useEffect(() => {
@@ -9,6 +10,11 @@ const CookiePolicy = () => {
 
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+      <SEO 
+        title="Cookie Policy"
+        description="Learn how ToolBite uses cookies to improve your browsing experience, analyze site traffic, and personalize content."
+        keywords="cookie policy, web tracking, toolbite cookies, privacy settings"
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

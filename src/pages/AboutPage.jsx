@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Target, Users, Zap, Award } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const AboutPage = () => {
   useEffect(() => {
@@ -8,6 +9,11 @@ const AboutPage = () => {
 
   return (
     <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
+      <SEO 
+        title="About Our Agency"
+        description="Learn about ToolBite's mission to democratize elite web design. We are a premium agency dedicated to high-quality, conversion-optimized websites."
+        keywords="about toolbite, web design mission, premium agency story, elite web development team"
+      />
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">About <span className="text-teal-500">ToolBite</span></h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
