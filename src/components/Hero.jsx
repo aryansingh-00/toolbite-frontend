@@ -104,12 +104,11 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: Scroll Velocity 3D Gallery */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[850px] w-full mt-12 lg:mt-0 hidden lg:block xl:h-[900px]"
+            className="relative h-[500px] sm:h-[600px] lg:h-[850px] xl:h-[900px] w-full mt-12 lg:mt-0 block"
           >
             {/* Gallery container with soft edge fade effect to blend seamlessly into background */}
             <div 
