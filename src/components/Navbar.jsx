@@ -31,7 +31,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '/#services', isHash: true },
+    { name: 'Home', href: '/' },
     { name: 'Templates', href: '/#ready-made', isHash: true },
     { name: 'Portfolio', href: '/#portfolio', isHash: true },
     { name: 'About', href: '/about' },
