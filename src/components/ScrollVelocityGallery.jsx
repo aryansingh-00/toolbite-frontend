@@ -34,7 +34,7 @@ export const galleryData = [
 // No static LAYOUT needed anymore since it's fully mathematically driven
 
 // ─── Per-plane component (holds its own hooks — Rules of Hooks safe) ──────────
-const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY, onHover, onLeave, isMobile }) => {
+const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY, onHover, onLeave }) => {
   const cardRef = useRef(null);
 
   // Mouse-tracking tilt (per card)
@@ -61,23 +61,16 @@ const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY, onH
     return loopedP;
   });
 
-  // Map 0-100 logic to physical coordinates
-  // On Desktop: Diagonal. On Mobile: Purely horizontal to avoid overlap.
-  const x = useTransform(p, (v) => {
-    const multiplier = isMobile ? 8.0 : 6.0; // More spread on mobile
-    return `${-250 + (v * multiplier)}%`;
-  });
-  
-  const y = useTransform(p, (v) => {
-    if (isMobile) return `30%`; // Centered-ish horizontal line
-    return `${350 - (v * 8.0)}%`;
-  });
+  // Map 0-100 logic to physical diagonal coordinates
+  // Very high multiplier (8.0) to force massive distinct gaps between 280x380 cards
+  const x = useTransform(p, (v) => `${-250 + (v * 6.0)}%`);
+  const y = useTransform(p, (v) => `${350 - (v * 8.0)}%`);
   
   // Depth (translateZ): steeper depth scale to match the huge gap
   const depth = useTransform(p, (v) => 300 - (v * 12.0));
   
   // Smooth opacity fading at the extreme edges of the loop
-  const opacity = useTransform(p, [0, 5, 95, 100], [0, 1, 1, 0]);
+  const opacity = useTransform(p, [0, 5, 90, 100], [0, 1, 1, 0]);
 
   // Velocity-driven scrubbing
   const velocityY = useTransform(() => waveY.get() * waveScale);
@@ -112,10 +105,10 @@ const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY, onH
         left: x,
         top: y,
         opacity,
-        width: isMobile ? 220 : 280,
-        height: isMobile ? 300 : 380,
+        width: 280,
+        height: 380,
         rotateX: rx,
-        rotateY: isMobile ? 0 : dynamicRotateY, // flatter perspective on mobile
+        rotateY: dynamicRotateY, 
         scale: sc,
         x: velocityX,
         y: velocityY,
@@ -193,14 +186,6 @@ const ScrollVelocityGallery = () => {
     mouseY.set(e.clientY);
   };
 
-  const [isMobile, setIsMobile] = React.useState(false);
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   return (
     <div
       className="relative w-full h-full select-none"
@@ -233,7 +218,6 @@ const ScrollVelocityGallery = () => {
             scrollY={scrollY}
             onHover={setHoveredItem}
             onLeave={() => setHoveredItem(null)}
-            isMobile={isMobile}
           />
         ))}
       </div>
