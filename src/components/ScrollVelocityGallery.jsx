@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useRef } from 'react';
 import {
-  motion,
+  motion, AnimatePresence,
   useMotionValue, useSpring, useTransform,
   useScroll, useVelocity,
 } from 'framer-motion';
@@ -34,7 +34,7 @@ export const galleryData = [
 // No static LAYOUT needed anymore since it's fully mathematically driven
 
 // ─── Per-plane component (holds its own hooks — Rules of Hooks safe) ──────────
-const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY }) => {
+const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY, onHover, onLeave }) => {
   const cardRef = useRef(null);
 
   // Mouse-tracking tilt (per card)
@@ -86,8 +86,16 @@ const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY }) =
     rx.set(-(((e.clientY - top)  / height) - 0.5) * 16);
     ry.set( (((e.clientX - left) / width)  - 0.5) * 16);
   };
-  const onEnter = () => sc.set(1.07);
-  const onLeave = () => { rx.set(0); ry.set(0); sc.set(1); };
+  const onEnter = () => {
+    sc.set(1.07);
+    if (onHover) onHover(item);
+  };
+  const onLeaveHover = () => {
+    rx.set(0);
+    ry.set(0);
+    sc.set(1);
+    if (onLeave) onLeave();
+  };
 
   return (
     <motion.div
@@ -113,7 +121,8 @@ const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY }) =
       transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={onMove}
       onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseLeave={onLeaveHover}
+      onPointerDown={onEnter}
     >
       {/* Card */}
       <div
@@ -162,6 +171,21 @@ const ScrollVelocityGallery = () => {
     { stiffness: 70, damping: 28 }
   );
 
+  const [hoveredItem, setHoveredItem] = React.useState(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth mouse movement for follow effect
+  const springX = useSpring(mouseX, { stiffness: 120, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 120, damping: 20 });
+
+  const handlePointerMove = (e) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(e.clientX);
+    mouseY.set(e.clientY);
+  };
+
   return (
     <div
       className="relative w-full h-full select-none"
@@ -175,6 +199,7 @@ const ScrollVelocityGallery = () => {
         ref={containerRef}
         className="absolute inset-0 overflow-y-auto no-scrollbar pointer-events-auto z-10"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        onPointerMove={handlePointerMove}
       >
         {/* Fake giant height to enable deep scrolling inside the box */}
         <div className="w-full h-[350vh]" />
@@ -191,9 +216,56 @@ const ScrollVelocityGallery = () => {
             smoothTilt={smoothTilt}
             waveY={waveY}
             scrollY={scrollY}
+            onHover={setHoveredItem}
+            onLeave={() => setHoveredItem(null)}
           />
         ))}
       </div>
+
+      {/* Floating Category Label */}
+      <AnimatePresence>
+        {hoveredItem && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            style={{
+              position: 'fixed',
+              left: springX,
+              top: springY,
+              x: '-50%',
+              y: '-140%', // Offset above the cursor
+              pointerEvents: 'none',
+              zIndex: 100,
+            }}
+            className="flex flex-col items-center gap-1.5"
+          >
+            <div className="px-4 py-2 bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold text-teal-400 uppercase tracking-tighter opacity-70">
+                  {hoveredItem.id.toString().padStart(2, '0')}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-white/20" />
+                <span className="text-[11px] font-bold text-white uppercase tracking-widest">
+                  {hoveredItem.category}
+                </span>
+              </div>
+            </div>
+            
+            {/* Title sub-label with more subtle look */}
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="px-3 py-1 bg-white/5 backdrop-blur-sm border border-white/5 rounded-lg"
+            >
+              <h4 className="text-[10px] text-white/60 font-medium tracking-wide">
+                {hoveredItem.title}
+              </h4>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* "Scroll to explore" hint */}
       <motion.div
