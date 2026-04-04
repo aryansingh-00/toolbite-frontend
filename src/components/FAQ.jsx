@@ -38,9 +38,12 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 };
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const faqs = faqData;
+  const initialCount = 5;
+  const displayedFaqs = isExpanded ? faqs : faqs.slice(0, initialCount);
 
   return (
     <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
@@ -58,7 +61,7 @@ const FAQ = () => {
         </div>
 
         <div className="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden">
-          {faqs.map((faq, index) => (
+          {displayedFaqs.map((faq, index) => (
             <FAQItem
               key={index}
               question={faq.question}
@@ -67,6 +70,21 @@ const FAQ = () => {
               onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
             />
           ))}
+          
+          {faqs.length > initialCount && (
+            <div className="p-6 text-center border-t border-slate-100 bg-slate-50/30">
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-teal-600 font-bold hover:text-teal-700 transition-colors flex items-center gap-2 mx-auto"
+              >
+                {isExpanded ? (
+                  <>Show Fewer Questions <Minus size={16} /></>
+                ) : (
+                  <>Show All {faqs.length} Questions <Plus size={16} /></>
+                )}
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="mt-12 text-center bg-teal-50 border border-teal-100 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
