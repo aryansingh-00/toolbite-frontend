@@ -68,15 +68,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Popular Tools */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold mb-6">Our Services</h4>
+            <h4 className="text-white font-bold mb-6">Popular Tools</h4>
             <ul className="space-y-4">
-              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Custom Websites</a></li>
-              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">E-commerce Stores</a></li>
-              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Landing Pages</a></li>
-              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">UI/UX Redesign</a></li>
-              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Web Maintenance</a></li>
+              <li><Link to="/tools/word-counter" className="text-slate-400 hover:text-teal-400 transition-colors">Word Counter</Link></li>
+              <li><Link to="/tools/image-compressor" className="text-slate-400 hover:text-teal-400 transition-colors">Image Compressor</Link></li>
+              <li><Link to="/tools/json-formatter" className="text-slate-400 hover:text-teal-400 transition-colors">JSON Formatter</Link></li>
+              <li><Link to="/tools/qr-code-generator" className="text-slate-400 hover:text-teal-400 transition-colors">QR Generator</Link></li>
+              <li><Link to="/tools" className="text-teal-500 font-bold hover:text-teal-400 transition-colors mt-2 block italic underline underline-offset-4">Browse All Tools</Link></li>
             </ul>
           </div>
 

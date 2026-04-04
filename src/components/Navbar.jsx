@@ -33,6 +33,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/#home', isHash: true },
     { name: 'Templates', href: '/#ready-made', isHash: true },
+    { name: 'Tools', href: '/tools' },
     { name: 'Portfolio', href: '/#portfolio', isHash: true },
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
