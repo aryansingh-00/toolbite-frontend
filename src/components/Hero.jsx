@@ -20,16 +20,6 @@ const Hero = () => {
 
           {/* Left Column: Text & CTAs */}
           <div className="text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-slate-200 shadow-sm mb-8 relative overflow-hidden group hover:border-teal-300 transition-colors"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <span className="flex h-2 w-2 rounded-full bg-teal-500 animate-pulse"></span>
-              <span className="text-sm font-bold texxt-slate-800 tracking-tight">Award-Winning Digital Agency</span>
-            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
