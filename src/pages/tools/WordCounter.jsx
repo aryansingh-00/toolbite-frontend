@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Type, Copy, Trash2, CheckCircle2, Clock, MessageSquare, Hash, AlignLeft } from 'lucide-react';
+import { Type, Copy, Trash2, CheckCircle2, Clock, MessageSquare, Hash, AlignLeft, Mic2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
 
