@@ -2,7 +2,8 @@ import React from 'react';
 import { 
   Briefcase, Image as ImageIcon, Rocket, ShoppingCart, 
   UserCircle, RefreshCcw, Code2, Wrench,
-  Zap, Palette, Smartphone, DollarSign, Search, MessageSquare, ShieldCheck, MousePointerClick
+  Zap, Palette, Smartphone, DollarSign, Search, MessageSquare, ShieldCheck, MousePointerClick,
+  Cpu, Database, Lock, Settings
 } from 'lucide-react';
 
 export const servicesData = [
@@ -13,7 +14,11 @@ export const servicesData = [
   { icon: <UserCircle className="w-6 h-6 text-amber-500" />, title: 'Authority Branding', description: 'Solidify your industry reputation with a bespoke, lightning-fast architecture designed specifically for thought leaders, elite coaches, and disruptive founders.', bg: 'bg-amber-50', border: 'border-amber-200' },
   { icon: <RefreshCcw className="w-6 h-6 text-teal-500" />, title: 'Strategic UX Overhauls', description: 'We dismantle legacy frameworks and install modern, conversion-focused user interfaces to instantly drastically improve customer retention and lifetime value.', bg: 'bg-teal-50', border: 'border-teal-200' },
   { icon: <Code2 className="w-6 h-6 text-indigo-500" />, title: 'Custom SaaS Architecture', description: 'Bespoke software solutions bridging highly complex server-side data infrastructure with intuitive, zero-latency client-side dashboards.', bg: 'bg-indigo-50', border: 'border-indigo-200' },
-  { icon: <Wrench className="w-6 h-6 text-slate-500" />, title: 'Dedicated Infrastructure Support', description: 'Uninterrupted technical safeguarding. We provide continuous server monitoring, impenetrable security updates, and active performance scaling.', bg: 'bg-slate-100', border: 'border-slate-300' }
+  { icon: <Wrench className="w-6 h-6 text-slate-500" />, title: 'Dedicated Infrastructure Support', description: 'Uninterrupted technical safeguarding. We provide continuous server monitoring, impenetrable security updates, and active performance scaling.', bg: 'bg-slate-100', border: 'border-slate-300' },
+  { icon: <Cpu className="w-6 h-6 text-orange-500" />, title: 'Advanced API Integrations', description: 'Seamlessly connecting your platform to Stripe, Twilio, and enterprise CRM solutions with custom middleware for complex data handling.', bg: 'bg-orange-50', border: 'border-orange-200' },
+  { icon: <Database className="w-6 h-6 text-cyan-500" />, title: 'Real-Time Data Analytics', description: 'Engineering live-streaming analytics pipelines and WebSocket-driven interactive dashboards for immediate business intelligence.', bg: 'bg-cyan-50', border: 'border-cyan-200' },
+  { icon: <Lock className="w-6 h-6 text-red-500" />, title: 'Secure User Auth Logic', description: 'Implementing multi-tier user authentication, RBAC (Role-Based Access Control), and session security protocols for sensitive data.', bg: 'bg-red-50', border: 'border-red-200' },
+  { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' }
 ];
 
 export const pricingPlans = [
