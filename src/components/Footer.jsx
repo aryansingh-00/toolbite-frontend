@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Brand Column */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <Link to="/" className="inline-block mb-6">
               <span className="text-3xl font-bold tracking-tight text-white">Tool<span className="text-teal-500">Bite</span></span>
             </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2 lg:col-start-6">
+          <div className="lg:col-span-2">
             <h4 className="text-white font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4">
               <li><a href="/#ready-made" className="text-slate-400 hover:text-teal-400 transition-colors">Templates</a></li>
@@ -65,6 +65,18 @@ const Footer = () => {
               <li><Link to="/about" className="text-slate-400 hover:text-teal-400 transition-colors">About Us</Link></li>
               <li><Link to="/blog" className="text-slate-400 hover:text-teal-400 transition-colors">Blog</Link></li>
               <li><Link to="/contact" className="text-slate-400 hover:text-teal-400 transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-bold mb-6">Our Services</h4>
+            <ul className="space-y-4">
+              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Custom Websites</a></li>
+              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">E-commerce Stores</a></li>
+              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Landing Pages</a></li>
+              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">UI/UX Redesign</a></li>
+              <li><a href="/#services" className="text-slate-400 hover:text-teal-400 transition-colors">Web Maintenance</a></li>
             </ul>
           </div>
 
@@ -76,7 +88,7 @@ const Footer = () => {
               <li><Link to="/tools/image-compressor" className="text-slate-400 hover:text-teal-400 transition-colors">Image Compressor</Link></li>
               <li><Link to="/tools/json-formatter" className="text-slate-400 hover:text-teal-400 transition-colors">JSON Formatter</Link></li>
               <li><Link to="/tools/qr-code-generator" className="text-slate-400 hover:text-teal-400 transition-colors">QR Generator</Link></li>
-              <li><Link to="/tools" className="text-teal-500 font-bold hover:text-teal-400 transition-colors mt-2 block italic underline underline-offset-4">Browse All Tools</Link></li>
+              <li><Link to="/tools" className="text-teal-500 font-bold hover:text-teal-400 transition-colors mt-2 block italic underline underline-offset-4">All Tools</Link></li>
             </ul>
           </div>
 
