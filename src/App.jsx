@@ -34,6 +34,7 @@ const QrGenerator = React.lazy(() => import('./pages/tools/QrGenerator'));
 const PasswordGenerator = React.lazy(() => import('./pages/tools/PasswordGenerator'));
 const TextToSpeech = React.lazy(() => import('./pages/tools/TextToSpeech'));
 const LoremIpsum = React.lazy(() => import('./pages/tools/LoremIpsum'));
+const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 
                 {/* Tools Routes */}
