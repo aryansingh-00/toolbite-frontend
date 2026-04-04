@@ -8,7 +8,6 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
-import ContactSection from '../components/ContactSection';
 
 const HomePage = () => {
   return (
@@ -26,7 +25,6 @@ const HomePage = () => {
       <Pricing />
       <Testimonials />
       <FAQ />
-      <ContactSection />
     </>
   );
 };

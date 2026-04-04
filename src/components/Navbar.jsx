@@ -16,20 +16,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    import('https://esm.sh/animejs').then(({ animate, svg, stagger }) => {
-      if (typeof svg?.createDrawable === 'function') {
-        animate(svg.createDrawable('.logo-line'), {
-          draw: ['0 0', '0 1', '1 1'],
-          ease: 'inOutQuad',
-          duration: 2000,
-          delay: stagger(100),
-          loop: true
-        });
-      }
-    }).catch(err => console.error("Failed to jumpstart animejs:", err));
-  }, []);
-
   const navLinks = [
     { name: 'Home', href: '/#home', isHash: true },
     { name: 'Templates', href: '/#ready-made', isHash: true },
@@ -46,46 +32,70 @@ const Navbar = () => {
         <div className={`flex items-center justify-between px-6 py-4 rounded-full transition-all duration-500 ${isScrolled ? 'glass-card' : 'bg-transparent'}`}>
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 295 80" fill="none" className="h-14 w-auto object-contain">
-                <path
-                  className="logo-line"
+            <Link to="/" className="flex items-center group">
+              <motion.svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 295 80" 
+                fill="none" 
+                className="h-14 w-auto object-contain"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                {/* Outer Hexagon Shape */}
+                <motion.path
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.5, ease: 'easeInOut' }}
                   d="M 57,10 L 23,10 L 6,39 L 23,68 L 57,68"
                   stroke="#0f172a"
                   strokeWidth="4.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  fill="none"
                 />
-                <path
-                  className="logo-line"
+                {/* Inner Hexagon Shape */}
+                <motion.path
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
                   d="M 52,19 L 27,19 L 15,39 L 27,59 L 52,59"
                   stroke="#0f172a"
                   strokeWidth="4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  fill="none"
                 />
-                <polygon points="22,26 22,52 56,39" fill="#0f172a" />
-                <text
-                  x="80"
+                {/* Triangle Play/Bite Mark */}
+                <motion.polygon 
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }}
+                  points="22,26 22,52 56,39" 
+                  fill="#0f172a" 
+                />
+                {/* TOOL Text */}
+                <motion.text
+                  initial={{ x: 60, opacity: 0 }}
+                  animate={{ x: 80, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }}
                   y="53"
                   fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif"
                   fontWeight="900"
                   fontSize="34"
                   fill="#0f172a"
                   letterSpacing="1"
-                >TOOL</text>
-                <text
-                  x="180"
+                >TOOL</motion.text>
+                {/* BITE Text */}
+                <motion.text
+                  initial={{ x: 210, opacity: 0 }}
+                  animate={{ x: 180, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 1, ease: 'easeOut' }}
                   y="53"
                   fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif"
                   fontWeight="900"
                   fontSize="34"
                   fill="#14b8a6"
                   letterSpacing="1"
-                >BITE</text>
-              </svg>
+                >BITE</motion.text>
+              </motion.svg>
             </Link>
           </div>
 

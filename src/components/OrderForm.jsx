@@ -132,7 +132,7 @@ const OrderForm = () => {
                     </select>
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Required Features</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">Required Features (Optional)</label>
                     <input name="requiredFeatures" type="text" className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white transition-all" placeholder="e.g., Online Booking, Payment Gateway, User Accounts, Subscriptions" />
                   </div>
                 </div>
@@ -156,6 +156,7 @@ const OrderForm = () => {
                     <label className="block text-sm font-medium text-slate-300 mb-2">Budget Range *</label>
                     <select name="budgetRange" required className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-white transition-all appearance-none [&>option]:bg-slate-800">
                       <option value="">Select budget</option>
+                      <option>$1 - $500</option>
                       <option>$500 - $1,000</option>
                       <option>$1,000 - $3,000</option>
                       <option>$3,000 - $10,000</option>
@@ -185,7 +186,7 @@ const OrderForm = () => {
                   
                   {/* File Upload */}
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Upload Branding / Reference Files</label>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">Upload Branding / Reference Files (Optional)</label>
                     <div className="w-full border-2 border-dashed border-slate-600 rounded-xl p-8 flex flex-col items-center justify-center text-center hover:border-teal-500 hover:bg-slate-800/50 transition-colors cursor-pointer group relative">
                       <input 
                         type="file" 
