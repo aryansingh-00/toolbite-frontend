@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Youtube, Copy, Sparkles, Wand2, ListChecks, PlayCircle } from 'lucide-react';
+import { Video as Youtube, Copy, Sparkles, Wand2, ListChecks, PlayCircle } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
 

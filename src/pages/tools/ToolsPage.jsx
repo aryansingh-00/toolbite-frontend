@@ -10,13 +10,24 @@ const ToolsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredTools = useMemo(() => {
-    return tools.filter((tool) => {
-      const matchSearch = tool.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-      const matchCategory = activeCategory === 'All' || tool.category === activeCategory;
-      return matchSearch && matchCategory;
-    });
+    try {
+      return tools.filter((tool) => {
+        if (!tool) return false;
+        
+        const searchTermLower = searchTerm.toLowerCase();
+        const titleMatch = (tool.title || '').toLowerCase().includes(searchTermLower);
+        const descMatch = (tool.description || '').toLowerCase().includes(searchTermLower);
+        const tagsMatch = Array.isArray(tool.tags) && tool.tags.some(tag => (tag || '').toLowerCase().includes(searchTermLower));
+        
+        const matchSearch = titleMatch || descMatch || tagsMatch;
+        const matchCategory = activeCategory === 'All' || tool.category === activeCategory;
+        
+        return matchSearch && matchCategory;
+      });
+    } catch (error) {
+      console.error("Error filtering tools:", error);
+      return [];
+    }
   }, [searchTerm, activeCategory]);
 
   return (
@@ -73,7 +84,7 @@ const ToolsPage = () => {
             />
           </div>
           <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide no-scrollbar">
-            {categories.map((cat, i) => (
+            {Array.isArray(categories) && categories.map((cat, i) => (
               <button 
                 key={i} 
                 onClick={() => setActiveCategory(cat)}
@@ -99,10 +110,10 @@ const ToolsPage = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTools.map((tool, i) => {
-              const Icon = tool.icon;
+              const Icon = tool.icon || Zap; // Use Zap as fallback
               return (
                 <motion.div
-                  key={tool.id}
+                  key={tool.id || i}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
@@ -114,7 +125,7 @@ const ToolsPage = () => {
                   >
                     <div className="flex items-start justify-between mb-8">
                       <div className={`p-4 rounded-2xl ${tool.popular ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-100 text-slate-600'}`}>
-                        <Icon size={32} />
+                        {typeof Icon === 'function' || (typeof Icon === 'object' && Icon !== null) ? <Icon size={32} /> : <Zap size={32} />}
                       </div>
                       {tool.popular && (
                         <span className="px-3 py-1 bg-amber-100 text-amber-700 text-[10px] font-extrabold rounded-full uppercase tracking-widest border border-amber-200">
@@ -124,10 +135,10 @@ const ToolsPage = () => {
                     </div>
 
                     <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
-                      {tool.title}
+                      {tool.title || 'Untitled Tool'}
                     </h3>
                     <p className="text-slate-600 mb-8 line-clamp-3 leading-relaxed">
-                      {tool.description}
+                      {tool.description || 'No description available.'}
                     </p>
 
                     <div className="flex items-center text-teal-600 font-bold group-hover:gap-2 transition-all">

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Instagram, Copy, Sparkles, Wand2, Music, Zap } from 'lucide-react';
+import { Camera as Instagram, Copy, Sparkles, Wand2, Music, Zap } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
 

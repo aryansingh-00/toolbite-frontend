@@ -22,7 +22,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import TemplateList from './pages/admin/TemplateList';
 import TemplateForm from './pages/admin/TemplateForm';
 
-// Tools
 const ToolsPage = React.lazy(() => import('./pages/tools/ToolsPage'));
 const WordCounter = React.lazy(() => import('./pages/tools/WordCounter'));
 const CaseConverter = React.lazy(() => import('./pages/tools/CaseConverter'));
