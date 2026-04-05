@@ -8,7 +8,7 @@ const Portfolio = () => {
   const projects = portfolioProjects;
 
   return (
-    <section id="portfolio" className="py-24 bg-white relative">
+    <section id="portfolio" className="py-12 bg-white relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Work</h2>

@@ -46,7 +46,7 @@ const FAQ = () => {
   const displayedFaqs = isExpanded ? faqs : faqs.slice(0, initialCount);
 
   return (
-    <section id="faq" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="faq" className="py-12 bg-slate-50 relative overflow-hidden">
       {/* Decorative Blobs */}
       <div className="absolute top-20 -left-20 w-[400px] h-[400px] bg-teal-500/5 rounded-full blur-[80px] pointer-events-none"></div>
       <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none"></div>

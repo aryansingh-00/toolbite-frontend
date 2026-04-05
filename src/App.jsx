@@ -34,6 +34,13 @@ const QrGenerator = React.lazy(() => import('./pages/tools/QrGenerator'));
 const PasswordGenerator = React.lazy(() => import('./pages/tools/PasswordGenerator'));
 const TextToSpeech = React.lazy(() => import('./pages/tools/TextToSpeech'));
 const LoremIpsum = React.lazy(() => import('./pages/tools/LoremIpsum'));
+const YoutubePrompt = React.lazy(() => import('./pages/tools/YoutubePrompt'));
+const InstagramPrompt = React.lazy(() => import('./pages/tools/InstagramPrompt'));
+const MidjourneyPrompt = React.lazy(() => import('./pages/tools/MidjourneyPrompt'));
+const GrammarFixer = React.lazy(() => import('./pages/tools/GrammarFixer'));
+const TextImprover = React.lazy(() => import('./pages/tools/TextImprover'));
+const TextLengthChanger = React.lazy(() => import('./pages/tools/TextLengthChanger'));
+const ToneChanger = React.lazy(() => import('./pages/tools/ToneChanger'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 
 
@@ -79,6 +86,13 @@ function App() {
                 <Route path="/tools/password-generator" element={<PasswordGenerator />} />
                 <Route path="/tools/text-to-speech" element={<TextToSpeech />} />
                 <Route path="/tools/lorem-ipsum-generator" element={<LoremIpsum />} />
+                <Route path="/tools/youtube-script-generator" element={<YoutubePrompt />} />
+                <Route path="/tools/instagram-reel-generator" element={<InstagramPrompt />} />
+                <Route path="/tools/midjourney-prompt-generator" element={<MidjourneyPrompt />} />
+                <Route path="/tools/grammar-fixer" element={<GrammarFixer />} />
+                <Route path="/tools/text-improver" element={<TextImprover />} />
+                <Route path="/tools/text-length-changer" element={<TextLengthChanger />} />
+                <Route path="/tools/tone-changer" element={<ToneChanger />} />
 
                 <Route path="/admin" element={<ProtectedRoute />}>
                   <Route path="dashboard" element={<TemplateList />} />

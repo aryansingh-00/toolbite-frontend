@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
   const features = whyChooseUsData;
 
   return (
-    <section id="why-toolbite" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="why-toolbite" className="py-12 bg-slate-50 relative overflow-hidden">
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[100px] pointer-events-none"></div>
       <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 

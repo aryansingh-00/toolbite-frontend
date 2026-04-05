@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Target, Users, Zap, Award, BarChart3, Globe, ShieldCheck, Heart } from 'lucide-react';
+import teamImg from '../assets/team_identity.png';
 import SEO from '../components/SEO';
 
 const AboutPage = () => {
@@ -43,8 +44,8 @@ const AboutPage = () => {
         <div className="order-1 lg:order-2 relative px-6 md:px-0">
           <div className="aspect-square md:aspect-[4/5] rounded-[48px] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
             <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-              alt="ToolBite Studio" 
+              src={teamImg} 
+              alt="ToolBite Team High-Five" 
               className="w-full h-full object-cover"
             />
           </div>

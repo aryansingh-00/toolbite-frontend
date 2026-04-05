@@ -9,7 +9,7 @@ const Pricing = () => {
   const plans = pricingPlans;
 
   return (
-    <section id="pricing" className="py-24 bg-slate-900 text-white relative flex justify-center overflow-hidden">
+    <section id="pricing" className="py-12 bg-slate-900 text-white relative flex justify-center overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-teal-900/20 to-transparent pointer-events-none"></div>
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">

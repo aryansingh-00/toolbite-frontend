@@ -40,7 +40,7 @@ const OrderForm = () => {
   };
 
   return (
-    <section id="custom-order" className="py-24 bg-slate-900 text-slate-300 relative overflow-hidden">
+    <section id="custom-order" className="py-12 bg-slate-900 text-slate-300 relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>

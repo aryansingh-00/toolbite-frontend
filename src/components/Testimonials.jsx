@@ -8,7 +8,7 @@ const Testimonials = () => {
   const reviews = testimonialsData;
 
   return (
-    <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-12 bg-white relative overflow-hidden">
       {/* Decorative blurred background shapes */}
       <div className="absolute top-0 right-1/3 w-[500px] h-[500px] bg-teal-50 rounded-full blur-[100px] pointer-events-none"></div>
       

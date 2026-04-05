@@ -41,34 +41,30 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
-                {/* Outer Hexagon Shape */}
+                {/* Outer Hexagon Shape (Professional Dark) */}
                 <motion.path
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ duration: 1.5, ease: 'easeInOut' }}
-                  d="M 57,10 L 23,10 L 6,39 L 23,68 L 57,68"
+                  d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48 "
                   stroke="#0f172a"
                   strokeWidth="4.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
-                {/* Inner Hexagon Shape */}
+                {/* Inner Hexagon Shape (Unified Dark) */}
                 <motion.path
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.2, delay: 0.3, ease: 'easeInOut' }}
-                  d="M 52,19 L 27,19 L 15,39 L 27,59 L 52,59"
+                  transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }}
+                  d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48"
                   stroke="#0f172a"
                   strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
-                {/* Triangle Play/Bite Mark */}
+                {/* Triangle Play/Bite Mark (Centered) */}
                 <motion.polygon 
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }}
-                  points="22,26 22,52 56,39" 
+                  points="30,28 30,52 52,40" 
                   fill="#0f172a" 
                 />
                 {/* TOOL Text */}
