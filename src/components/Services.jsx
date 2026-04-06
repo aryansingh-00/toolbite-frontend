@@ -8,11 +8,11 @@ const Services = () => {
   const services = servicesData;
 
   return (
-    <section id="services" className="py-12 bg-white relative overflow-hidden">
+    <section id="services" className="py-8 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50/50 rounded-bl-[100px] -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">What We Do</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Digital Solutions for <br className="hidden md:block"/> Every Need.</h3>
           <p className="text-lg text-slate-600">
@@ -20,7 +20,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
