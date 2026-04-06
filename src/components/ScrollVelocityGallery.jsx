@@ -15,8 +15,8 @@ export const galleryData = [
   { id: 4, title: 'Monarch Estate',  category: 'Real Estate',  image: '/images/projects/monarch-realestate.png', color: '#2d1b69' },
   { id: 5, title: 'Vitality Health', category: 'Healthcare',   image: '/images/projects/vitality-health.png', color: '#0d3b36' },
   { id: 6, title: 'Visionary Studio',category: 'Creative',     image: '/images/projects/visionary-studio.png', color: '#3d0c11' },
-  { id: 7, title: 'Orbit Analytics', category: 'Data / Web',   image: '/images/projects/nexus-finance.png', color: '#0a3d62' },
-  { id: 8, title: 'Lume Agency',     category: 'Marketing',    image: '/images/projects/aura-streetwear.png', color: '#1b2838' },
+  { id: 7, title: 'Stylekat Salon',  category: 'Booking Platform', image: '/images/projects/stylekat.png', color: '#e11d48' },
+  { id: 8, title: 'Bytesool',        category: 'AI Tool Builder',  image: '/images/projects/bytesool.png', color: '#3730a3' },
   
   // 10 new additional data items using the same 6 template screenshots:
   { id: 9, title: 'Apex Robotics',   category: 'Technology',   image: '/images/projects/quantix-ai.png', color: '#314455' },
