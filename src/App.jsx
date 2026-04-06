@@ -21,6 +21,7 @@ import AdminLogin from './pages/admin/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import TemplateList from './pages/admin/TemplateList';
 import TemplateForm from './pages/admin/TemplateForm';
+import PageLoadingSkeleton from './components/PageLoadingSkeleton';
 
 const ToolsPage = React.lazy(() => import('./pages/tools/ToolsPage'));
 const WordCounter = React.lazy(() => import('./pages/tools/WordCounter'));
@@ -54,11 +55,7 @@ function App() {
           <Toaster position="top-right" />
           {!isAdminRoute && <Navbar />}
           <main className="flex-grow">
-            <React.Suspense fallback={
-              <div className="flex h-screen items-center justify-center bg-slate-50">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
-              </div>
-            }>
+            <React.Suspense fallback={<PageLoadingSkeleton />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/start-project" element={<StartProjectPage />} />
