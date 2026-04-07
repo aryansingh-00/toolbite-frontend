@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Copy, RefreshCw, Check, AlertTriangle, Shield, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Copy, RefreshCw, Check, Clock, Trash2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
+import useToolHistory from '../../hooks/useToolHistory';
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState('');
@@ -13,6 +14,7 @@ const PasswordGenerator = () => {
     symbols: true
   });
   const [strength, setStrength] = useState({ label: '', color: '', percentage: 0 });
+  const { history, addToHistory, clearHistory } = useToolHistory('password-generator', 5);
 
   const generatePassword = () => {
     const charSets = {
@@ -40,6 +42,7 @@ const PasswordGenerator = () => {
 
     setPassword(generatedPassword);
     calculateStrength(generatedPassword);
+    addToHistory({ password: generatedPassword, length, strength: strength.label });
   };
 
   const calculateStrength = (pwd) => {
@@ -169,9 +172,37 @@ const PasswordGenerator = () => {
           onClick={generatePassword}
           className="w-full py-5 bg-teal-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-teal-500/30 hover:bg-teal-700 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-3"
         >
-          <RefreshCw size={22} className="animate-spin-slow" />
+          <RefreshCw size={22} />
           Generate Secure Password
         </button>
+
+        {history.length > 0 && (
+          <div className="pt-6 border-t border-slate-100">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                <Clock size={14} /> Recent Passwords
+              </h3>
+              <button onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
+                <Trash2 size={12} /> Clear
+              </button>
+            </div>
+            <div className="space-y-2">
+              {history.map((item, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setPassword(item.password); navigator.clipboard.writeText(item.password); toast.success('Password copied!'); }}
+                  className="w-full flex items-center justify-between px-5 py-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-all group"
+                >
+                  <span className="font-mono text-sm text-slate-700 truncate max-w-[60%]">{item.password}</span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-[10px] text-slate-400">{item.savedAt}</span>
+                    <Copy size={12} className="text-slate-300 group-hover:text-teal-500 transition-colors" />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </ToolLayout>
   );

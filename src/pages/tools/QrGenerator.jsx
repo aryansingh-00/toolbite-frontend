@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import QRCode from 'qrcode';
-import { QrCode, Download, Link as LinkIcon, Type, Mail, User, Shield, Share2 } from 'lucide-react';
+import { QrCode, Download, Link as LinkIcon, Type, Mail, User, Clock, Trash2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
+import useToolHistory from '../../hooks/useToolHistory';
 
 const QrGenerator = () => {
   const [input, setInput] = useState('https://toolbite.in');
   const [qrType, setQrType] = useState('url');
-  const [color, setColor] = useState('#0d9488'); // teal-600
+  const [color, setColor] = useState('#0d9488');
   const [bgColor, setBgColor] = useState('#ffffff');
   const [qrImage, setQrImage] = useState('');
-  const canvasRef = useRef(null);
+  const { history, addToHistory, clearHistory } = useToolHistory('qr-generator', 5);
 
   const generateQRCode = async () => {
     try {
@@ -42,6 +43,11 @@ const QrGenerator = () => {
     link.href = qrImage;
     link.click();
     toast.success('QR Code downloaded!');
+    addToHistory({
+      content: input.length > 40 ? input.slice(0, 40) + '...' : input,
+      type: qrType,
+      image: qrImage,
+    });
   };
 
   return (
@@ -129,6 +135,31 @@ const QrGenerator = () => {
             </p>
           </div>
         </div>
+        {history.length > 0 && (
+          <div className="mt-10 pt-8 border-t border-slate-100">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                <Clock size={14} /> Recent QR Codes
+              </h3>
+              <button onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
+                <Trash2 size={12} /> Clear
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+              {history.map((item, i) => (
+                <button
+                  key={i}
+                  onClick={() => setInput(item.content.replace('...', ''))}
+                  className="group flex flex-col items-center gap-2 p-3 bg-slate-50 rounded-2xl border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-all text-left"
+                >
+                  <img src={item.image} alt="QR" className="w-14 h-14 rounded-lg" />
+                  <span className="text-[10px] font-bold text-slate-500 truncate w-full text-center">{item.content}</span>
+                  <span className="text-[9px] text-slate-400">{item.savedAt}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </ToolLayout>
   );
