@@ -1,29 +1,33 @@
 import React, { useState } from 'react';
 import { jsPDF } from 'jspdf';
-import { FileText, Upload, Download, Trash2, Plus, GripVertical, FileImage, Layers } from 'lucide-react';
+import { FileText, Upload, Download, Trash2, Plus, Layers } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
+import useDragDrop from '../../hooks/useDragDrop';
 
 const ImageToPdf = () => {
   const [images, setImages] = useState([]);
   const [generating, setGenerating] = useState(false);
 
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
+  const handleFileDrop = (fileList) => {
+    const files = Array.from(fileList);
     const validImages = files.filter(file => file.type.startsWith('image/'));
-    
     if (validImages.length < files.length) {
       toast.error('Some files were skipped. Only images are allowed.');
     }
-
     const newImages = validImages.map(file => ({
       id: Math.random().toString(36).substr(2, 9),
       file,
       url: URL.createObjectURL(file)
     }));
-
     setImages(prev => [...prev, ...newImages]);
   };
+
+  const handleFileChange = (e) => {
+    handleFileDrop(e.target.files);
+  };
+
+  const { isDragging, dragProps } = useDragDrop(handleFileDrop, { accept: 'image/*', multiple: true });
 
   const removeImage = (id) => {
     setImages(images.filter(img => img.id !== id));
@@ -84,7 +88,7 @@ const ImageToPdf = () => {
     >
       <div className="space-y-8">
         {/* Upload Area */}
-        <div className="relative group">
+        <div className="relative group" {...dragProps}>
           <input
             type="file"
             multiple
@@ -92,12 +96,22 @@ const ImageToPdf = () => {
             onChange={handleFileChange}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
           />
-          <div className="py-12 border-2 border-dashed border-slate-200 rounded-3xl bg-slate-50 flex flex-col items-center justify-center transition-all group-hover:border-teal-500 group-hover:bg-teal-50/50">
-            <div className="p-4 bg-white rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform">
-              <Plus size={32} className="text-teal-600" />
+          <div className={`py-12 border-2 border-dashed rounded-3xl flex flex-col items-center justify-center transition-all duration-300 ${
+            isDragging
+              ? 'border-teal-500 bg-teal-50 scale-[1.02] shadow-2xl shadow-teal-500/20'
+              : 'border-slate-200 bg-slate-50 group-hover:border-teal-500 group-hover:bg-teal-50/50'
+          }`}>
+            <div className={`p-4 bg-white rounded-2xl shadow-lg mb-4 transition-transform ${
+              isDragging ? 'scale-125' : 'group-hover:scale-110'
+            }`}>
+              <Plus size={32} className={isDragging ? 'text-teal-500 animate-bounce' : 'text-teal-600'} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800">Add More Images</h3>
-            <p className="text-sm text-slate-500">Drag & drop or click to select multiple files</p>
+            <h3 className="text-xl font-bold text-slate-800">
+              {isDragging ? '✨ Drop images here!' : 'Add More Images'}
+            </h3>
+            <p className="text-sm text-slate-500">
+              {isDragging ? 'Release to add all files' : 'Drag & drop or click to select multiple files'}
+            </p>
           </div>
         </div>
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import imageCompression from 'browser-image-compression';
-import { ImageIcon, Upload, Download, ArrowRight, Zap, Trash2, CheckCircle2 } from 'lucide-react';
+import { ImageIcon, Upload, Download, Zap, Trash2, CheckCircle2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
+import useDragDrop from '../../hooks/useDragDrop';
 
 const ImageCompressor = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -12,8 +13,8 @@ const ImageCompressor = () => {
   const [quality, setQuality] = useState(0.8);
   const [stats, setStats] = useState({ original: 0, compressed: 0, reduction: 0 });
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+  const handleFileDrop = (fileList) => {
+    const file = fileList[0];
     if (file) {
       if (!file.type.startsWith('image/')) {
         toast.error('Please upload a valid image file');
@@ -25,6 +26,12 @@ const ImageCompressor = () => {
       setStats({ ...stats, original: file.size });
     }
   };
+
+  const handleFileChange = (e) => {
+    handleFileDrop(e.target.files);
+  };
+
+  const { isDragging, dragProps } = useDragDrop(handleFileDrop, { accept: 'image/*' });
 
   const compressImage = async () => {
     if (!selectedFile) return;
@@ -80,19 +87,29 @@ const ImageCompressor = () => {
       <div className="space-y-10">
         {/* Upload Section */}
         {!selectedFile ? (
-          <div className="relative group">
+        <div className="relative group" {...dragProps}>
             <input
               type="file"
               accept="image/*"
               onChange={handleFileChange}
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
             />
-            <div className="py-24 border-2 border-dashed border-slate-200 rounded-[40px] bg-slate-50 flex flex-col items-center justify-center transition-all group-hover:border-teal-500 group-hover:bg-teal-50/50">
-              <div className="p-6 bg-white rounded-3xl shadow-xl shadow-slate-200/50 mb-6 group-hover:scale-110 transition-transform">
-                <Upload size={48} className="text-teal-600" />
+            <div className={`py-24 border-2 border-dashed rounded-[40px] flex flex-col items-center justify-center transition-all duration-300 ${
+              isDragging
+                ? 'border-teal-500 bg-teal-50 scale-[1.02] shadow-2xl shadow-teal-500/20'
+                : 'border-slate-200 bg-slate-50 group-hover:border-teal-500 group-hover:bg-teal-50/50'
+            }`}>
+              <div className={`p-6 bg-white rounded-3xl shadow-xl shadow-slate-200/50 mb-6 transition-transform ${
+                isDragging ? 'scale-125 shadow-teal-500/30' : 'group-hover:scale-110'
+              }`}>
+                <Upload size={48} className={isDragging ? 'text-teal-500 animate-bounce' : 'text-teal-600'} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">Click or Drag Image Here</h3>
-              <p className="text-slate-500 font-medium italic">Supports JPG, PNG, and WEBP</p>
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                {isDragging ? '✨ Drop it here!' : 'Click or Drag Image Here'}
+              </h3>
+              <p className="text-slate-500 font-medium italic">
+                {isDragging ? 'Release to upload your image' : 'Supports JPG, PNG, and WEBP'}
+              </p>
             </div>
           </div>
         ) : (

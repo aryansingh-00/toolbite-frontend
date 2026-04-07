@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
-import { FileImage, Upload, Download, Trash2, Layers, Search, Eye, Camera } from 'lucide-react';
+import { FileImage, Upload, Download, Trash2, Layers, Eye, Camera } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
+import useDragDrop from '../../hooks/useDragDrop';
 
 // Set up pdfjs worker using a local import for performance
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
@@ -14,22 +15,18 @@ const PdfToImage = () => {
   const [processing, setProcessing] = useState(false);
   const [numPages, setNumPages] = useState(0);
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
+  const loadPdf = async (file) => {
     if (file && file.type === 'application/pdf') {
       setLoading(true);
       setPdfFile(file);
       setPages([]);
-      
       try {
         const fileReader = new FileReader();
         fileReader.onload = async () => {
           const typedarray = new Uint8Array(fileReader.result);
           const pdf = await pdfjsLib.getDocument(typedarray).promise;
           setNumPages(pdf.numPages);
-          
           const pagesData = [];
-          // Pre-render the first few pages as thumbnails
           for (let i = 1; i <= Math.min(pdf.numPages, 10); i++) {
             const page = await pdf.getPage(i);
             const viewport = page.getViewport({ scale: 0.3 });
@@ -53,6 +50,16 @@ const PdfToImage = () => {
       toast.error('Please upload a valid PDF file');
     }
   };
+
+  const handleFileChange = async (e) => {
+    await loadPdf(e.target.files[0]);
+  };
+
+  const handleFileDrop = async (fileList) => {
+    await loadPdf(fileList[0]);
+  };
+
+  const { isDragging, dragProps } = useDragDrop(handleFileDrop, { accept: 'application/pdf' });
 
   const downloadPage = async (pageNumber) => {
     setProcessing(true);
@@ -98,19 +105,29 @@ const PdfToImage = () => {
     >
       <div className="space-y-10">
         {!pdfFile ? (
-          <div className="relative group">
+        <div className="relative group" {...dragProps}>
             <input
               type="file"
               accept=".pdf"
               onChange={handleFileChange}
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
             />
-            <div className="py-24 border-2 border-dashed border-slate-200 rounded-[40px] bg-slate-50 flex flex-col items-center justify-center transition-all group-hover:border-teal-500 group-hover:bg-teal-50/50">
-              <div className="p-6 bg-white rounded-3xl shadow-xl shadow-slate-200/50 mb-6 group-hover:scale-110 transition-transform">
-                <Upload size={48} className="text-teal-600" />
+            <div className={`py-24 border-2 border-dashed rounded-[40px] flex flex-col items-center justify-center transition-all duration-300 ${
+              isDragging
+                ? 'border-teal-500 bg-teal-50 scale-[1.02] shadow-2xl shadow-teal-500/20'
+                : 'border-slate-200 bg-slate-50 group-hover:border-teal-500 group-hover:bg-teal-50/50'
+            }`}>
+              <div className={`p-6 bg-white rounded-3xl shadow-xl shadow-slate-200/50 mb-6 transition-transform ${
+                isDragging ? 'scale-125 shadow-teal-500/30' : 'group-hover:scale-110'
+              }`}>
+                <Upload size={48} className={isDragging ? 'text-teal-500 animate-bounce' : 'text-teal-600'} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">Upload PDF Document</h3>
-              <p className="text-slate-500 font-medium italic">Max 20MB for best performance</p>
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                {isDragging ? '✨ Drop your PDF here!' : 'Upload PDF Document'}
+              </h3>
+              <p className="text-slate-500 font-medium italic">
+                {isDragging ? 'Release to start processing' : 'Max 20MB for best performance'}
+              </p>
             </div>
           </div>
         ) : (
