@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../../components/SEO';

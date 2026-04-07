@@ -30,10 +30,9 @@ const QrGenerator = () => {
     }
   };
 
+  // Generate on mount or when specific options change
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      generateQRCode();
-    }, 300);
+    const timeoutId = setTimeout(generateQRCode, 300);
     return () => clearTimeout(timeoutId);
   }, [input, color, bgColor]);
 

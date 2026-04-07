@@ -1,41 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Type, Copy, Trash2, CheckCircle2, Clock, MessageSquare, Hash, AlignLeft, Mic2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
 
 const WordCounter = () => {
   const [text, setText] = useState('');
-  const [stats, setStats] = useState({
-    words: 0,
-    chars: 0,
-    charsNoSpaces: 0,
-    sentences: 0,
-    paragraphs: 0,
-    readingTime: 0,
-    speakingTime: 0
-  });
 
-  useEffect(() => {
+  const stats = useMemo(() => {
     const words = text.trim() ? text.trim().split(/\s+/).length : 0;
     const chars = text.length;
     const charsNoSpaces = text.replace(/\s+/g, '').length;
     const sentences = text.split(/[.!?]+/).filter(Boolean).length;
     const paragraphs = text.split(/\n+/).filter(Boolean).length;
-    
-    // Average reading speed: 225 words per minute
-    // Average speaking speed: 130 words per minute
     const readingTime = Math.ceil(words / 225);
     const speakingTime = Math.ceil(words / 130);
-
-    setStats({
-      words,
-      chars,
-      charsNoSpaces,
-      sentences,
-      paragraphs,
-      readingTime,
-      speakingTime
-    });
+    return { words, chars, charsNoSpaces, sentences, paragraphs, readingTime, speakingTime };
   }, [text]);
 
   const handleCopy = () => {

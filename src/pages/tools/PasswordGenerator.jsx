@@ -5,7 +5,22 @@ import { toast } from 'react-hot-toast';
 import useToolHistory from '../../hooks/useToolHistory';
 
 const PasswordGenerator = () => {
-  const [password, setPassword] = useState('');
+  // Initialize password on mount without triggering an effect-based state update
+  const [password, setPassword] = useState(() => {
+    const charSets = {
+      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      lowercase: 'abcdefghijklmnopqrstuvwxyz',
+      numbers: '0123456789',
+      symbols: '!@#$%^&*()_+~`|}{[]:;?><,./-='
+    };
+    let allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=';
+    let generated = '';
+    for (let i = 0; i < 16; i++) {
+      generated += allowedChars[Math.floor(Math.random() * allowedChars.length)];
+    }
+    return generated;
+  });
+
   const [length, setLength] = useState(16);
   const [options, setOptions] = useState({
     uppercase: true,
@@ -13,7 +28,23 @@ const PasswordGenerator = () => {
     numbers: true,
     symbols: true
   });
-  const [strength, setStrength] = useState({ label: '', color: '', percentage: 0 });
+
+  const calculateStrength = (pwd) => {
+    let score = 0;
+    if (pwd.length >= 8) score++;
+    if (pwd.length >= 12) score++;
+    if (/[A-Z]/.test(pwd)) score++;
+    if (/[a-z]/.test(pwd)) score++;
+    if (/[0-9]/.test(pwd)) score++;
+    if (/[^A-Za-z0-9]/.test(pwd)) score++;
+
+    if (score <= 2) return { label: 'Weak', color: 'bg-red-500', percentage: 25 };
+    if (score <= 4) return { label: 'Medium', color: 'bg-amber-500', percentage: 50 };
+    if (score < 6) return { label: 'Strong', color: 'bg-teal-500', percentage: 75 };
+    return { label: 'Unbreakable', color: 'bg-emerald-500', percentage: 100 };
+  };
+
+  const [strength, setStrength] = useState(() => calculateStrength(password));
   const { history, addToHistory, clearHistory } = useToolHistory('password-generator', 5);
 
   const generatePassword = () => {
@@ -36,33 +67,14 @@ const PasswordGenerator = () => {
 
     let generatedPassword = '';
     for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * allowedChars.length);
-      generatedPassword += allowedChars[randomIndex];
+      generatedPassword += allowedChars[Math.floor(Math.random() * allowedChars.length)];
     }
 
+    const newStrength = calculateStrength(generatedPassword);
     setPassword(generatedPassword);
-    calculateStrength(generatedPassword);
-    addToHistory({ password: generatedPassword, length, strength: strength.label });
+    setStrength(newStrength);
+    addToHistory({ password: generatedPassword, length, strength: newStrength.label });
   };
-
-  const calculateStrength = (pwd) => {
-    let score = 0;
-    if (pwd.length >= 8) score++;
-    if (pwd.length >= 12) score++;
-    if (/[A-Z]/.test(pwd)) score++;
-    if (/[a-z]/.test(pwd)) score++;
-    if (/[0-9]/.test(pwd)) score++;
-    if (/[^A-Za-z0-9]/.test(pwd)) score++;
-
-    if (score <= 2) setStrength({ label: 'Weak', color: 'bg-red-500', percentage: 25 });
-    else if (score <= 4) setStrength({ label: 'Medium', color: 'bg-amber-500', percentage: 50 });
-    else if (score < 6) setStrength({ label: 'Strong', color: 'bg-teal-500', percentage: 75 });
-    else setStrength({ label: 'Unbreakable', color: 'bg-emerald-500', percentage: 100 });
-  };
-
-  useEffect(() => {
-    generatePassword();
-  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(password);

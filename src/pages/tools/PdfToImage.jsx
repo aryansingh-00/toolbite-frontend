@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import * as pdfjsLib from 'pdfjs-dist';
 import { FileImage, Upload, Download, Trash2, Layers, Eye, Camera } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
@@ -15,7 +15,7 @@ const PdfToImage = () => {
   const [processing, setProcessing] = useState(false);
   const [numPages, setNumPages] = useState(0);
 
-  const loadPdf = async (file) => {
+  const loadPdf = useCallback(async (file) => {
     if (file && file.type === 'application/pdf') {
       setLoading(true);
       setPdfFile(file);
@@ -26,7 +26,7 @@ const PdfToImage = () => {
           const typedarray = new Uint8Array(fileReader.result);
           const pdf = await pdfjsLib.getDocument(typedarray).promise;
           setNumPages(pdf.numPages);
-          const pagesData = [];
+          const loadedPages = [];
           for (let i = 1; i <= Math.min(pdf.numPages, 10); i++) {
             const page = await pdf.getPage(i);
             const viewport = page.getViewport({ scale: 0.3 });
@@ -35,9 +35,9 @@ const PdfToImage = () => {
             canvas.height = viewport.height;
             const ctx = canvas.getContext('2d');
             await page.render({ canvasContext: ctx, viewport }).promise;
-            pagesData.push({ id: i, url: canvas.toDataURL() });
+            loadedPages.push({ id: i, url: canvas.toDataURL() });
           }
-          setPages(pagesData);
+          setPages(loadedPages);
         };
         fileReader.readAsArrayBuffer(file);
       } catch (error) {
@@ -49,7 +49,7 @@ const PdfToImage = () => {
     } else {
       toast.error('Please upload a valid PDF file');
     }
-  };
+  }, []);
 
   const handleFileChange = async (e) => {
     await loadPdf(e.target.files[0]);

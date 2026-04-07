@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { AlignLeft, Copy, Trash2, Settings2, Hash, FileText } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
@@ -9,44 +9,34 @@ const LoremIpsum = () => {
   const [count, setCount] = useState(3);
   const [type, setType] = useState('paragraphs');
   const [startWithLorem, setStartWithLorem] = useState(true);
-  const [generatedText, setGeneratedText] = useState('');
 
-  const generateText = () => {
+  const generateText = useCallback(() => {
     let result = [];
     const words = LOREM_IPS_TEXT.toLowerCase().replace(/[.,]/g, '').split(' ');
-    
     if (type === 'paragraphs') {
       for (let i = 0; i < count; i++) {
         let p = LOREM_IPS_TEXT;
         if (i === 0 && !startWithLorem) {
           p = p.replace(/^Lorem ipsum dolor sit amet, /, 'Consectetur adipiscing elit, ');
         } else if (i > 0) {
-          // Shuffle a bit for variety in paragraphs
           const shuffledWords = [...words].sort(() => 0.5 - Math.random());
           p = shuffledWords.slice(0, 50).join(' ') + ".";
           p = p.charAt(0).toUpperCase() + p.slice(1);
         }
         result.push(p);
       }
-      setGeneratedText(result.join('\n\n'));
+      return result.join('\n\n');
     } else if (type === 'sentences') {
       const sentences = LOREM_IPS_TEXT.split('. ');
-      for (let i = 0; i < count; i++) {
-        result.push(sentences[i % sentences.length]);
-      }
-      setGeneratedText(result.join('. ') + (result.length ? '.' : ''));
+      for (let i = 0; i < count; i++) result.push(sentences[i % sentences.length]);
+      return result.join('. ') + (result.length ? '.' : '');
     } else {
-      // Words
-      for (let i = 0; i < count; i++) {
-        result.push(words[i % words.length]);
-      }
-      setGeneratedText(result.join(' '));
+      for (let i = 0; i < count; i++) result.push(words[i % words.length]);
+      return result.join(' ');
     }
-  };
-
-  useEffect(() => {
-    generateText();
   }, [count, type, startWithLorem]);
+
+  const generatedText = useMemo(() => generateText(), [generateText]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(generatedText);

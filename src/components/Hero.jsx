@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';

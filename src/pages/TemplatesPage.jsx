@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,15 +6,13 @@ import staticTemplates from '../data/templates';
 import SEO from '../components/SEO';
 
 const TemplatesPage = () => {
-  const [templates, setTemplates] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [templates] = useState(staticTemplates);
+  const [loading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Use static data — no backend required
-    setTemplates(staticTemplates);
   }, []);
 
   // Derive unique categories dynamically from the loaded database items
