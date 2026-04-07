@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Sidebar from './Layout/Sidebar';
 
 const ProtectedRoute = () => {
   const { admin, loading } = useAuth();
+  const location = useLocation();
 
   if (loading) {
     return (
@@ -24,7 +25,7 @@ const ProtectedRoute = () => {
       </div>
     </div>
   ) : (
-    <Navigate to="/admin/login" replace />
+    <Navigate to="/admin/login" replace state={{ from: location }} />
   );
 };
 
