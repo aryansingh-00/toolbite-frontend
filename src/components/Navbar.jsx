@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -111,10 +112,13 @@ const Navbar = () => {
               ))}
             </div>
             
-            <Link to="/start-project" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-teal-500 transition-all shadow-glow-slate hover:shadow-glow hover:-translate-y-0.5 group">
-              Start Project
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <Link to="/start-project" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-teal-500 transition-all shadow-glow-slate hover:shadow-glow hover:-translate-y-0.5 group">
+                Start Project
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -157,6 +161,10 @@ const Navbar = () => {
                   </Link>
                 )
               ))}
+              <div className="flex items-center justify-between mt-4">
+                <span className="text-sm font-bold text-slate-500">Switch Theme</span>
+                <ThemeToggle />
+              </div>
               <Link to="/start-project" onClick={() => setIsOpen(false)} className="w-full mt-4 py-4 text-center rounded-xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 transition-all">
                 Start Project
               </Link>

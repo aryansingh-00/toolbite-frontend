@@ -5,9 +5,36 @@ import { MessageCircle, X, Navigation, Phone } from 'lucide-react';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNudge, setShowNudge] = useState(false);
+
+  useEffect(() => {
+    // Auto-nudge after 5 seconds
+    const timer = setTimeout(() => {
+      setShowNudge(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      
+      {/* Mini Nudge Message */}
+      <AnimatePresence>
+        {showNudge && !isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.5, x: 20 }}
+            onClick={() => { setIsOpen(true); setShowNudge(false); }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-xl mb-4 cursor-pointer max-w-[200px] relative transition-colors"
+          >
+            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white dark:bg-slate-900 border-r border-b border-slate-200 dark:border-slate-800 rotate-45"></div>
+            <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
+              👋 Need a custom quote or have a question? I'm online!
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <AnimatePresence>
         {isOpen && (

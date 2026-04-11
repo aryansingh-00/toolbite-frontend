@@ -26,6 +26,43 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Newsletter / Lead Magnet Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24 p-10 bg-slate-900/50 dark:bg-slate-900/30 rounded-[40px] border border-slate-800/50 backdrop-blur-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -z-10"></div>
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/10 text-teal-400 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+              </span>
+              Weekly Insights
+            </div>
+            <h3 className="text-3xl font-black text-white mb-4">Get the <span className="text-teal-500">Web ROI</span> Checklist.</h3>
+            <p className="text-slate-400 font-medium leading-relaxed max-w-md">
+              Join 5,000+ founders receiving our weekly breakdown on high-performance design, SEO secrets, and conversion engineering.
+            </p>
+          </div>
+          <form action="https://formsubmit.co/hello.toolbite@gmail.com" method="POST" className="relative group">
+            <input type="hidden" name="_subject" value="New ToolBite Newsletter Subscriber!" />
+            <input type="hidden" name="_next" value={window.location.href} />
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="your@email.com" 
+                required 
+                className="flex-grow px-6 py-4 bg-slate-950 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-white font-medium" 
+              />
+              <button type="submit" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-teal-500 transition-all group-hover:shadow-glow-slate">
+                Get Access
+              </button>
+            </div>
+            <p className="mt-4 text-[10px] text-slate-500 font-medium italic">
+              * By subscribing, you agree to receive technical updates and high-performance strategy guides.
+            </p>
+          </form>
+        </div>
+
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           

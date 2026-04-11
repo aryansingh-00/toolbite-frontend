@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ArrowRight, Zap } from 'lucide-react';
 import { tools, categories } from '../../data/tools';
 import SEO from '../../components/SEO';
@@ -8,6 +8,7 @@ import SEO from '../../components/SEO';
 const ToolsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const filteredTools = useMemo(() => {
     try {
@@ -79,9 +80,52 @@ const ToolsPage = () => {
               type="text" 
               placeholder="Search tools (e.g., 'image', 'text')..." 
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium placeholder:text-slate-400"
+              onFocus={() => setShowDropdown(true)}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setShowDropdown(true);
+              }}
+              className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium placeholder:text-slate-400 dark:text-white"
             />
+            
+            {/* Autocomplete Dropdown */}
+            <AnimatePresence>
+              {showDropdown && searchTerm.trim() !== '' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute left-0 right-0 mt-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden max-h-[300px] overflow-y-auto"
+                >
+                  {filteredTools.length > 0 ? (
+                    filteredTools.slice(0, 6).map((tool) => (
+                      <Link
+                        key={tool.slug}
+                        to={`/tools/${tool.slug}`}
+                        onClick={() => {
+                          setSearchTerm(tool.title);
+                          setShowDropdown(false);
+                        }}
+                        className="flex items-center gap-4 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0"
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-500/10 text-teal-600 flex items-center justify-center shrink-0">
+                          {<tool.icon size={16} />}
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-slate-900 dark:text-white">{tool.title}</p>
+                          <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black">{tool.category}</p>
+                        </div>
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="px-4 py-6 text-center text-slate-400 text-sm">No exact matches found</div>
+                  )}
+                  <div className="p-2 bg-slate-50 dark:bg-slate-800/50 text-center">
+                    <button onClick={() => setShowDropdown(false)} className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-widest hover:underline">Close Search</button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide no-scrollbar">
             {Array.isArray(categories) && categories.map((cat, i) => (

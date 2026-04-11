@@ -8,6 +8,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import TrustSection from '../components/TrustSection';
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
         keywords="web design agency, custom website development, premium templates, landing pages, react web development, toolbite agency"
       />
       <Hero />
+      <TrustSection />
       <Services />
       <ReadyMade />
       <Portfolio />

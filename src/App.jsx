@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { ClientAuthProvider } from './contexts/ClientAuthContext';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
@@ -22,7 +23,10 @@ import ProtectedRoute from './components/ProtectedRoute';
 import TemplateList from './pages/admin/TemplateList';
 import TemplateForm from './pages/admin/TemplateForm';
 import PageLoadingSkeleton from './components/PageLoadingSkeleton';
+import ClientProtectedRoute from './components/portal/ClientProtectedRoute';
 
+const ClientLogin = React.lazy(() => import('./pages/portal/ClientLogin'));
+const ClientDashboard = React.lazy(() => import('./pages/portal/ClientDashboard'));
 const ToolsPage = React.lazy(() => import('./pages/tools/ToolsPage'));
 const WordCounter = React.lazy(() => import('./pages/tools/WordCounter'));
 const CaseConverter = React.lazy(() => import('./pages/tools/CaseConverter'));
@@ -46,15 +50,16 @@ const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 
 function App() {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login';
 
   return (
     <HelmetProvider>
       <AuthProvider>
-        <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
-          <Toaster position="top-right" />
-          {!isAdminRoute && <Navbar />}
-          <main className="flex-grow">
+        <ClientAuthProvider>
+          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
+            <Toaster position="top-right" />
+            {!isCustomLayoutRoute && <Navbar />}
+            <main className="flex-grow">
             <React.Suspense fallback={<PageLoadingSkeleton />}>
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -69,6 +74,11 @@ function App() {
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:id" element={<BlogDetail />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/client-login" element={<ClientLogin />} />
+                
+                <Route element={<ClientProtectedRoute />}>
+                  <Route path="/portal" element={<ClientDashboard />} />
+                </Route>
                 
                 {/* Tools Routes */}
                 <Route path="/tools" element={<ToolsPage />} />
@@ -98,7 +108,7 @@ function App() {
               </Routes>
             </React.Suspense>
           </main>
-          {!isAdminRoute && (
+          {!isCustomLayoutRoute && (
             <>
               <Footer />
               <FloatingChat />
@@ -106,6 +116,7 @@ function App() {
             </>
           )}
         </div>
+        </ClientAuthProvider>
       </AuthProvider>
     </HelmetProvider>
   );

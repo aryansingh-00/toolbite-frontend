@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.103.0",
     "axios": "^1.13.6",
     "browser-image-compression": "^2.0.2",
     "jspdf": "^4.2.1",
