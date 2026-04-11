@@ -645,6 +645,17 @@ const templates = [
     previewLink: null,
     status: "active",
   },
+  {
+    _id: "aura-shoes-001",
+    title: "Aura Shoes — Future Streetwear",
+    category: "E-Commerce",
+    shortDescription: "A futuristic shoe store landing page with 3D-effect visuals and clean typography.",
+    fullDescription: "Aura Shoes is a high-impact product landing page designed for streetwear brands. It features a floating shoe hero section, feature tiles with glassmorphism effects, and a sleek dark aesthetic optimized for conversion.",
+    features: ["Floating 3D-effect hero", "Glassmorphism product tiles", "High-contrast dark mode", "Responsive mobile design", "Performance optimized CSS", "SEO-ready metadata"],
+    imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop",
+    previewLink: "/demos/aura-shoes/index.html",
+    status: "active",
+  },
 ];
 
 export default templates;
