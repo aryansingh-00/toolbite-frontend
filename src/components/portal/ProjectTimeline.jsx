@@ -47,7 +47,12 @@ const ProjectTimeline = ({ projectId }) => {
             <div key={phase.id} className="flex md:flex-col items-center gap-4 md:w-1/5 text-left md:text-center group">
               
               {/* Desktop Connecting Line for Mobile View */}
-              <div className="w-0.5 h-full bg-slate-200 dark:bg-slate-800 absolute left-[1.125rem] md:hidden" style={{ top: `${index * 100}%`, display: index === phases.length - 1 ? 'none' : 'block' }}></div>
+              {index !== phases.length - 1 && (
+                <div 
+                  className="w-0.5 h-full bg-slate-200 dark:bg-slate-800 absolute left-[1.125rem] md:hidden" 
+                  style={{ top: `${index * 100}%` }}
+                ></div>
+              )}
 
               {/* Status Circle */}
               <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 border-4 ${
