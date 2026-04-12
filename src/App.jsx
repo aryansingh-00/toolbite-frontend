@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingChat from './components/FloatingChat';
 import CookieConsent from './components/CookieConsent';
+import ExitIntentModal from './components/ExitIntentModal';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
 import TemplatesPage from './pages/TemplatesPage';
@@ -113,6 +114,7 @@ function App() {
               <Footer />
               <FloatingChat />
               <CookieConsent />
+              <ExitIntentModal />
             </>
           )}
         </div>

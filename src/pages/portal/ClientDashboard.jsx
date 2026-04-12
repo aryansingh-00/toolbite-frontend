@@ -10,7 +10,11 @@ import {
   Bell,
   Search,
   Menu,
-  X
+  X,
+  Download,
+  Clock,
+  File,
+  ExternalLink
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
@@ -182,7 +186,7 @@ const ClientDashboard = () => {
         <div className="flex-1 overflow-y-auto p-4 sm:p-8">
           <div className="max-w-6xl mx-auto space-y-8">
             
-            {activeTab === 'Dashboard' ? (
+            {activeTab === 'Dashboard' && (
               <>
                 {/* Live Status Header */}
                 <motion.div 
@@ -229,16 +233,110 @@ const ClientDashboard = () => {
                 {/* Widgets Section */}
                 {activeProjectId && <PortalWidgets projectId={activeProjectId} />}
               </>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-32 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm text-center">
-                <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6">
-                  {(() => {
-                    const ActiveIcon = navItems.find(i => i.label === activeTab)?.icon;
-                    return ActiveIcon ? <ActiveIcon size={32} className="text-slate-400" /> : null;
-                  })()}
+            )}
+
+            {activeTab === 'Invoices' && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+                <div className="flex justify-between items-center bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                  <div>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">Billing History</h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">Download and manage your project invoices.</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Outstanding Balance</p>
+                    <p className="text-3xl font-black text-slate-900 dark:text-white">$0.00</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{activeTab} View Placeholder</h3>
-                <p className="text-slate-500 dark:text-slate-400 max-w-md">This view is currently under development. The full feature will be available shortly.</p>
+
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                  <table className="w-full text-left">
+                    <thead className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
+                      <tr>
+                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Invoice ID</th>
+                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Date</th>
+                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Amount</th>
+                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Status</th>
+                        <th className="px-8 py-4 text-xs font-bold text-slate-500 uppercase tracking-widest text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                      {[
+                        { id: 'INV-2026-001', date: 'April 05, 2026', amount: '$1,200.00', status: 'Paid' },
+                        { id: 'INV-2026-002', date: 'March 15, 2026', amount: '$850.00', status: 'Paid' }
+                      ].map((inv, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                          <td className="px-8 py-6 font-bold text-slate-900 dark:text-white">{inv.id}</td>
+                          <td className="px-8 py-6 text-slate-600 dark:text-slate-400">{inv.date}</td>
+                          <td className="px-8 py-6 font-black text-slate-900 dark:text-white">{inv.amount}</td>
+                          <td className="px-8 py-6">
+                            <span className="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-bold">
+                              {inv.status}
+                            </span>
+                          </td>
+                          <td className="px-8 py-6 text-right">
+                            <button className="p-2 text-slate-400 hover:text-teal-500 transition-colors">
+                              <Download size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'Documents' && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+                <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Project Assets</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">Access your wireframes, logos, and project documentation.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    { name: 'Wireframes_v2.pdf', size: '12.4 MB', type: 'PDF' },
+                    { name: 'Brand_Assets.zip', size: '45.1 MB', type: 'Archive' },
+                    { name: 'Project_Contract.pdf', size: '1.2 MB', type: 'PDF' },
+                    { name: 'Design_System.fig', size: '2.5 MB', type: 'Figma' }
+                  ].map((doc, idx) => (
+                    <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-800 hover:border-teal-500/50 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all group">
+                      <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                        <File size={24} />
+                      </div>
+                      <h4 className="font-bold text-slate-900 dark:text-white mb-1 truncate">{doc.name}</h4>
+                      <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{doc.size} • {doc.type}</p>
+                      <div className="mt-6 flex justify-between items-center">
+                        <button className="flex items-center gap-2 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline">
+                          <Download size={16} /> Download
+                        </button>
+                        <button className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                          <ExternalLink size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'Milestones' && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+                <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Project Roadmap</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">Detailed breakdown of your project completion status.</p>
+                </div>
+                {activeProjectId && <ProjectTimeline projectId={activeProjectId} />}
+              </motion.div>
+            )}
+
+            {activeTab === 'Settings' && (
+              <div className="flex flex-col items-center justify-center py-32 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+                <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6 text-slate-400">
+                  <Settings size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Portal Settings</h3>
+                <p className="text-slate-500 dark:text-slate-400 max-w-md">Update your password or notification preferences. This view is coming soon.</p>
               </div>
             )}
 

@@ -9,7 +9,7 @@ import ScrollVelocityGallery from './ScrollVelocityGallery';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative pt-40 pb-10 lg:pt-48 lg:pb-16 overflow-hidden bg-[#fafafa]">
+    <section id="home" className="relative pt-16 pb-10 lg:pt-24 lg:pb-16 overflow-hidden bg-[#fafafa]">
       {/* Animated Background Blobs */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-teal-200/40 rounded-full mix-blend-multiply filter blur-[120px] opacity-70 animate-blob pointer-events-none" />
       <div className="absolute top-40 left-0 w-[600px] h-[600px] bg-emerald-200/40 rounded-full mix-blend-multiply filter blur-[120px] animate-blob animation-delay-2000 pointer-events-none" />

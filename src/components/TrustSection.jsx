@@ -20,9 +20,8 @@ const partners = [
   { name: 'Nexus', logo: 'NX' },
   { name: 'Quantum', logo: 'QT' },
   { name: 'Aura', logo: 'AR' },
-  { name: 'Vortex', logo: 'VX' },
-  { name: 'Skyline', logo: 'SL' },
-  { name: 'Peak', logo: 'PK' },
+  { name: 'Stylekat Salon', logo: 'SS' },
+  { name: 'Bytesool', logo: 'BS' },
 ];
 
 const TrustSection = () => {

@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabase';
 
 const ClientAuthContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useClientAuth = () => useContext(ClientAuthContext);
 
 export const ClientAuthProvider = ({ children }) => {

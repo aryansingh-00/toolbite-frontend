@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ShieldCheck, Copy, RefreshCw, Check, Clock, Trash2 } from 'lucide-react';
 import ToolLayout from '../../components/tools/ToolLayout';
 import { toast } from 'react-hot-toast';
@@ -7,12 +7,6 @@ import useToolHistory from '../../hooks/useToolHistory';
 const PasswordGenerator = () => {
   // Initialize password on mount without triggering an effect-based state update
   const [password, setPassword] = useState(() => {
-    const charSets = {
-      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-      lowercase: 'abcdefghijklmnopqrstuvwxyz',
-      numbers: '0123456789',
-      symbols: '!@#$%^&*()_+~`|}{[]:;?><,./-='
-    };
     let allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=';
     let generated = '';
     for (let i = 0; i < 16; i++) {

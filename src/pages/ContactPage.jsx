@@ -40,7 +40,7 @@ const ContactPage = () => {
         setStatus('');
         alert("Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setStatus('');
       alert("Something went wrong. Please check your connection and try again.");
     }

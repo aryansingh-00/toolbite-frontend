@@ -656,7 +656,62 @@ const templates = [
     previewLink: "/demos/aura-shoes/index.html",
     status: "active",
   },
+  // ── 5 PREMIUM LANDING PAGE TEMPLATES ──────────────────────────────────────
+  {
+    _id: "tpl-042",
+    title: "Nova AI Automation",
+    category: "Landing Page",
+    shortDescription: "A dark, futuristic landing page tailored for AI agencies and automation firms.",
+    fullDescription: "Nova AI Automation blends deep space aesthetics with neon tech accents. Built for AI agencies, it features interactive node network animations, a stark dark mode UI, ROI calculation widgets, service matrices, and a high-converting automated scheduling funnel. Guaranteed to command authority.",
+    features: ["Interactive node animation", "ROI calculator widget", "Service matrix layout", "Automated scheduling funnel", "Neon tech aesthetics", "Client logo ticker", "Case study carousels", "Ultra-fast load times"],
+    imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop",
+    previewLink: null,
+    status: "active",
+  },
+  {
+    _id: "tpl-043",
+    title: "Aura FinTech Launch",
+    category: "Landing Page",
+    shortDescription: "A sleek, highly trusted landing page for neobanks and emerging fintech startups.",
+    fullDescription: "Aura FinTech Launch is engineered for absolute trust and conversion. It features floating credit card mockups, glassmorphism UI elements, scrolling exchange rate tickers, strict security badge sections, and a frictionless multi-step waitlist or account creation flow.",
+    features: ["Floating 3D card mockups", "Glassmorphic UI elements", "Multi-step waitlist flow", "Live ticker integrations", "Security badge trust bar", "Minimalist light theme", "Compliance-ready layout", "Bank-grade typography"],
+    imageUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&auto=format&fit=crop",
+    previewLink: null,
+    status: "active",
+  },
+  {
+    _id: "tpl-044",
+    title: "Vogue Luxury Fashion",
+    category: "Landing Page",
+    shortDescription: "An editorial-style landing page for high-end fashion brands and boutique launches.",
+    fullDescription: "Vogue Luxury Fashion takes inspiration from high-end editorial magazines. It leverages massive, edge-to-edge typography, slow-panning video hero sections, asymmetrical image grids, and a highly exclusive 'coming soon' collection drop capture form. Perfection for luxury streetwear or haute couture.",
+    features: ["Cinematic video hero", "Editorial typography", "Asymmetrical image grids", "Exclusive drop capture form", "Smooth locomotive scroll", "Monochrome color palette", "High-fidelity hover effects", "Instagram feed inject"],
+    imageUrl: "https://images.unsplash.com/photo-1490481651842-8c105e45a278?w=800&auto=format&fit=crop",
+    previewLink: null,
+    status: "active",
+  },
+  {
+    _id: "tpl-045",
+    title: "Vitality MedTech",
+    category: "Landing Page",
+    shortDescription: "A clean, clinical, and reassuring landing page for health tech and remote telemedicine apps.",
+    fullDescription: "Vitality MedTech is focused on clarity and care. Designed for telehealth startups and diagnostic apps, it features soft soothing color palettes, step-by-step 'how it works' graphics, patient success stories, doctor verification badges, and an immediate app download or consultation CTA.",
+    features: ["Step-by-step graphic flow", "Doctor verification badges", "Soothing color palette", "Patient success carousel", "Immediate CTA headers", "App store badge links", "HIPAA-compliant aesthetics", "Accessibility focused"],
+    imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop",
+    previewLink: null,
+    status: "active",
+  },
+  {
+    _id: "tpl-046",
+    title: "Masterclass Creator",
+    category: "Landing Page",
+    shortDescription: "A high-energy, persuasive landing page engineered for influencers launching premium courses.",
+    fullDescription: "Masterclass Creator is the ultimate sales letter evolved into a modern landing page. It features an aggressive sticky video hero, module-by-module course breakdowns, massive social proof testimonial grids, scarcity countdown timers, and an integrated multi-tier pricing table.",
+    features: ["Sticky video hero component", "Scarcity countdown timers", "Multi-tier pricing tables", "Module breakdown accordions", "Extensive testimonial grids", "Aggressive CTA placement", "High-energy animations", "Guaranteed ROI layout"],
+    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop",
+    previewLink: null,
+    status: "active",
+  }
 ];
-
 export default templates;
 

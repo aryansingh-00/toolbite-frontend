@@ -36,15 +36,26 @@ const Pricing = () => {
                   Most Popular
                 </div>
               )}
+
+              <div className="absolute -top-3 -right-2 px-3 py-1 bg-rose-500 rounded-lg text-xs font-black tracking-widest uppercase shadow-lg shadow-rose-500/30 text-white transform rotate-6 z-10">
+                50% OFF
+              </div>
               
               <div className="mb-6 mt-2">
                 <h4 className="text-2xl font-bold mb-2 text-white">{plan.name}</h4>
                 <p className="text-slate-400 text-sm h-10">{plan.audience}</p>
               </div>
               
-              <div className="mb-8 flex items-baseline gap-1 border-b border-slate-700/50 pb-8">
-                <span className="text-5xl font-extrabold text-white">{plan.price}</span>
-                <span className="text-slate-400 font-medium text-sm">/project</span>
+              <div className="mb-8 flex flex-col border-b border-slate-700/50 pb-8">
+                {plan.originalPrice && (
+                  <span className="text-xl font-bold text-slate-500 line-through mb-1">
+                    {plan.originalPrice}
+                  </span>
+                )}
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl font-extrabold text-white">{plan.price}</span>
+                  <span className="text-slate-400 font-medium text-sm">/project</span>
+                </div>
               </div>
 
               <div className="space-y-4 flex-1 mb-8">

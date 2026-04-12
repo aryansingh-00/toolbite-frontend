@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Monitor, ShoppingCart, Layout, Cpu, 
@@ -49,7 +49,7 @@ const ProjectEstimator = () => {
     timeline: timelineOptions[1],
   });
   const [isCalculating, setIsCalculating] = useState(false);
-  const [finalEstimate, setFinalEstimate] = useState({ min: 0, max: 0 });
+  const [finalEstimate, setFinalEstimate] = useState({ min: 0, max: 0, originalMin: 0, originalMax: 0 });
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
@@ -76,8 +76,10 @@ const ProjectEstimator = () => {
       const result = base * totalMultiplier;
       
       setFinalEstimate({
-        min: Math.floor(result * 0.9),
-        max: Math.ceil(result * 1.2)
+        min: Math.floor((result * 0.9) / 2),
+        max: Math.ceil((result * 1.2) / 2),
+        originalMin: Math.floor(result * 0.9),
+        originalMax: Math.ceil(result * 1.2)
       });
       setIsCalculating(false);
     }, 2000);
@@ -259,10 +261,18 @@ const ProjectEstimator = () => {
                     </div>
                     <h3 className="text-2xl font-bold dark:text-white">Your Project Estimate</h3>
                     <div className="flex items-center justify-center gap-4">
-                      <div className="px-10 py-8 bg-slate-50 dark:bg-slate-800 rounded-[40px] border border-slate-100 dark:border-slate-700">
-                        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Estimated Range</p>
-                        <div className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter">
-                          ${finalEstimate.min.toLocaleString()} <span className="text-slate-300">-</span> ${finalEstimate.max.toLocaleString()}
+                      <div className="px-10 py-8 bg-slate-50 dark:bg-slate-800 rounded-[40px] border border-slate-100 dark:border-slate-700 relative">
+                        <div className="absolute -top-4 -right-2 md:-right-6 bg-rose-500 text-white text-sm font-black px-4 py-2 rounded-full transform rotate-12 shadow-lg shadow-rose-500/30">
+                          50% OFF
+                        </div>
+                        <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Estimated Range</p>
+                        
+                        <div className="text-xl md:text-2xl font-bold text-slate-400 dark:text-slate-500 line-through mb-1">
+                          ${finalEstimate.originalMin?.toLocaleString()} - ${finalEstimate.originalMax?.toLocaleString()}
+                        </div>
+
+                        <div className="text-5xl md:text-7xl font-black text-emerald-500 dark:text-emerald-400 tracking-tighter">
+                          ${finalEstimate.min.toLocaleString()} <span className="text-emerald-300 dark:text-emerald-600">-</span> ${finalEstimate.max.toLocaleString()}
                         </div>
                       </div>
                     </div>
