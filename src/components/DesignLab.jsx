@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Palette, Type, RefreshCw, Smartphone, Tablet, Monitor, X } from 'lucide-react';
 
-const DesignLab = ({ template, isOpen, onClose }) => {
+const DesignLab = ({ isOpen, onClose }) => {
   const [brandName, setBrandName] = useState("My Brand");
   const [primaryColor, setPrimaryColor] = useState("#14b8a6");
   const [accentColor, setAccentColor] = useState("#0f172a");

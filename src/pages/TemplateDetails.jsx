@@ -9,22 +9,20 @@ import DesignLab from '../components/DesignLab';
 
 const TemplateDetails = () => {
   const { id } = useParams();
-  const [template, setTemplate] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const template = React.useMemo(() => staticTemplates.find((t) => t._id === id), [id]);
+  const [loading] = useState(false);
+  const [error, setError] = useState(template ? '' : 'Template not found.');
   const [deviceView, setDeviceView] = useState('desktop');
   const [isLabOpen, setIsLabOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Look up from static data — no backend required
-    const found = staticTemplates.find((t) => t._id === id);
-    if (found) {
-      setTemplate(found);
-    } else {
+    if (!template) {
       setError('Template not found.');
+    } else {
+      setError('');
     }
-  }, [id]);
+  }, [id, template]);
 
   if (loading) {
     return (

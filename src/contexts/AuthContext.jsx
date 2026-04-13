@@ -8,15 +8,14 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [admin, setAdmin] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [admin, setAdmin] = useState(() => {
+    const userInfo = localStorage.getItem('adminInfo');
+    return userInfo ? JSON.parse(userInfo) : null;
+  });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const userInfo = localStorage.getItem('adminInfo');
-    if (userInfo) {
-      setAdmin(JSON.parse(userInfo));
-    }
-    setLoading(false);
+    // Already initialized from storage
   }, []);
 
   const login = async (email, password) => {

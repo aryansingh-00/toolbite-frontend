@@ -5,15 +5,13 @@ import { X, Gift, Check, Send } from 'lucide-react';
 
 const ExitIntentModal = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
+  const [hasShown, setHasShown] = useState(() => {
+    return !!sessionStorage.getItem('exit_intent_shown');
+  });
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, sending, success
 
   useEffect(() => {
-    // Check if modal has already been shown in this session
-    const shown = sessionStorage.getItem('exit_intent_shown');
-    if (shown) setHasShown(true);
-
     const handleMouseOut = (e) => {
       // Trigger if mouse leaves the top of the viewport and hasn't shown yet
       if (!hasShown && e.clientY <= 0) {

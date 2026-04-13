@@ -11,7 +11,6 @@ const assetsData = [
 
 const AssetApproval = () => {
   const [assets, setAssets] = useState(assetsData);
-  const [selectedAsset, setSelectedAsset] = useState(null);
 
   const updateStatus = (id, newStatus) => {
     setAssets(prev => prev.map(a => a.id === id ? { ...a, status: newStatus } : a));
