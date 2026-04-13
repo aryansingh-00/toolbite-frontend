@@ -9,6 +9,10 @@ import Footer from './components/Footer';
 import FloatingChat from './components/FloatingChat';
 import CookieConsent from './components/CookieConsent';
 import ExitIntentModal from './components/ExitIntentModal';
+import ScrollProgress from './components/ScrollProgress';
+import BackToTop from './components/BackToTop';
+import PageTransition from './components/PageTransition';
+import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
 import TemplatesPage from './pages/TemplatesPage';
@@ -60,59 +64,63 @@ function App() {
           <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
+            <ScrollProgress />
             <main className="flex-grow">
             <React.Suspense fallback={<PageLoadingSkeleton />}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/start-project" element={<StartProjectPage />} />
-                <Route path="/templates" element={<TemplatesPage />} />
-                <Route path="/template/:id" element={<TemplateDetails />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
-                <Route path="/cookie-policy" element={<CookiePolicy />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/blog/:id" element={<BlogDetail />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
-                <Route path="/client-login" element={<ClientLogin />} />
-                
-                <Route element={<ClientProtectedRoute />}>
-                  <Route path="/portal" element={<ClientDashboard />} />
-                </Route>
-                
-                {/* Tools Routes */}
-                <Route path="/tools" element={<ToolsPage />} />
-                <Route path="/tools/word-counter" element={<WordCounter />} />
-                <Route path="/tools/case-converter" element={<CaseConverter />} />
-                <Route path="/tools/image-compressor" element={<ImageCompressor />} />
-                <Route path="/tools/image-to-pdf" element={<ImageToPdf />} />
-                <Route path="/tools/pdf-to-image" element={<PdfToImage />} />
-                <Route path="/tools/json-formatter" element={<JsonFormatter />} />
-                <Route path="/tools/qr-code-generator" element={<QrGenerator />} />
-                <Route path="/tools/password-generator" element={<PasswordGenerator />} />
-                <Route path="/tools/text-to-speech" element={<TextToSpeech />} />
-                <Route path="/tools/lorem-ipsum-generator" element={<LoremIpsum />} />
-                <Route path="/tools/youtube-script-generator" element={<YoutubePrompt />} />
-                <Route path="/tools/instagram-reel-generator" element={<InstagramPrompt />} />
-                <Route path="/tools/midjourney-prompt-generator" element={<MidjourneyPrompt />} />
-                <Route path="/tools/grammar-fixer" element={<GrammarFixer />} />
-                <Route path="/tools/text-improver" element={<TextImprover />} />
-                <Route path="/tools/text-length-changer" element={<TextLengthChanger />} />
-                <Route path="/tools/tone-changer" element={<ToneChanger />} />
+              <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                  <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+                  <Route path="/start-project" element={<PageTransition><StartProjectPage /></PageTransition>} />
+                  <Route path="/templates" element={<PageTransition><TemplatesPage /></PageTransition>} />
+                  <Route path="/template/:id" element={<PageTransition><TemplateDetails /></PageTransition>} />
+                  <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+                  <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
+                  <Route path="/cookie-policy" element={<PageTransition><CookiePolicy /></PageTransition>} />
+                  <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+                  <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+                  <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+                  <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
+                  <Route path="/admin/login" element={<PageTransition><AdminLogin /></PageTransition>} />
+                  <Route path="/client-login" element={<PageTransition><ClientLogin /></PageTransition>} />
+                  
+                  <Route element={<ClientProtectedRoute />}>
+                    <Route path="/portal" element={<PageTransition><ClientDashboard /></PageTransition>} />
+                  </Route>
+                  
+                  {/* Tools Routes */}
+                  <Route path="/tools" element={<PageTransition><ToolsPage /></PageTransition>} />
+                  <Route path="/tools/word-counter" element={<PageTransition><WordCounter /></PageTransition>} />
+                  <Route path="/tools/case-converter" element={<PageTransition><CaseConverter /></PageTransition>} />
+                  <Route path="/tools/image-compressor" element={<PageTransition><ImageCompressor /></PageTransition>} />
+                  <Route path="/tools/image-to-pdf" element={<PageTransition><ImageToPdf /></PageTransition>} />
+                  <Route path="/tools/pdf-to-image" element={<PageTransition><PdfToImage /></PageTransition>} />
+                  <Route path="/tools/json-formatter" element={<PageTransition><JsonFormatter /></PageTransition>} />
+                  <Route path="/tools/qr-code-generator" element={<PageTransition><QrGenerator /></PageTransition>} />
+                  <Route path="/tools/password-generator" element={<PageTransition><PasswordGenerator /></PageTransition>} />
+                  <Route path="/tools/text-to-speech" element={<PageTransition><TextToSpeech /></PageTransition>} />
+                  <Route path="/tools/lorem-ipsum-generator" element={<PageTransition><LoremIpsum /></PageTransition>} />
+                  <Route path="/tools/youtube-script-generator" element={<PageTransition><YoutubePrompt /></PageTransition>} />
+                  <Route path="/tools/instagram-reel-generator" element={<PageTransition><InstagramPrompt /></PageTransition>} />
+                  <Route path="/tools/midjourney-prompt-generator" element={<PageTransition><MidjourneyPrompt /></PageTransition>} />
+                  <Route path="/tools/grammar-fixer" element={<PageTransition><GrammarFixer /></PageTransition>} />
+                  <Route path="/tools/text-improver" element={<PageTransition><TextImprover /></PageTransition>} />
+                  <Route path="/tools/text-length-changer" element={<PageTransition><TextLengthChanger /></PageTransition>} />
+                  <Route path="/tools/tone-changer" element={<PageTransition><ToneChanger /></PageTransition>} />
 
-                <Route path="/admin" element={<ProtectedRoute />}>
-                  <Route path="dashboard" element={<TemplateList />} />
-                  <Route path="templates/new" element={<TemplateForm />} />
-                  <Route path="templates/edit/:id" element={<TemplateForm />} />
-                </Route>
-              </Routes>
+                  <Route path="/admin" element={<ProtectedRoute />}>
+                    <Route path="dashboard" element={<PageTransition><TemplateList /></PageTransition>} />
+                    <Route path="templates/new" element={<PageTransition><TemplateForm /></PageTransition>} />
+                    <Route path="templates/edit/:id" element={<PageTransition><TemplateForm /></PageTransition>} />
+                  </Route>
+                </Routes>
+              </AnimatePresence>
             </React.Suspense>
           </main>
           {!isCustomLayoutRoute && (
             <>
               <Footer />
               <FloatingChat />
+              <BackToTop />
               <CookieConsent />
               <ExitIntentModal />
             </>

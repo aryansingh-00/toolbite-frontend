@@ -47,9 +47,10 @@ const TiltCard = ({ children, className = "" }) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className={`relative ${className}`}
+      className={`relative ${className} h-full`}
     >
       <div
+        className="h-full"
         style={{
           transform: "translateZ(50px)",
           transformStyle: "preserve-3d",

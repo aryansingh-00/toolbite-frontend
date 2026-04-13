@@ -1,10 +1,11 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone, Palette } from 'lucide-react';
 import staticTemplates from '../data/templates';
 import SEO from '../components/SEO';
+import DesignLab from '../components/DesignLab';
 
 const TemplateDetails = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const TemplateDetails = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [deviceView, setDeviceView] = useState('desktop');
+  const [isLabOpen, setIsLabOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -95,9 +97,62 @@ const TemplateDetails = () => {
                   </span>
                 </div>
               </div>
+
+              {/* Design Lab Preview Overlay (when lab is open) */}
+              <AnimatePresence>
+                {isLabOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 z-20 bg-white dark:bg-slate-900 overflow-hidden flex flex-col design-lab-preview"
+                  >
+                    <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-6 gap-4">
+                      <div className="flex gap-1">
+                        <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Live Customization Preview</span>
+                    </div>
+                    <div className="flex-1 p-10 flex flex-col">
+                      <nav className="flex justify-between items-center mb-16">
+                        <div className="text-xl font-black tracking-tighter" style={{ color: 'var(--design-accent, #0f172a)' }}>
+                          <span className="text-xl inline-block after:content-[attr(data-brand)]" data-brand="My Brand" id="preview-brand-name"></span>
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="w-8 h-2 rounded-full bg-slate-100 dark:bg-slate-800"></div>
+                          <div className="w-8 h-2 rounded-full bg-slate-100 dark:bg-slate-800"></div>
+                        </div>
+                      </nav>
+                      <div className="space-y-6">
+                        <div className="w-20 h-2 bg-teal-500 rounded-full" style={{ backgroundColor: 'var(--design-primary, #14b8a6)' }}></div>
+                        <h2 className="text-4xl font-black max-w-sm leading-tight" style={{ color: 'var(--design-accent, #0f172a)' }}>
+                          The future of your brand starts here.
+                        </h2>
+                        <div className="w-40 h-12 rounded-xl flex items-center justify-center font-bold text-white shadow-xl" style={{ backgroundColor: 'var(--design-primary, #14b8a6)' }}>
+                          Get Started
+                        </div>
+                      </div>
+                      <div className="mt-auto grid grid-cols-3 gap-4">
+                         <div className="aspect-video rounded-2xl bg-slate-50 dark:bg-slate-800"></div>
+                         <div className="aspect-video rounded-2xl bg-slate-50 dark:bg-slate-800"></div>
+                         <div className="aspect-video rounded-2xl bg-slate-50 dark:bg-slate-800"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <div className="flex gap-4">
+               <button 
+                 onClick={() => setIsLabOpen(true)}
+                 className="flex-1 flex items-center justify-center gap-2 py-4 bg-teal-500 text-white font-bold rounded-2xl hover:bg-teal-600 transition shadow-xl shadow-teal-500/20 group"
+               >
+                 <Palette className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                 Open Design Lab
+               </button>
                {template.previewLink && (
                   <a 
                     href={template.previewLink} 
@@ -238,6 +293,12 @@ const TemplateDetails = () => {
           </div>
         </motion.div>
       </div>
+
+      <DesignLab 
+        template={template} 
+        isOpen={isLabOpen} 
+        onClose={() => setIsLabOpen(false)} 
+      />
     </div>
   );
 };

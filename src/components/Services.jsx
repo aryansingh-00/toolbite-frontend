@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { servicesData } from '../data/content';
+import TiltCard from './TiltCard';
 
 const Services = () => {
   const services = servicesData;
@@ -60,18 +61,24 @@ const Services = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
-                className={`snap-center sm:snap-start flex-shrink-0 w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px] p-8 rounded-3xl border border-slate-100 hover:${service.border} hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 bg-white group cursor-pointer relative overflow-hidden flex flex-col items-start text-left`}
+                className="snap-center sm:snap-start flex-shrink-0"
               >
-                {/* Decorative Background blob */}
-                <div className={`absolute top-0 right-0 w-32 h-32 ${service.bg} rounded-bl-[100px] -z-10 opacity-50 group-hover:scale-125 transition-transform duration-500`}></div>
-                
-                <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform duration-300 shadow-sm flex-shrink-0`}>
-                  {service.icon}
-                </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-sm flex-grow">
-                  {service.description}
-                </p>
+                <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px]">
+                  <div 
+                    className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 hover:${service.border} hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px]`}
+                  >
+                    {/* Decorative Background blob */}
+                    <div className={`absolute top-0 right-0 w-32 h-32 ${service.bg} rounded-bl-[100px] -z-10 opacity-50 dark:opacity-20 group-hover:scale-125 transition-transform duration-500`}></div>
+                    
+                    <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform duration-300 shadow-sm flex-shrink-0`}>
+                      {service.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{service.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm flex-grow">
+                      {service.description}
+                    </p>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

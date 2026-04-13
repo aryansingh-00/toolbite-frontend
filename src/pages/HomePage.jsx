@@ -9,6 +9,7 @@ import Pricing from '../components/Pricing';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import TrustSection from '../components/TrustSection';
+import ProjectStrategist from '../components/ProjectStrategist';
 
 const HomePage = () => {
   return (
@@ -26,6 +27,7 @@ const HomePage = () => {
       <WhyChooseUs />
       <Pricing />
       <Testimonials />
+      <ProjectStrategist />
       <FAQ />
     </>
   );

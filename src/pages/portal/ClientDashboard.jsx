@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   LayoutDashboard, 
   CheckSquare, 
@@ -14,13 +14,19 @@ import {
   Download,
   Clock,
   File,
-  ExternalLink
+  ExternalLink,
+  Globe,
+  Image as ImageIcon,
+  BookOpen
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { useClientAuth } from '../../contexts/ClientAuthContext';
 import ProjectTimeline from '../../components/portal/ProjectTimeline';
 import PortalWidgets from '../../components/portal/PortalWidgets';
+import StagingView from '../../components/portal/StagingView';
+import AssetApproval from '../../components/portal/AssetApproval';
+import ClientKnowledgeBase from '../../components/portal/ClientKnowledgeBase';
 
 const ClientDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,6 +78,9 @@ const ClientDashboard = () => {
 
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard' },
+    { icon: Globe, label: 'Staging' },
+    { icon: ImageIcon, label: 'Assets' },
+    { icon: BookOpen, label: 'Resources' },
     { icon: CheckSquare, label: 'Milestones' },
     { icon: FileText, label: 'Documents' },
     { icon: CreditCard, label: 'Invoices' },
@@ -329,6 +338,12 @@ const ClientDashboard = () => {
                 {activeProjectId && <ProjectTimeline projectId={activeProjectId} />}
               </motion.div>
             )}
+
+            {activeTab === 'Staging' && <StagingView />}
+            
+            {activeTab === 'Assets' && <AssetApproval />}
+            
+            {activeTab === 'Resources' && <ClientKnowledgeBase />}
 
             {activeTab === 'Settings' && (
               <div className="flex flex-col items-center justify-center py-32 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm text-center">

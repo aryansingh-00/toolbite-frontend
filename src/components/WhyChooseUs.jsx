@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { whyChooseUsData } from '../data/content';
+import TiltCard from './TiltCard';
 
 const WhyChooseUs = () => {
   const features = whyChooseUsData;
@@ -73,15 +74,19 @@ const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 5) * 0.05 }}
-                className="snap-center sm:snap-start flex-shrink-0 w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[260px] group bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-teal-200 transition-all duration-300 flex flex-col text-left items-start"
+                className="snap-center sm:snap-start flex-shrink-0"
               >
-                <div className={`w-12 h-12 rounded-2xl ${feat.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
-                  {feat.icon}
-                </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2">{feat.title}</h4>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {feat.desc}
-                </p>
+                <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[260px]">
+                  <div className="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-teal-200 dark:hover:border-teal-500/30 transition-all duration-300 flex flex-col text-left items-start h-full">
+                    <div className={`w-12 h-12 rounded-2xl ${feat.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                      {feat.icon}
+                    </div>
+                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feat.title}</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                      {feat.desc}
+                    </p>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
