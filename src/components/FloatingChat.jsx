@@ -1,7 +1,7 @@
  
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Navigation, Phone } from 'lucide-react';
+import { MessageCircle, X, Sparkles, Phone } from 'lucide-react';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,9 +76,9 @@ const FloatingChat = () => {
                 <span className="bg-white/20 p-1 rounded-lg"><Phone size={14} fill="white" /></span>
                 Open WhatsApp Chat
               </a>
-              <a href="/#contact" onClick={() => setIsOpen(false)} className="w-full flex items-center justify-center gap-2 py-3 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-2xl font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
-                <Navigation size={16} />
-                Send us a local message
+              <a href="/#ai-strategist" onClick={() => setIsOpen(false)} className="w-full flex items-center justify-center gap-2 py-3 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800 rounded-2xl font-bold text-sm hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors">
+                <Sparkles size={16} />
+                Chat with AI Strategist
               </a>
             </div>
           </motion.div>

@@ -15,7 +15,8 @@ import {
   CheckCheck,
   Zap,
   Maximize2,
-  Smile
+  Smile,
+  TrendingUp
 } from 'lucide-react';
 
 export const tools = [
@@ -177,6 +178,16 @@ export const tools = [
     icon: Smile,
     category: 'Text',
     tags: ['writing', 'communication', 'tone']
+  },
+  {
+    id: 'roi-calculator',
+    slug: 'roi-calculator',
+    title: 'ROI Growth Predictor',
+    description: 'Calculate the potential revenue growth of upgrading your digital presence with elite design and engineering benchmarks.',
+    icon: TrendingUp,
+    category: 'Marketing',
+    tags: ['roi', 'calculator', 'growth', 'marketing'],
+    popular: true
   }
 ];
 

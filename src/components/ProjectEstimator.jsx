@@ -288,6 +288,15 @@ const ProjectEstimator = () => {
                       </button>
                       <button 
                         onClick={() => {
+                          window.location.href = `/#ai-strategist?refine=true&budget=${finalEstimate.max}&type=${selections.type.label}&goal=${selections.complexity.label}`;
+                        }}
+                        className="px-8 py-4 rounded-2xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center gap-2 group"
+                      >
+                        <Sparkles size={18} className="text-teal-400" />
+                        Refine with AI Strategist
+                      </button>
+                      <button 
+                        onClick={() => {
                           const contactSection = document.getElementById('custom-order');
                           if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                         }}

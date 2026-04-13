@@ -17,11 +17,16 @@ import { jsPDF } from 'jspdf';
 
 const questions = [
   { id: 'name', text: "Hello! I'm the ToolBite AI Strategist. Let's start with your name?", type: 'text' },
-  { id: 'goal', text: "Great to meet you! What is the primary goal of your new project? (e.g., Sell products, Generate leads, Brand showcase)", type: 'text' },
-  { id: 'audience', text: "Perfect. Who is your target audience? Who are we building this for?", type: 'text' },
-  { id: 'budget', text: "Got it. What's your estimated budget range for this build?", type: 'choice', options: ['$1k - $3k', '$3k - $10k', '$10k - $25k', '$25k+'] },
-  { id: 'timeline', text: "Understood. When would you ideally like to launch?", type: 'choice', options: ['ASAP (1-2 weeks)', 'Standard (4-6 weeks)', 'Flexible (2+ months)'] },
-  { id: 'features', text: "Last one: Any 'Must-Have' features? (e.g., Blog, Dashboard, E-commerce, AI search)", type: 'text' }
+  { id: 'company', text: "Great to meet you! What's the name of your brand or company?", type: 'text' },
+  { id: 'role', text: "What is your role today? (e.g., Founder, Marketing Lead, PM)", type: 'text' },
+  { id: 'painPoints', text: "Understood. What is the biggest business pain point right now that this project should solve?", type: 'text' },
+  { id: 'vision', text: "Vision is key. Where do you see this brand in 2 years? (Scale, Revenue, or Reach goals)", type: 'text' },
+  { id: 'goal', text: "Now for the project: What is the primary objective? (e.g., Sell products, Generate leads, Brand showcase)", type: 'text' },
+  { id: 'type', text: "What type of build is this?", type: 'choice', options: ['New Build', 'Redesign', 'Feature Expansion', 'Maintenance'] },
+  { id: 'style', text: "What's your preferred design aesthetic?", type: 'choice', options: ['Minimalist & Clean', 'Bold & Vibrant', 'Corporate & Prof.', 'Dark Mode & Tech'] },
+  { id: 'features', text: "Any 'Must-Have' features? (e.g., Blog, Dashboard, E-commerce, AI search)", type: 'text' },
+  { id: 'budget', text: "What's your estimated budget range for this build?", type: 'range', min: 0, max: 500 },
+  { id: 'timeline', text: "When would you ideally like to launch?", type: 'choice', options: ['ASAP (1-2 weeks)', 'Standard (4-6 weeks)', 'Flexible (2+ months)'] }
 ];
 
 const ProjectStrategist = () => {
@@ -29,8 +34,11 @@ const ProjectStrategist = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [inputValue, setInputValue] = useState('');
+  const [rangeValue, setRangeValue] = useState(250);
   const [isFinishing, setIsFinishing] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   
   const scrollRef = useRef(null);
 
@@ -39,6 +47,34 @@ const ProjectStrategist = () => {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  // Handle Bridge from Estimator
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('refine') === 'true') {
+      const budget = params.get('budget');
+      const type = params.get('type');
+      const goal = params.get('goal');
+      
+      if (budget || type || goal) {
+        setAnswers({
+          ...answers,
+          budget: budget ? `$${budget}` : undefined,
+          type: type || undefined,
+          goal: goal || undefined
+        });
+
+        setMessages([
+          { role: 'bot', content: "Welcome back! I've imported your estimate data. Let's refine your strategic roadmap." },
+          { role: 'bot', content: "Let's start with the business context. What's your name?" }
+        ]);
+
+        // Smooth scroll to section
+        const section = document.getElementById('ai-strategist');
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
 
   const handleSend = (text) => {
     const response = text || inputValue;
@@ -99,24 +135,44 @@ const ProjectStrategist = () => {
     
     // Content sections
     let y = 75;
-    const sections = [
-      { label: 'PROJECT GOAL', value: answers.goal, icon: 'Target' },
-      { label: 'TARGET AUDIENCE', value: answers.audience, icon: 'Users' },
-      { label: 'BUDGET RANGE', value: answers.budget, icon: 'Budget' },
-      { label: 'TIMELINE', value: answers.timeline, icon: 'Time' },
-      { label: 'REQUIRED FEATURES', value: answers.features, icon: 'Features' }
-    ];
     
-    sections.forEach(s => {
-      doc.setFontSize(12);
+    const renderSection = (title, items) => {
+      doc.setFontSize(14);
       doc.setFont('helvetica', 'bold');
-      doc.text(s.label, 20, y);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(11);
-      const textLines = doc.splitTextToSize(s.value || 'Not specified', 160);
-      doc.text(textLines, 20, y + 7);
-      y += (textLines.length * 7) + 15;
-    });
+      doc.setTextColor(20, 184, 166); // Teal
+      doc.text(title, 20, y);
+      y += 10;
+      
+      items.forEach(item => {
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(15, 23, 42); // Slate
+        doc.text(item.label, 20, y);
+        
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        const textLines = doc.splitTextToSize(item.value || 'Not specified', 160);
+        doc.text(textLines, 20, y + 6);
+        y += (textLines.length * 6) + 12;
+      });
+      y += 5; // Extra spacing between sections
+    };
+
+    renderSection('1. BUSINESS PROFILE', [
+      { label: 'COMPANY NAME', value: answers.company },
+      { label: 'ROLE / POSITION', value: answers.role },
+      { label: 'CORE PAIN POINTS', value: answers.painPoints },
+      { label: '2-YEAR VISION', value: answers.vision }
+    ]);
+
+    renderSection('2. PROJECT ROADMAP', [
+      { label: 'PROJECT OBJECTIVE', value: answers.goal },
+      { label: 'PROJECT TYPE', value: answers.type },
+      { label: 'DESIGN AESTHETIC', value: answers.style },
+      { label: 'MUST-HAVE FEATURES', value: answers.features },
+      { label: 'ESTIMATED BUDGET', value: answers.budget },
+      { label: 'LAUNCH TIMELINE', value: answers.timeline }
+    ]);
     
     // Footer
     doc.setFontSize(10);
@@ -124,6 +180,34 @@ const ProjectStrategist = () => {
     doc.text('Confidential Strategy Document | ToolBite Agency 2.0', 105, 285, { align: 'center' });
     
     doc.save(`ToolBite_Strategy_${answers.name || 'Brief'}.pdf`);
+  };
+
+  const handleSubmitToTeam = async () => {
+    setIsSubmitting(true);
+    try {
+      const payload = {
+        subject: `New AI Strategy Brief - ${answers.company || answers.name}`,
+        name: answers.name,
+        email: 'hello.toolbite@gmail.com', // Agency recipient
+        message: JSON.stringify(answers, null, 2),
+        ...answers
+      };
+
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        setIsSent(true);
+      }
+    } catch (error) {
+      console.error("Submission failed", error);
+      alert("Failed to send strategy. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -240,12 +324,32 @@ const ProjectStrategist = () => {
                       Download My Strategy Brief
                       <FileDown size={20} className="group-hover:translate-y-0.5 transition-transform" />
                     </button>
+
+                    <div className="mt-4 pt-4 border-t border-emerald-500/10">
+                      {isSent ? (
+                        <div className="flex items-center justify-center gap-2 text-emerald-600 font-bold py-2">
+                          <CheckCircle2 size={18} />
+                          Strategy Sent to ToolBite!
+                        </div>
+                      ) : (
+                        <button
+                          onClick={handleSubmitToTeam}
+                          disabled={isSubmitting}
+                          className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white hover:bg-slate-800 dark:hover:bg-slate-700 font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 disabled:opacity-70"
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Strategy to ToolBite Team'}
+                          <Send size={18} />
+                        </button>
+                      )}
+                    </div>
+
                     <button
                       onClick={() => {
                         setMessages([{ role: 'bot', content: questions[0].text }]);
                         setCurrentQuestionIndex(0);
                         setAnswers({});
                         setIsComplete(false);
+                        setIsSent(false);
                       }}
                       className="mt-6 text-slate-400 text-sm font-bold hover:text-teal-500 transition-colors"
                     >
@@ -258,7 +362,32 @@ const ProjectStrategist = () => {
               {/* Input Area */}
               {!isComplete && !isFinishing && (
                 <div className="p-8 pt-0 border-t border-slate-100 dark:border-slate-800">
-                  {questions[currentQuestionIndex].type === 'choice' ? (
+                  {questions[currentQuestionIndex].type === 'range' ? (
+                    <div className="mt-8 space-y-8 p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-xs font-black text-slate-400 uppercase tracking-widest">$0</span>
+                        <div className="px-4 py-2 bg-teal-500 text-slate-900 rounded-full font-black text-xl shadow-lg shadow-teal-500/20">
+                          ${rangeValue}
+                        </div>
+                        <span className="text-xs font-black text-slate-400 uppercase tracking-widest">$500</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="0" 
+                        max="500" 
+                        value={rangeValue}
+                        onChange={(e) => setRangeValue(parseInt(e.target.value))}
+                        className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500 transition-all"
+                      />
+                      <button
+                        onClick={() => handleSend(`$${rangeValue}`)}
+                        className="w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-xl shadow-xl shadow-teal-500/10 transition-all flex items-center justify-center gap-2 group"
+                      >
+                        Confirm Budget Selection
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  ) : questions[currentQuestionIndex].type === 'choice' ? (
                     <div className="grid grid-cols-2 gap-3 mt-8">
                       {questions[currentQuestionIndex].options.map((opt, i) => (
                         <button

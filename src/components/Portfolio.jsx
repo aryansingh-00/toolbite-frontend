@@ -12,8 +12,8 @@ const Portfolio = () => {
     <section id="portfolio" className="py-12 bg-white relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Work</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Featured Client Projects</h3>
+          <p className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Work</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Featured Client Projects</h2>
           <p className="text-lg text-slate-600">
             Take a look at some of the premium websites and custom applications we've built for ambitious brands worldwide.
           </p>
@@ -29,15 +29,37 @@ const Portfolio = () => {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group flex flex-col bg-white border border-slate-200 rounded-3xl h-full overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 hover:border-teal-200 transition-all duration-500"
               >
-                {/* Image Thumbnail */}
+                {/* Image Thumbnail with Parallax Layers */}
                 <div className={`aspect-[16/9] w-full relative ${project.thumbnail ? 'bg-slate-100' : project.image} overflow-hidden`}>
+                  
+                  {/* Background Parallax Layer 1: Technical Grid */}
+                  <div 
+                    className="absolute inset-0 opacity-10 pointer-events-none"
+                    style={{ 
+                      backgroundImage: 'radial-gradient(circle at 2px 2px, slate-500 1px, transparent 0)',
+                      backgroundSize: '24px 24px',
+                      transform: 'translateZ(20px)'
+                    }}
+                  ></div>
+
+                  {/* Background Parallax Layer 2: Glowing Orb */}
+                  <div 
+                    className="absolute -top-1/2 -left-1/2 w-full h-full bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"
+                    style={{ transform: 'translateZ(10px)' }}
+                  ></div>
+
                   {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img 
+                      src={project.thumbnail} 
+                      alt={project.title} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                      style={{ transform: 'translateZ(40px)' }}
+                    />
                   ) : (
-                    <>
+                    <div style={{ transform: 'translateZ(60px)', transformStyle: 'preserve-3d' }} className="w-full h-full">
                       <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500"></div>
                       
-                      {/* Abstract Mockup Elements tailored to the project style */}
+                      {/* Abstract Mockup Elements */}
                       <div className={`absolute bottom-0 ${project.mockup === 'left' ? 'left-8' : project.mockup === 'right' ? 'right-8' : 'left-1/2 -translate-x-1/2'} w-3/4 h-5/6 bg-white/10 backdrop-blur-md rounded-t-xl border border-white/30 shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex flex-col`}>
                         <div className="h-8 border-b border-white/20 flex items-center px-4 gap-1.5 opacity-70">
                           <div className="w-2.5 h-2.5 rounded-full bg-slate-100"></div>
@@ -53,7 +75,7 @@ const Portfolio = () => {
                           <div className="w-full h-8 bg-white/10 rounded-md mt-auto"></div>
                         </div>
                       </div>
-                    </>
+                    </div>
                   )}
                   
                   <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

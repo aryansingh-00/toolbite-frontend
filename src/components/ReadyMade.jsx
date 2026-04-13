@@ -14,8 +14,8 @@ const ReadyMade = () => {
     <section id="ready-made" className="py-12 bg-slate-50 relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Template Marketplace</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Launch Your Premium Website Today.</h3>
+          <p className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Template Marketplace</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Launch Your Premium Website Today.</h2>
           <p className="text-lg text-slate-600">
             Browse our collection of high-converting, fully customized templates designed for specific industries. Install instantly, customize easily.
           </p>
