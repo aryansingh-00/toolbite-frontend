@@ -1,211 +1,87 @@
-/* eslint-disable */
 import React, { useRef } from 'react';
-import {
-  motion,
-  useMotionValue, useSpring, useTransform,
-  useScroll, useVelocity,
+import { 
+  motion, 
+  useScroll, 
+  useSpring, 
+  useTransform, 
+  useVelocity, 
+  useAnimationFrame,
+  useMotionValue
 } from 'framer-motion';
 
-// ─── Gallery data ──────────────────────────────────────────────────────────────
-// Replace `image` URLs with your own whenever you're ready.
-export const galleryData = [
-  { id: 1, title: 'Nexus Finance',    category: 'Fintech',     image: '/images/projects/nexus-finance.png', color: '#0f4c75' },
-  { id: 2, title: 'Aura Streetwear', category: 'E-Commerce',  image: '/images/projects/aura-streetwear.png', color: '#1a1a2e' },
-  { id: 3, title: 'Quantix AI',      category: 'SaaS / B2B',  image: '/images/projects/quantix-ai.png', color: '#16213e' },
-  { id: 4, title: 'Monarch Estate',  category: 'Real Estate',  image: '/images/projects/monarch-realestate.png', color: '#2d1b69' },
-  { id: 5, title: 'Vitality Health', category: 'Healthcare',   image: '/images/projects/vitality-health.png', color: '#0d3b36' },
-  { id: 6, title: 'Visionary Studio',category: 'Creative',     image: '/images/projects/visionary-studio.png', color: '#3d0c11' },
-  { id: 7, title: 'Stylekat Salon',  category: 'Booking Platform', image: '/images/projects/stylekat.png', color: '#e11d48' },
-  { id: 8, title: 'Bytesool',        category: 'AI Tool Builder',  image: '/images/projects/bytesool.png', color: '#3730a3' },
-  
-  // 10 new additional data items using the same 6 template screenshots:
-  { id: 9, title: 'Apex Robotics',   category: 'Technology',   image: '/images/projects/quantix-ai.png', color: '#314455' },
-  { id: 10, title: 'Elysium Spa',    category: 'Wellness',     image: '/images/projects/vitality-health.png', color: '#8e7cc3' },
-  { id: 11, title: 'Zenith Logistics',category: 'Transport',   image: '/images/projects/visionary-studio.png', color: '#2b580c' },
-  { id: 12, title: 'Pinnacle Capital',category: 'Investment',  image: '/images/projects/monarch-realestate.png', color: '#1a365d' },
-  { id: 13, title: 'Horizon Travel', category: 'Tourism',      image: '/images/projects/aura-streetwear.png', color: '#d97706' },
-  { id: 14, title: 'Nova Media',     category: 'Entertainment',image: '/images/projects/quantix-ai.png', color: '#be123c' },
-  { id: 15, title: 'Echo Acoustics', category: 'Audio / Tech', image: '/images/projects/visionary-studio.png', color: '#4338ca' },
-  { id: 16, title: 'Flora Boutique', category: 'Lifestyle',    image: '/images/projects/vitality-health.png', color: '#059669' },
-  { id: 17, title: 'Cosmic Aero',    category: 'Aerospace',    image: '/images/projects/nexus-finance.png', color: '#1e3a8a' },
-  { id: 18, title: 'Lumina Energy',  category: 'Green Tech',   image: '/images/projects/monarch-realestate.png', color: '#0f766e' },
-];
-
-// No static LAYOUT needed anymore since it's fully mathematically driven
-
-// ─── Per-plane component (holds its own hooks — Rules of Hooks safe) ──────────
-const GalleryPlane = ({ item, index, totalItems, smoothTilt, waveY, scrollY }) => {
-  const cardRef = useRef(null);
-
-  // Mouse-tracking tilt (per card)
-  const rx = useSpring(useMotionValue(0), { stiffness: 200, damping: 28 });
-  const ry = useSpring(useMotionValue(0), { stiffness: 200, damping: 28 });
-  const sc = useSpring(useMotionValue(1), { stiffness: 280, damping: 24 });
-
-  // Pseudo-random wave scale and rotation based on index for variety
-  const waveScale = 1.0 + (index % 3) * 0.2;
-  const baseRotateZ = -5 + (index % 3) * 3;
-
-  // Smooth the raw scroll to eliminate mouse wheel chop
-  const smoothScrollY = useSpring(scrollY, { stiffness: 60, damping: 25, mass: 0.5 });
-
-  // Mathematically loop progress from 0 to 100 based on scroll
-  const p = useTransform(() => {
-    const baseP = (index / totalItems) * 100;
-    // Use smoothed scroll instead of raw for buttery movement
-    let currentP = baseP + (smoothScrollY.get() * 0.04);
-    
-    // Wrap between 0 and 100 for infinite loop
-    let loopedP = currentP % 100;
-    if (loopedP < 0) loopedP += 100;
-    return loopedP;
-  });
-
-  // Map 0-100 logic to physical diagonal coordinates
-  // Very high multiplier (8.0) to force massive distinct gaps between 280x380 cards
-  const x = useTransform(p, (v) => `${-250 + (v * 6.0)}%`);
-  const y = useTransform(p, (v) => `${350 - (v * 8.0)}%`);
-  
-  // Depth (translateZ): steeper depth scale to match the huge gap
-  const depth = useTransform(p, (v) => 300 - (v * 12.0));
-  
-  // Smooth opacity fading at the extreme edges of the loop
-  const opacity = useTransform(p, [0, 5, 90, 100], [0, 1, 1, 0]);
-
-  // Velocity-driven scrubbing
-  const velocityY = useTransform(() => waveY.get() * waveScale);
-  const velocityX = useTransform(() => -waveY.get() * waveScale * 1.5);
-
-  // Rotation combining base slant and scroll velocity
-  const dynamicRotateZ = useTransform(smoothTilt, (v) => v * waveScale * 0.35 + baseRotateZ);
-  const dynamicRotateY = useTransform(smoothTilt, (v) => v * waveScale * 1.5 - 20);
-
-  const onMove = (e) => {
-    if (!cardRef.current) return;
-    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
-    rx.set(-(((e.clientY - top)  / height) - 0.5) * 16);
-    ry.set( (((e.clientX - left) / width)  - 0.5) * 16);
-  };
-  const onEnter = () => sc.set(1.07);
-  const onLeave = () => { rx.set(0); ry.set(0); sc.set(1); };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="absolute cursor-pointer z-10"
-      style={{
-        left: x,
-        top: y,
-        opacity,
-        width: 280,
-        height: 380,
-        rotateX: rx,
-        rotateY: dynamicRotateY, 
-        scale: sc,
-        x: velocityX,
-        y: velocityY,
-        rotateZ: dynamicRotateZ,
-        translateZ: depth,
-        transformStyle: 'preserve-3d',
-      }}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-      onMouseMove={onMove}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
-      {/* Card */}
-      <div
-        className="relative overflow-hidden rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.5)] group w-full h-full"
-      >
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
-          loading="lazy"
-        />
-
-        {/* Overlay on hover */}
-        <div
-          className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{ background: `linear-gradient(to top, ${item.color}f0 0%, transparent 55%)` }}
-        >
-          <p className="text-white/60 text-[9px] font-bold uppercase tracking-widest">
-            {item.category}
-          </p>
-          <h3 className="text-white font-bold text-xs leading-snug">{item.title}</h3>
-        </div>
-
-        {/* Hover glow ring */}
-        <div className="absolute inset-0 rounded-xl ring-1 ring-white/10 group-hover:ring-teal-400/50 transition-all duration-300 pointer-events-none" />
-      </div>
-    </motion.div>
-  );
+// Local wrap helper to avoid extra dependencies
+const wrap = (min, max, v) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
-// ─── Root gallery component ───────────────────────────────────────────────────
-const ScrollVelocityGallery = () => {
-  const containerRef = useRef(null);
+const images = [
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1454165205744-3b78555e5572?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551288049-bbbda536639a?q=80&w=400&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551033406-611cf9a28f67?q=80&w=400&auto=format&fit=crop",
+];
 
-  // Track scroll EXCLUSIVELY inside this specific gallery container
-  const { scrollY } = useScroll({ container: containerRef });
-  const rawVelocity = useVelocity(scrollY);
+function ParallaxColumn({ images, baseVelocity = 100 }) {
+  const baseX = useMotionValue(0);
+  const { scrollY } = useScroll();
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, {
+    damping: 50,
+    stiffness: 400
+  });
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+    clamp: false
+  });
 
-  // Dampened velocity tilt and wave
-  const smoothTilt = useSpring(
-    useTransform(rawVelocity, [-2500, 2500], [-8, 8]),
-    { stiffness: 70, damping: 28 }
-  );
-  const waveY = useSpring(
-    useTransform(rawVelocity, [-2500, 2500], [30, -30]),
-    { stiffness: 70, damping: 28 }
-  );
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
+  const directionFactor = useRef(1);
+  useAnimationFrame((t, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+
+    baseX.set(baseX.get() + moveBy);
+  });
 
   return (
-    <div
-      className="relative w-full h-full select-none"
-      style={{ perspective: '1200px', perspectiveOrigin: '50% 50%' }}
-    >
-      {/* 
-        The scrollable viewport bounds for the gallery! 
-        Invisible scrollbar but accepts wheel/touch gestures.
-      */}
-      <div 
-        ref={containerRef}
-        className="absolute inset-0 overflow-y-auto no-scrollbar pointer-events-auto z-10"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {/* Fake giant height to enable deep scrolling inside the box */}
-        <div className="w-full h-[350vh]" />
-      </div>
-
-      {/* The isolated un-clipped gallery layer where elements physically live */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-        {galleryData.map((item, idx) => (
-          <GalleryPlane
-            key={item.id}
-            item={item}
-            index={idx}
-            totalItems={galleryData.length}
-            smoothTilt={smoothTilt}
-            waveY={waveY}
-            scrollY={scrollY}
-          />
+    <div className="flex flex-col gap-4 overflow-hidden h-[2000px]">
+      <motion.div className="flex flex-col gap-4" style={{ y: x }}>
+        {[...images, ...images, ...images].map((src, i) => (
+          <div 
+            key={i} 
+            className="w-full aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl border border-slate-200/50 relative group"
+          >
+            <img 
+              src={src} 
+              alt="Work" 
+              className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          </div>
         ))}
-      </div>
-
-      {/* "Scroll to explore" hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 text-slate-500 text-[10px] font-semibold tracking-widest uppercase pointer-events-none z-20"
-      >
-        <div className="w-px h-5 bg-gradient-to-b from-transparent to-teal-500/50" />
-        Scroll to explore
-        <div className="w-px h-5 bg-gradient-to-b from-teal-500/50 to-transparent" />
       </motion.div>
+    </div>
+  );
+}
+
+const ScrollVelocityGallery = () => {
+  return (
+    <div className="grid grid-cols-3 gap-8 h-full w-full">
+      <ParallaxColumn images={images.slice(0, 3)} baseVelocity={-2} />
+      <ParallaxColumn images={images.slice(3, 6)} baseVelocity={3} />
+      <ParallaxColumn images={images.slice(0, 4)} baseVelocity={-1.5} />
     </div>
   );
 };

@@ -16,7 +16,9 @@ import {
   Zap,
   Maximize2,
   Smile,
-  TrendingUp
+  TrendingUp,
+  ShieldAlert,
+  SearchCode
 } from 'lucide-react';
 
 export const tools = [
@@ -187,6 +189,16 @@ export const tools = [
     icon: TrendingUp,
     category: 'Marketing',
     tags: ['roi', 'calculator', 'growth', 'marketing'],
+    popular: true
+  },
+  {
+    id: 'brand-audit',
+    slug: 'brand-audit',
+    title: 'Digital Brand Audit',
+    description: 'Enter your URL to perform an instant high-fidelity scan of your digital presence. Analyze gaps in design, performance, and strategy.',
+    icon: SearchCode,
+    category: 'Strategic',
+    tags: ['audit', 'seo', 'strategy', 'analysis'],
     popular: true
   }
 ];

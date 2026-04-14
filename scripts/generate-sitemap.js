@@ -30,6 +30,7 @@ const TOOL_SLUGS = [
   'text-improver',
   'text-length-changer',
   'tone-changer',
+  'roi-calculator',
 ];
 
 const BLOG_IDS = [1, 2, 3, 4];

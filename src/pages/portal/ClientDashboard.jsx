@@ -17,7 +17,11 @@ import {
   ExternalLink,
   Globe,
   Image as ImageIcon,
-  BookOpen
+  BookOpen,
+  Server,
+  Headset,
+  Sparkles,
+  Zap
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
@@ -27,6 +31,10 @@ import PortalWidgets from '../../components/portal/PortalWidgets';
 import StagingView from '../../components/portal/StagingView';
 import AssetApproval from '../../components/portal/AssetApproval';
 import ClientKnowledgeBase from '../../components/portal/ClientKnowledgeBase';
+import EnvironmentManager from '../../components/portal/EnvironmentManager';
+import PortalSupport from '../../components/portal/PortalSupport';
+import AssetGenerator from '../../components/portal/AssetGenerator';
+import ActivityFeed from '../../components/portal/ActivityFeed';
 
 const ClientDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -79,8 +87,11 @@ const ClientDashboard = () => {
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard' },
     { icon: Globe, label: 'Staging' },
+    { icon: Server, label: 'Environments' },
     { icon: ImageIcon, label: 'Assets' },
+    { icon: Sparkles, label: 'Marketing Hub' },
     { icon: BookOpen, label: 'Resources' },
+    { icon: Headset, label: 'Support' },
     { icon: CheckSquare, label: 'Milestones' },
     { icon: FileText, label: 'Documents' },
     { icon: CreditCard, label: 'Invoices' },
@@ -236,11 +247,50 @@ const ClientDashboard = () => {
                   </div>
                 </motion.div>
 
-                {/* Timeline Widget */}
-                {activeProjectId && <ProjectTimeline projectId={activeProjectId} />}
+                {/* Grid Layout for Timeline, Widgets, and Activity */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  <div className="lg:col-span-8 space-y-8">
+                    {/* Project Banner */}
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="bg-slate-900 rounded-[2.5rem] p-8 text-white relative overflow-hidden group shadow-2xl"
+                    >
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] pointer-events-none group-hover:bg-teal-500/20 transition-colors"></div>
+                      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-6">
+                           <div className="w-16 h-16 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-sm">
+                              <Zap className="text-teal-400" size={32} />
+                           </div>
+                           <div>
+                              <h4 className="text-2xl font-black mb-1">Monarch Real Estate <span className="text-teal-500 opacity-60">v1.8</span></h4>
+                              <p className="text-slate-400 text-sm font-medium">Next-gen real estate platform optimized for hyper-local lead capture.</p>
+                           </div>
+                        </div>
+                        <div className="flex -space-x-3">
+                           {[1, 2, 3].map(i => (
+                             <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden ring-4 ring-slate-900/50">
+                               <img src={`https://i.pravatar.cc/150?u=${i+20}`} alt="team" />
+                             </div>
+                           ))}
+                           <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-teal-500 flex items-center justify-center text-xs font-black text-slate-900 ring-4 ring-slate-900/50">
+                             +2
+                           </div>
+                        </div>
+                      </div>
+                    </motion.div>
 
-                {/* Widgets Section */}
-                {activeProjectId && <PortalWidgets projectId={activeProjectId} />}
+                    {/* Timeline Widget */}
+                    {activeProjectId && <ProjectTimeline projectId={activeProjectId} />}
+
+                    {/* Widgets Section */}
+                    {activeProjectId && <PortalWidgets projectId={activeProjectId} />}
+                  </div>
+
+                  <div className="lg:col-span-4">
+                    <ActivityFeed />
+                  </div>
+                </div>
               </>
             )}
 
@@ -341,9 +391,15 @@ const ClientDashboard = () => {
 
             {activeTab === 'Staging' && <StagingView />}
             
+            {activeTab === 'Environments' && <EnvironmentManager />}
+            
             {activeTab === 'Assets' && <AssetApproval />}
             
             {activeTab === 'Resources' && <ClientKnowledgeBase />}
+
+            {activeTab === 'Marketing Hub' && <AssetGenerator />}
+
+            {activeTab === 'Support' && <PortalSupport />}
 
             {activeTab === 'Settings' && (
               <div className="flex flex-col items-center justify-center py-32 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm text-center">
