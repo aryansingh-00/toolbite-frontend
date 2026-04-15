@@ -7,12 +7,11 @@ import {
   Palette, 
   Type, 
   Sparkles,
-  Instagram,
-  Linkedin,
-  Twitter,
   Layout,
-  RefreshCw
+  RefreshCw,
+  Zap
 } from 'lucide-react';
+import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 
 const AssetGenerator = () => {

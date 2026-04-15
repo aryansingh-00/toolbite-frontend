@@ -118,7 +118,7 @@ const PortalSupport = () => {
               <Sparkles className="text-white/20 mb-6" size={40} />
               <h4 className="text-xl font-bold mb-2">Priority Lane Active</h4>
               <p className="text-teal-50/80 text-sm mb-6 leading-relaxed font-medium">
-                As a Premium Tier client, your requests are automatically routed to the top of our technical queue. Typical response time: **< 15 mins**.
+                As a Premium Tier client, your requests are automatically routed to the top of our technical queue. Typical response time: **{"<"} 15 mins**.
               </p>
               <button className="w-full py-4 bg-white text-teal-700 font-black rounded-xl hover:scale-105 transition-transform shadow-lg shadow-teal-900/20">
                  Create Support Ticket
