@@ -38,6 +38,63 @@ The goal is to maximize shares and saves.`;
       keywords="instagram reel generator, reel prompt generator, viral hooks, instagram marketing tools, ai content generator"
       icon={Instagram}
       category="AI"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Viral Architecture: Why Your Reels Need Strategy</h2>
+            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+              In 2026, the Instagram algorithm has shifted from simple engagement to "Retention Depth." It's no longer enough to get a view; you must keep the viewer and inspire a save or share. Our prompt generator is designed to architect those exact psychological triggers.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">The 3-Second Hook Rule</h3>
+              <p className="text-slate-600 leading-relaxed">
+                The first 3 seconds of your Reel are the most valuable real estate on the internet. Our generator prioritizes "Visual Pattern Interrupts"—elements that stop the thumb mid-scroll.
+              </p>
+              <ul className="space-y-2 text-slate-600">
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                   Negative Hook: "Stop doing X if you want Y"
+                </li>
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                   Curiosity Gap: "The secret tool I wish I knew at 20"
+                </li>
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                   Direct Benefit: "How to save 10 hours this week"
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Retention Engineering</h3>
+              <p className="text-slate-600 leading-relaxed italic border-l-4 border-slate-100 pl-4">
+                "High retention is the signal Google and Meta use to determine if content is high value."
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                We use fast-paced structured flows to ensure there are no "dull" moments. Each prompt includes specific text-overlay strategies to keep users reading even when the audio is off.
+              </p>
+            </div>
+          </div>
+
+          <section className="bg-rose-50/50 rounded-3xl p-8 border border-rose-100">
+            <h4 className="text-lg font-bold text-rose-900 mb-2">Trend Analysis in 2026</h4>
+            <p className="text-sm text-rose-800 leading-relaxed font-medium">
+              Trends move 5x faster than they did in 2024. Our AI models analyze current viral clusters to provide prompts that align with trending audio signatures and transitions. By using these concepts, you're not just creating content—you're riding the algorithmic wave.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-slate-900 mb-4 font-sans">Maximize Shares & Saves</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Shares are the #1 reach multiplier. Our prompts focus on "Relatable Truths" and "Saveable Value" (like checklists or hidden features) to ensure your followers act as your secondary distribution network.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">

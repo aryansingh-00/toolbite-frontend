@@ -55,19 +55,25 @@ const ProjectStrategist = () => {
       const budget = params.get('budget');
       const type = params.get('type');
       const goal = params.get('goal');
+      const roiGain = params.get('roi_gain');
+      const convBoost = params.get('conv_boost');
       
-      if (budget || type || goal) {
+      if (budget || type || goal || roiGain) {
         setAnswers({
           ...answers,
           budget: budget ? `$${budget}` : undefined,
           type: type || undefined,
-          goal: goal || undefined
+          goal: goal || undefined,
+          roiGain: roiGain || undefined,
+          convBoost: convBoost || undefined
         });
 
-        setMessages([
-          { role: 'bot', content: "Welcome back! I've imported your estimate data. Let's refine your strategic roadmap." },
-          { role: 'bot', content: "Let's start with the business context. What's your name?" }
-        ]);
+        const welcomeMsgs = [
+          { role: 'bot', content: roiGain ? `I see you've identified a massive $${parseInt(roiGain).toLocaleString()} annual growth opportunity! That's impressive.` : "Welcome back! I've imported your estimate data. Let's refine your strategic roadmap." },
+          { role: 'bot', content: roiGain ? "I'm ready to help you architect the platform that unlocks that revenue. Let's start with your name?" : "Let's start with the business context. What's your name?" }
+        ];
+
+        setMessages(welcomeMsgs);
 
         // Smooth scroll to section
         const section = document.getElementById('ai-strategist');

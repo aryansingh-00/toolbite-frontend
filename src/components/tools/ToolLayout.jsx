@@ -10,7 +10,8 @@ const ToolLayout = ({
   keywords, 
   icon: Icon, 
   children,
-  category 
+  category,
+  extendedContent
 }) => {
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
@@ -69,6 +70,18 @@ const ToolLayout = ({
         >
           {children}
         </motion.div>
+
+        {/* Extended Educational Content (AdSense Value) */}
+        {extendedContent && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-16 prose prose-slate max-w-none bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-sm"
+          >
+            {extendedContent}
+          </motion.div>
+        )}
 
         {/* Info Section (For SEO value) */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">

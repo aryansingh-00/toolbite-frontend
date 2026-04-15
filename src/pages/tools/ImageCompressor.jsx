@@ -83,6 +83,63 @@ const ImageCompressor = () => {
       keywords="image compressor, reduce image size, optimize images, photo compressor, online image optimization"
       icon={ImageIcon}
       category="Image"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Performance Frontier: Why Every Kilobyte Matters</h2>
+            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+              In 2026, image optimization is no longer just a "best practice"—it's a fundamental requirement for digital survival. Images typically account for over 60% of a website's total page weight. By compressing your assets with ToolBite, you're directly improving your brand's LCP (Largest Contentful Paint) and overall user experience.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">The Impact on SEO Rankings</h3>
+              <p className="text-slate-600 leading-relaxed italic border-l-4 border-emerald-500/20 pl-4">
+                "Google's page experience signals heavily penalize slow-loading visual assets. Optimized images are the hidden engine behind higher organic rankings."
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                Large, uncompressed JPEGs are the primary cause of "Layout Shift" and high bounce rates. Our local-first compressor ensures you achieve a 70-90% reduction in file size while maintaining the architectural clarity of your original photography.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Technical Optimization Stack</h3>
+              <p className="text-slate-600 leading-relaxed">
+                We utilize `browser-image-compression` technology to process your files entirely on your local machine. This guarantees 100% privacy and lightning-fast processing speeds that traditional server-side compressors simply cannot match.
+              </p>
+              <ul className="space-y-2 text-slate-600">
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0" />
+                   Lossless structural integrity
+                </li>
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0" />
+                   Automated metadata stripping for extra lightness
+                </li>
+                <li className="flex gap-2 font-medium">
+                   <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0" />
+                   WEBP & AVIF compatibility for 2026 standards
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h4 className="text-lg font-bold text-slate-900 mb-2">Pro Tip: The Ideal Web Profile</h4>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
+              For most marketing websites, we recommend a quality setting of <strong>80% (0.8)</strong>. This provides the "Sweet Spot" between human-percieved visual excellence and algorithmic speed requirements. Aim to keep all individual image assets under <strong>200KB</strong> for maximum mobile performance.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-slate-900 mb-4 font-sans">Privacy First Infrastructure</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Unlike other online compressors that upload your sensitive brand assets to a cloud server, ToolBite uses WASM-based local workers. Your pixels never leave your browser, providing an enterprise-grade security layer for your internal project assets.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-10">
         {/* Upload Section */}

@@ -44,6 +44,49 @@ const ROICalculator = () => {
     <ToolLayout
       title="ROI Growth Predictor"
       description="Stop leaving money on the table. Calculate how ToolBite's elite design and performance benchmarks can scale your revenue."
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Business Case for High-Performance Design</h2>
+            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+              In 2026, the performance of your digital platform is directly proportional to your bottom-line revenue. A one-second delay in page load time can lead to a 7% reduction in conversions. Our ROI Predictor helping you visualize exactly much "invisible revenue" is lost to sub-optimal architecture.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Understanding Conversion Lift</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Most e-commerce platforms operate at an average conversion rate of 1.5% to 2.5%. By moving that needle even slightly through **Psychological UX patterns** and **Instant LCP**, the exponential growth in annual revenue is often enough to fund your entire technology budget for the year.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">The Cost of Latency</h3>
+              <p className="text-slate-600 leading-relaxed italic border-l-4 border-teal-500/20 pl-4">
+                "Google's Core Web Vitals are now a core business KPI. Failure to pass means you're being outranked and outearned by leaner competitors."
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                Our benchmarks are derived from real-world data across 500+ premium brand launches. We focus on the "Magic 3": Loading Security, Visual Stability, and Interaction Readiness.
+              </p>
+            </div>
+          </div>
+
+          <section className="bg-teal-50/50 rounded-3xl p-8 border border-teal-100">
+            <h4 className="text-lg font-bold text-teal-900 mb-2">Sustainable Scaling in 2026</h4>
+            <p className="text-sm text-teal-800 leading-relaxed font-medium">
+              Scaling isn't just about more traffic; it's about making your existing traffic 2x more valuable. By optimizing your "Conversion Yield," you can increase your ad-spend ROI and decrease your customer acquisition cost (CAC) simultaneously.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-slate-900 mb-4 font-sans">Strategic Roadmap Integration</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Once you've calculated your potential, the next step is implementation. Our AI Strategist takes these benchmarks and builds a 90-day technical plan to transform your platform into a high-converting growth engine.
+            </p>
+          </section>
+        </div>
+      }
     >
       <SEO 
         title="ROI Growth Predictor — Calculate Website Revenue Potential"
@@ -168,7 +211,7 @@ const ROICalculator = () => {
                   <p className="text-slate-400 text-sm">Our AI strategists are ready to implement these benchmarks.</p>
                 </div>
                 <Link 
-                  to="/#ai-strategist"
+                  to={`/#ai-strategist?refine=true&roi_gain=${Math.floor(results.annualGain)}&conv_boost=${results.percentageGrowth.toFixed(1)}`}
                   className="w-full md:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-2xl flex items-center justify-center gap-2 transition-all shadow-xl shadow-teal-500/20 group"
                 >
                   Start Strategic Roadmap

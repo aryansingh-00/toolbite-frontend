@@ -34,6 +34,56 @@ const WordCounter = () => {
       keywords="word counter, character count, text analyzer, writing stats, reading time calculator"
       icon={Type}
       category="Text"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">Mastering Your Message: The Science of Word Counts</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              In the modern digital landscape, the length of your content isn't just a technical detail—it's a critical factor in how your message is perceived, shared, and ranked. Whether you're an SEO strategist, a creative writer, or a student, understanding the nuances of word and character counts is essential for effective communication.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">SEO & Digital Marketing</h3>
+              <p className="text-slate-600 leading-relaxed italic">
+                Modern search algorithms have evolved beyond simple length checks. However, "depth" is still highly correlated with higher rankings.
+              </p>
+              <ul className="mt-4 space-y-2 text-slate-600">
+                <li><strong className="text-slate-900">High-Authority Blogs:</strong> Aim for 1,500 - 2,500 words for comprehensive coverage.</li>
+                <li><strong className="text-slate-900">Meta Descriptions:</strong> Keep characters under 160 to prevent truncation in SERPs.</li>
+                <li><strong className="text-slate-900">Product Pages:</strong> Concise, value-driven descriptions of 300-500 words work best.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Social Media Benchmarks</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Platform constraints define how users consume your content. Staying within "Sweet Spots" maximizes your engagement.
+              </p>
+              <ul className="mt-4 space-y-2 text-slate-600">
+                <li><strong className="text-slate-900">Instagram Captions:</strong> 125-150 characters for immediate impact without "more" clicks.</li>
+                <li><strong className="text-slate-900">Twitter (X):</strong> 70-100 characters often see the highest engagement rates.</li>
+                <li><strong className="text-slate-900">LinkedIn:</strong> 500-1,000 characters for authoritative professional storytelling.</li>
+              </ul>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Understanding Reading vs. Speaking Time</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Our analyzer uses industry-standard benchmarks for time prediction. The average professional reads at approximately <strong>225 words per minute (WPM)</strong>, while standard speaking rates for presentations and podcasts hover around <strong>130 WPM</strong>. Knowing these metrics helps you tailor your content for newsletters, keynote speeches, or YouTube scripts.
+            </p>
+          </section>
+
+          <section>
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Accuracy Matters</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Using a reliable word counter prevents "scope creep" in academic assignments and ensures your marketing copy doesn't get cut off in mobile app views. ToolBite uses advanced regex processing to ensure that whitespace, punctuation, and multi-line breaks are handled with architectural precision.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-8">
         <div className="relative">

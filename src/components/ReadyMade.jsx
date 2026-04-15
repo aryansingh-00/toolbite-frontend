@@ -1,7 +1,7 @@
  
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ShoppingCart, Check } from 'lucide-react';
+import { ExternalLink, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import staticTemplates from '../data/templates';
 import TiltCard from './TiltCard';
@@ -52,21 +52,9 @@ const ReadyMade = () => {
                     <h4 className="text-xl font-bold text-slate-900 leading-tight">{tpl.title}</h4>
                   </div>
 
-                  <p className="text-slate-600 text-sm mb-5 h-10 line-clamp-2" title={tpl.shortDescription}>
+                  <p className="text-slate-600 text-sm mb-6 h-10 line-clamp-2" title={tpl.shortDescription}>
                     {tpl.shortDescription}
                   </p>
-
-                  <div className="space-y-3 mb-8 flex-1 pt-4 border-t border-slate-50">
-                    {tpl.features && tpl.features.slice(0, 4).map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-3 text-sm text-slate-600 font-medium">
-                        <Check size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
-                        <span className="leading-tight">{feat}</span>
-                      </div>
-                    ))}
-                    {tpl.features && tpl.features.length > 4 && (
-                      <div className="text-xs font-bold text-teal-600 pl-7">+ {tpl.features.length - 4} more features</div>
-                    )}
-                  </div>
 
                   {/* Buttons */}
                   <div className="grid grid-cols-2 gap-3 mt-auto pt-4 border-t border-slate-100">

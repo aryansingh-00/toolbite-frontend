@@ -35,6 +35,8 @@ import EnvironmentManager from '../../components/portal/EnvironmentManager';
 import PortalSupport from '../../components/portal/PortalSupport';
 import AssetGenerator from '../../components/portal/AssetGenerator';
 import ActivityFeed from '../../components/portal/ActivityFeed';
+import PortalSettings from '../../components/portal/PortalSettings';
+import { Sun, Moon } from 'lucide-react';
 
 const ClientDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -402,13 +404,7 @@ const ClientDashboard = () => {
             {activeTab === 'Support' && <PortalSupport />}
 
             {activeTab === 'Settings' && (
-              <div className="flex flex-col items-center justify-center py-32 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm text-center">
-                <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6 text-slate-400">
-                  <Settings size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Portal Settings</h3>
-                <p className="text-slate-500 dark:text-slate-400 max-w-md">Update your password or notification preferences. This view is coming soon.</p>
-              </div>
+              <PortalSettings clientData={clientData} />
             )}
 
           </div>

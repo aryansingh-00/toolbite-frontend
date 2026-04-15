@@ -75,9 +75,20 @@ const BlogPage = () => {
         ))}
       </div>
 
-      <div className="mt-20 flex flex-col items-center gap-6">
-        <div className="w-12 h-1 bg-slate-200 rounded-full" />
-        <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">More articles coming soon</p>
+      <div className="mt-24 pt-12 border-t border-slate-100 flex flex-col items-center text-center">
+        <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+          <Calendar className="text-slate-300" size={24} />
+        </div>
+        <h3 className="text-xl font-bold text-slate-900 mb-2">Weekly Strategy Dispatches</h3>
+        <p className="text-slate-500 max-w-sm mb-8">
+          Join 5,000+ architects and founders receiving our weekly breakdown on high-performance design, SEO, and conversion engineering.
+        </p>
+        <Link 
+          to="/contact" 
+          className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-slate-900/10"
+        >
+          Subscribe to Insights
+        </Link>
       </div>
     </div>
   );
