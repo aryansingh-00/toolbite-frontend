@@ -12,6 +12,7 @@ import ExitIntentModal from './components/ExitIntentModal';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
+import CommandPalette from './components/CommandPalette';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
@@ -53,10 +54,32 @@ const ToneChanger = React.lazy(() => import('./pages/tools/ToneChanger'));
 const ROICalculator = React.lazy(() => import('./pages/tools/ROICalculator'));
 const BrandAudit = React.lazy(() => import('./pages/tools/BrandAudit'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
+const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 
 
 function App() {
   const location = useLocation();
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Cmd+K or Ctrl+K
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen(prev => !prev);
+      }
+    };
+
+    const handleToggle = () => setIsCommandPaletteOpen(prev => !prev);
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('toggle-command-palette', handleToggle);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('toggle-command-palette', handleToggle);
+    };
+  }, []);
+
   const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login';
 
   return (
@@ -81,6 +104,7 @@ function App() {
                   <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+                  <Route path="/pricing" element={<PageTransition><PricingPage /></PageTransition>} />
                   <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/admin/login" element={<PageTransition><AdminLogin /></PageTransition>} />
                   <Route path="/client-login" element={<PageTransition><ClientLogin /></PageTransition>} />
@@ -127,6 +151,7 @@ function App() {
               <BackToTop />
               <CookieConsent />
               <ExitIntentModal />
+              <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
             </>
           )}
         </div>

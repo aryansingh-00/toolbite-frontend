@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 
 export const servicesData = [
+  { icon: <Smartphone className="w-6 h-6 text-indigo-500" />, title: 'Premium Mobile Applications', description: 'Architecting high-performance native (iOS/Android) and cross-platform apps using React Native and Flutter for a seamless mobile experience.', bg: 'bg-indigo-50', border: 'border-indigo-200' },
   { icon: <Briefcase className="w-6 h-6 text-blue-500" />, title: 'Corporate Web Platforms', description: 'Establish market dominance with a strategically engineered corporate presence designed to capture institutional B2B leads and drive sustained growth.', bg: 'bg-blue-50', border: 'border-blue-200' },
   { icon: <ImageIcon className="w-6 h-6 text-purple-500" />, title: 'Elite Portfolio Showcases', description: 'Command industry respect. We build high-fidelity interactive galleries with flawless scrolling dynamics to showcase prestigious portfolios and enterprise case studies.', bg: 'bg-purple-50', border: 'border-purple-200' },
   { icon: <Rocket className="w-6 h-6 text-rose-500" />, title: 'High-Impact Landing Pages', description: 'Frictionless, psychologically structured single-page ecosystems hyper-optimized to convert ad traffic into qualified pipeline inventory.', bg: 'bg-rose-50', border: 'border-rose-200' },

@@ -4,9 +4,10 @@ The easiest and fastest way to onboard new clients and populate their dashboard 
 
 ## The 3-Project Example Script
 
-Here is a detailed, ready-to-run SQL script that creates **three entirely different client projects**, complete with their own specific milestones and to-do lists. 
+Here is a detailed, ready-to-run SQL script that creates **three entirely different client projects**, complete with their own specific milestones and to-do lists.
 
-### Instructions:
+### Instructions
+
 1. Go to your active Supabase project.
 2. Click **SQL Editor** on the left menu, then click **New Query**.
 3. Copy the script below, paste it into the editor, and click **Run**.
@@ -84,7 +85,7 @@ SELECT id, 'Approve final Marketing Copy for App Store', 'normal', false FROM ne
 
 ## The Crucial Final Step: Assigning the Projects to Users
 
-Because of the security restrictions we implemented, **none of these projects will show up in the portal until you assign them to a user**. 
+Because of the security restrictions we implemented, **none of these projects will show up in the portal until you assign them to a user**.
 
 After you run the script above to create the 3 projects, do the following to assign them:
 

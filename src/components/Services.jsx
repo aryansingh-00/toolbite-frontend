@@ -27,7 +27,7 @@ const Services = () => {
           <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">What We Do</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Digital Solutions for <br className="hidden md:block"/> Every Need.</h3>
           <p className="text-lg text-slate-600">
-            From simple landing pages to complex web applications, we provide end-to-end development services tailored exactly to your business goals.
+            From high-performance mobile apps to complex web applications, we provide end-to-end development services tailored exactly to your business goals.
           </p>
         </div>
 

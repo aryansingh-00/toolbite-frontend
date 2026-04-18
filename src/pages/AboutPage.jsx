@@ -37,7 +37,7 @@ const AboutPage = () => {
               What started as a small team of passionate developers based in New Delhi has evolved into a full-scale architectural digital agency. Our name, ToolBite, signifies our dual approach—providing the tools businesses need to succeed and the "bite" or competitive edge required to dominate their market.
             </p>
             <p>
-              We specialize in high-performance React frameworks, server-side rendering, and ultra-fast deployment cycles. Every template in our vault and every custom project we undertake is subjected to rigorous SEO and Core Web Vitals auditing before it ever reaches a client.
+              We specialize in high-performance React frameworks, native and cross-platform mobile apps, server-side rendering, and ultra-fast deployment cycles. Every template in our vault and every custom project we undertake is subjected to rigorous SEO and Core Web Vitals auditing before it ever reaches a client.
             </p>
           </div>
         </div>

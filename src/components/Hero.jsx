@@ -39,7 +39,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-slate-600 mb-12 max-w-lg leading-relaxed font-medium"
             >
-              We architect high-performance web applications and conversion-optimized websites that transform casual traffic into qualified revenue.
+              We architect high-performance web applications and premium mobile apps for iOS and Android that transform casual traffic into qualified revenue.
             </motion.p>
 
             <motion.div
@@ -77,7 +77,7 @@ const Hero = () => {
                 <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 shadow-inner">
                   <Smartphone size={18} className="text-blue-600" />
                 </div>
-                Omnichannel UX
+                Native & Cross-Platform
               </div>
               <div className="flex items-center gap-3 text-slate-800 font-bold tracking-tight">
                 <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center flex-shrink-0 shadow-inner">
