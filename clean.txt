@@ -1,0 +1,134 @@
+﻿import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Lock, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
+import { useClientAuth } from '../../contexts/ClientAuthContext';
+import { useNavigate } from 'react-router-dom';
+
+const ClientLogin = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  
+  const { login } = useClientAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMsg('');
+
+    const { error } = await login(email, password);
+
+    if (error) {
+      setErrorMsg(error.message);
+      setLoading(false);
+    } else {
+      navigate('/portal');
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+      
+      {/* Background Orbs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-teal-500/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="sm:mx-auto sm:w-full sm:max-w-md relative z-10"
+      >
+        <div className="flex justify-center mb-6">
+          <div className="w-14 h-14 bg-gradient-to-tr from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-teal-500/30">
+            <span className="text-white font-black text-3xl">T</span>
+          </div>
+        </div>
+        <h2 className="text-center text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Client Portal
+        </h2>
+        <p className="mt-2 text-center text-sm text-slate-600 dark:text-slate-400 font-medium">
+          Sign in to access your project dashboard
+        </p>
+      </motion.div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10"
+      >
+        <div className="bg-white dark:bg-slate-900 py-8 px-4 shadow-2xl sm:rounded-[2rem] sm:px-10 border border-slate-200 dark:border-slate-800">
+          <form className="space-y-6" onSubmit={handleLogin}>
+            
+            {errorMsg && (
+              <div className="p-4 bg-rose-50 dark:bg-rose-500/10 border border-rose-200 dark:border-rose-500/20 rounded-2xl flex gap-3 text-rose-600 dark:text-rose-400 text-sm font-medium">
+                <AlertCircle size={18} className="shrink-0" />
+                {errorMsg}
+              </div>
+            )}
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
+                Email Address
+              </label>
+              <div className="mt-2 relative rounded-2xl shadow-sm">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Mail className="h-5 w-5 text-slate-400" />
+                </div>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50 dark:bg-slate-800 dark:text-white transition-all outline-none"
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
+                Password
+              </label>
+              <div className="mt-2 relative rounded-2xl shadow-sm">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Lock className="h-5 w-5 text-slate-400" />
+                </div>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50 dark:bg-slate-800 dark:text-white transition-all outline-none"
+                  placeholder="ΓÇóΓÇóΓÇóΓÇóΓÇóΓÇóΓÇóΓÇó"
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-bold text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
+              >
+                <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out" />
+                {loading ? (
+                  <Loader2 className="animate-spin w-5 h-5" />
+                ) : (
+                  <span className="flex items-center gap-2">
+                    Sign In
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </span>
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default ClientLogin;

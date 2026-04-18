@@ -112,10 +112,10 @@ const CommandPalette = ({ isOpen, onClose }) => {
 
           {/* Dialog */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-[101]"
+            initial={{ opacity: 0, scale: 0.95, y: 20, x: "-50%" }}
+            animate={{ opacity: 1, scale: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, scale: 0.95, y: 20, x: "-50%" }}
+            className="fixed top-24 left-1/2 w-full max-w-2xl px-4 z-[101]"
           >
             <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
               

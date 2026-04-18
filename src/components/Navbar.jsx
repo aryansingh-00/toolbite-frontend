@@ -232,18 +232,15 @@ const Navbar = () => {
               <Link to="/" className="flex items-center group">
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 295 80"
+                  viewBox="0 0 80 80"
                   fill="none"
-                  className="h-9 w-auto object-contain"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
                 >
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="#0f172a" strokeWidth="4.5" />
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="#0f172a" strokeWidth="4" />
                   <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="#0f172a" />
-                  <motion.text initial={{ x: 60, opacity: 0 }} animate={{ x: 80, opacity: 1 }} transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }} y="53" fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif" fontWeight="900" fontSize="34" fill="#0f172a" letterSpacing="1">TOOL</motion.text>
-                  <motion.text initial={{ x: 210, opacity: 0 }} animate={{ x: 180, opacity: 1 }} transition={{ duration: 0.6, delay: 1, ease: 'easeOut' }} y="53" fontFamily="'Arial Black', 'Impact', 'Helvetica Neue', Arial, sans-serif" fontWeight="900" fontSize="34" fill="#14b8a6" letterSpacing="1">BITE</motion.text>
                 </motion.svg>
+                <span className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white ml-2">Tool<span className="text-teal-500">Bite</span></span>
               </Link>
             </div>
 
