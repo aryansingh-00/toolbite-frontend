@@ -195,9 +195,72 @@ const ToolsPage = () => {
             })}
           </div>
         )}
+
+        {/* SEO Educational Section */}
+        <div className="mt-32 pt-24 border-t border-slate-200">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="space-y-12">
+              <section>
+                <h2 className="text-4xl font-black text-slate-900 mb-6 tracking-tight">The ToolBite Digital Ecosystem</h2>
+                <p className="text-lg leading-relaxed text-slate-600 font-medium">
+                  At ToolBite, we believe that professional-grade utility shouldn't come with a privacy tax. Our Power Center was architected to give developers, designers, and marketers the high-performance tools they need without the bloat, tracking, or data-collection common in the industry.
+                </p>
+              </section>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Edge Processing</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    Unlike traditional "cloud" tools, 95% of our processing happens in your browser's local sandbox. This means faster speeds, offline capability, and absolute data privacy.
+                  </p>
+                </div>
+                <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Zero Data Retention</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    We don't store your logs, your images, or your converted files. Once you close the tab, all session data is permanently purged from your device cache.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-12 bg-slate-900 rounded-[3rem] p-12 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[100px] rounded-full"></div>
+              <h3 className="text-2xl font-bold mb-6">Why These Tools are Free</h3>
+              <p className="text-slate-400 leading-relaxed mb-8">
+                ToolBite is primarily a premium digital engineering agency. We offer these tools to help the community level up their workflows. We found that most daily tasks—like checking word counts or converting images—were handled by ad-riddled, slow-loading sites.
+              </p>
+              <div className="pt-8 border-t border-white/10">
+                <p className="text-sm font-bold text-teal-400 uppercase tracking-widest mb-4 italic">"Scale Beyond the Basics"</p>
+                <p className="text-slate-300 text-sm leading-relaxed mb-8">
+                  If these tools help you manage your day-to-day, imagine what our custom engineering team can do for your entire platform infrastructure.
+                </p>
+                <Link to="/start-project" className="inline-flex items-center gap-2 text-white font-black hover:text-teal-400 transition-colors">
+                  Discuss a Custom Engineering Project <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-24 bg-teal-600 rounded-[3rem] p-12 md:p-16 text-center text-white">
+            <h3 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">Need a Custom Automation?</h3>
+            <p className="text-teal-50 text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
+              If our current collection doesn't include the specific workflow you need, we can build custom internal tools or API integrations tailored for your brand's unique scale.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link to="/contact" className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl shadow-xl hover:scale-105 transition-transform">
+                Consult with our Engineers
+              </Link>
+              <Link to="/templates" className="px-10 py-5 bg-white text-teal-700 font-bold rounded-2xl hover:bg-teal-50 transition-all">
+                Browse Ready-Made Vault
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default ToolsPage;
+
+

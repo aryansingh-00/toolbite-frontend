@@ -55,6 +55,44 @@ Requirements:
       keywords="text improver, writing enhancer, content improver, professional writing tool, ai prose editor"
       icon={Zap}
       category="Text"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">The Power of Persuasive Copywriting</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              The difference between content that simply <em>informs</em> and content that <em>converts</em> lies entirely in the execution of your prose. A robust text improver doesn't just fix typos; it strategically elevates your vocabulary, smooths out awkward phrasing, and refines your structure to maximize emotional impact and cognitive fluency. Whether you are generating sales copy, drafting CEO-level communications, or structuring an academic thesis, mastering tone is your ultimate lever for engagement.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Mastering Tone in Digital Communication</h3>
+              <p className="text-slate-600 leading-relaxed italic mb-4">
+                Choosing the right modality for your audience defines how your message is received.
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Professional:</strong> Employs authoritative terminology, passive voice where appropriate, and structured logic. Best for B2B proposals and corporate documentation.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Creative:</strong> Leverages vivid imagery, dynamic metaphors, and emotional hooks. Ideal for brand storytelling and consumer-facing ad copy.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Concise:</strong> Strips redundant adjectives and adverbs to deliver rapid value. Essential for social media updates and user interface (UI) microcopy.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Why First Impressions Matter</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Eye-tracking studies consistently demonstrate that visitors spend less than 15 seconds evaluating a webpage. If your opening hook is weak, overly dense, or confusing, you lose the opportunity to convert. Using an AI-driven text improver acts as a real-time editorial team, guaranteeing that your first impression bridges the gap between your brand's intent and the reader's expectation. High-quality writing directly translates to lower bounce rates and higher time-on-page—key signals for search engine optimization (SEO).
+              </p>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Structuring AI Prompts for Perfect Copy</h3>
+            <p className="text-slate-600 leading-relaxed">
+              When utilizing Large Language Models (LLMs) like GPT-4 or Claude to rewrite text, the quality of the output depends entirely on the specificity of the input prompt. Our Text Improver acts as an algorithmic intermediate, taking your raw text and structuring a highly sophisticated, multi-parameter prompt. It defines the exact persona, grammatical constraints, and stylistic flair required, bypassing the generic "AI-voice" to produce organic, specialized output.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">

@@ -102,6 +102,44 @@ const PdfToImage = () => {
       keywords="pdf to image, pdf to png, extract pdf images, pdf converter, pdf to jpg, high quality pdf export"
       icon={FileImage}
       category="PDF"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">Liberating Your Visual Assets</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              While PDFs are incredible for maintaining layout consistency, they are notoriously difficult to edit, embed, or share selectively. If you need to post a specific chart from an annual report to social media, or embed a single slide from a presentation into an email, extracting high-fidelity images is the only elegant solution.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">The Flaw in Screenshots</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                The most common workaround for extracting PDF content is using the OS screenshot tool. This fails for three reasons:
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Resolution Loss:</strong> Screenshots are limited to your monitor's pixel density, meaning zooming in on an embedded vector will result in heavy pixelation.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Color Artifacts:</strong> OS rendering often applies subtle color profile shifts that distort brand assets.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Inefficiency:</strong> Manually framing and capturing a 50-page document is completely unscalable.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Vector to Raster Execution</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Our rendering engine directly taps into the mathematical vector data inherent in the PDF structure. We render the page onto a hidden HTML5 Canvas at a 2.0x scale factor (often equivalent to 300 DPI print quality) before encoding it into a lossless PNG format. This guarantees that text remains crisp and charts remain sharp.
+              </p>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Browser-Native Processing Power</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Traditionally, manipulating PDFs required downloading clunky desktop software like Adobe Acrobat. We leverage `pdf.js` technology to parse the document binaries directly in your browser. This means you get desktop-grade extraction speeds with zero installation required, all while maintaining strict offline privacy for your proprietary documents.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-10">
         {!pdfFile ? (

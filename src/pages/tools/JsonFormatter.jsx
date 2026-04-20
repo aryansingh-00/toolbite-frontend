@@ -49,6 +49,54 @@ const JsonFormatter = () => {
       keywords="json formatter, json prettify, beautify json, validator, minify json, syntax checker"
       icon={AlignJustify}
       category="Development"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">Understanding JSON Architecture</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              JavaScript Object Notation (JSON) has become the undisputed lingua franca of the modern web. Whether you're configuring a frontend React application, managing a NoSQL database like MongoDB, or routing RESTful API requests, JSON is the lightweight data-interchange format that makes it all possible. However, because JSON requires strict syntax—where a single misplaced comma or missing quotation mark can crash an entire application—using a reliable formatter and validator is mission-critical.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Why Formatting Matters for Debugging</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Raw JSON payloads are often minified (stripped of whitespace) to conserve bandwidth during network transmission. While this is efficient for machines, it is entirely unreadable for humans. Prettifying your JSON expands the syntax into a beautifully nested, hierarchical structure. 
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Visual Scope:</strong> Indentation clarifies parent-child relationships within nested objects and arrays.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Rapid Troubleshooting:</strong> Our validator instantly flags syntax errors, dramatically reducing the time spent hunting down a stray trailing comma.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Common JSON Syntax Errors</h3>
+              <ul className="space-y-4 text-slate-600">
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-rose-600 block mb-1">Unquoted Keys</strong>
+                  Unlike standard JavaScript objects, JSON requires all property names (keys) to be enclosed in double quotes. <code>{"{\"name\": \"John\"}"}</code> is valid; <code>{"{name: \"John\"}"}</code> is not.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-amber-600 block mb-1">Trailing Commas</strong>
+                  A comma after the last item in an array or object will cause the parser to fail. This is the most frequent error encountered during copy-pasting.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-blue-600 block mb-1">Single Quotes</strong>
+                  JSON strings must use double quotes (""). Single quotes ('') will trigger an immediate parsing failure.
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">The Logic Behind Minification</h3>
+            <p className="text-slate-600 leading-relaxed">
+              When it's time to deploy your data to production, every byte counts. Extraneous spaces, line breaks, and tabs increase file size without adding functional value. Our JSON minifier uses advanced runtime execution to predictably strip all non-essential characters formatting, compressing your payloads for optimal Core Web Vitals and lightning-fast API responses.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-8">
         <div className="relative">

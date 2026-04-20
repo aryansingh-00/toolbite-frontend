@@ -50,6 +50,57 @@ const LoremIpsum = () => {
       keywords="lorem ipsum, placeholder text, filler text, dummy text generator, design tool"
       icon={FileText}
       category="Design"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">The Legacy of Dummy Text in Design</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              For centuries, the printing and typesetting industry has relied on "Lorem Ipsum" to define structural layouts. Originating from highly altered passages of Cicero's 1st-century BC text <em>De Finibus Bonorum et Malorum</em>, this scrambled Latin is more than just filler—it's a critical tool for visual hierarchy. By generating non-readable placeholder text, designers force clients and stakeholders to focus entirely on typography, spatial distribution, and layout, rather than getting distracted by the actual meaning of the words.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Why "Real" Content Ruins Prototypes</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                It's a common trap: a designer uses real, draft copy in an early-stage wireframe. The client immediately stops evaluating the aesthetic balance and starts copy-editing the text. 
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Cognitive Separation:</strong> Lorem Ipsum lacks grammatical logic in modern languages, explicitly telling the brain "this is structural data, not readable content."</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Natural Letter Distribution:</strong> Unlike repeating "insert text here," Lorem Ipsum correctly mimics the natural frequency of vowels and consonants, giving a highly accurate preview of font weights and tracking.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Precision Formatting for Modern UI/UX</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Different architectural components require drastically different volume weights:
+              </p>
+              <ul className="space-y-4 text-slate-600">
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-teal-600 block mb-1">Words (Volume 2-5)</strong>
+                  Essential for mocking up navigation bars, button labels, and small UI microcopy.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-indigo-600 block mb-1">Sentences (Volume 1-3)</strong>
+                  Perfect for subtitle taglines, feature card descriptions, and brief testimonial quotas.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-rose-600 block mb-1">Paragraphs (Volume 2-4)</strong>
+                  Required for simulating heavy content blocks like terms of service, blog bodies, and "About Us" company histories.
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">SEO and Placeholder Risks</h3>
+            <p className="text-slate-600 leading-relaxed">
+              While Lorem Ipsum accelerates design, it poses a lethal threat to SEO if accidentally left in a production environment. Search engine crawlers interpret dummy text as deeply irrelevant "thin content" and will aggressively penalize the page's ranking. ToolBite generates randomized phrasing to ensure design aesthetics remain fresh, but always run a final audit before taking a site live to ensure every instance of placeholder text has been replaced.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-slate-50 rounded-2xl border border-slate-100">

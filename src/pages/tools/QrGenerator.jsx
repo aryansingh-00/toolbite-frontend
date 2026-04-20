@@ -56,6 +56,44 @@ const QrGenerator = () => {
       keywords="qr code generator, qr creator, barcode generator, custom qr code, download qr"
       icon={QrCode}
       category="Marketing"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">Bridging the Physical and Digital Worlds</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              Quick Response (QR) codes have evolved from a niche inventory tracking system into a fundamental marketing asset. By converting long, cumbersome URLs or text payloads into scannable visual matrix barcodes, brands can instantly connect offline audiences (from billboards, menus, or business cards) directly to high-converting online experiences without friction.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Creative Uses in Modern Marketing</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                QR deployment should be strategic. Consider these high-ROI implementations:
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>vCard Networking:</strong> Replace traditional business cards with a single QR code that instantly downloads your contact info into a client's phone.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Frictionless WiFi:</strong> Hospitality businesses can generate WiFi login QR codes, eliminating the need for guests to type complex passwords.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Lead Gen Forms:</strong> Place localized QR codes on direct mailers to track conversion rates of physical campaigns directly within Google Analytics.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Visual Customization & Scanning Science</h3>
+              <p className="text-slate-600 leading-relaxed">
+                While it's tempting to use light or low-contrast colors for your QR code to match brand guidelines, this usually results in scan failures. QR scanners rely on stark contrast between the "data modules" (the dark squares) and the "quiet zone" (the light background). A dark foreground (like deep teal, navy, or black) on a pure white background guarantees a 99% scan success rate under variable optical conditions, such as screen glare or low-light environments.
+              </p>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Performance at Scale</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Our generator doesn't just create a tiny image; it programmatically renders the matrix data into an ultra-high-resolution (1000x1000 pixel) PNG format. This ensures that whether you're printing the code on a small product label or a 40-foot highway billboard, the hard edges of the data modules remain perfectly intact, completely avoiding the scan-breaking blur associated with low-quality generic generators.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Step 1: Input & Options */}

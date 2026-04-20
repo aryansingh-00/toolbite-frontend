@@ -74,6 +74,43 @@ const TextToSpeech = () => {
       keywords="text to speech, tts, voice synthesizer, speech generator, ai voice, narrator"
       icon={Mic2}
       category="Media"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">The Science of Synthetic Speech</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              Text-to-Speech (TTS) technology has transitioned from robotic, monotonous outputs to sophisticated <strong>neural synthesis</strong> that mimics the cadence and inflection of human speech. At ToolBite, our voice engine leverages standard browser-level APIs and advanced web-speech standards to provide an instantaneous, zero-latency conversion experience.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Accessibility & Inclusivity</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                TTS is a cornerstone of a truly accessible web. By providing high-quality audio alternatives to text, you ensure that your content is consumable by users with visual impairments, dyslexia, or different learning styles.
+              </p>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>WCAG Compliance:</strong> Our tool helps developers verify the "Read-Aloud" capability of their content.</span></li>
+                <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Multi-lingual Support:</strong> Choose from dozens of regional accents and languages to test localization.</span></li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Audio UX for Content Creators</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Modern users often "listen" to the web while multitasking. Whether it's a long-form blog post or a technical documentation page, providing an "Audio Version" significantly increases <strong>Dwell Time</strong>—a key metric for both user engagement and search engine optimization. Our tool allows you to adjust pitch and rate to find the most natural storytelling rhythm.
+              </p>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Local Processing?</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Unlike many online voice generators that upload your private text to external servers, ToolBite's TTS engine performs all processing <strong>locally in your browser</strong>. This ensures that sensitive documents, private scripts, or proprietary data never leave your device, offering enterprise-grade privacy by default.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="space-y-10">
         <div className="relative">

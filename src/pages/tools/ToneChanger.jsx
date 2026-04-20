@@ -56,6 +56,53 @@ The goal is to shift the mood while keeping the core information identical.`;
       keywords="tone changer, writing style tool, formal to casual converter, persuasive writing, empathy-driven text, ai editor"
       icon={Smile}
       category="Text"
+      extendedContent={
+        <div className="space-y-12">
+          <section>
+            <h2 className="text-3xl font-black text-slate-900 mb-6">The Psychology of Emotional Tone</h2>
+            <p className="text-lg leading-relaxed text-slate-600">
+              In written communication, "tone" refers to the attitude and emotional resonance conveyed by your choice of words. Without the benefit of body language or vocal inflection, your text alone must establish the relationship between you and your reader. Misjudging tone can lead to catastrophic communication breakdowns—such as sounding overly aggressive in a customer support email or too casual in a legal document.
+            </p>
+          </section>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Navigating Different Modalities</h3>
+              <ul className="space-y-4 text-slate-600">
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-blue-600 block mb-1">Professional Tone</strong>
+                  Strips away emotion to focus on objective facts, clear structure, and authoritative vocabulary. It builds trust through competence. Essential for B2B communications, proposals, and official announcements.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-emerald-600 block mb-1">Casual Tone</strong>
+                  Utilizes contractions, colloquialisms, and direct second-person pronouns ("you"). It builds brand loyalty by making corporations feel human. Ideal for social media and B2C marketing.
+                </li>
+                <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                  <strong className="text-rose-600 block mb-1">Empathetic Tone</strong>
+                  Prioritizes the reader's emotional state. Uses warm, validating language to de-escalate tension and foster connection. Crucial for customer service, apologies, and internal HR announcements.
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">The ROI of Tone Consistency</h3>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                Brands that maintain a consistent, appropriate tone across all touchpoints experience significantly higher customer retention. When your tone aligns with your brand identity and the specific context of the user's journey, you reduce friction. 
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                By utilizing an AI tone changer, you can rapidly prototype different voices for A/B testing in ad campaigns, ensuring you find the precise emotional resonance that drives the highest conversion rate (CVR) and lowest Cost Per Acquisition (CPA).
+              </p>
+            </section>
+          </div>
+
+          <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+            <h3 className="text-xl font-bold text-slate-900 mb-4">How Our Algorithmic Tone Mapping Works</h3>
+            <p className="text-slate-600 leading-relaxed">
+              Transforming tone requires more than a simple thesaurus lookup. Our tool generates logic-driven AI prompts that analyze your text at the semantic level. It instructs Large Language Models to map the core intent of your sentence to a new emotional axis—swapping aggressive verbs for softer alternatives, restructuring passive sentences into active persuasive calls-to-action, and systematically injecting or removing empathy markers. This ensures a complete paradigm shift in mood without sacrificing your fundamental message.
+            </p>
+          </section>
+        </div>
+      }
     >
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
