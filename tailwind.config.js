@@ -15,6 +15,10 @@ export default {
         'premium': '0 30px 60px -15px rgba(0,0,0,0.08)',
         'glow': '0 0 25px rgba(20, 184, 166, 0.4)',
         'glow-slate': '0 0 30px rgba(15, 23, 42, 0.25)',
+        'glow-teal': '0 0 20px rgba(20, 184, 166, 0.5), 0 0 40px rgba(20, 184, 166, 0.2)',
+        'glow-emerald': '0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.2)',
+        'glow-purple': '0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.2)',
+        'glow-blue': '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.2)',
       },
       animation: {
         'blob': 'blob 7s infinite',

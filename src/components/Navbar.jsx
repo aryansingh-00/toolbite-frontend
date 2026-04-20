@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, User, ChevronDown, Type, Image as ImageIcon, Code, Zap, TrendingUp, ShieldAlert, Wrench, FileText, Palette, Video, CheckCheck, Smartphone, Search, Command } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
-
 const navMenu = [
   {
     label: 'Services',
@@ -204,10 +202,27 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Glass effect when scrolled
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide navbar when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+        setIsHidden(true);
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -222,8 +237,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-0' : 'py-2'}`}>
-      <div className={`transition-all duration-500 ${isScrolled ? 'glass-card shadow-sm border-b border-slate-200/50 dark:border-slate-800/50 backdrop-blur-2xl' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'py-0' : 'py-2'} ${isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+      <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'glass-card shadow-sm border-b border-slate-200/50 dark:border-slate-800/50 backdrop-blur-2xl' : 'bg-transparent border-b border-transparent'}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -264,7 +279,6 @@ const Navbar = () => {
                   <span className="text-[10px] font-bold text-slate-400">K</span>
                 </div>
               </button>
-              <ThemeToggle />
               <Link
                 to="/client-login"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all"
@@ -289,7 +303,6 @@ const Navbar = () => {
               >
                 <Search size={20} />
               </button>
-              <ThemeToggle />
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"

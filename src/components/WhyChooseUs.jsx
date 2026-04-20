@@ -67,28 +67,50 @@ const WhyChooseUs = () => {
             className="flex overflow-x-auto gap-4 pb-12 pt-4 px-2 snap-x snap-mandatory hide-scrollbar"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {features.map((feat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (i % 5) * 0.05 }}
-                className="snap-center sm:snap-start flex-shrink-0"
-              >
-                <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[260px]">
-                  <div className="group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-teal-200 dark:hover:border-teal-500/30 transition-all duration-300 flex flex-col text-left items-start h-full">
-                    <div className={`w-12 h-12 rounded-2xl ${feat.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
-                      {feat.icon}
+            {features.map((feat, i) => {
+              const cardStyles = [
+                {
+                  bg: "hover:from-violet-600 hover:via-fuchsia-500 hover:to-pink-500",
+                  shadow: "hover:shadow-glow-purple"
+                },
+                {
+                  bg: "hover:from-blue-600 hover:via-cyan-500 hover:to-teal-400",
+                  shadow: "hover:shadow-glow-blue"
+                },
+                {
+                  bg: "hover:from-emerald-500 hover:via-teal-500 hover:to-cyan-500",
+                  shadow: "hover:shadow-glow-emerald"
+                },
+                {
+                  bg: "hover:from-teal-500 hover:via-indigo-500 hover:to-purple-500",
+                  shadow: "hover:shadow-glow-teal"
+                }
+              ];
+              const currentStyle = cardStyles[i % cardStyles.length];
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (i % 5) * 0.05 }}
+                  className="snap-center sm:snap-start flex-shrink-0"
+                >
+                  <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[260px]">
+                    <div className={`group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 flex flex-col text-left items-start h-full relative overflow-hidden z-10`}>
+                      <div className={`relative z-10 w-12 h-12 rounded-2xl ${feat.bg} group-hover:bg-white/20 flex items-center justify-center mb-5 group-hover:scale-110 !group-hover:text-white transition-all duration-300 flex-shrink-0`}>
+                        {feat.icon}
+                      </div>
+                      <h4 className="relative z-10 text-lg font-bold text-slate-900 dark:text-white group-hover:text-white mb-2 transition-colors duration-300">{feat.title}</h4>
+                      <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 text-sm leading-relaxed transition-colors duration-300">
+                        {feat.desc}
+                      </p>
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{feat.title}</h4>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                      {feat.desc}
-                    </p>
-                  </div>
-                </TiltCard>
-              </motion.div>
-            ))}
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 

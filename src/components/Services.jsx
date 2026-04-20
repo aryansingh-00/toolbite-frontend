@@ -54,33 +54,52 @@ const Services = () => {
             className="flex overflow-x-auto gap-6 pb-12 pt-4 px-2 snap-x snap-mandatory hide-scrollbar"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
-                className="snap-center sm:snap-start flex-shrink-0"
-              >
-                <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px]">
-                  <div 
-                    className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 hover:${service.border} hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px]`}
-                  >
-                    {/* Decorative Background blob */}
-                    <div className={`absolute top-0 right-0 w-32 h-32 ${service.bg} rounded-bl-[100px] -z-10 opacity-50 dark:opacity-20 group-hover:scale-125 transition-transform duration-500`}></div>
-                    
-                    <div className={`w-14 h-14 rounded-2xl ${service.bg} flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform duration-300 shadow-sm flex-shrink-0`}>
-                      {service.icon}
+            {services.map((service, index) => {
+              const cardStyles = [
+                {
+                  bg: "hover:from-violet-600 hover:via-fuchsia-500 hover:to-pink-500",
+                  shadow: "hover:shadow-glow-purple"
+                },
+                {
+                  bg: "hover:from-blue-600 hover:via-cyan-500 hover:to-teal-400",
+                  shadow: "hover:shadow-glow-blue"
+                },
+                {
+                  bg: "hover:from-emerald-500 hover:via-teal-500 hover:to-cyan-500",
+                  shadow: "hover:shadow-glow-emerald"
+                },
+                {
+                  bg: "hover:from-teal-500 hover:via-indigo-500 hover:to-purple-500",
+                  shadow: "hover:shadow-glow-teal"
+                }
+              ];
+              const currentStyle = cardStyles[index % cardStyles.length];
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
+                  className="snap-center sm:snap-start flex-shrink-0"
+                >
+                  <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px]">
+                    <div 
+                      className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px] z-10`}
+                    >
+                      <div className={`relative z-10 w-14 h-14 rounded-2xl ${service.bg} group-hover:bg-white/20 flex items-center justify-center mb-6 group-hover:-translate-y-1 !group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-none flex-shrink-0`}>
+                        {service.icon}
+                      </div>
+                      <h4 className="relative z-10 text-xl font-bold text-slate-900 dark:text-white group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h4>
+                      <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 leading-relaxed text-sm flex-grow transition-colors duration-300">
+                        {service.description}
+                      </p>
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{service.title}</h4>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm flex-grow">
-                      {service.description}
-                    </p>
-                  </div>
-                </TiltCard>
-              </motion.div>
-            ))}
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
