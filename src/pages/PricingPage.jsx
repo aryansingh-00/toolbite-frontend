@@ -70,7 +70,7 @@ const PricingPage = () => {
     <>
       <SEO
         title="Transparent Pricing Plans — ToolBite Agency"
-        description="Simple, honest pricing for premium web design and development. Choose the Growth, Enterprise, or SaaS plan that matches your business needs. No hidden fees."
+        description="Transparent pricing for premium digital engineering. Compare our Growth, Enterprise, and SaaS plans to find the perfect fit for your brand's scale. No hidden fees, just elite results."
         keywords="web design pricing, website cost, agency pricing plans, toolbite pricing"
       />
 
@@ -83,7 +83,7 @@ const PricingPage = () => {
               Transparent Pricing
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight mb-5">
-              Choose Your <span className="text-gradient">Best Plan</span>
+              Scalable <span className="text-teal-500">Pricing Plans</span> for Modern Digital Products
             </h1>
             <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
               Simple, honest pricing with no hidden fees. All plans include top-tier development and premium customer support designed exclusively for business growth.

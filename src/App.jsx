@@ -53,6 +53,7 @@ const TextLengthChanger = React.lazy(() => import('./pages/tools/TextLengthChang
 const ToneChanger = React.lazy(() => import('./pages/tools/ToneChanger'));
 const ROICalculator = React.lazy(() => import('./pages/tools/ROICalculator'));
 const BrandAudit = React.lazy(() => import('./pages/tools/BrandAudit'));
+const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 
@@ -134,6 +135,7 @@ function App() {
                   <Route path="/tools/tone-changer" element={<PageTransition><ToneChanger /></PageTransition>} />
                   <Route path="/tools/roi-calculator" element={<PageTransition><ROICalculator /></PageTransition>} />
                   <Route path="/tools/brand-audit" element={<PageTransition><BrandAudit /></PageTransition>} />
+                  <Route path="/tools/backlink-checker" element={<PageTransition><BacklinkChecker /></PageTransition>} />
 
                   <Route path="/admin" element={<ProtectedRoute />}>
                     <Route path="dashboard" element={<PageTransition><TemplateList /></PageTransition>} />

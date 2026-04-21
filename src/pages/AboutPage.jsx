@@ -12,7 +12,7 @@ const AboutPage = () => {
     <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
       <SEO 
         title="About ToolBite — Premier Web Design & Strategy Agency"
-        description="Learn how ToolBite balances architectural precision with creative excellence to build high-converting digital platforms for global brands."
+        description="Discover ToolBite's mission to architect the future of digital innovation. Explore our high-performance engineering philosophy, design-first mindset, and our commitment to building elite digital assets."
         keywords="about toolbite, web design story, premium digital agency india, architectural web development"
       />
       
@@ -20,7 +20,9 @@ const AboutPage = () => {
         <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-800 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-6">
           Architectural Precision
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tight">Our <span className="text-teal-500">Identity</span></h1>
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tight">
+          Architecting the Future of <span className="text-teal-500">Digital Innovation</span>
+        </h1>
         <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
           At ToolBite, we don't just build websites; we engineer digital assets that serve as the foundation for your brand's global expansion.
         </p>

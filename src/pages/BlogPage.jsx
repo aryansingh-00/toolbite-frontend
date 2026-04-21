@@ -13,7 +13,7 @@ const BlogPage = () => {
     <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
       <SEO 
         title="Web Design Blog & Digital Strategy Insights"
-        description="Stay ahead of the curve with the ToolBite blog. We share insights on modern web design, SEO, e-commerce optimization, and digital growth strategies."
+        description="Stay ahead with the ToolBite Digital Intelligence Feed. Expert insights on technical SEO, high-performance web engineering, conversion optimization, and modern digital strategy for brands."
         keywords="web design blog, digital strategy, SEO tips, e-commerce optimization, UI/UX trends 2026, website development insights"
       />
       <div className="text-center mb-16 px-4">
@@ -21,7 +21,9 @@ const BlogPage = () => {
           <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
           Insight Hub
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight">Our <span className="text-teal-500">Blog</span></h1>
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-6 tracking-tight">
+          The <span className="text-teal-500">ToolBite</span> Digital Intelligence Feed
+        </h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto font-medium">
           Authoritative insights and high-performance strategies for modern digital brands.
         </p>

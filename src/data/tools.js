@@ -200,6 +200,16 @@ export const tools = [
     category: 'Strategic',
     tags: ['audit', 'seo', 'strategy', 'analysis'],
     popular: true
+  },
+  {
+    id: 'backlink-checker',
+    slug: 'backlink-checker',
+    title: 'Backlink Analysis Guide',
+    description: 'Master the art of inbound links. Learn how to track, analyze, and compare your backlink profile against competitors via Bing Webmaster Tools.',
+    icon: TrendingUp,
+    category: 'Marketing',
+    tags: ['seo', 'backlinks', 'marketing', 'authority'],
+    popular: true
   }
 ];
 

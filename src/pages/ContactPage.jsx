@@ -50,11 +50,13 @@ const ContactPage = () => {
     <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
       <SEO 
         title="Contact Our Team"
-        description="Have a project in mind? Get in touch with ToolBite today for a free consultation. We help brands grow with custom web solutions."
+        description="Ready to initialize your vision? Discuss your next high-performance project with ToolBite. Contact our engineering team for custom web development, mobile apps, or digital strategy consulting."
         keywords="contact toolbite, hire web designer, web development inquiry, contact digital agency india"
       />
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Contact <span className="text-teal-500">Us</span></h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-sans">
+          Discuss Your Next <span className="text-teal-500">High-Performance Project</span>
+        </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Have a project in mind or just want to say hello? Fill out the form below 
           and our team will get back to you within 24 hours.

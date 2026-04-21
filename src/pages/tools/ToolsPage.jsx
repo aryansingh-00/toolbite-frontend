@@ -35,7 +35,7 @@ const ToolsPage = () => {
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
       <SEO 
         title="Free Online Utility Tools — Word Counter, Image Compressor & More"
-        description="A curated collection of fast, secure, and privacy-focused online utility tools for developers, designers, and writers. 100% free with no tracking."
+        description="Explore ToolBite's Utility Power Center. A curated collection of fast, privacy-focused online utility tools for developers, designers, and marketers. Free, secure, and browser-native."
         keywords="free online tools, utility tools, word counter, image compressor, json formatter, qr generator, pdf to image, toolbite tools"
       />
       
@@ -55,7 +55,7 @@ const ToolsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
           >
-            Utility <span className="text-teal-600">Power Center</span>
+            Free Online <span className="text-teal-600">Utility Tools</span> & Development Power Center
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

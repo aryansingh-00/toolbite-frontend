@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   SearchCode, 
@@ -78,9 +79,12 @@ const BrandAudit = () => {
 
             <section>
               <h3 className="text-xl font-bold text-slate-900 mb-4">Bing Webmaster Tools Integration</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed mb-6">
                 A critical part of any successful digital brand audit is to review backlinks to your site and compare backlinks to any other website via Bing Webmaster Tools. Monitoring your inbound link profile ensures you stay ahead of algorithmic changes and protect your domain authority against toxic links.
               </p>
+              <Link to="/tools/backlink-checker" className="text-teal-600 font-bold hover:underline flex items-center gap-2">
+                Explore our full Backlink Guide <ArrowRight size={16} />
+              </Link>
             </section>
           </div>
 

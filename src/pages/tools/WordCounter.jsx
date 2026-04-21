@@ -69,6 +69,22 @@ const WordCounter = () => {
             </section>
           </div>
 
+          <section className="bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-bl-full"></div>
+            <h3 className="text-2xl font-black text-slate-900 mb-6">The Strategic Impact of SEO/GEO</h3>
+            <div className="space-y-6 text-slate-600 leading-relaxed">
+              <p>
+                It is important for <span className="text-teal-600 font-bold">SEO/GEO</span> to ensure that web pages have enough words because search engines use the content of a page to determine its relevance and quality. Pages with very little content may be seen as low-quality or "thin content" by search engines, which can negatively impact the site’s performance.
+              </p>
+              <p>
+                Having enough words on a page allows search engines to better understand the topic and purpose of the page, and to match it with relevant search queries. This can result in higher search engine rankings, increased traffic, and improved visibility for the site.
+              </p>
+              <p className="bg-slate-900 text-white p-8 rounded-2xl italic">
+                "However, it is not just the quantity of words that matters, but also the quality of the content. Webmasters should aim to create pages with enough words to provide value to users and to effectively communicate the topic and purpose of the page."
+              </p>
+            </div>
+          </section>
+
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
             <h3 className="text-xl font-bold text-slate-900 mb-4">Understanding Reading vs. Speaking Time</h3>
             <p className="text-slate-600 leading-relaxed">
