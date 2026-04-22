@@ -6,7 +6,6 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import ReadyMade from '../components/ReadyMade';
-import Portfolio from '../components/Portfolio';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
@@ -36,6 +35,27 @@ const PricingTeaser = () => {
   );
 };
 
+const PortfolioTeaser = () => {
+  return (
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="text-teal-600 font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
+        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">World-Class <span className="text-teal-500">Digital Architectures</span></h2>
+        <p className="text-slate-600 text-lg mb-10 max-w-2xl mx-auto">
+          We don't just build websites; we engineer digital assets that drive massive ROI. 
+          Explore our full portfolio of high-performance client success stories.
+        </p>
+        <Link
+          to="/portfolio"
+          className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/25"
+        >
+          Explore All Client Projects <ArrowRight size={20} />
+        </Link>
+      </div>
+    </section>
+  );
+};
+
 const HomePage = () => {
   return (
     <>
@@ -48,7 +68,7 @@ const HomePage = () => {
       <TrustSection />
       <Services />
       <ReadyMade />
-      <Portfolio />
+      <PortfolioTeaser />
       <WhyChooseUs />
       <PricingTeaser />
       <Testimonials />

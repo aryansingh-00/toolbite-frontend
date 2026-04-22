@@ -56,7 +56,7 @@ const BrandAudit = React.lazy(() => import('./pages/tools/BrandAudit'));
 const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PricingPage = React.lazy(() => import('./pages/PricingPage'));
-
+const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 
 function App() {
   const location = useLocation();
@@ -107,6 +107,7 @@ function App() {
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
                   <Route path="/pricing" element={<PageTransition><PricingPage /></PageTransition>} />
                   <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
+                  <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
                   <Route path="/admin/login" element={<PageTransition><AdminLogin /></PageTransition>} />
                   <Route path="/client-login" element={<PageTransition><ClientLogin /></PageTransition>} />
                   

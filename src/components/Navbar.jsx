@@ -53,7 +53,7 @@ const navMenu = [
     dropdown: [
       { label: 'About Us', href: '/about', desc: 'Our story and mission', icon: <User size={16} className="text-teal-500" /> },
       { label: 'Blog', href: '/blog', desc: 'Insights & strategy guides', icon: <FileText size={16} className="text-blue-500" /> },
-      { label: 'Portfolio', href: '/#portfolio', isHash: true, desc: 'Our case studies & work', icon: <Palette size={16} className="text-purple-500" /> },
+      { label: 'Portfolio', href: '/portfolio', isHash: false, desc: 'Our case studies & work', icon: <Palette size={16} className="text-purple-500" /> },
       { label: 'Contact', href: '/contact', desc: 'Get in touch with us', icon: <Zap size={16} className="text-emerald-500" /> },
     ],
   },
