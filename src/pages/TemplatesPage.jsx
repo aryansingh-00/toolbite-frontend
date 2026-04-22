@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, ShoppingCart, Check, Search } from 'lucide-react';
+import { ExternalLink, ShoppingCart, Check, Search, ArrowRight } from 'lucide-react';
 import staticTemplates from '../data/templates';
 import SEO from '../components/SEO';
 import TiltCard from '../components/TiltCard';
@@ -11,6 +11,7 @@ const TemplatesPage = () => {
   const [loading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,10 +25,19 @@ const TemplatesPage = () => {
 
   // Handle client-side filtering and search
   const filteredTemplates = useMemo(() => {
+    if (!templates) return [];
+    
     return templates.filter((tpl) => {
-      const matchSearch = tpl.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          tpl.shortDescription.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchCategory = activeCategory === 'All' || tpl.category === activeCategory;
+      const search = searchTerm.toLowerCase().trim();
+      
+      const matchSearch = !search || 
+                          (tpl.title?.toLowerCase().includes(search)) || 
+                          (tpl.shortDescription?.toLowerCase().includes(search)) ||
+                          (tpl.fullDescription?.toLowerCase().includes(search)) ||
+                          (tpl.features?.some(f => f.toLowerCase().includes(search)));
+                          
+      const matchCategory = activeCategory === 'All' || tpl.category?.trim() === activeCategory?.trim();
+      
       return matchSearch && matchCategory;
     });
   }, [templates, searchTerm, activeCategory]);
@@ -41,54 +51,94 @@ const TemplatesPage = () => {
       />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Marketplace Header */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+        {/* Premium Search Navbar (Primary Focus) */}
+        <div className="max-w-3xl mx-auto mb-12 relative z-30">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
+            className="relative"
           >
-            Premium <span className="text-teal-600">Template Vault</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-slate-600"
-          >
-            Explore our catalog of high-converting React architectures. Ready to deploy instantly.
-          </motion.p>
+            <div className={`flex items-center bg-white rounded-full shadow-2xl border-2 transition-all duration-500 overflow-hidden px-2 ${isSearchFocused || searchTerm ? 'border-teal-500 ring-8 ring-teal-500/5' : 'border-slate-100 shadow-slate-200/50'}`}>
+              <div className="pl-6 text-teal-600">
+                <Search size={24} strokeWidth={3} />
+              </div>
+              <input 
+                type="text" 
+                placeholder="What type of template are you looking for?" 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
+                className="w-full py-6 px-6 text-xl font-bold text-slate-900 placeholder:text-slate-300 focus:outline-none bg-transparent"
+              />
+              <div className="flex items-center gap-2 pr-2">
+                {(searchTerm || activeCategory !== 'All') && (
+                  <button 
+                    onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
+                    className="p-3 hover:bg-slate-100 rounded-full text-slate-400 hover:text-red-500 transition-all active:scale-90"
+                    title="Clear all filters"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </button>
+                )}
+                <button className="bg-teal-500 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-slate-900 transition-all shadow-lg shadow-teal-500/20 active:scale-95">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Recommendation Dropdown */}
+            {isSearchFocused && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                className="absolute top-full left-0 right-0 mt-4 bg-white/95 backdrop-blur-xl rounded-[40px] shadow-[0_32px_64px_-12px_rgba(0,0,0,0.2)] border border-white/20 overflow-hidden"
+              >
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Recommended Categories</p>
+                    <span className="text-[10px] font-black text-white bg-slate-900 px-3 py-1 rounded-full uppercase">Instant Filter</span>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {categories.map((cat, i) => (
+                      <button 
+                        key={i} 
+                        onMouseDown={(e) => {
+                          e.preventDefault(); // Prevent input onBlur from firing too early
+                          setActiveCategory(cat);
+                          setSearchTerm(''); // Clear search for clean category view
+                          setIsSearchFocused(false);
+                        }}
+                        className={`group flex items-center justify-between px-6 py-4 rounded-[24px] text-sm font-black transition-all ${activeCategory === cat ? 'bg-teal-500 text-white shadow-xl shadow-teal-500/30 scale-105' : 'bg-slate-50 text-slate-600 hover:bg-teal-50 hover:text-teal-600 hover:translate-x-1'}`}
+                      >
+                        {cat}
+                        <Check size={16} className={`transition-opacity ${activeCategory === cat ? 'opacity-100' : 'opacity-0'}`} />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-slate-900/5 p-5 flex items-center justify-center gap-3 border-t border-slate-100">
+                   <p className="text-xs font-bold text-slate-500">Need a custom solution?</p>
+                   <Link to="/contact" className="text-xs font-black text-teal-600 uppercase hover:tracking-widest transition-all">Request Architecture <ArrowRight size={14} className="inline ml-1" /></Link>
+                </div>
+              </motion.div>
+            )}
+          </motion.div>
         </div>
 
-        {/* Filter Bar */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 mb-12 flex flex-col md:flex-row gap-4 justify-between items-center"
-        >
-          <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
-            <input 
-              type="text" 
-              placeholder="Search by name or description..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium"
-            />
-          </div>
-          <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
-            {categories.map((cat, i) => (
-              <button 
-                key={i} 
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-full font-bold whitespace-nowrap transition-colors ${activeCategory === cat ? 'bg-slate-900 text-white shadow-md' : 'bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200'}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </motion.div>
+        {/* Minimal Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16 relative z-10">
+          <motion.h1 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter"
+          >
+            Premium <span className="text-teal-500">Architecture Vault</span>
+          </motion.h1>
+          <p className="text-slate-500 font-medium">Explore high-converting React systems built for enterprise scale.</p>
+        </div>
+
 
         {/* Templates Display */}
         {loading ? (
