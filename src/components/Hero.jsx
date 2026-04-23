@@ -6,8 +6,34 @@ import { Link } from 'react-router-dom';
 import MagicText from './MagicText';
 import TypingText from './TypingText';
 import ScrollVelocityGallery from './ScrollVelocityGallery';
+import { usePersona } from '../hooks/usePersona';
+import MagneticButton from './MagneticButton';
 
 const Hero = () => {
+  const { persona } = usePersona();
+
+  const getPersonaContent = () => {
+    switch (persona) {
+      case 'templates':
+        return {
+          headline: "The World's Most Powerful Templates for",
+          subtext: "Deploy enterprise-grade digital foundations in days. We architect sub-second, conversion-optimized React blueprints that transform your vision into an immediate revenue engine."
+        };
+      case 'custom':
+        return {
+          headline: "Digital Engineering for Elite",
+          subtext: "We dismantle legacy boundaries. Our team architects bespoke, high-performance web and mobile ecosystems for ambitious brands that demand absolute market dominance."
+        };
+      default:
+        return {
+          headline: "Digital Engineering for",
+          subtext: "We architect high-performance web applications and premium mobile apps for iOS and Android that transform casual traffic into qualified revenue."
+        };
+    }
+  };
+
+  const content = getPersonaContent();
+
   return (
     <section id="home" className="relative pt-16 pb-10 lg:pt-24 lg:pb-16 overflow-hidden bg-[#fafafa]">
       {/* Animated Background Blobs */}
@@ -27,7 +53,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 mb-8 leading-[1.05]"
             >
-              Digital Engineering for
+              {content.headline}
               <br /> <MagicText><TypingText /></MagicText>
               <br />
               Brands
@@ -39,7 +65,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-slate-600 mb-12 max-w-lg leading-relaxed font-medium"
             >
-              We architect high-performance web applications and premium mobile apps for iOS and Android that transform casual traffic into qualified revenue.
+              {content.subtext}
             </motion.p>
 
             <motion.div
@@ -48,17 +74,19 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row flex-wrap items-center gap-5 mb-14"
             >
-              <Link to="/start-project" className="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-glow-slate hover:shadow-glow-teal transform hover:-translate-y-1">
-                <Code size={20} />
-                Start Custom Project
-              </Link>
-              <a href="/#ready-made" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-900 font-bold flex items-center justify-center gap-3 hover:bg-slate-50 border border-slate-200 transition-all shadow-sm hover:shadow-glow-blue hover:border-transparent transform hover:-translate-y-1">
-                <Layout size={20} className="text-teal-500" />
-                Browse Premium Vault
-              </a>
-              <a href="/#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 font-bold text-slate-600 hover:text-teal-600 transition-colors mt-4 sm:mt-0 px-4">
-                Talk to an Expert <ArrowRight size={18} />
-              </a>
+              <MagneticButton strength={0.2} className="w-full sm:w-auto">
+                <Link to="/start-project" className="w-full px-12 py-5 rounded-full bg-slate-900 text-white font-black flex items-center justify-center gap-3 hover:bg-teal-600 transition-all shadow-2xl hover:shadow-teal-500/20">
+                  <Code size={20} />
+                  Start Custom Project
+                </Link>
+              </MagneticButton>
+              
+              <MagneticButton strength={0.2} className="w-full sm:w-auto">
+                <a href="/#ready-made" className="w-full px-12 py-5 rounded-full bg-white text-slate-900 font-black flex items-center justify-center gap-3 hover:bg-slate-50 border-2 border-slate-200 transition-all shadow-lg hover:border-teal-500">
+                  <Layout size={20} className="text-teal-500" />
+                  Browse Templates
+                </a>
+              </MagneticButton>
             </motion.div>
 
             <motion.div

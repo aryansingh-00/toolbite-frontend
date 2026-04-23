@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-import { motion } from 'framer-motion';
+
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -12,6 +12,7 @@ import FAQ from '../components/FAQ';
 import GrowthAuditSection from '../components/GrowthAuditSection';
 import TrustSection from '../components/TrustSection';
 import ProjectStrategist from '../components/ProjectStrategist';
+import ROICalculator from '../components/ROICalculator';
 
 const PricingTeaser = () => {
   return (
@@ -71,6 +72,7 @@ const HomePage = () => {
       <PortfolioTeaser />
       <WhyChooseUs />
       <PricingTeaser />
+      <ROICalculator />
       <Testimonials />
       <ProjectStrategist />
       <GrowthAuditSection />

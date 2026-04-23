@@ -275,7 +275,10 @@ const BrandAudit = () => {
                     These automated results are just the surface. Schedule an expert-guided strategy session to receive a full manual teardown and development roadmap.
                   </p>
                   <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <button className="px-10 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                    <button 
+                      onClick={() => window.location.href = '/contact'}
+                      className="px-10 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center justify-center gap-3"
+                    >
                       Book My Full Strategy Call
                       <ArrowRight size={20} />
                     </button>

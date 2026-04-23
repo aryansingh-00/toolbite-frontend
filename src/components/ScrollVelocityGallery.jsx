@@ -16,6 +16,8 @@ const wrap = (min, max, v) => {
   return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
+import OptimizedImage from './OptimizedImage';
+
 function ParallaxColumn({ images, baseVelocity = 100 }) {
   const baseX = useMotionValue(0);
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
@@ -34,9 +36,10 @@ function ParallaxColumn({ images, baseVelocity = 100 }) {
             key={i} 
             className="w-full aspect-[4/5] rounded-3xl overflow-hidden bg-white shadow-xl border border-slate-200/50 relative group flex-shrink-0 lg:aspect-[4/5]"
           >
-            <img 
+            <OptimizedImage 
               src={src} 
               alt="Website Template Interface" 
+              priority={i < 5} // Load first few images with priority
               className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

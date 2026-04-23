@@ -4,13 +4,19 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 import { portfolioProjects } from '../data/content';
 import TiltCard from '../components/TiltCard';
 import SEO from '../components/SEO';
+import OptimizedImage from '../components/OptimizedImage';
+import { usePersona } from '../hooks/usePersona';
+import { Link } from 'react-router-dom';
 
 const PortfolioPage = () => {
   const projects = portfolioProjects;
 
+  const { updatePersona } = usePersona();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    updatePersona('custom');
+  }, [updatePersona]);
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
@@ -65,7 +71,7 @@ const PortfolioPage = () => {
                   {/* Image Thumbnail */}
                   <div className={`aspect-[4/3] w-full relative ${project.thumbnail ? 'bg-slate-100' : project.image} overflow-hidden`}>
                     {project.thumbnail ? (
-                      <img 
+                      <OptimizedImage 
                         src={project.thumbnail} 
                         alt={project.title} 
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -110,15 +116,13 @@ const PortfolioPage = () => {
                     </div>
 
                     <div className="mt-auto pt-6 border-t border-slate-50">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
                         className="inline-flex items-center gap-2 text-slate-900 text-sm font-bold hover:text-teal-600 transition-colors group/btn"
                       >
                         View Case Study
                         <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

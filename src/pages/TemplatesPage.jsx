@@ -6,7 +6,10 @@ import staticTemplates from '../data/templates';
 import SEO from '../components/SEO';
 import TiltCard from '../components/TiltCard';
 
+import { usePersona } from '../hooks/usePersona';
+
 const TemplatesPage = () => {
+  const { updatePersona } = usePersona();
   const [templates] = useState(staticTemplates);
   const [loading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,7 +18,8 @@ const TemplatesPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    updatePersona('templates');
+  }, [updatePersona]);
 
   // Derive unique categories dynamically from the loaded database items
   const categories = useMemo(() => {
@@ -78,10 +82,16 @@ const TemplatesPage = () => {
                     className="p-3 hover:bg-slate-100 rounded-full text-slate-400 hover:text-red-500 transition-all active:scale-90"
                     title="Clear all filters"
                   >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                   </button>
                 )}
-                <button className="bg-teal-500 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-slate-900 transition-all shadow-lg shadow-teal-500/20 active:scale-95">
+                <button 
+                  onClick={() => {
+                    const results = document.getElementById('templates-grid');
+                    if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="bg-teal-500 text-white px-8 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-slate-900 transition-all shadow-lg shadow-teal-500/20 active:scale-95"
+                >
                   Search
                 </button>
               </div>
@@ -163,7 +173,7 @@ const TemplatesPage = () => {
             )}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div id="templates-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredTemplates.map((tpl, i) => (
               <TiltCard key={tpl._id}>
                 <motion.div

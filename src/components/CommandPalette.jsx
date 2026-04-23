@@ -91,9 +91,11 @@ const CommandPalette = ({ isOpen, onClose }) => {
   // Auto-focus on open
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100);
-      setQuery('');
-      setSelectedIndex(0);
+      setTimeout(() => {
+        inputRef.current?.focus();
+        setQuery('');
+        setSelectedIndex(0);
+      }, 100);
     }
   }, [isOpen]);
 

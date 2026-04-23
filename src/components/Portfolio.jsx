@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { portfolioProjects } from '../data/content';
 import TiltCard from './TiltCard';
 
@@ -107,15 +108,21 @@ const Portfolio = () => {
                     ))}
                   </div>
 
-                  <div className="mt-auto pt-6 border-t border-slate-100">
+                  <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="inline-flex items-center gap-2 text-teal-600 font-bold hover:text-teal-700 transition-colors group/btn"
+                    >
+                      View Case Study
+                      <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </Link>
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-slate-900 font-bold hover:text-teal-600 transition-colors group/btn"
+                      className="text-slate-400 hover:text-slate-900 transition-colors text-sm font-bold"
                     >
-                      View Live Project
-                      <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      Live Demo
                     </a>
                   </div>
                 </div>
@@ -125,9 +132,12 @@ const Portfolio = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-teal-600 transition-all shadow-lg hover:shadow-teal-500/25">
+          <Link 
+            to="/contact"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-teal-600 transition-all shadow-lg hover:shadow-teal-500/25"
+          >
             Discuss Your Custom Project
-          </button>
+          </Link>
         </div>
       </div>
     </section>

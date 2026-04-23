@@ -17,7 +17,8 @@ import { jsPDF } from 'jspdf';
 
 const questions = [
   { id: 'name', text: "Hello! I'm the ToolBite AI Strategist. Let's start with your name?", type: 'text' },
-  { id: 'company', text: "Great to meet you! What's the name of your brand or company?", type: 'text' },
+  { id: 'email', text: "Perfect. And what's your professional email address? I'll use this to send your final brief.", type: 'text' },
+  { id: 'company', text: "Great! What's the name of your brand or company?", type: 'text' },
   { id: 'role', text: "What is your role today? (e.g., Founder, Marketing Lead, PM)", type: 'text' },
   { id: 'painPoints', text: "Understood. What is the biggest business pain point right now that this project should solve?", type: 'text' },
   { id: 'vision', text: "Vision is key. Where do you see this brand in 2 years? (Scale, Revenue, or Reach goals)", type: 'text' },
@@ -192,11 +193,9 @@ const ProjectStrategist = () => {
     setIsSubmitting(true);
     try {
       const payload = {
-        subject: `New AI Strategy Brief - ${answers.company || answers.name}`,
-        name: answers.name,
-        email: 'hello.toolbite@gmail.com', // Agency recipient
-        message: JSON.stringify(answers, null, 2),
-        ...answers
+        ...answers,
+        _subject: `New AI Strategy Brief - ${answers.company || answers.name}`,
+        _captcha: "false"
       };
 
       const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {

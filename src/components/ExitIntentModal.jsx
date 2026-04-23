@@ -40,7 +40,8 @@ const ExitIntentModal = () => {
         },
         body: JSON.stringify({
           email: email,
-          type: "Exit Intent - Web ROI Checklist Request"
+          type: "Exit Intent - Web ROI Checklist Request",
+          _captcha: "false"
         })
       });
 

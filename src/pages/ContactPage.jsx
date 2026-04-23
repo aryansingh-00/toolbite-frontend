@@ -29,7 +29,11 @@ const ContactPage = () => {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          _captcha: "false",
+          _subject: `New ToolBite Inquiry: ${formData.subject || 'General'}`
+        })
       });
       
       if (response.ok) {

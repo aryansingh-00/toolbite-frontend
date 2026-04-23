@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ClientAuthProvider } from './contexts/ClientAuthContext';
 import { HelmetProvider } from 'react-helmet-async';
+import { PersonalizationProvider } from './contexts/PersonalizationContext';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -13,6 +14,7 @@ import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
 import CommandPalette from './components/CommandPalette';
+import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
@@ -57,6 +59,7 @@ const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker')
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
+const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
 
 function App() {
   const location = useLocation();
@@ -85,9 +88,11 @@ function App() {
 
   return (
     <HelmetProvider>
-      <AuthProvider>
-        <ClientAuthProvider>
-          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
+      <PersonalizationProvider>
+        <AuthProvider>
+          <ClientAuthProvider>
+          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col cursor-none">
+            <CustomCursor />
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
             <ScrollProgress />
@@ -108,6 +113,7 @@ function App() {
                   <Route path="/pricing" element={<PageTransition><PricingPage /></PageTransition>} />
                   <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
+                  <Route path="/portfolio/:id" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
                   <Route path="/admin/login" element={<PageTransition><AdminLogin /></PageTransition>} />
                   <Route path="/client-login" element={<PageTransition><ClientLogin /></PageTransition>} />
                   
@@ -157,9 +163,10 @@ function App() {
               <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
             </>
           )}
-        </div>
-        </ClientAuthProvider>
-      </AuthProvider>
+          </div>
+          </ClientAuthProvider>
+        </AuthProvider>
+      </PersonalizationProvider>
     </HelmetProvider>
   );
 }

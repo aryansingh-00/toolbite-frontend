@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Send, CheckCircle } from 'lucide-react';
 
@@ -8,35 +8,18 @@ const OrderForm = () => {
   const [formState, setFormState] = useState('idle');
   const [fileName, setFileName] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormState('submitting');
-    try {
-      const form = e.target;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
-      
-      if (response.ok) {
-        setFormState('success');
-        form.reset();
-        setFileName('');
-      } else {
-        setFormState('idle');
-        alert("Something went wrong. Please try again.");
-      }
-    } catch (error) {
-      setFormState('idle');
-      alert("Something went wrong. Please check your connection and try again.");
+  // Handle redirect from FormSubmit
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === 'true') {
+      setFormState('success');
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
+  }, []);
+
+  const handleSubmit = () => {
+    setFormState('submitting');
   };
 
   return (
@@ -78,10 +61,17 @@ const OrderForm = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form 
+              action="https://formsubmit.co/hello.toolbite@gmail.com" 
+              method="POST" 
+              encType="multipart/form-data"
+              onSubmit={handleSubmit} 
+              className="space-y-8"
+            >
               {/* FormSubmit Configuration */}
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_subject" value="New Massive Project Request - ToolBite Order Form" />
+              <input type="hidden" name="_next" value={window.location.href + (window.location.href.includes('?') ? '&' : '?') + 'success=true'} />
 
               {/* Personal Details */}
               <div className="space-y-6">
