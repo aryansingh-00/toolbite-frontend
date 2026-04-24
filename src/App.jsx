@@ -60,6 +60,8 @@ const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
+const PdfConverter = React.lazy(() => import('./pages/tools/PdfConverter'));
+const ServiceDetail = React.lazy(() => import('./pages/ServiceDetail'));
 
 function App() {
   const location = useLocation();
@@ -143,6 +145,10 @@ function App() {
                   <Route path="/tools/roi-calculator" element={<PageTransition><ROICalculator /></PageTransition>} />
                   <Route path="/tools/brand-audit" element={<PageTransition><BrandAudit /></PageTransition>} />
                   <Route path="/tools/backlink-checker" element={<PageTransition><BacklinkChecker /></PageTransition>} />
+                  <Route path="/tools/pdf-converter" element={<PageTransition><PdfConverter /></PageTransition>} />
+                  
+                  {/* Services Routes */}
+                  <Route path="/services/:slug" element={<PageTransition><ServiceDetail /></PageTransition>} />
 
                   <Route path="/admin" element={<ProtectedRoute />}>
                     <Route path="dashboard" element={<PageTransition><TemplateList /></PageTransition>} />

@@ -43,7 +43,7 @@
     .btn-outline:hover{background:#111;color:#fff}
     .hero-right{background:linear-gradient(135deg,#f97316,#ec4899);min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
     .hero-right::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-    .hero-product{width:280px;height:350px;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.3);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:0 40px 80px rgba(0,0,0,0.2)}
+    .hero-product{width:280px;height:350px;background:rgba(255,255,255,0.15);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.3);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:0 40px 80px rgba(0,0,0,0.2)}
     .product-emoji{font-size:5rem}
     .product-name{color:#fff;font-size:1.1rem;font-weight:700}
     .product-price{color:rgba(255,255,255,0.8);font-size:.9rem}
@@ -63,6 +63,9 @@
     .product-card:hover .quick-add{bottom:0}
     .product-card h4{font-size:.95rem;font-weight:700;margin-bottom:.25rem}
     .product-card .price{font-size:.9rem;color:#6b7280;font-weight:600}
+    .product-img-sneakers{background:linear-gradient(135deg,#e0e7ff,#c7d2fe)}
+    .product-img-shorts{background:linear-gradient(135deg,#d1fae5,#a7f3d0)}
+    .product-img-cap{background:linear-gradient(135deg,#fce7f3,#fbcfe8)}
 
     /* ABOUT STRIP */
     .strip{background:#111;padding:4rem 5%;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
@@ -145,17 +148,17 @@
         <div class="price">$189</div>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)">👟<div class="quick-add">+ Quick Add</div></div>
+        <div class="product-img product-img-sneakers">👟<div class="quick-add">+ Quick Add</div></div>
         <h4>Street Runner Sneakers</h4>
         <div class="price">$149</div>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0)">🩳<div class="quick-add">+ Quick Add</div></div>
+        <div class="product-img product-img-shorts">🩳<div class="quick-add">+ Quick Add</div></div>
         <h4>Tactical Wide Shorts</h4>
         <div class="price">$79</div>
       </div>
       <div class="product-card">
-        <div class="product-img" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">🧢<div class="quick-add">+ Quick Add</div></div>
+        <div class="product-img product-img-cap">🧢<div class="quick-add">+ Quick Add</div></div>
         <h4>Aura Signature Cap</h4>
         <div class="price">$45</div>
       </div>

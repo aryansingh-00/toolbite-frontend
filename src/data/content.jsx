@@ -7,19 +7,55 @@ import {
 } from 'lucide-react';
 
 export const servicesData = [
-  { icon: <Smartphone className="w-6 h-6 text-indigo-500" />, title: 'Premium Mobile Applications', description: 'Architecting high-performance native (iOS/Android) and cross-platform apps using React Native and Flutter for a seamless mobile experience.', bg: 'bg-indigo-50', border: 'border-indigo-200' },
-  { icon: <Briefcase className="w-6 h-6 text-blue-500" />, title: 'Corporate Web Platforms', description: 'Establish market dominance with a strategically engineered corporate presence designed to capture institutional B2B leads and drive sustained growth.', bg: 'bg-blue-50', border: 'border-blue-200' },
-  { icon: <ImageIcon className="w-6 h-6 text-purple-500" />, title: 'Elite Portfolio Showcases', description: 'Command industry respect. We build high-fidelity interactive galleries with flawless scrolling dynamics to showcase prestigious portfolios and enterprise case studies.', bg: 'bg-purple-50', border: 'border-purple-200' },
-  { icon: <Rocket className="w-6 h-6 text-rose-500" />, title: 'High-Impact Landing Pages', description: 'Frictionless, psychologically structured single-page ecosystems hyper-optimized to convert ad traffic into qualified pipeline inventory.', bg: 'bg-rose-50', border: 'border-rose-200' },
-  { icon: <ShoppingCart className="w-6 h-6 text-emerald-500" />, title: 'Scalable E-Commerce', description: 'Enterprise-grade digital storefronts engineered for high-volume transactions, advanced behavioral tracking, and optimized checkouts to maximize continuous revenue.', bg: 'bg-emerald-50', border: 'border-emerald-200' },
-  { icon: <UserCircle className="w-6 h-6 text-amber-500" />, title: 'Authority Branding', description: 'Solidify your industry reputation with a bespoke, lightning-fast architecture designed specifically for thought leaders, elite coaches, and disruptive founders.', bg: 'bg-amber-50', border: 'border-amber-200' },
-  { icon: <RefreshCcw className="w-6 h-6 text-teal-500" />, title: 'Strategic UX Overhauls', description: 'We dismantle legacy frameworks and install modern, conversion-focused user interfaces to instantly drastically improve customer retention and lifetime value.', bg: 'bg-teal-50', border: 'border-teal-200' },
-  { icon: <Code2 className="w-6 h-6 text-indigo-500" />, title: 'Custom SaaS Architecture', description: 'Bespoke software solutions bridging highly complex server-side data infrastructure with intuitive, zero-latency client-side dashboards.', bg: 'bg-indigo-50', border: 'border-indigo-200' },
-  { icon: <Wrench className="w-6 h-6 text-slate-500" />, title: 'Dedicated Infrastructure Support', description: 'Uninterrupted technical safeguarding. We provide continuous server monitoring, impenetrable security updates, and active performance scaling.', bg: 'bg-slate-100', border: 'border-slate-300' },
-  { icon: <Cpu className="w-6 h-6 text-orange-500" />, title: 'Advanced API Integrations', description: 'Seamlessly connecting your platform to Stripe, Twilio, and enterprise CRM solutions with custom middleware for complex data handling.', bg: 'bg-orange-50', border: 'border-orange-200' },
-  { icon: <Database className="w-6 h-6 text-cyan-500" />, title: 'Real-Time Data Analytics', description: 'Engineering live-streaming analytics pipelines and WebSocket-driven interactive dashboards for immediate business intelligence.', bg: 'bg-cyan-50', border: 'border-cyan-200' },
-  { icon: <Lock className="w-6 h-6 text-red-500" />, title: 'Secure User Auth Logic', description: 'Implementing multi-tier user authentication, RBAC (Role-Based Access Control), and session security protocols for sensitive data.', bg: 'bg-red-50', border: 'border-red-200' },
-  { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' }
+  { 
+    icon: <Smartphone className="w-6 h-6 text-indigo-500" />, 
+    title: 'Premium Mobile Applications', 
+    slug: 'mobile-app-development',
+    seoTitle: 'Premium Mobile App Development Services | iOS & Android | ToolBite',
+    description: 'Architecting high-performance native (iOS/Android) and cross-platform apps using React Native and Flutter for a seamless mobile experience.', 
+    extendedDescription: 'We specialize in building sub-second performance mobile applications that dominate the App Store and Google Play. Our engineering approach focuses on offline-first architecture, smooth 60FPS animations, and enterprise-grade security.',
+    bg: 'bg-indigo-50', 
+    border: 'border-indigo-200' 
+  },
+  { 
+    icon: <Briefcase className="w-6 h-6 text-blue-500" />, 
+    title: 'Corporate Web Platforms', 
+    slug: 'corporate-web-design',
+    seoTitle: 'Enterprise Corporate Web Design & Development | ToolBite',
+    description: 'Establish market dominance with a strategically engineered corporate presence designed to capture institutional B2B leads and drive sustained growth.', 
+    extendedDescription: 'Your corporate website should be your most powerful sales asset. We build high-authority web platforms for B2B enterprises, focusing on lead generation, brand credibility, and seamless CRM integrations.',
+    bg: 'bg-blue-50', 
+    border: 'border-blue-200' 
+  },
+  { 
+    icon: <ShoppingCart className="w-6 h-6 text-emerald-500" />, 
+    title: 'Scalable E-Commerce', 
+    slug: 'ecommerce-development',
+    seoTitle: 'Scalable E-commerce Development Services | Headless Commerce | ToolBite',
+    description: 'Enterprise-grade digital storefronts engineered for high-volume transactions, advanced behavioral tracking, and optimized checkouts to maximize continuous revenue.', 
+    extendedDescription: 'We build the future of retail. Our headless e-commerce solutions using Shopify Plus, Medusa, or custom architectures ensure that your store can handle flash sales and global traffic without breaking a sweat.',
+    bg: 'bg-emerald-50', 
+    border: 'border-emerald-200' 
+  },
+  { 
+    icon: <RefreshCcw className="w-6 h-6 text-teal-500" />, 
+    title: 'Strategic UX Overhauls', 
+    slug: 'ux-ui-redesign',
+    seoTitle: 'Strategic UI/UX Redesign Services | Improve Conversions | ToolBite',
+    description: 'We dismantle legacy frameworks and install modern, conversion-focused user interfaces to instantly drastically improve customer retention and lifetime value.', 
+    extendedDescription: 'Bad design is expensive. We perform deep audit-driven UI/UX overhauls that eliminate friction, reduce bounce rates, and guide your users toward the "Buy" button with psychological precision.',
+    bg: 'bg-teal-50', 
+    border: 'border-teal-200' 
+  },
+  { icon: <ImageIcon className="w-6 h-6 text-purple-500" />, title: 'Elite Portfolio Showcases', slug: 'portfolio-design', description: 'Command industry respect. We build high-fidelity interactive galleries with flawless scrolling dynamics to showcase prestigious portfolios and enterprise case studies.', bg: 'bg-purple-50', border: 'border-purple-200' },
+  { icon: <Rocket className="w-6 h-6 text-rose-500" />, title: 'High-Impact Landing Pages', slug: 'landing-page-design', description: 'Frictionless, psychologically structured single-page ecosystems hyper-optimized to convert ad traffic into qualified pipeline inventory.', bg: 'bg-rose-50', border: 'border-rose-200' },
+  { icon: <UserCircle className="w-6 h-6 text-amber-500" />, title: 'Authority Branding', slug: 'branding-services', description: 'Solidify your industry reputation with a bespoke, lightning-fast architecture designed specifically for thought leaders, elite coaches, and disruptive founders.', bg: 'bg-amber-50', border: 'border-amber-200' },
+  { icon: <Code2 className="w-6 h-6 text-indigo-500" />, title: 'Custom SaaS Architecture', slug: 'saas-development', description: 'Bespoke software solutions bridging highly complex server-side data infrastructure with intuitive, zero-latency client-side dashboards.', bg: 'bg-indigo-50', border: 'border-indigo-200' },
+  { icon: <Wrench className="w-6 h-6 text-slate-500" />, title: 'Dedicated Infrastructure Support', slug: 'web-maintenance', description: 'Uninterrupted technical safeguarding. We provide continuous server monitoring, impenetrable security updates, and active performance scaling.', bg: 'bg-slate-100', border: 'border-slate-300' },
+  { icon: <Cpu className="w-6 h-6 text-orange-500" />, title: 'Advanced API Integrations', slug: 'api-integration', description: 'Seamlessly connecting your platform to Stripe, Twilio, and enterprise CRM solutions with custom middleware for complex data handling.', bg: 'bg-orange-50', border: 'border-orange-200' },
+  { icon: <Database className="w-6 h-6 text-cyan-500" />, title: 'Real-Time Data Analytics', slug: 'data-analytics', description: 'Engineering live-streaming analytics pipelines and WebSocket-driven interactive dashboards for immediate business intelligence.', bg: 'bg-cyan-50', border: 'border-cyan-200' },
+  { icon: <Lock className="w-6 h-6 text-red-500" />, title: 'Secure User Auth Logic', slug: 'auth-security', description: 'Implementing multi-tier user authentication, RBAC (Role-Based Access Control), and session security protocols for sensitive data.', bg: 'bg-red-50', border: 'border-red-200' },
+  { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', slug: 'headless-cms', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' }
 ];
 
 export const pricingPlans = [

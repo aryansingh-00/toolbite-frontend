@@ -55,19 +55,21 @@ export const tools = [
     id: 'image-to-pdf',
     slug: 'image-to-pdf',
     title: 'Image to PDF',
-    description: 'Convert multiple images (JPG, PNG, WEBP) into a single high-quality PDF document locally.',
+    seoTitle: 'Free Image to PDF Converter | Merge JPG/PNG to PDF Online',
+    description: 'Convert multiple images (JPG, PNG, WEBP) into a single high-quality PDF document locally. Fast, secure, and completely free.',
     icon: FileText,
     category: 'PDF',
-    tags: ['pdf', 'converter', 'image']
+    tags: ['pdf', 'converter', 'image', 'jpg to pdf', 'png to pdf']
   },
   {
     id: 'pdf-to-image',
     slug: 'pdf-to-image',
     title: 'PDF to Image',
-    description: 'Convert PDF pages into high-resolution JPG or PNG images with ease and precision.',
+    seoTitle: 'Best PDF to Image Converter | Extract PNG/JPG from PDF Online',
+    description: 'Convert PDF pages into high-resolution JPG or PNG images with ease and precision. No file uploads required - 100% private.',
     icon: FileImage,
     category: 'PDF',
-    tags: ['pdf', 'converter', 'image']
+    tags: ['pdf', 'converter', 'image', 'pdf to png', 'pdf to jpg']
   },
   {
     id: 'json-formatter',

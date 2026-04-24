@@ -21,7 +21,7 @@
     .cursor{width:20px;height:20px;border:2px solid #a855f7;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .15s,opacity .15s;transform:translate(-50%,-50%)}
     .cursor-dot{width:6px;height:6px;background:#a855f7;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .05s}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:76px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,4,15,0.9);backdrop-filter:blur(24px);border-bottom:1px solid rgba(168,85,247,0.1)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:76px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,4,15,0.9);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:1px solid rgba(168,85,247,0.1)}
     .logo{font-size:1.2rem;font-weight:900;letter-spacing:-0.5px;background:linear-gradient(135deg,#a855f7,#ec4899,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav-links{display:flex;gap:2.5rem;list-style:none}
     .nav-links a{color:#6b7280;text-decoration:none;font-size:.85rem;font-weight:500;transition:.25s;position:relative}
@@ -96,6 +96,13 @@
 
     footer{padding:2.5rem 5%;border-top:1px solid rgba(168,85,247,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     footer p{color:#2d1f42;font-size:.82rem}
+    .hero-content-z{position:relative;z-index:1}
+    .work-card-large{background:linear-gradient(135deg,#1a0a2e,#2d1a4a)}
+    .work-card-small-blue{background:linear-gradient(135deg,#0f1a2e,#1a2d4a)}
+    .work-card-small-gold{background:linear-gradient(135deg,#1a1a0a,#2d2a1a)}
+    .img-height-small{height:220px}
+    .btn-apply-large{font-size:1rem;padding:1rem 2.5rem}
+    .footer-logo-small{font-size:1rem}
     @media(max-width:768px){.work-grid{grid-template-columns:1fr}.awards{grid-template-columns:1fr 1fr}.process-steps{grid-template-columns:1fr 1fr}.step::after{display:none}.nav-links{display:none}}
   </style>
 </head>
@@ -116,7 +123,7 @@
 
   <section class="hero">
     <div class="hero-bg"></div>
-    <div style="position:relative;z-index:1">
+    <div class="hero-content-z">
       <div class="hero-award">🏆 Awwwards SOTD · FWA Winner 2025</div>
       <h1>
         <span class="line1">We Build</span>
@@ -151,21 +158,21 @@
     <h2 class="section-title">Case Studies</h2>
     <p class="section-sub">Interactive, performant, and beautifully engineered — every project tells a story.</p>
     <div class="work-grid">
-      <div class="work-card large" style="background:linear-gradient(135deg,#1a0a2e,#2d1a4a)">
+      <div class="work-card large work-card-large">
         <div class="img">🌌</div>
         <div class="work-overlay">
           <div class="work-label"><h4>cosmic — Nike</h4><p>WebGL · 3D Experience · Motion</p></div>
         </div>
       </div>
       <div class="work-right">
-        <div class="work-card small" style="background:linear-gradient(135deg,#0f1a2e,#1a2d4a)">
-          <div class="img" style="height:220px">🏙️</div>
+        <div class="work-card small work-card-small-blue">
+          <div class="img img-height-small">🏙️</div>
           <div class="work-overlay">
             <div class="work-label"><h4>Metropolis — Audi</h4><p>Brand Identity · Campaign</p></div>
           </div>
         </div>
-        <div class="work-card small" style="background:linear-gradient(135deg,#1a1a0a,#2d2a1a)">
-          <div class="img" style="height:220px">🔮</div>
+        <div class="work-card small work-card-small-gold">
+          <div class="img img-height-small">🔮</div>
           <div class="work-overlay">
             <div class="work-label"><h4>Prism — Spotify</h4><p>Interactive · Generative Art</p></div>
           </div>
@@ -196,11 +203,11 @@
   <div class="cta">
     <h2>Let's Build Something<br>Unforgettable.</h2>
     <p>We take on a limited number of projects each quarter to ensure every client gets our full creative attention.</p>
-    <button class="btn-gradient" style="font-size:1rem;padding:1rem 2.5rem">Apply to Work With Us →</button>
+    <button class="btn-gradient btn-apply-large">Apply to Work With Us →</button>
   </div>
 
   <footer>
-    <div class="logo" style="font-size:1rem">VISIONARY STUDIO LABS</div>
+    <div class="logo footer-logo-small">VISIONARY STUDIO LABS</div>
     <p>© 2025 Visionary Studio Labs. Award-winning creative studio. Built by ToolBite.</p>
   </footer>
 

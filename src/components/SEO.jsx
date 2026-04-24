@@ -7,9 +7,59 @@ const SEO = ({
   keywords = "web design agency, website templates, react templates, toolbite",
   image = "https://www.toolbite.in/logo.png",
   url = "https://www.toolbite.in/",
-  type = "website"
+  type = "website",
+  toolData = null,
+  serviceData = null,
+  breadcrumbs = []
 }) => {
   const siteTitle = title.includes('ToolBite') ? title : `${title} | ToolBite`;
+
+  // JSON-LD for SoftwareApplication (Tools)
+  const toolSchema = toolData ? {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": toolData.name,
+    "description": description,
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "ToolBite",
+      "url": "https://www.toolbite.in"
+    }
+  } : null;
+
+  // JSON-LD for Service
+  const serviceSchema = serviceData ? {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": serviceData.name,
+    "description": description,
+    "provider": {
+      "@type": "Organization",
+      "name": "ToolBite",
+      "url": "https://www.toolbite.in"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": serviceData.category || "Digital Engineering"
+  } : null;
+
+  // JSON-LD for Breadcrumbs
+  const breadcrumbSchema = breadcrumbs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": crumb.url.startsWith('http') ? crumb.url : `https://www.toolbite.in${crumb.url}`
+    }))
+  } : null;
 
   return (
     <Helmet>
@@ -33,6 +83,23 @@ const SEO = ({
       
       {/* Canonical */}
       <link rel="canonical" href={url} />
+
+      {/* Structured Data */}
+      {toolSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(toolSchema)}
+        </script>
+      )}
+      {serviceSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(serviceSchema)}
+        </script>
+      )}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
     </Helmet>
   );
 };

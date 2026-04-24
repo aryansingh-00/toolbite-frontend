@@ -19,7 +19,7 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:'Inter',sans-serif;background:#030712;color:#f1f5f9;overflow-x:hidden}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,18,0.9);backdrop-filter:blur(24px);border-bottom:1px solid rgba(16,185,129,0.1);height:72px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,18,0.9);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border-bottom:1px solid rgba(16,185,129,0.1);height:72px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
     .logo{font-size:1.4rem;font-weight:800;letter-spacing:-0.5px}
     .logo span{background:linear-gradient(135deg,#10b981,#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav-links{display:flex;gap:2rem;list-style:none}
@@ -79,6 +79,7 @@
 
     footer{padding:2.5rem 5%;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
     footer p{color:#334155;font-size:.83rem}
+    .footer-logo-small{font-size:1.1rem}
     @media(max-width:768px){.features{grid-template-columns:1fr}.results{grid-template-columns:1fr 1fr}.nav-links{display:none}}
   </style>
 </head>
@@ -170,7 +171,7 @@
   </div>
 
   <footer>
-    <div class="logo" style="font-size:1.1rem">Quantix<span>AI</span></div>
+    <div class="logo footer-logo-small">Quantix<span>AI</span></div>
     <p>© 2025 Quantix AI Inc. All rights reserved. Built by ToolBite.</p>
   </footer>
 </body>

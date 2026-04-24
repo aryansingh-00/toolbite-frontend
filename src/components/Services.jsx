@@ -1,6 +1,6 @@
- 
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { servicesData } from '../data/content';
 import TiltCard from './TiltCard';
@@ -85,17 +85,21 @@ const Services = () => {
                   className="snap-center sm:snap-start flex-shrink-0"
                 >
                   <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px]">
-                    <div 
-                      className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px] z-10`}
+                    <Link 
+                      to={service.slug ? `/services/${service.slug}` : `/#contact`}
+                      className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px] z-10 block`}
                     >
-                      <div className={`relative z-10 w-14 h-14 rounded-2xl ${service.bg} group-hover:bg-white/20 flex items-center justify-center mb-6 group-hover:-translate-y-1 !group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-none flex-shrink-0`}>
+                      <div className={`relative z-10 w-14 h-14 rounded-2xl ${service.bg} group-hover:bg-white/20 flex items-center justify-center mb-6 group-hover:-translate-y-1 group-hover:!text-white transition-all duration-300 shadow-sm group-hover:shadow-none flex-shrink-0`}>
                         {service.icon}
                       </div>
                       <h4 className="relative z-10 text-xl font-bold text-slate-900 dark:text-white group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h4>
                       <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 leading-relaxed text-sm flex-grow transition-colors duration-300">
                         {service.description}
                       </p>
-                    </div>
+                      <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-bold text-teal-600 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+                        Learn More <ArrowRight size={14} />
+                      </div>
+                    </Link>
                   </TiltCard>
                 </motion.div>
               );

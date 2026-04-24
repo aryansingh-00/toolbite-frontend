@@ -16,9 +16,18 @@ const ToolLayout = ({
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
       <SEO 
-        title={`${title} — Free Online Utility Tool`}
+        title={keywords.split(',')[0].includes('Best') || keywords.split(',')[0].includes('Free') ? `${title} | ToolBite` : `Free ${title} Online | Best Utility Tool | ToolBite`}
         description={description}
         keywords={`${keywords}, ${title.toLowerCase()}, online tool, toolbite, productivity`}
+        toolData={{
+          name: title,
+          category: category
+        }}
+        breadcrumbs={[
+          { name: 'Home', url: '/' },
+          { name: 'Tools', url: '/tools' },
+          { name: title, url: `/tools/${title.toLowerCase().replace(/ /g, '-')}` }
+        ]}
       />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
