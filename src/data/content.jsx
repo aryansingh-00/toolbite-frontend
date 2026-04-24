@@ -7,35 +7,27 @@ import {
 } from 'lucide-react';
 
 export const servicesData = [
-  { 
-    icon: <Smartphone className="w-6 h-6 text-indigo-500" />, 
-    title: 'Premium Mobile Applications', 
-    slug: 'mobile-app-development',
-    seoTitle: 'Premium Mobile App Development Services | iOS & Android | ToolBite',
-    description: 'Architecting high-performance native (iOS/Android) and cross-platform apps using React Native and Flutter for a seamless mobile experience.', 
-    extendedDescription: 'We specialize in building sub-second performance mobile applications that dominate the App Store and Google Play. Our engineering approach focuses on offline-first architecture, smooth 60FPS animations, and enterprise-grade security.',
     bg: 'bg-indigo-50', 
-    border: 'border-indigo-200' 
+    border: 'border-indigo-200',
+    faqs: [
+      { question: 'Do you build native or hybrid mobile apps?', answer: 'We specialize in both. We use React Native and Flutter for high-performance cross-platform apps, and Swift/Kotlin for purely native requirements depending on your project needs.' },
+      { question: 'How long does it take to develop a mobile app?', answer: 'A typical MVP (Minimum Viable Product) takes between 4 to 8 weeks, while complex enterprise apps with deep integrations can take 3+ months.' },
+      { question: 'Can you help with App Store and Google Play submission?', answer: 'Yes, we handle the entire deployment process, including app store optimization (ASO), metadata preparation, and navigating the review process.' }
+    ]
   },
-  { 
-    icon: <Briefcase className="w-6 h-6 text-blue-500" />, 
-    title: 'Corporate Web Platforms', 
-    slug: 'corporate-web-design',
-    seoTitle: 'Enterprise Corporate Web Design & Development | ToolBite',
-    description: 'Establish market dominance with a strategically engineered corporate presence designed to capture institutional B2B leads and drive sustained growth.', 
-    extendedDescription: 'Your corporate website should be your most powerful sales asset. We build high-authority web platforms for B2B enterprises, focusing on lead generation, brand credibility, and seamless CRM integrations.',
     bg: 'bg-blue-50', 
-    border: 'border-blue-200' 
+    border: 'border-blue-200',
+    faqs: [
+      { question: 'What makes a corporate website effective for B2B?', answer: 'An effective B2B site focuses on authority, trust, and lead generation. We implement deep SEO, clear value propositions, and frictionless contact funnels.' },
+      { question: 'Can you integrate the website with our CRM?', answer: 'Yes, we have extensive experience integrating corporate platforms with HubSpot, Salesforce, Pipedrive, and custom internal CRM systems.' }
+    ]
   },
-  { 
-    icon: <ShoppingCart className="w-6 h-6 text-emerald-500" />, 
-    title: 'Scalable E-Commerce', 
-    slug: 'ecommerce-development',
-    seoTitle: 'Scalable E-commerce Development Services | Headless Commerce | ToolBite',
-    description: 'Enterprise-grade digital storefronts engineered for high-volume transactions, advanced behavioral tracking, and optimized checkouts to maximize continuous revenue.', 
-    extendedDescription: 'We build the future of retail. Our headless e-commerce solutions using Shopify Plus, Medusa, or custom architectures ensure that your store can handle flash sales and global traffic without breaking a sweat.',
     bg: 'bg-emerald-50', 
-    border: 'border-emerald-200' 
+    border: 'border-emerald-200',
+    faqs: [
+      { question: 'Which e-commerce platform do you recommend?', answer: 'We recommend Shopify Plus for most scaling brands, but we also build custom headless commerce solutions using MedusaJS or Next.js Commerce for unique requirements.' },
+      { question: 'Do your e-commerce sites handle high traffic spikes?', answer: 'Absolutely. We architect our stores using serverless edge computing and CDNs to ensure 100% uptime even during massive flash sales or holiday peaks.' }
+    ]
   },
   { 
     icon: <RefreshCcw className="w-6 h-6 text-teal-500" />, 

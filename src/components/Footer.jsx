@@ -129,15 +129,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div className="lg:col-span-2">
             <h4 className="text-white font-bold mb-6">Our Services</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-sm">
               <li><Link to="/services/mobile-app-development" className="text-slate-400 hover:text-teal-400 transition-colors">Mobile App Dev</Link></li>
               <li><Link to="/services/corporate-web-design" className="text-slate-400 hover:text-teal-400 transition-colors">Corporate Websites</Link></li>
               <li><Link to="/services/ecommerce-development" className="text-slate-400 hover:text-teal-400 transition-colors">E-commerce Stores</Link></li>
               <li><Link to="/services/ux-ui-redesign" className="text-slate-400 hover:text-teal-400 transition-colors">UI/UX Redesign</Link></li>
               <li><Link to="/services/saas-development" className="text-slate-400 hover:text-teal-400 transition-colors">SaaS Architecture</Link></li>
+              <li><Link to="/services/landing-page-design" className="text-slate-400 hover:text-teal-400 transition-colors">Landing Pages</Link></li>
+              <li><Link to="/services/api-integration" className="text-slate-400 hover:text-teal-400 transition-colors">API Integration</Link></li>
             </ul>
           </div>
 

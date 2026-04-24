@@ -28,6 +28,11 @@ const PdfConverter = () => {
         title="Free Online PDF Converter | Fast, Secure & Private | ToolBite"
         description="The ultimate browser-native PDF converter suite. Convert images to PDF, extract images from PDF, and manage your documents with 100% privacy and sub-second speed."
         keywords="pdf converter, free pdf tools, image to pdf, pdf to image, online pdf converter, secure pdf tools"
+        faqData={[
+          { question: 'Is this PDF converter really free?', answer: 'Yes, all PDF tools on ToolBite are 100% free with no hidden subscriptions or page limits.' },
+          { question: 'Are my files safe when converting?', answer: 'Absolutely. We use a browser-native engine, meaning your files are processed locally in your browser and are never uploaded to any server.' },
+          { question: 'What file formats do you support for Image to PDF?', answer: 'We support JPG, PNG, WEBP, and GIF formats for conversion into professional PDF documents.' }
+        ]}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Tools', url: '/tools' },

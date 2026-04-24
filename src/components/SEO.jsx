@@ -6,12 +6,15 @@ const SEO = ({
   description = "ToolBite is an elite web design agency and digital engineering firm. We build high-performance website templates, custom React applications, and premium mobile apps.",
   keywords = "web design agency, website templates, react templates, toolbite",
   image = "https://www.toolbite.in/logo.png",
-  url = "https://www.toolbite.in/",
+  url = null,
   type = "website",
   toolData = null,
   serviceData = null,
+  faqData = null,
   breadcrumbs = []
 }) => {
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+  const canonicalUrl = url || `https://www.toolbite.in${currentPath === '/' ? '' : currentPath}`;
   const siteTitle = title.includes('ToolBite') ? title : `${title} | ToolBite`;
 
   // JSON-LD for SoftwareApplication (Tools)
@@ -49,6 +52,20 @@ const SEO = ({
     "serviceType": serviceData.category || "Digital Engineering"
   } : null;
 
+  // JSON-LD for FAQ
+  const faqSchema = faqData ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
   // JSON-LD for Breadcrumbs
   const breadcrumbSchema = breadcrumbs.length > 0 ? {
     "@context": "https://schema.org",
@@ -73,7 +90,7 @@ const SEO = ({
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -82,7 +99,7 @@ const SEO = ({
       <meta name="twitter:image" content={image} />
       
       {/* Canonical */}
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Structured Data */}
       {toolSchema && (
@@ -93,6 +110,11 @@ const SEO = ({
       {serviceSchema && (
         <script type="application/ld+json">
           {JSON.stringify(serviceSchema)}
+        </script>
+      )}
+      {faqSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
         </script>
       )}
       {breadcrumbSchema && (

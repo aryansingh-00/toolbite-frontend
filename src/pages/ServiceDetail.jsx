@@ -23,6 +23,7 @@ const ServiceDetail = () => {
           name: service.title,
           category: "Digital Agency Services"
         }}
+        faqData={service.faqs}
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Services', url: '/#services' },
@@ -105,7 +106,6 @@ const ServiceDetail = () => {
           </div>
         </div>
 
-        {/* Long-form Content Section */}
         <div className="bg-white rounded-[4rem] p-12 md:p-24 border border-slate-100 shadow-sm mb-24">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-black text-slate-900 mb-12 tracking-tight">Mastering {service.title}</h2>
@@ -142,6 +142,26 @@ const ServiceDetail = () => {
             </div>
           </div>
         </div>
+
+        {/* Service FAQ Section */}
+        {service.faqs && service.faqs.length > 0 && (
+          <div className="mb-24">
+            <h2 className="text-3xl font-black text-slate-900 mb-12 text-center tracking-tight">Service FAQ</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {service.faqs.map((faq, idx) => (
+                <div key={idx} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                  <h4 className="font-bold text-slate-900 mb-4 flex items-start gap-3">
+                    <span className="text-teal-500 font-black">Q.</span>
+                    {faq.question}
+                  </h4>
+                  <p className="text-slate-600 text-sm leading-relaxed pl-7">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="bg-teal-600 rounded-[3rem] p-12 md:p-20 text-center text-white">
