@@ -40,6 +40,10 @@ const navMenu = [
     seeAll: '/tools',
   },
   {
+    label: 'AI Resume Builder',
+    href: '/tools/resume-builder',
+  },
+  {
     label: 'Templates',
     href: '/templates',
   },

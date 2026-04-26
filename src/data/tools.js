@@ -212,6 +212,17 @@ export const tools = [
     category: 'Marketing',
     tags: ['seo', 'backlinks', 'marketing', 'authority'],
     popular: true
+  },
+  {
+    id: 'resume-builder',
+    slug: 'resume-builder',
+    title: 'Professional Resume Builder',
+    seoTitle: 'Free AI Resume Builder | ATS-Optimized Professional Resume Maker',
+    description: 'Create a high-performance, ATS-friendly professional resume in minutes. Choose from premium layouts and optimize your career narrative for maximum impact.',
+    icon: FileText,
+    category: 'Career',
+    tags: ['resume', 'cv', 'career', 'job search', 'ats-friendly'],
+    popular: true
   }
 ];
 

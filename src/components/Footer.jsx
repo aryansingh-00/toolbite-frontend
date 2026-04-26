@@ -125,6 +125,7 @@ const Footer = () => {
               <li><Link to="/blog" className="text-slate-400 hover:text-teal-400 transition-colors">Blog</Link></li>
               <li><a href="/#faq" className="text-slate-400 hover:text-teal-400 transition-colors">FAQ</a></li>
               <li><Link to="/contact" className="text-slate-400 hover:text-teal-400 transition-colors">Contact</Link></li>
+              <li><Link to="/partners" className="text-blue-500 hover:text-blue-400 font-bold transition-colors">Partner Showcase</Link></li>
               <li><Link to="/client-login" className="text-teal-500 hover:text-teal-400 font-bold transition-colors">Client Login</Link></li>
             </ul>
           </div>
@@ -146,10 +147,10 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h4 className="text-white font-bold mb-6">Popular Tools</h4>
             <ul className="space-y-4">
-              <li><Link to="/tools/pdf-converter" className="text-slate-400 hover:text-teal-400 transition-colors font-bold text-teal-500/80">PDF Converter</Link></li>
+              <li><Link to="/tools/resume-builder" className="text-slate-400 hover:text-teal-400 transition-colors font-bold text-teal-500/80">AI Resume Builder</Link></li>
+              <li><Link to="/tools/pdf-converter" className="text-slate-400 hover:text-teal-400 transition-colors">PDF Converter</Link></li>
               <li><Link to="/tools/word-counter" className="text-slate-400 hover:text-teal-400 transition-colors">Word Counter</Link></li>
               <li><Link to="/tools/image-compressor" className="text-slate-400 hover:text-teal-400 transition-colors">Image Compressor</Link></li>
-              <li><Link to="/tools/json-formatter" className="text-slate-400 hover:text-teal-400 transition-colors">JSON Formatter</Link></li>
               <li><Link to="/tools" className="text-teal-500 font-bold hover:text-teal-400 transition-colors mt-2 block italic underline underline-offset-4">All Tools</Link></li>
             </ul>
           </div>

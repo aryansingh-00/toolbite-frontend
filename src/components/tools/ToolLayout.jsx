@@ -11,7 +11,8 @@ const ToolLayout = ({
   icon: Icon, 
   children,
   category,
-  extendedContent
+  extendedContent,
+  slug
 }) => {
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
@@ -26,7 +27,7 @@ const ToolLayout = ({
         breadcrumbs={[
           { name: 'Home', url: '/' },
           { name: 'Tools', url: '/tools' },
-          { name: title, url: `/tools/${title.toLowerCase().replace(/ /g, '-')}` }
+          { name: title, url: `/tools/${slug || title.toLowerCase().replace(/ /g, '-')}` }
         ]}
       />
       

@@ -3,7 +3,7 @@ import {
   Briefcase, Image as ImageIcon, Rocket, ShoppingCart, 
   UserCircle, RefreshCcw, Code2, Wrench,
   Zap, Palette, Smartphone, DollarSign, Search, MessageSquare, ShieldCheck, MousePointerClick,
-  Cpu, Database, Lock, Settings
+  Cpu, Database, Lock, Settings, FileText, Globe
 } from 'lucide-react';
 
 export const servicesData = [
@@ -68,7 +68,35 @@ export const servicesData = [
   { icon: <Cpu className="w-6 h-6 text-orange-500" />, title: 'Advanced API Integrations', slug: 'api-integration', description: 'Seamlessly connecting your platform to Stripe, Twilio, and enterprise CRM solutions with custom middleware for complex data handling.', bg: 'bg-orange-50', border: 'border-orange-200' },
   { icon: <Database className="w-6 h-6 text-cyan-500" />, title: 'Real-Time Data Analytics', slug: 'data-analytics', description: 'Engineering live-streaming analytics pipelines and WebSocket-driven interactive dashboards for immediate business intelligence.', bg: 'bg-cyan-50', border: 'border-cyan-200' },
   { icon: <Lock className="w-6 h-6 text-red-500" />, title: 'Secure User Auth Logic', slug: 'auth-security', description: 'Implementing multi-tier user authentication, RBAC (Role-Based Access Control), and session security protocols for sensitive data.', bg: 'bg-red-50', border: 'border-red-200' },
-  { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', slug: 'headless-cms', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' }
+  { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', slug: 'headless-cms', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' },
+  { 
+    icon: <FileText className="w-6 h-6 text-blue-600" />, 
+    title: 'AI-Powered Resume Builder', 
+    slug: 'resume-builder-service',
+    seoTitle: 'Professional AI Resume Builder Service | Career-Driven Design | ToolBite',
+    description: 'Engineer a career-defining presence with our AI-optimized resume building infrastructure, designed to pass ATS filters and command recruiter attention.', 
+    extendedDescription: 'We don\'t just format text; we architect career assets. Our AI-powered resume builder combines industry-leading design with semantic optimization to ensure your professional profile stands out in the most competitive talent pools.',
+    bg: 'bg-blue-50', 
+    border: 'border-blue-200',
+    faqs: [
+      { question: 'Is the resume builder ATS-friendly?', answer: 'Yes, every resume generated uses a clean, semantic structure specifically optimized to be parsed correctly by all major Applicant Tracking Systems.' },
+      { question: 'Can I export my resume to PDF?', answer: 'Absolutely. We provide high-resolution PDF exports with pixel-perfect typography and layout preservation.' }
+    ]
+  },
+  { 
+    icon: <Globe className="w-6 h-6 text-indigo-600" />, 
+    title: 'Ready-Made Website Builder', 
+    slug: 'website-builder',
+    seoTitle: 'Ready-Made Website Builder | Rapid Deployment Platforms | ToolBite',
+    description: 'Launch enterprise-grade digital platforms in days, not months. Choose from our vault of pre-engineered, high-performance templates tailored for your industry.', 
+    extendedDescription: 'Our Ready-Made platforms are the bridge between generic builders and custom engineering. We provide the robust architecture of a custom build with the rapid deployment speed of a template, allowing you to dominate your market instantly.',
+    bg: 'bg-indigo-50', 
+    border: 'border-indigo-200',
+    faqs: [
+      { question: 'How fast can I launch my website?', answer: 'Our Ready-Made platforms can be fully branded, populated, and deployed to a global CDN within 3 to 7 days.' },
+      { question: 'Are these templates customizable?', answer: 'Yes. We clone the core architecture and then universally scale your specific brand colors, typography, and content across the entire system.' }
+    ]
+  }
 ];
 
 export const pricingPlans = [

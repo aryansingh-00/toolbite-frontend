@@ -14,7 +14,6 @@ import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
 import CommandPalette from './components/CommandPalette';
-import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
@@ -62,6 +61,9 @@ const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
 const PdfConverter = React.lazy(() => import('./pages/tools/PdfConverter'));
 const ServiceDetail = React.lazy(() => import('./pages/ServiceDetail'));
+const ResumeBuilder = React.lazy(() => import('./pages/tools/ResumeBuilder'));
+const WebsiteBuilder = React.lazy(() => import('./pages/tools/WebsiteBuilder'));
+const PartnerShowcase = React.lazy(() => import('./pages/PartnerShowcase'));
 
 function App() {
   const location = useLocation();
@@ -93,8 +95,7 @@ function App() {
       <PersonalizationProvider>
         <AuthProvider>
           <ClientAuthProvider>
-          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col cursor-none">
-            <CustomCursor />
+          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
             <ScrollProgress />
@@ -113,6 +114,7 @@ function App() {
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
                   <Route path="/pricing" element={<PageTransition><PricingPage /></PageTransition>} />
+                  <Route path="/partners" element={<PageTransition><PartnerShowcase /></PageTransition>} />
                   <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
                   <Route path="/portfolio/:id" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
@@ -146,6 +148,8 @@ function App() {
                   <Route path="/tools/brand-audit" element={<PageTransition><BrandAudit /></PageTransition>} />
                   <Route path="/tools/backlink-checker" element={<PageTransition><BacklinkChecker /></PageTransition>} />
                   <Route path="/tools/pdf-converter" element={<PageTransition><PdfConverter /></PageTransition>} />
+                  <Route path="/tools/resume-builder" element={<PageTransition><ResumeBuilder /></PageTransition>} />
+                  <Route path="/services/website-builder" element={<PageTransition><WebsiteBuilder /></PageTransition>} />
                   
                   {/* Services Routes */}
                   <Route path="/services/:slug" element={<PageTransition><ServiceDetail /></PageTransition>} />
@@ -159,6 +163,7 @@ function App() {
               </AnimatePresence>
             </React.Suspense>
           </main>
+
           {!isCustomLayoutRoute && (
             <>
               <Footer />

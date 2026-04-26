@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Target, Users, Zap, Award, BarChart3, Globe, ShieldCheck, Heart } from 'lucide-react';
+import { Target, Users, Zap, Award, BarChart3, Globe, ShieldCheck, Heart, Handshake } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import teamImg from '../assets/team_identity.png';
 import SEO from '../components/SEO';
 
@@ -33,10 +34,10 @@ const AboutPage = () => {
           <h2 className="text-4xl font-black text-slate-900 mb-8">The ToolBite Genesis</h2>
           <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
             <p>
-              Founded in 2026, ToolBite emerged from a glaring gap in the market: the divide between aesthetic beauty and technical performance. Most agencies offered one or the other; we decided to pioneer both.
+              Founded in 2026 by <strong>Aryan Singh</strong>, ToolBite emerged from a glaring gap in the market: the divide between aesthetic beauty and technical performance. Most agencies offered one or the other; we decided to pioneer both.
             </p>
             <p>
-              What started as a small team of passionate developers based in New Delhi has evolved into a full-scale architectural digital agency. Our name, ToolBite, signifies our dual approach—providing the tools businesses need to succeed and the "bite" or competitive edge required to dominate their market.
+              What started as a vision by Aryan Singh in New Delhi has evolved into a full-scale architectural digital agency. Our name, ToolBite, signifies our dual approach—providing the tools businesses need to succeed and the "bite" or competitive edge required to dominate their market.
             </p>
             <p>
               We specialize in high-performance React frameworks, native and cross-platform mobile apps, server-side rendering, and ultra-fast deployment cycles. Every template in our vault and every custom project we undertake is subjected to rigorous SEO and Core Web Vitals auditing before it ever reaches a client.
@@ -53,6 +54,28 @@ const AboutPage = () => {
           </div>
           <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-10 -left-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl -z-10"></div>
+        </div>
+      </div>
+
+      {/* Partner CTA Section (from Image) */}
+      <div className="bg-[#0f172a] rounded-[48px] overflow-hidden relative mb-32 shadow-2xl">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-3/5 p-8 md:p-16 lg:p-24 relative z-10">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6">Not a developer?</h2>
+            <p className="text-lg md:text-xl text-slate-400 font-medium mb-10 leading-relaxed">
+              View the Partner Showcase to find a partner tailored to fit your business needs.
+            </p>
+            <Link to="/partners" className="inline-flex px-10 py-5 rounded-full bg-[#0070f3] text-white font-bold text-lg hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/25">
+              Find a partner
+            </Link>
+          </div>
+          <div className="md:w-2/5 relative h-[300px] md:h-[500px] w-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+             <div className="relative">
+               <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl" />
+               <Handshake size={120} className="text-blue-500/80 relative z-10" strokeWidth={1} />
+             </div>
+          </div>
         </div>
       </div>
 
