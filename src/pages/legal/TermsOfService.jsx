@@ -155,7 +155,7 @@ const TermsOfService = () => {
               All formal legal notices, questions concerning user rights, or inquiries regarding the boundaries of template modification should be professionally routed via email. Please direct all high-priority correspondence to:
             </p>
             <p>
-              <strong>Email:</strong> terms@toolbite.com
+              <strong>Email:</strong> hello.toolbite@gmail.com
             </p>
             <p>
               Our executive staff aims to acknowledge and begin processing all complex legal inquiries within three highly active standard business days. Should you require physical correspondence, our corporate mailing details can be procured by referencing our centralized Privacy Policy page.

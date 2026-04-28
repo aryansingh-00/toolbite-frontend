@@ -8,11 +8,16 @@ const FloatingChat = () => {
   const [showNudge, setShowNudge] = useState(false);
 
   useEffect(() => {
-    // Auto-nudge after 5 seconds
-    const timer = setTimeout(() => {
-      setShowNudge(true);
-    }, 5000);
-    return () => clearTimeout(timer);
+    // Auto-nudge after 5 seconds only if not seen before
+    const hasSeenNudge = localStorage.getItem('hasSeenChatNudge');
+    
+    if (!hasSeenNudge) {
+      const timer = setTimeout(() => {
+        setShowNudge(true);
+        localStorage.setItem('hasSeenChatNudge', 'true');
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return (

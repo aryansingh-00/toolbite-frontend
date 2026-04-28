@@ -22,6 +22,20 @@
     @apply bg-slate-900/70 backdrop-blur-2xl border border-slate-700/50;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
   }
+  .glass-premium {
+    @apply bg-white/60 backdrop-blur-2xl border-t border-l border-white/80 border-r border-b border-white/40;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.5), 0 20px 40px -10px rgba(0,0,0,0.05);
+  }
+  .glass-dark-premium {
+    @apply bg-slate-900/60 backdrop-blur-2xl border-t border-l border-slate-700/80 border-r border-b border-slate-800/50;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 20px 40px -10px rgba(0,0,0,0.3);
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
 }
 
 ::selection {

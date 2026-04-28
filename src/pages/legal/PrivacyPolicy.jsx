@@ -148,7 +148,7 @@ const PrivacyPolicy = () => {
             </p>
             <p>
               You may initiate a dialogue with us at any time by emailing us directly at:<br/>
-              <strong>Email:</strong> privacy@toolbite.com
+              <strong>Email:</strong> hello.toolbite@gmail.com
             </p>
             <p>
               While we primarily operate as an agile digital entity, formal written correspondence and legal inquiries can be directed to our corporate headquarters located at:<br/>

@@ -14,6 +14,7 @@
         }
         .glass {
             background: rgba(30, 41, 59, 0.7);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -28,6 +29,9 @@
         .habit-card:hover {
             transform: translateY(-4px);
             border-color: rgba(20, 184, 166, 0.5);
+        }
+        .progress-92 {
+            width: 92%;
         }
     </style>
 </head>
@@ -72,7 +76,7 @@
                 <p class="text-slate-400 text-sm mb-1">Weekly Completion</p>
                 <p class="text-3xl font-bold">92%</p>
                 <div class="w-full bg-slate-800 h-1.5 rounded-full mt-4">
-                    <div class="bg-teal-500 h-full rounded-full" style="width: 92%"></div>
+                    <div class="bg-teal-500 h-full rounded-full progress-92"></div>
                 </div>
             </div>
             <div class="glass p-6 rounded-3xl">

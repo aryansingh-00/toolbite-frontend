@@ -129,7 +129,7 @@ const PartnerShowcase = () => {
               </div>
               <div>
                 <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">Email Our Ecosystem</p>
-                <a href="mailto:partners@toolbite.io" className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors">partners@toolbite.io</a>
+                <a href="mailto:hello.toolbite@gmail.com" className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors">hello.toolbite@gmail.com</a>
               </div>
             </div>
             <div className="flex items-start gap-6">

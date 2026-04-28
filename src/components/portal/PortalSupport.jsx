@@ -94,7 +94,7 @@ const PortalSupport = () => {
               <div className="space-y-4">
                  {[
                    { label: "WhatsApp Desk", val: "+1 (555) 012-3456", icon: <Phone size={20} />, color: "emerald", action: "Chat Now" },
-                   { label: "Technical Support", val: "support@toolbite.in", icon: <Mail size={20} />, color: "teal", action: "Send Email" },
+                   { label: "Technical Support", val: "hello.toolbite@gmail.com", icon: <Mail size={20} />, color: "teal", action: "Send Email" },
                    { label: "Strategic Advisor", val: "Schedule a Call", icon: <Clock size={20} />, color: "indigo", action: "Book" }
                  ].map((opt, i) => (
                    <button key={i} className="w-full flex items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">

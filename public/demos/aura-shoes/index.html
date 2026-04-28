@@ -11,7 +11,7 @@
     body{font-family:'Inter',sans-serif;background:#050505;color:#fff;overflow-x:hidden}
     
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);height:72px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.8);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);height:72px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
     .logo{font-size:1.4rem;font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,#f97316,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav-links{display:flex;gap:2rem;list-style:none}
     .nav-links a{color:#a1a1aa;text-decoration:none;font-size:.85rem;font-weight:600;transition:.2s;text-transform:uppercase;letter-spacing:1px}
@@ -22,6 +22,7 @@
     /* HERO */
     .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:120px 5% 80px}
     .hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(249,115,22,0.1),transparent 70%)}
+    .hero-content{position:relative;display:flex;flex-direction:column;align-items:center}
     
     /* LINE 35: Standard property fix for compatibility */
     .hero-content h1{font-size:clamp(3rem,8vw,8rem);font-weight:900;line-height:0.9;text-align:center;letter-spacing:-4px;background:linear-gradient(180deg,#fff,#3f3f46);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:2rem}
@@ -56,7 +57,7 @@
 
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-content" style="position:relative;display:flex;flex-direction:column;align-items:center">
+    <div class="hero-content">
       <h1>STEP INTO<br>THE FUTURE</h1>
       <div class="hero-shoe">👟</div>
       <p class="hero-p">Experience the fusion of high-performance engineering and futuristic streetwear. The Aura One is built for the pavement and designed for the galaxy.</p>

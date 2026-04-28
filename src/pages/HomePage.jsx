@@ -13,6 +13,7 @@ import GrowthAuditSection from '../components/GrowthAuditSection';
 import TrustSection from '../components/TrustSection';
 import ProjectStrategist from '../components/ProjectStrategist';
 import ROICalculator from '../components/ROICalculator';
+import ScrollReveal from '../components/ScrollReveal';
 
 const PricingTeaser = () => {
   return (
@@ -112,18 +113,18 @@ const HomePage = () => {
         keywords="web design agency, custom website development, premium templates, landing pages, react web development, toolbite agency"
       />
       <Hero />
-      <TrustSection />
-      <Services />
-      <ToolsTeaser />
-      <ReadyMade />
-      <PortfolioTeaser />
-      <WhyChooseUs />
-      <PricingTeaser />
-      <ROICalculator />
-      <Testimonials />
-      <ProjectStrategist />
-      <GrowthAuditSection />
-      <FAQ />
+      <ScrollReveal><TrustSection /></ScrollReveal>
+      <ScrollReveal><Services /></ScrollReveal>
+      <ScrollReveal><ToolsTeaser /></ScrollReveal>
+      <ScrollReveal><ReadyMade /></ScrollReveal>
+      <ScrollReveal><PortfolioTeaser /></ScrollReveal>
+      <ScrollReveal><WhyChooseUs /></ScrollReveal>
+      <ScrollReveal><PricingTeaser /></ScrollReveal>
+      <ScrollReveal><ROICalculator /></ScrollReveal>
+      <ScrollReveal><Testimonials /></ScrollReveal>
+      <ScrollReveal><ProjectStrategist /></ScrollReveal>
+      <ScrollReveal><GrowthAuditSection /></ScrollReveal>
+      <ScrollReveal><FAQ /></ScrollReveal>
     </>
   );
 };

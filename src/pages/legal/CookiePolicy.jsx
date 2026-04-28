@@ -130,7 +130,7 @@ const CookiePolicy = () => {
             </p>
             <p>
               You may quickly and securely transmit your specific inquiries or legally invoke your data autonomy rights by emailing our centralized compliance hub directly at:<br/>
-              <strong>Email:</strong> privacy@toolbite.com
+              <strong>Email:</strong> hello.toolbite@gmail.com
             </p>
             <p>
               Our personnel are aggressively mandated to fully process, acknowledge, and begin technical rectification of all complex tracking inquiries, privacy objections, and corporate licensing clarifications within 48 to 72 immediate active business hours. 

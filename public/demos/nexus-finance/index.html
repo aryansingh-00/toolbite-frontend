@@ -21,7 +21,7 @@
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0f172a}::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:3px}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(5,13,26,0.85);border-bottom:1px solid rgba(99,179,237,0.1);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);background:rgba(5,13,26,0.85);border-bottom:1px solid rgba(99,179,237,0.1);padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between}
     .logo{font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-0.5px}
     .logo span{color:#3b82f6}
     .nav-links{display:flex;gap:2rem;list-style:none}
@@ -68,6 +68,9 @@
     .chart-bars{display:flex;align-items:flex-end;gap:.5rem;height:120px;margin-top:1rem}
     .bar{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#3b82f6,#1d4ed8);opacity:.7;transition:.3s}
     .bar:hover{opacity:1}
+    .bar-1 {height: 40%} .bar-2 {height: 60%} .bar-3 {height: 45%} .bar-4 {height: 80%}
+    .bar-5 {height: 55%} .bar-6 {height: 90%} .bar-7 {height: 70%} .bar-8 {height: 100%}
+    .bar-9 {height: 85%} .bar-10 {height: 75%} .bar-11 {height: 95%} .bar-12 {height: 88%}
 
     /* FEATURES */
     .features{padding:6rem 5%}
@@ -77,6 +80,9 @@
     .feat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
     .feat-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
     .feat-card p{font-size:.85rem;color:#475569;line-height:1.6}
+    .icon-blue{background:rgba(59,130,246,0.15)} .icon-purple{background:rgba(168,85,247,0.15)}
+    .icon-green{background:rgba(34,197,94,0.15)} .icon-yellow{background:rgba(251,191,36,0.15)}
+    .icon-red{background:rgba(239,68,68,0.15)} .icon-teal{background:rgba(20,184,166,0.15)}
 
     /* CTA */
     .cta{padding:6rem 5%;text-align:center;background:radial-gradient(ellipse at 50% 50%,rgba(59,130,246,0.1),transparent 70%)}
@@ -89,6 +95,8 @@
     .footer-links{display:flex;gap:2rem}
     .footer-links a{color:#334155;text-decoration:none;font-size:.85rem;transition:.2s}
     .footer-links a:hover{color:#3b82f6}
+    .btn-large{font-size:1.1rem;padding:1rem 2.5rem}
+    .logo-footer{font-size:1.1rem}
 
     @media(max-width:768px){
       .stats{grid-template-columns:repeat(2,1fr)}
@@ -144,18 +152,18 @@
         <div class="metric"><div class="metric-val purple">3,841</div><div class="metric-lbl">Transactions</div><div class="metric-change">↑ +9.7% vs last month</div></div>
       </div>
       <div class="chart-bars">
-        <div class="bar" style="height:40%"></div>
-        <div class="bar" style="height:60%"></div>
-        <div class="bar" style="height:45%"></div>
-        <div class="bar" style="height:80%"></div>
-        <div class="bar" style="height:55%"></div>
-        <div class="bar" style="height:90%"></div>
-        <div class="bar" style="height:70%"></div>
-        <div class="bar" style="height:100%"></div>
-        <div class="bar" style="height:85%"></div>
-        <div class="bar" style="height:75%"></div>
-        <div class="bar" style="height:95%"></div>
-        <div class="bar" style="height:88%"></div>
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+        <div class="bar bar-4"></div>
+        <div class="bar bar-5"></div>
+        <div class="bar bar-6"></div>
+        <div class="bar bar-7"></div>
+        <div class="bar bar-8"></div>
+        <div class="bar bar-9"></div>
+        <div class="bar bar-10"></div>
+        <div class="bar bar-11"></div>
+        <div class="bar bar-12"></div>
       </div>
     </div>
   </section>
@@ -165,23 +173,23 @@
     <h2 class="section-title">Everything You Need</h2>
     <p class="section-sub">Built for CFOs, finance teams, and developers alike.</p>
     <div class="features-grid">
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(59,130,246,0.15)">⚡</div><h4>Zero-Latency Processing</h4><p>Sub-millisecond transaction routing with distributed edge infrastructure across 47 data centers.</p></div>
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(168,85,247,0.15)">🔐</div><h4>Bank-Grade Security</h4><p>256-bit AES encryption, SOC2 Type II certified, biometric authentication layers.</p></div>
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(34,197,94,0.15)">📈</div><h4>Predictive Analytics</h4><p>AI-powered forecasting models trained on 10M+ financial data points in real-time.</p></div>
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(251,191,36,0.15)">🔗</div><h4>300+ Integrations</h4><p>Connect Stripe, Plaid, QuickBooks, SAP, and every major financial API in minutes.</p></div>
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(239,68,68,0.15)">🌍</div><h4>Multi-Currency Global</h4><p>Support 180+ currencies with live FX rates and automatic cross-border compliance.</p></div>
-      <div class="feat-card"><div class="feat-icon" style="background:rgba(20,184,166,0.15)">📋</div><h4>Automated Reporting</h4><p>Schedule board-ready PDF reports, real-time dashboards, and custom KPI alerts.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-blue">⚡</div><h4>Zero-Latency Processing</h4><p>Sub-millisecond transaction routing with distributed edge infrastructure across 47 data centers.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-purple">🔐</div><h4>Bank-Grade Security</h4><p>256-bit AES encryption, SOC2 Type II certified, biometric authentication layers.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-green">📈</div><h4>Predictive Analytics</h4><p>AI-powered forecasting models trained on 10M+ financial data points in real-time.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-yellow">🔗</div><h4>300+ Integrations</h4><p>Connect Stripe, Plaid, QuickBooks, SAP, and every major financial API in minutes.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-red">🌍</div><h4>Multi-Currency Global</h4><p>Support 180+ currencies with live FX rates and automatic cross-border compliance.</p></div>
+      <div class="feat-card"><div class="feat-icon icon-teal">📋</div><h4>Automated Reporting</h4><p>Schedule board-ready PDF reports, real-time dashboards, and custom KPI alerts.</p></div>
     </div>
   </section>
 
   <section class="cta">
     <h2>Ready to Transform Your<br>Financial Infrastructure?</h2>
     <p>Join 12,000+ institutions already processing billions with Nexus. No credit card required.</p>
-    <button class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem">Start Free 30-Day Trial</button>
+    <button class="btn-primary btn-large">Start Free 30-Day Trial</button>
   </section>
 
   <footer>
-    <div class="logo" style="font-size:1.1rem">Nexus<span>.</span></div>
+    <div class="logo logo-footer">Nexus<span>.</span></div>
     <p>© 2025 Nexus Financial OS. All rights reserved. Built by ToolBite.</p>
     <div class="footer-links">
       <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a>

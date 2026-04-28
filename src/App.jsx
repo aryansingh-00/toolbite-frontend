@@ -14,6 +14,7 @@ import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
 import CommandPalette from './components/CommandPalette';
+import NoiseOverlay from './components/NoiseOverlay';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import StartProjectPage from './pages/StartProjectPage';
@@ -96,6 +97,7 @@ function App() {
         <AuthProvider>
           <ClientAuthProvider>
           <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
+            <NoiseOverlay />
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
             <ScrollProgress />
