@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
-import { FiInstagram as Instagram, FiTwitter as Twitter, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook } from 'react-icons/fi';
+import { FiInstagram as Instagram, FiTwitter as Twitter, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
 
 const ContactSection = () => {
   const [status, setStatus] = useState('idle');
@@ -115,6 +115,9 @@ const ContactSection = () => {
                 </a>
                 <a href="https://github.com/aryansingh-00" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all shadow-sm">
                   <Github size={20} />
+                </a>
+                <a href="https://www.youtube.com/@tool-bite" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 border border-slate-100 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all shadow-sm" aria-label="YouTube">
+                  <Youtube size={20} />
                 </a>
               </div>
             </div>

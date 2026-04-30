@@ -12,7 +12,8 @@ const ToolLayout = ({
   children,
   category,
   extendedContent,
-  slug
+  slug,
+  maxWidth = 'max-w-4xl'
 }) => {
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
@@ -31,7 +32,7 @@ const ToolLayout = ({
         ]}
       />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`${maxWidth} mx-auto px-4 sm:px-6 lg:px-8`}>
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm font-medium text-slate-500 mb-8 overflow-x-auto whitespace-nowrap pb-2 md:pb-0">
           <Link to="/" className="hover:text-teal-600 transition-colors">Home</Link>

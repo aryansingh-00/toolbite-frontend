@@ -1,9 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook } from 'react-icons/fi';
+import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
 
 const Footer = () => {
+  const location = useLocation();
+  const hideMarketing = location.pathname.startsWith('/tools') || 
+                        location.pathname.includes('-policy') || 
+                        location.pathname.includes('terms-') ||
+                        location.pathname.startsWith('/template');
+
   return (
     <footer className="bg-slate-950 text-slate-300 pt-20 pb-10 border-t border-slate-900 relative overflow-hidden">
       {/* Decorative Blur */}
@@ -11,7 +17,9 @@ const Footer = () => {
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top CTA Banner */}
+        {!hideMarketing && (
+          <>
+            {/* Top CTA Banner */}
         <div className="bg-gradient-to-r from-slate-900 to-slate-800 border border-slate-700/50 rounded-3xl p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-500"></div>
           <div>
@@ -62,6 +70,8 @@ const Footer = () => {
             </p>
           </form>
         </div>
+          </>
+        )}
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
@@ -110,6 +120,9 @@ const Footer = () => {
               </a>
               <a href="https://github.com/aryansingh-00" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white transition-all">
                 <Github size={18} />
+              </a>
+              <a href="https://www.youtube.com/@tool-bite" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all" aria-label="YouTube">
+                <Youtube size={18} />
               </a>
             </div>
           </div>

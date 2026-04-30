@@ -89,7 +89,7 @@ function App() {
     };
   }, []);
 
-  const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login';
+  const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login' || location.pathname === '/tools/resume-builder';
 
   return (
     <HelmetProvider>
