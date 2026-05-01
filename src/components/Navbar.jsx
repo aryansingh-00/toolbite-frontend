@@ -208,7 +208,7 @@ const Navbar = () => {
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -254,7 +254,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'py-0' : 'py-2'} ${isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
-      <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'glass-card shadow-sm border-b border-slate-200/50 dark:border-slate-800/50 backdrop-blur-2xl' : 'bg-transparent border-b border-transparent'}`}>
+      <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'glass-dark-premium shadow-2xl border-b border-white/5 backdrop-blur-3xl' : 'bg-transparent border-b border-transparent'}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
 
@@ -267,9 +267,9 @@ const Navbar = () => {
                   fill="none"
                   className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
                 >
-                  <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="#0f172a" strokeWidth="4.5" />
-                  <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="#0f172a" strokeWidth="4" />
-                  <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="#0f172a" />
+                  <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="4.5" />
+                  <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="currentColor" strokeWidth="4" />
+                  <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="currentColor" />
                 </motion.svg>
                 <span className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white ml-2">Tool<span className="text-teal-500">Bite</span></span>
               </Link>

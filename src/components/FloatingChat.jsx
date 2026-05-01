@@ -1,7 +1,8 @@
  
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Sparkles, Phone } from 'lucide-react';
+import { MessageCircle, X } from 'lucide-react';
+import { CustomerCareIcon, AIWhatsAppIcon, AIStrategistIcon } from './CustomIcons';
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,14 +58,15 @@ const FloatingChat = () => {
             transition={{ duration: 0.2 }}
             className="bg-white rounded-2xl shadow-2xl border border-slate-100 w-80 mb-4 overflow-hidden origin-bottom-right"
           >
-            <div className="bg-gradient-to-r from-teal-600 to-emerald-500 p-6 text-white text-center">
-              <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center mx-auto mb-3 shadow-inner">
-                <span className="font-black text-xl">TB</span>
+            <div className="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 p-6 text-white text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1),transparent)] animate-pulse"></div>
+              <div className="w-16 h-16 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center mx-auto mb-3 shadow-inner relative z-10">
+                <CustomerCareIcon className="w-10 h-10 text-white" />
               </div>
-              <h4 className="font-bold text-xl mb-1 capitalize">ToolBite Support</h4>
-              <div className="flex items-center justify-center gap-1.5 opacity-80">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse"></div>
-                <p className="text-sm font-medium">Replies in under 5 minutes</p>
+              <h4 className="font-bold text-xl mb-1 capitalize relative z-10">ToolBite Support</h4>
+              <div className="flex items-center justify-center gap-1.5 opacity-80 relative z-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                <p className="text-sm font-medium">AI-Powered & Human-Verified</p>
               </div>
             </div>
             
@@ -78,11 +80,11 @@ const FloatingChat = () => {
 
             <div className="p-6 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-3">
               <a href="https://wa.me/919598037255" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-3 py-4 bg-[#25D366] text-white rounded-2xl font-black text-sm hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-[#25D366]/20">
-                <span className="bg-white/20 p-1 rounded-lg"><Phone size={14} fill="white" /></span>
-                Open WhatsApp Chat
+                <AIWhatsAppIcon className="w-6 h-6" />
+                Open AI WhatsApp Chat
               </a>
               <a href="/#ai-strategist" onClick={() => setIsOpen(false)} className="w-full flex items-center justify-center gap-2 py-3 bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800 rounded-2xl font-bold text-sm hover:bg-teal-100 dark:hover:bg-teal-900/50 transition-colors">
-                <Sparkles size={16} />
+                <AIStrategistIcon className="w-5 h-5" />
                 Chat with AI Strategist
               </a>
             </div>
@@ -100,6 +102,7 @@ const FloatingChat = () => {
         )}
         {isOpen ? <X size={28} className="transform rotate-90 hover:rotate-0 transition-transform duration-300" /> : <MessageCircle size={28} className="group-hover:animate-pulse" />}
       </button>
+
 
     </div>
   );

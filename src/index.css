@@ -7,28 +7,29 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply bg-slate-950 text-slate-100;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-emerald-400 to-blue-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500;
   }
   .glass-card {
-    @apply bg-white/70 backdrop-blur-2xl border border-white/60;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    @apply bg-white/5 backdrop-blur-2xl border border-white/10;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
   .glass-dark {
-    @apply bg-slate-900/70 backdrop-blur-2xl border border-slate-700/50;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    @apply bg-slate-900/40 backdrop-blur-2xl border border-slate-700/30;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
   .glass-premium {
-    @apply bg-white/60 backdrop-blur-2xl border-t border-l border-white/80 border-r border-b border-white/40;
-    box-shadow: inset 0 0 20px rgba(255,255,255,0.5), 0 20px 40px -10px rgba(0,0,0,0.05);
+    @apply bg-white/5 backdrop-blur-3xl border-t border-l border-white/20 border-r border-b border-white/5;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px -10px rgba(0,0,0,0.4);
   }
   .glass-dark-premium {
-    @apply bg-slate-900/60 backdrop-blur-2xl border-t border-l border-slate-700/80 border-r border-b border-slate-800/50;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 20px 40px -10px rgba(0,0,0,0.3);
+    @apply bg-slate-900/40 backdrop-blur-3xl border-t border-l border-slate-700/40 border-r border-b border-slate-800/20;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px -10px rgba(0,0,0,0.5);
   }
 }
 

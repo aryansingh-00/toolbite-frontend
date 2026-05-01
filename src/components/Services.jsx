@@ -19,15 +19,15 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-8 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50/50 rounded-bl-[100px] -z-10"></div>
+    <section id="services" className="py-16 bg-transparent relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 rounded-bl-[100px] -z-10 blur-[80px]"></div>
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">What We Do</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Digital Solutions for <br className="hidden md:block"/> Every Need.</h3>
-          <p className="text-lg text-slate-600">
-            From high-performance mobile apps to complex web applications, we provide end-to-end development services tailored exactly to your business goals.
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-emerald-500 font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
+          <p className="text-lg text-slate-400 font-medium leading-relaxed">
+            From enterprise-grade mobile ecosystems to high-velocity web applications, we architect digital foundations that transform vision into immediate market authority.
           </p>
         </div>
 
@@ -112,9 +112,9 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-2"
+          className="text-center mt-8"
         >
-          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-slate-900 text-white font-semibold hover:bg-teal-600 transition-all shadow-lg hover:shadow-teal-500/25 group">
+          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-emerald-500 text-slate-950 font-black hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.2)] group hover:scale-105">
             Discuss Your Project 
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>

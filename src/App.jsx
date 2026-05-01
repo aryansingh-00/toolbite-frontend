@@ -96,7 +96,12 @@ function App() {
       <PersonalizationProvider>
         <AuthProvider>
           <ClientAuthProvider>
-          <div className="min-h-screen relative overflow-hidden bg-slate-50 font-sans text-slate-900 flex flex-col">
+          <div className="min-h-screen relative overflow-hidden bg-[#030712] font-sans text-slate-100 flex flex-col">
+            {/* Ambient Background Glows */}
+            <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+            <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+            <div className="fixed top-[30%] right-[10%] w-[30%] h-[30%] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
+            
             <NoiseOverlay />
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
