@@ -83,6 +83,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [showAll, setShowAll] = useState(false);
 
   const activeCat = categories.find((c) => c.label === activeCategory);
   const filtered = faqData.filter((faq) => {
@@ -95,7 +96,7 @@ const FAQ = () => {
   });
 
   return (
-    <section id="faq" className="py-20 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+    <section id="faq" className="py-16 bg-transparent relative overflow-hidden border-t border-white/5">
       {/* Decorative Blobs */}
       <div className="absolute top-20 -left-20 w-[400px] h-[400px] bg-teal-500/5 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
@@ -103,37 +104,26 @@ const FAQ = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full text-xs font-black uppercase tracking-widest mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-            Questions & Answers
+        <div className="text-center mb-8">
+          <span className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+            <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+            Support Matrix
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
-            Frequently Asked <span className="text-gradient">Questions</span>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-3 tracking-tighter">
+            Frequent <span className="text-emerald-500">Inquiries.</span>
           </h2>
-          <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-            Everything you need to know about our services, pricing, and how we build premium digital experiences.
-          </p>
         </div>
 
         {/* Search Bar */}
-        <div className="relative mb-6">
-          <Search size={17} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+        <div className="relative mb-6 max-w-2xl mx-auto">
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
           <input
             type="text"
-            placeholder="Search questions…"
+            placeholder="Search the system..."
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setOpenIndex(null); }}
-            className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all placeholder:text-slate-400"
+            className="w-full pl-11 pr-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all placeholder:text-slate-500"
           />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold"
-            >
-              Clear
-            </button>
-          )}
         </div>
 
         {/* Category Tabs */}
@@ -165,21 +155,31 @@ const FAQ = () => {
             className="space-y-3"
           >
             {filtered.length > 0 ? (
-              filtered.map((faq, index) => (
-                <FAQItem
-                  key={faq.question}
-                  question={faq.question}
-                  answer={faq.answer}
-                  index={index}
-                  isOpen={openIndex === index}
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                />
-              ))
+              <>
+                {(showAll ? filtered : filtered.slice(0, 5)).map((faq, index) => (
+                  <FAQItem
+                    key={faq.question}
+                    question={faq.question}
+                    answer={faq.answer}
+                    index={index}
+                    isOpen={openIndex === index}
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  />
+                ))}
+                
+                {filtered.length > 5 && (
+                  <button 
+                    onClick={() => setShowAll(!showAll)}
+                    className="w-full py-4 mt-2 text-sm font-bold text-slate-400 hover:text-white transition-colors border border-dashed border-white/10 rounded-2xl hover:bg-white/5"
+                  >
+                    {showAll ? 'Show Fewer Questions' : `View All ${filtered.length} Questions`}
+                  </button>
+                )}
+              </>
             ) : (
-              <div className="text-center py-16 text-slate-400 dark:text-slate-600">
-                <p className="text-4xl mb-3">🔍</p>
-                <p className="font-semibold text-slate-600 dark:text-slate-400">No questions found</p>
-                <p className="text-sm mt-1">Try a different category or search term</p>
+              <div className="text-center py-16 text-slate-600">
+                <p className="text-4xl mb-3 opacity-20">🔍</p>
+                <p className="font-semibold text-slate-400">No results found in the support matrix.</p>
               </div>
             )}
           </motion.div>

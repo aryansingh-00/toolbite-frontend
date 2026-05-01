@@ -87,17 +87,17 @@ const Footer = () => {
               >
                 <path 
                   d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" 
-                  stroke="#0f172a" 
+                  stroke="#ffffffff" 
                   strokeWidth="4.5" 
                 />
                 <path 
                   d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" 
-                  stroke="#0f172a" 
+                  stroke="#ffffffff" 
                   strokeWidth="4" 
                 />
                 <polygon 
                   points="30,28 30,52 52,40" 
-                  fill="#0f172a" 
+                  fill="white" 
                 />
               </svg>
               <span className="text-3xl font-bold tracking-tight text-white">Tool<span className="text-teal-500">Bite</span></span>

@@ -120,7 +120,6 @@ const HomePage = () => {
       <ScrollReveal><PortfolioTeaser /></ScrollReveal>
       <ScrollReveal><WhyChooseUs /></ScrollReveal>
       <ScrollReveal><PricingTeaser /></ScrollReveal>
-      <ScrollReveal><ROICalculator /></ScrollReveal>
       <ScrollReveal><Testimonials /></ScrollReveal>
       <ScrollReveal><ProjectStrategist /></ScrollReveal>
       <ScrollReveal><GrowthAuditSection /></ScrollReveal>
