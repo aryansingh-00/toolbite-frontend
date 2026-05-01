@@ -198,20 +198,20 @@ export default function ATSScorePanel({ formData, onClose }) {
     <motion.div
       initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
       transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-      className="fixed right-0 top-0 h-full w-[400px] bg-[#0f172a] border-l border-white/10 z-[90] flex flex-col shadow-2xl"
+      className="fixed right-0 top-0 h-full w-[400px] bg-slate-950/90 backdrop-blur-xl border-l border-white/5 z-[90] flex flex-col shadow-2xl"
     >
       {/* Header */}
       <div className="px-6 py-5 border-b border-white/10 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-teal-500/20 rounded-xl flex items-center justify-center">
-            <Target size={18} className="text-teal-400" />
+          <div className="w-9 h-9 bg-emerald-500/10 rounded-xl flex items-center justify-center border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+            <Target size={18} className="text-emerald-400" />
           </div>
           <div>
-            <h3 className="font-black text-white text-base">ATS Score</h3>
-            <p className="text-slate-500 text-xs">Resume Analyzer</p>
+            <h3 className="font-black text-white text-base tracking-tight">ATS Core</h3>
+            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Intelligence Engine</p>
           </div>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-xl transition-colors text-slate-400">
+        <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
           <X size={18} />
         </button>
       </div>
@@ -219,7 +219,8 @@ export default function ATSScorePanel({ formData, onClose }) {
       <div className="flex-1 overflow-y-auto no-scrollbar p-6 space-y-6">
 
         {/* Score Ring */}
-        <div className="flex flex-col items-center py-6 bg-white/5 rounded-3xl border border-white/10">
+        <div className="flex flex-col items-center py-8 bg-white/5 rounded-3xl border border-white/5 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-[50px] rounded-full pointer-events-none" />
           <div className="relative w-36 h-36 mb-4">
             <svg className="w-full h-full -rotate-90" viewBox="0 0 128 128">
               <circle cx="64" cy="64" r={circleR} fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="10" />

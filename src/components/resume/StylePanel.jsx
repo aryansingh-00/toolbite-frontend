@@ -36,20 +36,20 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
     <motion.div
       initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
       transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-      className="fixed right-0 top-0 h-full w-[320px] bg-[#0f172a] border-l border-white/10 z-[80] flex flex-col shadow-2xl"
+      className="fixed right-0 top-0 h-full w-[320px] bg-slate-950/90 backdrop-blur-xl border-l border-white/5 z-[80] flex flex-col shadow-2xl"
     >
       {/* Header */}
       <div className="px-6 py-5 border-b border-white/10 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-violet-500/20 rounded-xl flex items-center justify-center">
+          <div className="w-9 h-9 bg-violet-500/10 rounded-xl flex items-center justify-center border border-violet-500/20 shadow-[0_0_15px_rgba(139,92,246,0.1)]">
             <Palette size={18} className="text-violet-400" />
           </div>
           <div>
-            <h3 className="font-black text-white text-base">Style Controls</h3>
-            <p className="text-slate-500 text-xs">Customize your resume design</p>
+            <h3 className="font-black text-white text-base tracking-tight">Design System</h3>
+            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Visual Controller</p>
           </div>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-xl transition-colors text-slate-400">
+        <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
           <X size={18} />
         </button>
       </div>

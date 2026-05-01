@@ -130,17 +130,18 @@ export default function AIFillModal({ formData, onApply, onClose }) {
     >
       <motion.div
         initial={{ scale: 0.92, y: 20 }} animate={{ scale: 1, y: 0 }}
-        className="bg-[#0f172a] border border-white/10 rounded-[2rem] w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden"
+        className="bg-slate-900 border border-white/5 rounded-[2rem] w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden relative"
       >
+        <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/5 blur-[80px] rounded-full pointer-events-none" />
         {/* Header */}
         <div className="px-8 py-6 border-b border-white/10 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-sky-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(14,165,233,0.2)] border border-white/10">
               <Sparkles size={20} className="text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-black text-white">AI Resume from Job Description</h2>
-              <p className="text-slate-500 text-sm">Powered by Gemini AI · ATS-optimized content generation</p>
+              <h2 className="text-xl font-black text-white tracking-tight">AI Resume Strategist</h2>
+              <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Powered by Gemini 2.0 Flash</p>
             </div>
           </div>
           <button onClick={onClose} className="p-2.5 hover:bg-white/10 rounded-xl transition-colors text-slate-400">

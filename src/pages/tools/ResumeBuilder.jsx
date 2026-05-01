@@ -482,8 +482,12 @@ const ResumeBuilder = () => {
 
   // UI Sections
   const renderChoiceStep = () => (
-    <motion.div key="choice" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full bg-sky-50/50 min-h-[calc(100vh-8rem)] flex items-center pt-8 pb-20">
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+    <motion.div key="choice" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full bg-transparent min-h-[calc(100vh-8rem)] flex items-center pt-8 pb-20 relative">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-20 -left-20 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 -right-20 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left Column: Text & Buttons */}
@@ -493,20 +497,22 @@ const ResumeBuilder = () => {
               <span className="text-slate-600 font-medium"><strong>49,171</strong> CVs created today</span>
             </motion.div>
             
-            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl font-black text-slate-800 mb-8 tracking-tight leading-[1.15]">
-              Pick from 40+ <br/> modern & free <span className="text-sky-500">CV<br/>templates</span>
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.05]">
+              Forge a <span className="text-emerald-400">Weapon</span> <br/>for the Job Market.
             </motion.h1>
             
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-xl text-slate-600 mb-12 max-w-xl leading-relaxed">
-              The first step to a better job? A better CV. Create yours now with professional CV templates, AI content suggestions, and impactful summaries!
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="text-xl text-slate-400 mb-12 max-w-xl leading-relaxed font-medium">
+              The first step to an elite role? An elite CV. Architect your career path with AI-driven content generation, real-time ATS optimization, and industry-leading templates.
             </motion.p>
             
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setCurrentStep('templates')} className="px-8 py-5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl shadow-lg shadow-sky-500/30 transition-all hover:-translate-y-1 text-lg">
-                Choose a Template
+              <button onClick={() => setCurrentStep('templates')} className="px-8 py-5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3">
+                <Layout size={20} />
+                Explore Templates
               </button>
-              <button onClick={() => setCurrentStep('upload')} className="px-8 py-5 bg-transparent border-2 border-sky-500 text-sky-600 hover:bg-sky-50 font-bold rounded-xl transition-all hover:-translate-y-1 text-lg">
-                Improve My CV
+              <button onClick={() => setCurrentStep('upload')} className="px-8 py-5 bg-white/5 border border-white/10 text-white hover:bg-white/10 font-bold rounded-xl transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3 backdrop-blur-md">
+                <Upload size={20} />
+                Import Existing CV
               </button>
             </motion.div>
           </div>
@@ -635,7 +641,10 @@ const ResumeBuilder = () => {
     });
 
     return (
-      <motion.div key="templates" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full bg-[#1e293b] min-h-screen pb-20 pt-8 overflow-y-auto">
+      <motion.div key="templates" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="w-full bg-slate-950 min-h-screen pb-20 pt-8 overflow-y-auto relative">
+        {/* Background Ambient Glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
         
         {/* Gallery Header & Navigation */}
         <div className="max-w-7xl mx-auto px-6 mb-12">
@@ -1104,9 +1113,9 @@ const ResumeBuilder = () => {
     const atsColor = atsLiveScore >= 86 ? '#10b981' : atsLiveScore >= 71 ? '#3b82f6' : atsLiveScore >= 41 ? '#f59e0b' : '#ef4444';
 
     return (
-      <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen bg-[#0A0A0A] flex flex-col">
+      <motion.div key="editor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="min-h-screen bg-slate-950 flex flex-col">
         {/* Top Control Bar */}
-        <div className="sticky top-0 z-40 w-full bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/10 py-3 px-6 flex items-center justify-between shrink-0">
+        <div className="sticky top-0 z-40 w-full bg-slate-950/80 backdrop-blur-xl border-b border-white/5 py-4 px-6 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-6">
             <button onClick={() => setCurrentStep('choice')} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500" title="Exit Editor">
               <ArrowLeft size={20} />
@@ -1122,12 +1131,12 @@ const ResumeBuilder = () => {
                </div>
                <div className="w-px h-8 bg-white/10"></div>
                <div className="flex flex-col">
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Strength Score</span>
+                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Strength Score</span>
                   <div className="flex items-center gap-2">
-                    <div className="w-32 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                      <motion.div initial={{ width: 0 }} animate={{ width: `${strength}%` }} className={`h-full ${strength > 80 ? 'bg-emerald-500' : strength > 50 ? 'bg-amber-500' : 'bg-rose-500'}`}></motion.div>
+                    <div className="w-32 h-1 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div initial={{ width: 0 }} animate={{ width: `${strength}%` }} className={`h-full ${strength > 80 ? 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]' : strength > 50 ? 'bg-amber-500' : 'bg-rose-500'}`}></motion.div>
                     </div>
-                    <span className="text-xs font-black text-slate-300">{strength}%</span>
+                    <span className="text-[10px] font-black text-slate-400">{strength}%</span>
                   </div>
                </div>
                <div className="w-px h-8 bg-white/10"></div>
@@ -1188,33 +1197,33 @@ const ResumeBuilder = () => {
         <div className={`grid flex-1 overflow-hidden ${viewMode === 'split' ? 'grid-cols-[1fr_1fr]' : 'grid-cols-1'}`}>
           {/* Editor Area */}
           {(viewMode === 'split' || viewMode === 'edit') && (
-            <div className="overflow-y-auto no-scrollbar bg-white border-r border-slate-100 pb-20">
+            <div className="overflow-y-auto no-scrollbar bg-slate-950 border-r border-white/5 pb-20">
               <div className="max-w-3xl mx-auto py-12 px-8">
                 
                 {/* Accordion List */}
                 <div className="space-y-4">
                   
                   {/* Personal Info Accordion */}
-                  <div className="border border-slate-100 rounded-3xl overflow-hidden bg-white shadow-sm">
-                    <button onClick={() => setExpandedSection(expandedSection === 'personal' ? null : 'personal')} className="w-full px-8 py-6 flex items-center justify-between bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                  <div className="border border-white/5 rounded-3xl overflow-hidden bg-slate-900/50 backdrop-blur-sm shadow-xl">
+                    <button onClick={() => setExpandedSection(expandedSection === 'personal' ? null : 'personal')} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
                       <div className="flex items-center gap-3">
-                        <User size={20} className="text-teal-600" />
-                        <span className="font-black text-slate-900 text-lg">Personal Details</span>
+                        <User size={20} className="text-emerald-400" />
+                        <span className="font-black text-white text-lg">Personal Details</span>
                       </div>
-                      {expandedSection === 'personal' ? <ChevronUp size={20} className="text-slate-400" /> : <ChevronDown size={20} className="text-slate-400" />}
+                      {expandedSection === 'personal' ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
                     </button>
                     
                     <AnimatePresence>
                       {expandedSection === 'personal' && (
-                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-t border-slate-100">
+                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-t border-white/5">
                           <div className="p-8 space-y-8">
-                            <div className="flex flex-col md:flex-row items-center gap-8 p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                            <div className="flex flex-col md:flex-row items-center gap-8 p-8 bg-slate-900/80 rounded-3xl border border-white/5">
                               <div className="relative group shrink-0">
-                                <div className="w-32 h-32 rounded-3xl bg-white border-2 border-dashed border-slate-200 flex items-center justify-center overflow-hidden group-hover:border-teal-400 transition-all relative z-10">
+                                <div className="w-32 h-32 rounded-3xl bg-slate-950 border-2 border-dashed border-white/10 flex items-center justify-center overflow-hidden group-hover:border-emerald-500 transition-all relative z-10">
                                   {formData.personal.profileImage ? (
                                     <img src={formData.personal.profileImage} alt="Profile" className="w-full h-full object-cover" />
                                   ) : (
-                                    <Camera className="text-slate-300" size={32} />
+                                    <Camera className="text-slate-700" size={32} />
                                   )}
                                   <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={handleImageUpload} accept="image/*" />
                                 </div>
@@ -1250,7 +1259,7 @@ const ResumeBuilder = () => {
                                     value={formData.personal[field.id]} 
                                     onChange={(e) => updatePersonal(field.id, e.target.value)} 
                                     placeholder={field.placeholder} 
-                                    className="w-full px-4 py-3.5 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none font-bold text-slate-900 placeholder:text-slate-300 transition-all" 
+                                    className="w-full px-4 py-3.5 bg-slate-950 border border-white/5 rounded-2xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-slate-700 transition-all" 
                                   />
                                 </div>
                               ))}
@@ -1268,7 +1277,7 @@ const ResumeBuilder = () => {
                                 value={formData.personal.summary} 
                                 onChange={(e) => updatePersonal('summary', e.target.value)} 
                                 placeholder="Write a compelling summary of your career..." 
-                                className="w-full px-4 py-4 bg-slate-50 border border-slate-100 rounded-[2rem] focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none font-bold text-slate-900 placeholder:text-slate-300 transition-all resize-none" 
+                                className="w-full px-4 py-4 bg-slate-950 border border-white/5 rounded-[2rem] focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-slate-700 transition-all resize-none" 
                               />
                             </div>
                           </div>
@@ -1284,19 +1293,19 @@ const ResumeBuilder = () => {
                       const label = navItems.find(n => n.id === section)?.label || section;
                       
                       return (
-                        <div key={section} className="border border-slate-100 rounded-3xl overflow-hidden bg-white shadow-sm">
-                          <button onClick={() => setExpandedSection(expandedSection === section ? null : section)} className="w-full px-8 py-6 flex items-center justify-between bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                        <div key={section} className="border border-white/5 rounded-3xl overflow-hidden bg-slate-900/50 backdrop-blur-sm shadow-xl">
+                          <button onClick={() => setExpandedSection(expandedSection === section ? null : section)} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
                             <div className="flex items-center gap-3">
-                              <Icon size={20} className="text-teal-600" />
-                              <span className="font-black text-slate-900 text-lg">{label}</span>
+                              <Icon size={20} className="text-emerald-400" />
+                              <span className="font-black text-white text-lg">{label}</span>
                             </div>
-                            {expandedSection === section ? <ChevronUp size={20} className="text-slate-400" /> : <ChevronDown size={20} className="text-slate-400" />}
+                            {expandedSection === section ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
                           </button>
 
                           <AnimatePresence>
                             {expandedSection === section && (
-                              <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-t border-slate-100">
-                                <div className="p-8 space-y-6 bg-slate-50/30">
+                              <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden border-t border-white/5">
+                                <div className="p-8 space-y-6 bg-slate-950/30">
                                   <Droppable droppableId={section} type={section}>
                                     {(provided) => (
                                       <div {...provided.droppableProps} ref={provided.innerRef} className="space-y-4">
@@ -1306,7 +1315,7 @@ const ResumeBuilder = () => {
                                               <div 
                                                 ref={provided.innerRef} 
                                                 {...provided.draggableProps} 
-                                                className={`p-6 bg-white rounded-[2rem] border border-slate-100 shadow-sm relative group hover:border-teal-400 transition-all ${snapshot.isDragging ? 'shadow-2xl ring-2 ring-teal-500 scale-105' : ''}`}
+                                                className={`p-6 bg-slate-950 rounded-[2rem] border border-white/5 shadow-xl relative group hover:border-emerald-500 transition-all ${snapshot.isDragging ? 'shadow-2xl ring-2 ring-emerald-500 scale-105 bg-slate-900' : ''}`}
                                               >
                                                 <div 
                                                   {...provided.dragHandleProps} 
@@ -1332,7 +1341,7 @@ const ResumeBuilder = () => {
                                                             <SparklesIcon size={10} /> Generate Bullets
                                                           </button>
                                                         </div>
-                                                        <textarea rows={4} value={item.description} onChange={(e) => updateItem('experience', i, 'description', e.target.value)} className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl outline-none font-bold resize-none" />
+                                                        <textarea rows={4} value={item.description} onChange={(e) => updateItem('experience', i, 'description', e.target.value)} className="w-full px-4 py-3 bg-slate-900 border border-white/5 rounded-xl outline-none font-bold text-white resize-none focus:border-emerald-500 transition-colors" />
                                                       </div>
                                                     </>
                                                   )}
@@ -1392,7 +1401,7 @@ const ResumeBuilder = () => {
                                     )}
                                   </Droppable>
 
-                                  <button onClick={() => addItem(section)} className="w-full py-4 border-2 border-dashed border-slate-200 rounded-2xl text-slate-400 font-bold hover:border-teal-500 hover:text-teal-600 hover:bg-teal-50/20 transition-all flex items-center justify-center gap-2 group">
+                                  <button onClick={() => addItem(section)} className="w-full py-4 border-2 border-dashed border-white/5 rounded-2xl text-slate-500 font-bold hover:border-emerald-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all flex items-center justify-center gap-2 group">
                                     <Plus size={18} className="group-hover:rotate-90 transition-transform" /> Add {label}
                                   </button>
                                 </div>
@@ -1455,7 +1464,7 @@ const ResumeBuilder = () => {
       {currentStep === 'editor' ? (
         renderEditorStep()
       ) : (
-        <div className="bg-slate-50 min-h-screen pt-24 pb-12">
+        <div className="bg-slate-950 min-h-screen pt-24 pb-12">
           <AnimatePresence mode="wait">
             {currentStep === 'choice' && renderChoiceStep()}
             {currentStep === 'upload' && renderUploadStep()}
