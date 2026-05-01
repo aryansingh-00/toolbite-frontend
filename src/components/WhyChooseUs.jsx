@@ -3,20 +3,11 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { whyChooseUsData } from '../data/content';
-import TiltCard from './TiltCard';
+import SpotlightCard from './SpotlightCard';
+import Magnetic from './Magnetic';
 
 const WhyChooseUs = () => {
   const features = whyChooseUsData;
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = window.innerWidth >= 1024 
-        ? window.innerWidth * 0.5 
-        : window.innerWidth * 0.85;
-      scrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="why-toolbite" className="py-16 bg-transparent relative overflow-hidden">
@@ -33,85 +24,69 @@ const WhyChooseUs = () => {
             </p>
           </div>
           
-          {/* Navigation Arrows for Slider Header */}
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <button onClick={() => scroll('left')} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-white/10 hover:text-teal-400 transition-all shadow-xl backdrop-blur-md">
-              <ChevronLeft size={24} />
-            </button>
-            <button onClick={() => scroll('right')} className="w-14 h-14 rounded-full bg-emerald-500 border border-emerald-500 flex items-center justify-center text-slate-950 hover:bg-emerald-400 hover:border-emerald-400 transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-              <ChevronRight size={24} />
-            </button>
-          </div>
         </div>
 
-        {/* Navigation Wrapper */}
-        <div className="relative w-full group/slider">
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-4 auto-rows-[180px]">
+          {features.map((feat, i) => {
+            // Define specific spans for Bento look
+            const gridSpans = [
+              "lg:col-span-8 lg:row-span-2", // Large Featured
+              "lg:col-span-4 lg:row-span-2", // Vertical Side
+              "lg:col-span-4 lg:row-span-2", // Square
+              "lg:col-span-4 lg:row-span-2", // Square
+              "lg:col-span-4 lg:row-span-2", // Square
+              "lg:col-span-6 lg:row-span-2", // Horizontal wide
+              "lg:col-span-6 lg:row-span-2", // Horizontal wide
+              "lg:col-span-4 lg:row-span-2",
+              "lg:col-span-4 lg:row-span-2",
+              "lg:col-span-4 lg:row-span-2",
+            ];
+            
+            const currentSpan = gridSpans[i] || "lg:col-span-4 lg:row-span-2";
 
-          {/* Left Arrow overlay */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 hidden lg:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('left')} className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-all shadow-xl hover:scale-110">
-              <ChevronLeft size={28} />
-            </button>
-          </div>
-
-          {/* Right Arrow overlay */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 hidden lg:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('right')} className="w-14 h-14 rounded-full bg-slate-900 border border-slate-900 flex items-center justify-center text-white hover:bg-teal-600 hover:border-teal-600 transition-all shadow-xl shadow-teal-500/20 hover:scale-110">
-              <ChevronRight size={28} />
-            </button>
-          </div>
-
-          {/* Carousel Container */}
-          <div 
-            ref={scrollRef}
-            className="flex overflow-x-auto gap-4 pb-12 pt-4 px-2 snap-x snap-mandatory hide-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {features.map((feat, i) => {
-              const cardStyles = [
-                {
-                  bg: "hover:from-violet-600 hover:via-fuchsia-500 hover:to-pink-500",
-                  shadow: "hover:shadow-glow-purple"
-                },
-                {
-                  bg: "hover:from-blue-600 hover:via-cyan-500 hover:to-teal-400",
-                  shadow: "hover:shadow-glow-blue"
-                },
-                {
-                  bg: "hover:from-emerald-500 hover:via-teal-500 hover:to-cyan-500",
-                  shadow: "hover:shadow-glow-emerald"
-                },
-                {
-                  bg: "hover:from-teal-500 hover:via-indigo-500 hover:to-purple-500",
-                  shadow: "hover:shadow-glow-teal"
-                }
-              ];
-              const currentStyle = cardStyles[i % cardStyles.length];
-
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: (i % 5) * 0.05 }}
-                  className="snap-center sm:snap-start flex-shrink-0"
-                >
-                  <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[260px]">
-                    <div className={`group bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 flex flex-col text-left items-start h-full relative overflow-hidden z-10`}>
-                      <div className={`relative z-10 w-12 h-12 rounded-2xl ${feat.bg} group-hover:bg-white/20 flex items-center justify-center mb-5 group-hover:scale-110 !group-hover:text-white transition-all duration-300 flex-shrink-0`}>
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={`${currentSpan}`}
+              >
+                <SpotlightCard className="h-full group">
+                  <div className="p-8 flex flex-col h-full">
+                    <Magnetic strength={0.3}>
+                      <div className={`w-14 h-14 rounded-2xl ${feat.bg} flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10 group-hover:scale-110 transition-transform duration-500`}>
                         {feat.icon}
                       </div>
-                      <h4 className="relative z-10 text-lg font-bold text-slate-900 dark:text-white group-hover:text-white mb-2 transition-colors duration-300">{feat.title}</h4>
-                      <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 text-sm leading-relaxed transition-colors duration-300">
-                        {feat.desc}
-                      </p>
-                    </div>
-                  </TiltCard>
-                </motion.div>
-              );
-            })}
-          </div>
+                    </Magnetic>
+                    
+                    <h4 className="text-xl font-black text-white mb-3 tracking-tight group-hover:text-emerald-400 transition-colors duration-300">
+                      {feat.title}
+                    </h4>
+                    <p className="text-slate-400 font-medium leading-relaxed text-sm">
+                      {feat.desc}
+                    </p>
+                    
+                    {/* Decorative abstract element for featured card */}
+                    {i === 0 && (
+                      <div className="mt-auto pt-8 flex items-end justify-between">
+                        <div className="flex -space-x-2">
+                          {[1,2,3,4].map(x => (
+                            <div key={x} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-[10px] font-bold text-slate-400">
+                              TB
+                            </div>
+                          ))}
+                        </div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-emerald-500/50">System Core v4.0</div>
+                      </div>
+                    )}
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="mt-8 text-center">
