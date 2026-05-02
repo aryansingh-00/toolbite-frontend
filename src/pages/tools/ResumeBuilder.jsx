@@ -631,6 +631,11 @@ const ResumeBuilder = () => {
       { id: 'elegant', name: 'Aura', desc: 'Optimized for Management', style: 'Professional', exp: 'Experienced', isPopular: true, tags: ['Management', 'Executive', 'Luxury'] },
       { id: 'developer', name: 'Eclipse', desc: 'Optimized for Engineers & OSS', style: 'Simple', exp: 'Fresher', tags: ['Engineering', 'Coding', 'GitHub'] },
       { id: 'fresher', name: 'Launchpad', desc: 'Optimized for Students & Freshers', style: 'Simple', exp: 'Fresher', isRecommended: true, tags: ['Student', 'Entry Level', 'ATS Friendly'] },
+      { id: 'executive_pro', name: 'Executive Pro', desc: 'Optimized for C-Suite & VPs', style: 'Professional', exp: 'Experienced', isPopular: true, tags: ['Leadership', 'Corporate', 'Elite'] },
+      { id: 'tech_innovator', name: 'Tech Innovator', desc: 'Optimized for Engineers & Devs', style: 'Creative', exp: 'Experienced', isRecommended: true, tags: ['Engineering', 'Software', 'Modern'] },
+      { id: 'creative_fusion', name: 'Creative Fusion', desc: 'Optimized for Designers & Artists', style: 'Creative', exp: 'Experienced', tags: ['Portfolio', 'Design', 'Visual'] },
+      { id: 'academic_elite', name: 'Academic Elite', desc: 'Optimized for Researchers & PhDs', style: 'Simple', exp: 'Experienced', tags: ['Academic', 'Research', 'Classic'] },
+      { id: 'startup_hustle', name: 'Startup Hustle', desc: 'Optimized for Founders & Early Hires', style: 'Creative', exp: 'Fresher', tags: ['Startup', 'Hustle', 'Agile'] },
     ];
 
     const filteredTemplates = templatesList.filter(t => {
