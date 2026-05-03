@@ -208,7 +208,11 @@ const Navbar = () => {
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return 'dark';
+  });
 
   useEffect(() => {
     if (theme === 'dark') {

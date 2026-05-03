@@ -27,6 +27,8 @@
     "react-dom": "^19.2.4",
     "react-helmet-async": "^3.0.0",
     "react-hot-toast": "^2.6.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "three": "^0.184.0",
     "vanta": "^0.5.24"
   },

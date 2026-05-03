@@ -18,7 +18,12 @@ import {
   Smile,
   TrendingUp,
   ShieldAlert,
-  SearchCode
+  SearchCode,
+  Layers,
+  RefreshCw,
+  Eye,
+  Binary,
+  Hash
 } from 'lucide-react';
 
 export const tools = [
@@ -223,6 +228,54 @@ export const tools = [
     category: 'Career',
     tags: ['resume', 'cv', 'career', 'job search', 'ats-friendly'],
     popular: true
+  },
+  {
+    id: 'color-palette-generator',
+    slug: 'color-palette-generator',
+    title: 'Color Palette Generator',
+    description: 'Create stunning, harmonious color schemes for your next project. Generate HEX, RGB, and HSL palettes instantly.',
+    icon: Palette,
+    category: 'Design',
+    tags: ['color', 'design', 'palette', 'hex'],
+    popular: true
+  },
+  {
+    id: 'glassmorphism-generator',
+    slug: 'glassmorphism-generator',
+    title: 'CSS Glassmorphism Generator',
+    description: 'Design beautiful frosted-glass UI elements with real-time CSS generation. Adjust blur, opacity, and saturation.',
+    icon: Layers,
+    category: 'Design',
+    tags: ['css', 'ui', 'glassmorphism', 'design'],
+    popular: true
+  },
+  {
+    id: 'unit-converter',
+    slug: 'unit-converter',
+    title: 'Universal Unit Converter',
+    description: 'Convert between length, weight, temperature, area, and volume units with precision and speed.',
+    icon: RefreshCw,
+    category: 'Utility',
+    tags: ['utility', 'conversion', 'units'],
+    popular: true
+  },
+  {
+    id: 'markdown-previewer',
+    slug: 'markdown-previewer',
+    title: 'Markdown Previewer',
+    description: 'Write Markdown code and see the rendered HTML in real-time. Perfect for READMEs and documentation.',
+    icon: Eye,
+    category: 'Development',
+    tags: ['markdown', 'preview', 'dev', 'editor']
+  },
+  {
+    id: 'base64-converter',
+    slug: 'base64-converter',
+    title: 'Base64 Encoder/Decoder',
+    description: 'Securely encode or decode text and images to Base64 format directly in your browser.',
+    icon: Hash,
+    category: 'Development',
+    tags: ['base64', 'dev', 'security', 'encoding']
   }
 ];
 

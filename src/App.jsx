@@ -65,6 +65,11 @@ const ServiceDetail = React.lazy(() => import('./pages/ServiceDetail'));
 const ResumeBuilder = React.lazy(() => import('./pages/tools/ResumeBuilder'));
 const WebsiteBuilder = React.lazy(() => import('./pages/tools/WebsiteBuilder'));
 const PartnerShowcase = React.lazy(() => import('./pages/PartnerShowcase'));
+const ColorPaletteGenerator = React.lazy(() => import('./pages/tools/ColorPaletteGenerator'));
+const GlassmorphismGenerator = React.lazy(() => import('./pages/tools/GlassmorphismGenerator'));
+const UnitConverter = React.lazy(() => import('./pages/tools/UnitConverter'));
+const MarkdownPreviewer = React.lazy(() => import('./pages/tools/MarkdownPreviewer'));
+const Base64Converter = React.lazy(() => import('./pages/tools/Base64Converter'));
 
 function App() {
   const location = useLocation();
@@ -156,6 +161,11 @@ function App() {
                   <Route path="/tools/backlink-checker" element={<PageTransition><BacklinkChecker /></PageTransition>} />
                   <Route path="/tools/pdf-converter" element={<PageTransition><PdfConverter /></PageTransition>} />
                   <Route path="/tools/resume-builder" element={<PageTransition><ResumeBuilder /></PageTransition>} />
+                  <Route path="/tools/color-palette-generator" element={<PageTransition><ColorPaletteGenerator /></PageTransition>} />
+                  <Route path="/tools/glassmorphism-generator" element={<PageTransition><GlassmorphismGenerator /></PageTransition>} />
+                  <Route path="/tools/unit-converter" element={<PageTransition><UnitConverter /></PageTransition>} />
+                  <Route path="/tools/markdown-previewer" element={<PageTransition><MarkdownPreviewer /></PageTransition>} />
+                  <Route path="/tools/base64-converter" element={<PageTransition><Base64Converter /></PageTransition>} />
                   <Route path="/services/website-builder" element={<PageTransition><WebsiteBuilder /></PageTransition>} />
                   
                   {/* Services Routes */}
