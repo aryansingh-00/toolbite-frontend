@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+    <div className="pt-32 pb-24 bg-slate-50 dark:bg-[#030712] min-h-screen transition-colors duration-300">
       <SEO 
         title="Privacy Policy"
         description="Read the ToolBite Privacy Policy to understand how we collect, use, and protect your personal data when you use our web design services and templates."
@@ -19,12 +19,12 @@ const PrivacyPolicy = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-3xl p-8 md:p-12 md:px-16 shadow-sm border border-slate-200"
+          className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 md:px-16 shadow-sm border border-slate-200 dark:border-slate-800"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Privacy Policy</h1>
-          <p className="text-slate-500 mb-10 font-medium border-b border-slate-100 pb-6">Effective Date: March 24, 2026</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Privacy Policy</h1>
+          <p className="text-slate-500 dark:text-slate-400 mb-10 font-medium border-b border-slate-100 dark:border-slate-800 pb-6">Effective Date: March 24, 2026</p>
           
-          <div className="prose prose-slate max-w-none prose-headings:text-slate-900 prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 prose-p:mb-6 prose-li:text-slate-600 text-lg leading-relaxed">
+          <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:mb-6 prose-li:text-slate-600 dark:prose-li:text-slate-400 text-lg leading-relaxed">
             
             <h2>1. Introduction</h2>
             <p>

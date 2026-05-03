@@ -17,7 +17,7 @@ import ScrollReveal from '../components/ScrollReveal';
 
 const PricingTeaser = () => {
   return (
-    <section className="py-16 bg-slate-900 relative overflow-hidden">
+    <section className="py-16 bg-slate-900 dark:bg-[#030712] relative overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-slate-900/50 pointer-events-none" />
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <span className="inline-block text-teal-400 font-semibold tracking-wide uppercase text-xs mb-3">Transparent Pricing</span>
@@ -39,11 +39,11 @@ const PricingTeaser = () => {
 
 const PortfolioTeaser = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-teal-600 font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
-        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">World-Class <span className="text-teal-500">Digital Architectures</span></h2>
-        <p className="text-slate-600 text-lg mb-10 max-w-2xl mx-auto">
+        <span className="text-teal-600 dark:text-teal-500 font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
+        <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">World-Class <span className="text-teal-500">Digital Architectures</span></h2>
+        <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
           We don't just build websites; we engineer digital assets that drive massive ROI. 
           Explore our full portfolio of high-performance client success stories.
         </p>
@@ -67,13 +67,13 @@ const ToolsTeaser = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden">
+    <section className="py-24 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl text-left">
-            <span className="text-teal-600 font-bold tracking-widest uppercase text-xs mb-4 block">Utility Power Center</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">Free <span className="text-teal-500">Professional Tools</span> for Modern Teams</h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
+            <span className="text-teal-600 dark:text-teal-500 font-bold tracking-widest uppercase text-xs mb-4 block">Utility Power Center</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">Free <span className="text-teal-500">Professional Tools</span> for Modern Teams</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
               Experience the same elite engineering we provide our enterprise clients. 
               Our suite of browser-native utility tools is fast, secure, and 100% free.
             </p>
@@ -88,12 +88,12 @@ const ToolsTeaser = () => {
             <Link 
               key={i} 
               to={tool.link}
-              className="group bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300"
+              className="group bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300"
             >
               <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">{tool.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors">{tool.title}</h3>
-              <p className="text-slate-500 text-sm mb-6 leading-relaxed">{tool.desc}</p>
-              <div className="flex items-center text-slate-900 font-bold text-xs group-hover:text-teal-600 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-teal-600 transition-colors">{tool.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">{tool.desc}</p>
+              <div className="flex items-center text-slate-900 dark:text-slate-300 font-bold text-xs group-hover:text-teal-600 transition-colors">
                 Launch <ArrowRight size={14} className="ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </div>
             </Link>

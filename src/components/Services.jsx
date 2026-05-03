@@ -25,8 +25,8 @@ const Services = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-emerald-500 font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
-          <p className="text-lg text-slate-400 font-medium leading-relaxed">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
+          <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
             From enterprise-grade mobile ecosystems to high-velocity web applications, we architect digital foundations that transform vision into immediate market authority.
           </p>
         </div>

@@ -109,7 +109,7 @@ const FAQ = () => {
             <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
             Support Matrix
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3 tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3 tracking-tighter">
             Frequent <span className="text-emerald-500">Inquiries.</span>
           </h2>
         </div>
@@ -122,7 +122,7 @@ const FAQ = () => {
             placeholder="Search the system..."
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setOpenIndex(null); }}
-            className="w-full pl-11 pr-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all placeholder:text-slate-500"
+            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-900 dark:text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all placeholder:text-slate-500"
           />
         </div>
 

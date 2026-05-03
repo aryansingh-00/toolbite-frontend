@@ -10,7 +10,8 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto min-h-screen">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#030712] transition-colors duration-300">
+      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
       <SEO 
         title="About ToolBite — Premier Web Design & Strategy Agency"
         description="Discover ToolBite's mission to architect the future of digital innovation. Explore our high-performance engineering philosophy, design-first mindset, and our commitment to building elite digital assets."
@@ -21,18 +22,18 @@ const AboutPage = () => {
         <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-800 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-6">
           Architectural Precision
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight">
           Architecting the Future of <span className="text-teal-500">Digital Innovation</span>
         </h1>
-        <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed">
           At ToolBite, we don't just build websites; we engineer digital assets that serve as the foundation for your brand's global expansion.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
         <div className="order-2 lg:order-1">
-          <h2 className="text-4xl font-black text-slate-900 mb-8">The ToolBite Genesis</h2>
-          <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed">
+          <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-8">The ToolBite Genesis</h2>
+          <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
             <p>
               Founded in 2026 by <strong>Aryan Singh</strong>, ToolBite emerged from a glaring gap in the market: the divide between aesthetic beauty and technical performance. Most agencies offered one or the other; we decided to pioneer both.
             </p>
@@ -82,8 +83,8 @@ const AboutPage = () => {
       <div className="mb-32">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-black text-slate-900 mb-4">Core Philosophy</h2>
-            <p className="text-xl text-slate-600 font-medium">The four pillars that define every ToolBite project.</p>
+            <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-4">Core Philosophy</h2>
+            <p className="text-xl text-slate-600 dark:text-slate-400 font-medium">The four pillars that define every ToolBite project.</p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -93,12 +94,12 @@ const AboutPage = () => {
             { icon: <BarChart3 className="w-8 h-8 text-teal-600" />, title: "Conversion DNA", desc: "Beautiful design is useless unless it guides users toward your business goals." },
             { icon: <Globe className="w-8 h-8 text-teal-600" />, title: "Global Scaling", desc: "Our infrastructure is built to handle traffic from 1 to 1 million users seamlessly." }
           ].map((item, i) => (
-            <div key={i} className="bg-white p-10 rounded-[32px] shadow-xl shadow-slate-200/40 border border-slate-100 hover:border-teal-500/30 transition-all group">
-              <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+            <div key={i} className="bg-white dark:bg-slate-900 p-10 rounded-[32px] shadow-xl shadow-slate-200/40 dark:shadow-none border border-slate-100 dark:border-slate-800 hover:border-teal-500/30 transition-all group">
+              <div className="w-16 h-16 bg-teal-50 dark:bg-teal-900/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 {item.icon}
               </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-4">{item.title}</h3>
-              <p className="text-slate-500 font-medium leading-relaxed">{item.desc}</p>
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-4">{item.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -117,6 +118,7 @@ const AboutPage = () => {
           <div className="px-6 py-2 rounded-full border border-slate-700 text-slate-300 font-bold text-sm">SEO Optimized</div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

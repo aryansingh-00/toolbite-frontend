@@ -50,7 +50,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-white mb-8 leading-[1.05]"
+              className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.05]"
             >
               {content.headline}
               <br /> <MagicText><TypingText /></MagicText>
@@ -62,7 +62,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-slate-400 mb-12 max-w-lg leading-relaxed font-medium"
+              className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-lg leading-relaxed font-medium"
             >
               {content.subtext}
             </motion.p>
@@ -81,8 +81,8 @@ const Hero = () => {
               </MagneticButton>
               
               <MagneticButton strength={0.2} className="w-full sm:w-auto">
-                <a href="/#ready-made" className="w-full px-12 py-5 rounded-full bg-white/5 text-white font-black flex items-center justify-center gap-3 hover:bg-white/10 border border-white/10 transition-all backdrop-blur-xl">
-                  <Layout size={20} className="text-teal-400" />
+                <a href="/#ready-made" className="w-full px-12 py-5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white font-black flex items-center justify-center gap-3 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 transition-all backdrop-blur-xl">
+                  <Layout size={20} className="text-teal-500 dark:text-teal-400" />
                   Browse Templates
                 </a>
               </MagneticButton>
@@ -92,27 +92,27 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="grid grid-cols-2 gap-y-6 gap-x-8 pt-10 border-t border-white/5"
+              className="grid grid-cols-2 gap-y-6 gap-x-8 pt-10 border-t border-slate-100 dark:border-white/5"
             >
-              <div className="flex items-center gap-3 text-slate-300 font-bold tracking-tight">
+              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
                   <Zap size={18} className="text-amber-400" />
                 </div>
                 Sub-second Loading
               </div>
-              <div className="flex items-center gap-3 text-slate-300 font-bold tracking-tight">
+              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
                   <Smartphone size={18} className="text-blue-400" />
                 </div>
                 Native & Cross-Platform
               </div>
-              <div className="flex items-center gap-3 text-slate-300 font-bold tracking-tight">
+              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
                 <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center flex-shrink-0">
                   <PenTool size={18} className="text-rose-400" />
                 </div>
                 Conversion Optimized
               </div>
-              <div className="flex items-center gap-3 text-slate-300 font-bold tracking-tight">
+              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
                   <Shield size={18} className="text-emerald-400" />
                 </div>
