@@ -14,7 +14,7 @@ const ReadyMade = () => {
     <section id="ready-made" className="py-12 bg-slate-50 relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Template Marketplace</p>
+          <p className="text-[#B19CD9] font-semibold tracking-wide uppercase text-sm mb-3">Template Marketplace</p>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Launch Your Premium Website Today.</h2>
           <p className="text-lg text-slate-600">
             Browse our collection of high-converting, fully customized templates designed for specific industries. Install instantly, customize easily.
@@ -29,7 +29,7 @@ const ReadyMade = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-teal-200 transition-all duration-300 flex flex-col h-full overflow-hidden"
+                className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-[#B19CD9]/20 hover:border-[#B19CD9] transition-all duration-300 flex flex-col h-full overflow-hidden"
               >
                 {/* Image */}
                 <div className="aspect-[4/3] w-full relative bg-slate-100 overflow-hidden border-b border-slate-100">
@@ -69,7 +69,7 @@ const ReadyMade = () => {
                       href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${tpl.title}* template.\n\n📦 *Category:* ${tpl.category}\n\nCould you please guide me through the next steps?`)}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-teal-600 transition-all shadow-md hover:shadow-teal-500/25"
+                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-[#B19CD9] transition-all shadow-md hover:shadow-[#B19CD9]/25"
                     >
                       <ShoppingCart size={16} />
                       Buy Now
@@ -84,7 +84,7 @@ const ReadyMade = () => {
         <div className="mt-16 text-center">
           <Link
             to="/templates"
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full border-2 border-teal-100 bg-teal-50 text-teal-700 font-bold hover:bg-teal-600 hover:text-white hover:border-teal-600 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full border-2 border-[#B19CD9]/20 bg-[#B19CD9]/5 text-[#B19CD9] font-bold hover:bg-[#B19CD9] hover:text-white hover:border-[#B19CD9] transition-all"
           >
             Explore All 20 Templates →
           </Link>

@@ -8,7 +8,7 @@ const navMenu = [
     href: '/#services',
     isHash: true,
     dropdown: [
-      { label: 'Web Design & Dev', href: '/#services', isHash: true, desc: 'Custom high-performance websites', icon: <Code size={16} className="text-teal-500" /> },
+      { label: 'Web Design & Dev', href: '/#services', isHash: true, desc: 'Custom high-performance websites', icon: <Code size={16} className="text-[#B19CD9]" /> },
       { label: 'Mobile App Development', href: '/#services', isHash: true, desc: 'iOS, Android & Cross-Platform', icon: <Smartphone size={16} className="text-indigo-500" /> },
       { label: 'Landing Pages', href: '/#services', isHash: true, desc: 'Conversion-focused page builds', icon: <Zap size={16} className="text-amber-500" /> },
       { label: 'Brand Strategy', href: '/#services', isHash: true, desc: 'Authority & identity engineering', icon: <Palette size={16} className="text-rose-500" /> },
@@ -21,7 +21,7 @@ const navMenu = [
     href: '/tools',
     dropdown: [
       { group: 'Text & Writing', items: [
-        { label: 'Word Counter', href: '/tools/word-counter', icon: <Type size={14} className="text-teal-500" /> },
+        { label: 'Word Counter', href: '/tools/word-counter', icon: <Type size={14} className="text-[#B19CD9]" /> },
         { label: 'Grammar Fixer', href: '/tools/grammar-fixer', icon: <CheckCheck size={14} className="text-emerald-500" /> },
         { label: 'Text Improver', href: '/tools/text-improver', icon: <Zap size={14} className="text-amber-500" /> },
         { label: 'Tone Changer', href: '/tools/tone-changer', icon: <Wrench size={14} className="text-purple-500" /> },
@@ -55,7 +55,7 @@ const navMenu = [
     label: 'Company',
     href: '/about',
     dropdown: [
-      { label: 'About Us', href: '/about', desc: 'Our story and mission', icon: <User size={16} className="text-teal-500" /> },
+      { label: 'About Us', href: '/about', desc: 'Our story and mission', icon: <User size={16} className="text-[#B19CD9]" /> },
       { label: 'Blog', href: '/blog', desc: 'Insights & strategy guides', icon: <FileText size={16} className="text-blue-500" /> },
       { label: 'Portfolio', href: '/portfolio', isHash: false, desc: 'Our case studies & work', icon: <Palette size={16} className="text-purple-500" /> },
       { label: 'Contact', href: '/contact', desc: 'Get in touch with us', icon: <Zap size={16} className="text-emerald-500" /> },
@@ -168,9 +168,9 @@ const NavItem = ({ item, onCloseAll }) => {
   const isMega = hasDropdown && item.dropdown[0]?.group;
 
   const baseClass = `flex items-center gap-1 text-sm font-semibold transition-colors whitespace-nowrap ${
-    isActive
-      ? 'text-teal-600 dark:text-teal-400'
-      : 'text-slate-700 dark:text-slate-200 hover:text-teal-600 dark:hover:text-teal-400'
+      isActive
+        ? 'text-[#B19CD9]'
+        : 'text-slate-700 dark:text-slate-200 hover:text-[#B19CD9]'
   }`;
 
   return (
@@ -275,7 +275,7 @@ const Navbar = () => {
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="currentColor" strokeWidth="4" />
                   <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="currentColor" />
                 </motion.svg>
-                <span className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white ml-2">Tool<span className="text-teal-500">Bite</span></span>
+                <span className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white ml-2">Tool<span className="text-[#B19CD9]">Bite</span></span>
               </Link>
             </div>
 
@@ -290,7 +290,7 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-3">
               <button 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-500 hover:text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-500/10 transition-all border border-transparent hover:border-teal-100 group"
+                className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-500 hover:text-[#B19CD9] hover:bg-[#B19CD9]/10 transition-all border border-transparent hover:border-[#B19CD9]/20 group"
                 title="Search Tools & Services (⌘K)"
               >
                 <Search size={20} />
@@ -301,7 +301,7 @@ const Navbar = () => {
               </button>
               <button
                 onClick={toggleTheme}
-                className="p-2.5 rounded-xl text-slate-500 hover:text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-500/10 transition-all border border-transparent hover:border-teal-100"
+                className="p-2.5 rounded-xl text-slate-500 hover:text-[#B19CD9] hover:bg-[#B19CD9]/10 transition-all border border-transparent hover:border-[#B19CD9]/20"
                 title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
               >
                 {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -315,7 +315,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/start-project"
-                className="px-5 py-2 rounded-full bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 text-sm font-bold hover:bg-teal-600 dark:hover:bg-teal-400 transition-all shadow-md hover:shadow-teal-500/25"
+                className="px-5 py-2 rounded-full bg-slate-900 dark:bg-[#B19CD9] text-white dark:text-slate-900 text-sm font-bold hover:opacity-90 transition-all shadow-md hover:shadow-[#B19CD9]/25"
               >
                 Start Project
               </Link>

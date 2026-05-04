@@ -13,7 +13,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#B19CD9] via-[#FFB6C1] to-[#87CEEB];
   }
   .glass-card {
     @apply bg-white/5 backdrop-blur-2xl border border-white/10;
@@ -40,7 +40,7 @@
 }
 
 ::selection {
-  background-color: #14b8a6;
+  background-color: #B19CD9;
   color: #ffffff;
 }
 
@@ -58,9 +58,11 @@
 }
 
 :root {  
+  --lavender: #B19CD9;
+  --pink: #FFB6C1;
+  --sky-blue: #87CEEB;
   --purple: rgb(123, 31, 162);
   --violet: rgb(103, 58, 183);
-  --pink: rgb(244, 143, 177);
 }
 
 @keyframes background-pan {
@@ -112,10 +114,10 @@
   animation: background-pan 3s linear infinite;
   background: linear-gradient(
     to right,
-    var(--purple),
-    var(--violet),
+    var(--lavender),
     var(--pink),
-    var(--purple)
+    var(--sky-blue),
+    var(--lavender)
   );
   background-size: 200%;
   -webkit-background-clip: text;

@@ -20,11 +20,11 @@ const Services = () => {
 
   return (
     <section id="services" className="py-16 bg-transparent relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 rounded-bl-[100px] -z-10 blur-[80px]"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#B19CD9]/5 rounded-bl-[100px] -z-10 blur-[80px]"></div>
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-emerald-500 font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
+          <h2 className="text-[#B19CD9] font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
           <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
             From enterprise-grade mobile ecosystems to high-velocity web applications, we architect digital foundations that transform vision into immediate market authority.
@@ -36,14 +36,14 @@ const Services = () => {
           
           {/* Left Arrow */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 hidden md:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('left')} className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-all shadow-xl hover:scale-110">
+            <button onClick={() => scroll('left')} className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-[#B19CD9] transition-all shadow-xl hover:scale-110">
               <ChevronLeft size={28} />
             </button>
           </div>
 
           {/* Right Arrow */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 hidden md:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('right')} className="w-14 h-14 rounded-full bg-slate-900 border border-slate-900 flex items-center justify-center text-white hover:bg-teal-600 hover:border-teal-600 transition-all shadow-xl shadow-teal-500/20 hover:scale-110">
+            <button onClick={() => scroll('right')} className="w-14 h-14 rounded-full bg-slate-900 border border-slate-900 flex items-center justify-center text-white hover:bg-[#B19CD9] hover:border-[#B19CD9] transition-all shadow-xl shadow-[#B19CD9]/20 hover:scale-110">
               <ChevronRight size={28} />
             </button>
           </div>
@@ -96,7 +96,7 @@ const Services = () => {
                       <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 leading-relaxed text-sm flex-grow transition-colors duration-300">
                         {service.description}
                       </p>
-                      <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-bold text-teal-600 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+                      <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-bold text-[#B19CD9] group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
                         Learn More <ArrowRight size={14} />
                       </div>
                     </Link>
@@ -114,7 +114,7 @@ const Services = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mt-8"
         >
-          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-emerald-500 text-slate-950 font-black hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.2)] group hover:scale-105">
+          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-gradient-to-r from-[#B19CD9] via-[#FFB6C1] to-[#87CEEB] text-slate-950 font-black hover:opacity-90 transition-all shadow-[0_0_30px_rgba(177,156,217,0.3)] group hover:scale-105">
             Discuss Your Project 
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
