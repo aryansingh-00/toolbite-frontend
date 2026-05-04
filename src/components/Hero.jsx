@@ -52,54 +52,45 @@ const Hero = () => {
           Premium Digital Engineering Agency
         </motion.div>
 
-        {/* Main headline */}
+        {/* Main headline — pure white, ALL CAPS, matching mockup exactly */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           style={{
-            fontSize: 'clamp(52px, 9vw, 108px)',
+            fontSize: 'clamp(48px, 8.5vw, 104px)',
             fontWeight: 900,
             lineHeight: 1.0,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.02em',
             color: '#ffffff',
-            margin: '0 0 32px 0',
-            maxWidth: '900px',
+            margin: '0 0 28px 0',
+            maxWidth: '960px',
             textTransform: 'uppercase',
+            textShadow: '0 2px 40px rgba(0,0,0,0.5)',
           }}
         >
-          Accelerating{' '}
-          <span
-            style={{
-              background: 'linear-gradient(135deg, #9b7fd4 0%, #d4a0c8 40%, #60aede 80%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            Digital
-          </span>
+          Accelerating Digital
           <br />
           Growth
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle — light grey, matching mockup */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
           style={{
-            fontSize: 'clamp(16px, 2vw, 20px)',
-            color: 'rgba(200, 200, 220, 0.72)',
-            maxWidth: '560px',
-            lineHeight: 1.7,
-            margin: '0 0 56px 0',
+            fontSize: 'clamp(15px, 1.6vw, 18px)',
+            color: 'rgba(210, 210, 230, 0.65)',
+            maxWidth: '520px',
+            lineHeight: 1.75,
+            margin: '0 0 52px 0',
             fontWeight: 400,
           }}
         >
           ToolBite partners with forward-thinking brands to deliver
-          transformative digital solutions, performance marketing, and
-          high-impact design.
+          transformative digital solutions, performance marketing,
+          and high-impact design.
         </motion.p>
 
         {/* CTAs */}
@@ -109,31 +100,33 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}
         >
+          {/* Primary CTA — flat muted lavender pill, matching mockup exactly */}
           <Link
             to="/templates"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '16px 48px',
+              padding: '15px 44px',
               borderRadius: '100px',
-              background: 'linear-gradient(135deg, #7c5cbf, #9b7fd4)',
-              color: '#fff',
+              background: 'rgba(120, 104, 184, 0.85)',
+              color: '#ffffff',
               fontWeight: 700,
-              fontSize: '14px',
-              letterSpacing: '0.1em',
+              fontSize: '13px',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               textDecoration: 'none',
-              boxShadow: '0 0 40px rgba(155, 127, 212, 0.45), 0 0 80px rgba(155, 127, 212, 0.2)',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              border: '1px solid rgba(160, 140, 220, 0.4)',
+              backdropFilter: 'blur(12px)',
+              transition: 'background 0.25s ease, transform 0.2s ease',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-              e.currentTarget.style.boxShadow = '0 0 60px rgba(155, 127, 212, 0.65), 0 0 100px rgba(155, 127, 212, 0.3)';
+              e.currentTarget.style.background = 'rgba(140, 120, 210, 0.95)';
+              e.currentTarget.style.transform = 'scale(1.04)';
             }}
             onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(120, 104, 184, 0.85)';
               e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = '0 0 40px rgba(155, 127, 212, 0.45), 0 0 80px rgba(155, 127, 212, 0.2)';
             }}
           >
             Explore Our Work
