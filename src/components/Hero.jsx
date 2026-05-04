@@ -1,20 +1,17 @@
  
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code, Layout, Zap, Shield, Smartphone, PenTool } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MagicText from './MagicText';
 import TypingText from './TypingText';
 import ScrollVelocityGallery from './ScrollVelocityGallery';
 import { usePersona } from '../hooks/usePersona';
 import MagneticButton from './MagneticButton';
+import EtherFlow from './EtherFlow';
 
 const Hero = () => {
   const { persona } = usePersona();
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const y3 = useTransform(scrollY, [0, 500], [0, 50]);
 
   const getPersonaContent = () => {
     switch (persona) {
@@ -39,11 +36,9 @@ const Hero = () => {
   const content = getPersonaContent();
 
   return (
-    <section id="home" className="relative pt-16 pb-10 lg:pt-24 lg:pb-16 overflow-hidden bg-transparent">
-      {/* Refined Animated Background Blobs - Colorful Ethereal Mix with Parallax */}
-      <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#B19CD9]/10 rounded-full mix-blend-screen filter blur-[150px] opacity-60 animate-blob pointer-events-none" />
-      <motion.div style={{ y: y2 }} className="absolute top-40 left-0 w-[600px] h-[600px] bg-[#FFB6C1]/10 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-2000 pointer-events-none" />
-      <motion.div style={{ y: y3 }} className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#87CEEB]/10 rounded-full mix-blend-screen filter blur-[150px] animate-blob animation-delay-4000 pointer-events-none" />
+    <section id="home" className="relative pt-16 pb-10 lg:pt-24 lg:pb-16 overflow-hidden bg-slate-950">
+      {/* Ether Flow — Pure CSS/SVG cinematic animated background */}
+      <EtherFlow />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
