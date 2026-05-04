@@ -1,151 +1,208 @@
- 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Layout, Zap, Shield, Smartphone, PenTool } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import MagicText from './MagicText';
-import TypingText from './TypingText';
-import ScrollVelocityGallery from './ScrollVelocityGallery';
-import { usePersona } from '../hooks/usePersona';
-import MagneticButton from './MagneticButton';
 import EtherFlow from './EtherFlow';
 
 const Hero = () => {
-  const { persona } = usePersona();
-
-  const getPersonaContent = () => {
-    switch (persona) {
-      case 'templates':
-        return {
-          headline: "The World's Most Powerful Templates for",
-          subtext: "Deploy enterprise-grade digital foundations in days. We architect sub-second, conversion-optimized React blueprints that transform your vision into an immediate revenue engine."
-        };
-      case 'custom':
-        return {
-          headline: "Digital Engineering for Elite",
-          subtext: "We dismantle legacy boundaries. Our team architects bespoke, high-performance web and mobile ecosystems for ambitious brands that demand absolute market dominance."
-        };
-      default:
-        return {
-          headline: "Digital Engineering for",
-          subtext: "We architect high-performance web applications and premium mobile apps for iOS and Android that transform casual traffic into qualified revenue."
-        };
-    }
-  };
-
-  const content = getPersonaContent();
-
   return (
-    <section id="home" className="relative pt-16 pb-10 lg:pt-24 lg:pb-16 overflow-hidden bg-slate-950">
-      {/* Ether Flow — Pure CSS/SVG cinematic animated background */}
+    <section
+      id="home"
+      style={{ background: '#08080f', minHeight: '100svh', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+    >
+      {/* Cinematic animated silk background */}
       <EtherFlow />
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+      {/* Content — sits above the animation */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '120px 24px 80px',
+        }}
+      >
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(155, 127, 212, 0.12)',
+            border: '1px solid rgba(155, 127, 212, 0.3)',
+            borderRadius: '100px',
+            padding: '6px 18px',
+            marginBottom: '40px',
+            color: '#c0a0e0',
+            fontSize: '13px',
+            fontWeight: 600,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+          }}
+        >
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#9b7fd4', display: 'inline-block', boxShadow: '0 0 8px #9b7fd4' }} />
+          Premium Digital Engineering Agency
+        </motion.div>
 
-          {/* Left Column: Text & CTAs */}
-          <div className="text-left">
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-6xl lg:text-7xl xl:text-[80px] font-extrabold tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.05]"
-            >
-              {content.headline}
-              <br /> <MagicText><TypingText /></MagicText>
-              <br />
-              Brands
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl text-slate-600 dark:text-slate-400 mb-12 max-w-lg leading-relaxed font-medium"
-            >
-              {content.subtext}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row flex-wrap items-center gap-5 mb-14"
-            >
-              <MagneticButton strength={0.2} className="w-full sm:w-auto">
-                <Link to="/start-project" className="w-full px-12 py-5 rounded-full bg-gradient-to-r from-[#B19CD9] to-[#87CEEB] text-slate-950 font-black flex items-center justify-center gap-3 hover:opacity-90 transition-all shadow-[0_0_30px_rgba(177,156,217,0.3)] hover:scale-105">
-                  <Code size={20} />
-                  Start Custom Project
-                </Link>
-              </MagneticButton>
-              
-              <MagneticButton strength={0.2} className="w-full sm:w-auto">
-                <a href="/#ready-made" className="w-full px-12 py-5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white font-black flex items-center justify-center gap-3 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 transition-all backdrop-blur-xl">
-                  <Layout size={20} className="text-[#B19CD9]" />
-                  Browse Templates
-                </a>
-              </MagneticButton>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="grid grid-cols-2 gap-y-6 gap-x-8 pt-10 border-t border-slate-100 dark:border-white/5"
-            >
-              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
-                <div className="w-10 h-10 rounded-xl bg-[#B19CD9]/10 border border-[#B19CD9]/20 flex items-center justify-center flex-shrink-0">
-                  <Zap size={18} className="text-[#B19CD9]" />
-                </div>
-                Sub-second Loading
-              </div>
-              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
-                <div className="w-10 h-10 rounded-xl bg-[#87CEEB]/10 border border-[#87CEEB]/20 flex items-center justify-center flex-shrink-0">
-                  <Smartphone size={18} className="text-[#87CEEB]" />
-                </div>
-                Native & Cross-Platform
-              </div>
-              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
-                <div className="w-10 h-10 rounded-xl bg-[#FFB6C1]/10 border border-[#FFB6C1]/20 flex items-center justify-center flex-shrink-0">
-                  <PenTool size={18} className="text-[#FFB6C1]" />
-                </div>
-                Conversion Optimized
-              </div>
-              <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold tracking-tight">
-                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
-                  <Shield size={18} className="text-white" />
-                </div>
-                Enterprise Security
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Scroll Velocity 3D Gallery */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[850px] w-full mt-12 lg:mt-0 hidden lg:block xl:h-[900px]"
+        {/* Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          style={{
+            fontSize: 'clamp(52px, 9vw, 108px)',
+            fontWeight: 900,
+            lineHeight: 1.0,
+            letterSpacing: '-0.03em',
+            color: '#ffffff',
+            margin: '0 0 32px 0',
+            maxWidth: '900px',
+            textTransform: 'uppercase',
+          }}
+        >
+          Accelerating{' '}
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #9b7fd4 0%, #d4a0c8 40%, #60aede 80%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
-            {/* Gallery container with soft edge fade effect to blend seamlessly into background */}
-            <div 
-              className="absolute inset-0 rounded-[2.5rem] overflow-hidden"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                WebkitMaskComposite: 'source-in',
-                maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                maskComposite: 'intersect',
-              }}
-            >
-              <ScrollVelocityGallery />
-            </div>
-          </motion.div>
-        </div>
+            Digital
+          </span>
+          <br />
+          Growth
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          style={{
+            fontSize: 'clamp(16px, 2vw, 20px)',
+            color: 'rgba(200, 200, 220, 0.72)',
+            maxWidth: '560px',
+            lineHeight: 1.7,
+            margin: '0 0 56px 0',
+            fontWeight: 400,
+          }}
+        >
+          ToolBite partners with forward-thinking brands to deliver
+          transformative digital solutions, performance marketing, and
+          high-impact design.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}
+        >
+          <Link
+            to="/templates"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '16px 48px',
+              borderRadius: '100px',
+              background: 'linear-gradient(135deg, #7c5cbf, #9b7fd4)',
+              color: '#fff',
+              fontWeight: 700,
+              fontSize: '14px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              boxShadow: '0 0 40px rgba(155, 127, 212, 0.45), 0 0 80px rgba(155, 127, 212, 0.2)',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 0 60px rgba(155, 127, 212, 0.65), 0 0 100px rgba(155, 127, 212, 0.3)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 0 40px rgba(155, 127, 212, 0.45), 0 0 80px rgba(155, 127, 212, 0.2)';
+            }}
+          >
+            Explore Our Work
+          </Link>
+
+          <Link
+            to="/start-project"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'rgba(200, 200, 220, 0.75)',
+              fontWeight: 600,
+              fontSize: '13px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(200, 200, 220, 0.3)',
+              paddingBottom: '2px',
+              transition: 'color 0.2s ease, border-color 0.2s ease',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = '#c0a0e0';
+              e.currentTarget.style.borderColor = '#c0a0e0';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = 'rgba(200, 200, 220, 0.75)';
+              e.currentTarget.style.borderColor = 'rgba(200, 200, 220, 0.3)';
+            }}
+          >
+            Book a Consultation
+          </Link>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          display: 'flex',
+          justifyContent: 'center',
+          paddingBottom: '32px',
+        }}
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            width: '36px',
+            height: '36px',
+            borderRadius: '50%',
+            border: '1px solid rgba(155, 127, 212, 0.35)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'rgba(155, 127, 212, 0.7)',
+            backdropFilter: 'blur(8px)',
+            background: 'rgba(155, 127, 212, 0.08)',
+          }}
+        >
+          <ChevronDown size={16} />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-
