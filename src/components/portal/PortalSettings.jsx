@@ -52,7 +52,7 @@ const PortalSettings = ({ clientData }) => {
       });
     }, 1200);
   };
-
+  const sections = [
     { id: 'profile', icon: User, label: 'Profile' },
     { id: 'notifications', icon: Bell, label: 'Notifications' },
     { id: 'security', icon: Shield, label: 'Security' }
