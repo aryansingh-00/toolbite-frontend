@@ -69,16 +69,7 @@ const WhyChooseUs = () => {
                       {feat.desc}
                     </p>
 
-                    {/* 3D Illustration Overlay - Centered and High Visibility */}
-                    {feat.image && (
-                      <div className="absolute inset-0 w-full h-full opacity-60 group-hover:opacity-100 transition-all duration-700 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center">
-                        <img 
-                          src={feat.image} 
-                          alt="" 
-                          className="w-[80%] h-[80%] object-contain transform translate-x-1/3 translate-y-1/4 scale-125 group-hover:scale-150 group-hover:-rotate-12 transition-transform duration-1000 ease-out grayscale group-hover:grayscale-0 opacity-40 group-hover:opacity-100" 
-                        />
-                      </div>
-                    )}
+                    {/* Image removed as requested */}
                     
                     {/* Decorative abstract element for featured card */}
                     {i === 0 && (
