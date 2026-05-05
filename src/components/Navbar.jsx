@@ -208,22 +208,9 @@ const Navbar = () => {
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return 'dark';
-  });
-
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+    document.documentElement.classList.add('dark');
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -299,13 +286,7 @@ const Navbar = () => {
                   <span className="text-[10px] font-bold text-slate-400">K</span>
                 </div>
               </button>
-              <button
-                onClick={toggleTheme}
-                className="p-2.5 rounded-xl text-slate-500 hover:text-[#B19CD9] hover:bg-[#B19CD9]/10 transition-all border border-transparent hover:border-[#B19CD9]/20"
-                title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-              >
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-              </button>
+
               <Link
                 to="/client-login"
                 className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all"
@@ -330,13 +311,7 @@ const Navbar = () => {
               >
                 <Search size={20} />
               </button>
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
-                aria-label="Toggle theme"
-              >
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-              </button>
+
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"

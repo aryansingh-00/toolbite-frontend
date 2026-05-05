@@ -31,8 +31,7 @@ const PortalSettings = ({ clientData }) => {
       messages: true,
       invoices: false,
       approvals: true
-    },
-    theme: 'system'
+    }
   });
 
   const handleSave = () => {
@@ -54,11 +53,9 @@ const PortalSettings = ({ clientData }) => {
     }, 1200);
   };
 
-  const sections = [
     { id: 'profile', icon: User, label: 'Profile' },
     { id: 'notifications', icon: Bell, label: 'Notifications' },
-    { id: 'security', icon: Shield, label: 'Security' },
-    { id: 'appearance', icon: Palette, label: 'Appearance' }
+    { id: 'security', icon: Shield, label: 'Security' }
   ];
 
   return (
@@ -212,33 +209,7 @@ const PortalSettings = ({ clientData }) => {
             </motion.div>
           )}
 
-          {activeSubTab === 'appearance' && (
-            <motion.div
-              key="appearance"
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -10 }}
-              className="space-y-8"
-            >
-               <h4 className="text-xl font-bold dark:text-white">Portal Appearance</h4>
-               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {[
-                    { id: 'light', label: 'Light', icon: Sun },
-                    { id: 'dark', label: 'Dark', icon: Moon },
-                    { id: 'system', label: 'System', icon: Smartphone }
-                  ].map(theme => (
-                    <button
-                      key={theme.id}
-                      onClick={() => setFormData({...formData, theme: theme.id})}
-                      className={`p-6 rounded-3xl border-2 transition-all flex flex-col items-center gap-3 ${formData.theme === theme.id ? 'border-teal-500 bg-teal-500/5 text-teal-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 hover:border-slate-200'}`}
-                    >
-                      <theme.icon size={24} />
-                      <span className="font-bold text-sm tracking-wide">{theme.label}</span>
-                    </button>
-                  ))}
-               </div>
-            </motion.div>
-          )}
+
         </AnimatePresence>
 
         <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-end">
