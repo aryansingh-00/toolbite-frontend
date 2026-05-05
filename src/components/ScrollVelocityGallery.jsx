@@ -7,8 +7,8 @@ import {
 } from 'framer-motion';
 import staticTemplates from '../data/templates';
 
-// Extract all images from the application's actual templates database
-const allImages = staticTemplates.map(t => t.imageUrl);
+// Extract unique images from the application's actual templates database
+const allImages = Array.from(new Set(staticTemplates.map(t => t.imageUrl)));
 
 // Local wrap helper to avoid extra dependencies
 const wrap = (min, max, v) => {
@@ -53,10 +53,10 @@ function ParallaxColumn({ images, baseVelocity = 100 }) {
 const ScrollVelocityGallery = () => {
   return (
     <div className="grid grid-cols-3 gap-6 h-full w-full">
-      {/* Feed completely unique, large sets of images to each column so they never overlap */}
-      <ParallaxColumn images={allImages.slice(0, 15)} baseVelocity={-0.8} />
-      <ParallaxColumn images={allImages.slice(15, 30)} baseVelocity={1.2} />
-      <ParallaxColumn images={allImages.slice(30, 45)} baseVelocity={-0.6} />
+      {/* Feed completely unique sets of images to each column so they never overlap */}
+      <ParallaxColumn images={allImages.slice(0, 5)} baseVelocity={-0.8} />
+      <ParallaxColumn images={allImages.slice(5, 10)} baseVelocity={1.2} />
+      <ParallaxColumn images={allImages.slice(10, 15)} baseVelocity={-0.6} />
     </div>
   );
 };
