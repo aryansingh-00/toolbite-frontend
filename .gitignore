@@ -24,3 +24,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dev and Scratch files
+dev-dist/
+scratch/
+toolbite_homepage_top_part_*.png
+*eslint*.txt
+*eslint*.json
+lint*.txt
+*audit.txt
+clean.txt
+original.txt
+update_resume.py
