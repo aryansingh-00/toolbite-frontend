@@ -40,7 +40,22 @@ async function prerender() {
   await new Promise((resolve) => server.listen(PORT, resolve));
 
   console.log('Launching browser...');
-  const browser = await puppeteer.launch({ headless: 'new' });
+  
+  let executablePath;
+  let args = ['--no-sandbox', '--disable-setuid-sandbox'];
+  
+  if (process.env.VERCEL === '1' || process.env.CI) {
+    console.log('Using @sparticuz/chromium for Vercel/CI environment...');
+    const chromium = (await import('@sparticuz/chromium')).default;
+    executablePath = await chromium.executablePath();
+    args = chromium.args;
+  }
+
+  const browser = await puppeteer.launch({ 
+    headless: 'new',
+    executablePath,
+    args
+  });
   
   // Create an index.html backup before overwriting
   const indexHtmlPath = path.join(distPath, 'index.html');
