@@ -31,6 +31,15 @@ const TOOL_SLUGS = [
   'text-length-changer',
   'tone-changer',
   'roi-calculator',
+  'brand-audit',
+  'backlink-checker',
+  'pdf-converter',
+  'resume-builder',
+  'color-palette-generator',
+  'glassmorphism-generator',
+  'unit-converter',
+  'markdown-previewer',
+  'base64-converter',
 ];
 
 const BLOG_IDS = [1, 2, 3, 4];
@@ -69,6 +78,10 @@ const entries = [
   url('/contact',          '0.7', 'monthly'),
   url('/blog',             '0.8', 'weekly'),
   url('/start-project',    '0.9', 'monthly'),
+  url('/pricing',          '0.8', 'monthly'),
+  url('/partners',         '0.7', 'monthly'),
+  url('/portfolio',        '0.9', 'weekly'),
+  url('/services/website-builder', '0.8', 'monthly'),
 
   // Legal pages
   url('/privacy-policy',   '0.3', 'yearly'),
