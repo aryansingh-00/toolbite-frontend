@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.js && vite build",
+    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -47,8 +47,10 @@
     "globals": "^17.4.0",
     "lucide-react": "^1.0.1",
     "postcss": "^8.5.8",
+    "puppeteer": "^24.43.0",
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.13.2",
+    "serve-handler": "^6.1.7",
     "sharp": "^0.34.5",
     "svgo": "^4.0.1",
     "tailwindcss": "^3.4.19",
