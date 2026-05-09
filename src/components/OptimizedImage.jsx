@@ -17,7 +17,6 @@ const OptimizedImage = ({
       height={height}
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
-      fetchPriority={priority ? "high" : "auto"}
       className={`${className} transition-opacity duration-300`}
       onLoad={(e) => {
         e.target.classList.add('opacity-100');

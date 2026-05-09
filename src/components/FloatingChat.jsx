@@ -79,7 +79,7 @@ const FloatingChat = () => {
             </div>
 
             <div className="p-6 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-3">
-              <a href="https://wa.me/919598037255" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-3 py-4 bg-[#25D366] text-white rounded-2xl font-black text-sm hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-[#25D366]/20">
+              <a href="https://wa.me/919598037255" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-3 py-4 bg-[#25D366] text-white rounded-2xl font-black text-sm hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg shadow-[#25D366]/20">
                 <AIWhatsAppIcon className="w-6 h-6" />
                 Open AI WhatsApp Chat
               </a>
@@ -96,6 +96,7 @@ const FloatingChat = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-teal-600 transition-all duration-300 relative group"
         aria-label="Toggle chat"
+        title="Toggle chat"
       >
         {!isOpen && (
           <div className="absolute inset-0 w-full h-full bg-teal-500 rounded-full animate-ping opacity-20 group-hover:opacity-0 transition-opacity"></div>

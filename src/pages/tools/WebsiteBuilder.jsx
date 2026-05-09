@@ -106,7 +106,7 @@ const WebsiteBuilder = () => {
                     <h4 className="text-xl font-bold text-white">{demo.title}</h4>
                   </div>
                 </div>
-                <Link to={`/demos/${demo.slug}/index.html`} target="_blank" className="flex items-center justify-center gap-2 text-white/50 group-hover:text-white font-bold transition-colors">
+                <Link to={`/demos/${demo.slug}/index.html`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-white/50 group-hover:text-white font-bold transition-colors">
                   Live Preview <ArrowRight size={16} />
                 </Link>
               </motion.div>

@@ -184,7 +184,7 @@ const TemplateDetails = () => {
               <a
                 href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\nCould you please guide me through the next steps?`)}`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 py-4 px-8 bg-slate-900 text-white font-bold text-lg rounded-2xl hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/30 transform hover:-translate-y-1"
               >
                 <ShoppingCart className="w-5 h-5" />

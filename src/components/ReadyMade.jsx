@@ -68,7 +68,7 @@ const ReadyMade = () => {
                     <a
                       href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${tpl.title}* template.\n\n📦 *Category:* ${tpl.category}\n\nCould you please guide me through the next steps?`)}`}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-[#B19CD9] transition-all shadow-md hover:shadow-[#B19CD9]/25"
                     >
                       <ShoppingCart size={16} />

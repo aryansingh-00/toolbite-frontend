@@ -36,14 +36,14 @@ const Services = () => {
           
           {/* Left Arrow */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 hidden md:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('left')} className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-[#B19CD9] transition-all shadow-xl hover:scale-110">
+            <button onClick={() => scroll('left')} title="Scroll Left" aria-label="Scroll Left" className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-[#B19CD9] transition-all shadow-xl hover:scale-110">
               <ChevronLeft size={28} />
             </button>
           </div>
 
           {/* Right Arrow */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 hidden md:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button onClick={() => scroll('right')} className="w-14 h-14 rounded-full bg-slate-900 border border-slate-900 flex items-center justify-center text-white hover:bg-[#B19CD9] hover:border-[#B19CD9] transition-all shadow-xl shadow-[#B19CD9]/20 hover:scale-110">
+            <button onClick={() => scroll('right')} title="Scroll Right" aria-label="Scroll Right" className="w-14 h-14 rounded-full bg-slate-900 border border-slate-900 flex items-center justify-center text-white hover:bg-[#B19CD9] hover:border-[#B19CD9] transition-all shadow-xl shadow-[#B19CD9]/20 hover:scale-110">
               <ChevronRight size={28} />
             </button>
           </div>

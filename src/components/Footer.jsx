@@ -106,22 +106,22 @@ const Footer = () => {
               The ultimate agency platform delivering ready-made premium templates and high-performance custom web applications for modern businesses.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.threads.com/@hello.toolbite" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-teal-500 hover:text-white transition-all">
+              <a href="https://www.threads.com/@hello.toolbite" aria-label="Threads" title="Threads" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-teal-500 hover:text-white transition-all">
                 <Twitter size={18} />
               </a>
-              <a href="https://www.facebook.com/share/1AsB5SJevf/" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
+              <a href="https://www.facebook.com/share/1AsB5SJevf/" aria-label="Facebook" title="Facebook" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
                 <Facebook size={18} />
               </a>
-              <a href="https://www.instagram.com/hello.toolbite?igsh=MThncHh4ejk5YzQzdg==" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-rose-500 hover:text-white transition-all">
+              <a href="https://www.instagram.com/hello.toolbite?igsh=MThncHh4ejk5YzQzdg==" aria-label="Instagram" title="Instagram" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-rose-500 hover:text-white transition-all">
                 <Instagram size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/tool-bite-16ab8b3ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
+              <a href="https://www.linkedin.com/in/tool-bite-16ab8b3ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn" title="LinkedIn" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="https://github.com/aryansingh-00" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white transition-all">
+              <a href="https://github.com/aryansingh-00" aria-label="GitHub" title="GitHub" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-slate-700 hover:text-white transition-all">
                 <Github size={18} />
               </a>
-              <a href="https://www.youtube.com/@tool-bite" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all" aria-label="YouTube">
+              <a href="https://www.youtube.com/@tool-bite" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all" aria-label="YouTube" title="YouTube">
                 <Youtube size={18} />
               </a>
             </div>

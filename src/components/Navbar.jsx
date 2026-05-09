@@ -308,6 +308,7 @@ const Navbar = () => {
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Search"
+                title="Search Tools & Services"
               >
                 <Search size={20} />
               </button>
@@ -316,6 +317,7 @@ const Navbar = () => {
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Toggle menu"
+                title="Toggle menu"
               >
                 <AnimatePresence mode="wait">
                   {mobileOpen
