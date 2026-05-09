@@ -144,7 +144,7 @@ export default function AIFillModal({ formData, onApply, onClose }) {
               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Powered by Gemini 2.0 Flash</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2.5 hover:bg-white/10 rounded-xl transition-colors text-slate-400">
+          <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="p-2.5 hover:bg-white/10 rounded-xl transition-colors text-slate-400">
             <X size={20} />
           </button>
         </div>
@@ -277,8 +277,8 @@ export default function AIFillModal({ formData, onApply, onClose }) {
         <div className="px-8 py-5 border-t border-white/10 flex items-center justify-between shrink-0">
           {step === 'input' && (
             <>
-              <button onClick={onClose} className="px-6 py-3 text-slate-400 hover:text-white font-bold transition-colors">Cancel</button>
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="px-6 py-3 text-slate-400 hover:text-white font-bold transition-colors">Cancel</button>
+              <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={handleGenerate}
                 disabled={!jobDescription.trim()}
                 className="px-8 py-3 bg-gradient-to-r from-sky-500 to-violet-600 text-white font-black rounded-xl shadow-xl hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 flex items-center gap-2"
@@ -290,10 +290,10 @@ export default function AIFillModal({ formData, onApply, onClose }) {
           )}
           {step === 'preview' && (
             <>
-              <button onClick={() => { setGenerated(null); setStep('input'); }} className="px-6 py-3 text-slate-400 hover:text-white font-bold transition-colors flex items-center gap-2">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => { setGenerated(null); setStep('input'); }} className="px-6 py-3 text-slate-400 hover:text-white font-bold transition-colors flex items-center gap-2">
                 <RefreshCw size={16} /> Regenerate
               </button>
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={handleApply}
                 className="px-8 py-3 bg-emerald-500 text-white font-black rounded-xl shadow-xl hover:bg-emerald-400 hover:scale-105 transition-all flex items-center gap-2"
               >

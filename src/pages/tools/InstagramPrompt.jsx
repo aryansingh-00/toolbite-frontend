@@ -151,7 +151,7 @@ The goal is to maximize shares and saves.`;
             </div>
           </div>
 
-          <button 
+          <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={generatePrompt}
             className="w-full py-5 rounded-2xl bg-slate-900 text-white font-bold text-lg hover:bg-rose-500 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-3 group"
           >

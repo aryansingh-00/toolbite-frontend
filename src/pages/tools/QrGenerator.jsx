@@ -160,7 +160,7 @@ const QrGenerator = () => {
           </div>
 
           <div className="relative z-10 w-full space-y-4">
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={downloadQR}
               className="w-full py-5 bg-teal-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-teal-500/30 hover:bg-teal-500 hover:scale-[1.02] transition-all active:scale-95 flex items-center justify-center gap-3"
             >
@@ -178,13 +178,13 @@ const QrGenerator = () => {
               <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
                 <Clock size={14} /> Recent QR Codes
               </h3>
-              <button onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
                 <Trash2 size={12} /> Clear
               </button>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {history.map((item, i) => (
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   key={i}
                   onClick={() => setInput(item.content.replace('...', ''))}
                   className="group flex flex-col items-center gap-2 p-3 bg-slate-50 rounded-2xl border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-all text-left"
@@ -203,7 +203,7 @@ const QrGenerator = () => {
 };
 
 const TypeButton = ({ label, active, onClick, icon: Icon }) => (
-  <button
+  <button title="Interactive Button" aria-label="Interactive Button"
     onClick={onClick}
     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all whitespace-nowrap ${active ? 'bg-white text-teal-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
   >

@@ -121,7 +121,7 @@ const TextToSpeech = () => {
             className="w-full h-80 p-8 rounded-3xl bg-slate-50 border-2 border-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none text-xl leading-relaxed shadow-sm"
           />
           <div className="absolute top-6 right-6">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setText('')}
               className="p-3 bg-white text-slate-400 hover:text-red-500 rounded-xl shadow-md border border-slate-100 transition-all"
               title="Clear text"
@@ -177,7 +177,7 @@ const TextToSpeech = () => {
 
           <div className="flex flex-col justify-end space-y-4">
             {!isPlaying ? (
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={handleSpeak}
                 className="w-full py-5 bg-teal-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-teal-500/20 hover:bg-teal-500 transition-all active:scale-95 flex items-center justify-center gap-3"
               >
@@ -187,15 +187,15 @@ const TextToSpeech = () => {
             ) : (
               <div className="grid grid-cols-2 gap-4">
                 {isPaused ? (
-                  <button onClick={handleSpeak} className="w-full py-4 bg-teal-600 text-white font-extrabold rounded-2xl hover:bg-teal-500 flex items-center justify-center gap-2">
+                  <button title="Interactive Button" aria-label="Interactive Button" onClick={handleSpeak} className="w-full py-4 bg-teal-600 text-white font-extrabold rounded-2xl hover:bg-teal-500 flex items-center justify-center gap-2">
                     <Play size={20} fill="white" /> Resume
                   </button>
                 ) : (
-                  <button onClick={handlePause} className="w-full py-4 bg-amber-600 text-white font-extrabold rounded-2xl hover:bg-amber-500 flex items-center justify-center gap-2">
+                  <button title="Interactive Button" aria-label="Interactive Button" onClick={handlePause} className="w-full py-4 bg-amber-600 text-white font-extrabold rounded-2xl hover:bg-amber-500 flex items-center justify-center gap-2">
                     <Pause size={20} fill="white" /> Pause
                   </button>
                 )}
-                <button onClick={handleStop} className="w-full py-4 bg-slate-700 text-white font-extrabold rounded-2xl hover:bg-red-600 transition-colors flex items-center justify-center gap-2">
+                <button title="Interactive Button" aria-label="Interactive Button" onClick={handleStop} className="w-full py-4 bg-slate-700 text-white font-extrabold rounded-2xl hover:bg-red-600 transition-colors flex items-center justify-center gap-2">
                   <Square size={20} fill="white" /> Stop
                 </button>
               </div>

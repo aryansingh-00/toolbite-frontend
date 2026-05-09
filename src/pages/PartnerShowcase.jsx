@@ -80,7 +80,7 @@ const PartnerShowcase = () => {
                   <span key={tag} className="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-black rounded-lg uppercase tracking-wider">{tag}</span>
                 ))}
               </div>
-              <button className="w-full py-4 rounded-2xl bg-slate-950 text-white font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-2">
+              <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-4 rounded-2xl bg-slate-950 text-white font-bold hover:bg-blue-600 transition-all flex items-center justify-center gap-2">
                 View Profile <ArrowRight size={18} />
               </button>
             </div>
@@ -97,7 +97,7 @@ const PartnerShowcase = () => {
             <p className="text-xl text-slate-400 font-medium mb-10 leading-relaxed">
               View the Partner Showcase to find a partner tailored to fit your business needs.
             </p>
-            <button className="px-10 py-5 rounded-full bg-[#0070f3] text-white font-bold text-lg hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/25">
+            <button title="Interactive Button" aria-label="Interactive Button" className="px-10 py-5 rounded-full bg-[#0070f3] text-white font-bold text-lg hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/25">
               Become a partner
             </button>
           </div>
@@ -177,7 +177,7 @@ const PartnerShowcase = () => {
               <label className="text-sm font-black text-slate-900 uppercase tracking-widest">Message</label>
               <textarea rows="4" placeholder="Tell us about your project or agency..." className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-bold resize-none"></textarea>
             </div>
-            <button className="w-full py-5 rounded-2xl bg-blue-600 text-white font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/25">
+            <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-5 rounded-2xl bg-blue-600 text-white font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/25">
               Submit Inquiry
             </button>
           </form>

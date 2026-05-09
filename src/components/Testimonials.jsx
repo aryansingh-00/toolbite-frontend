@@ -97,13 +97,13 @@ const Testimonials = () => {
           </div>
           
           <div className="flex gap-2">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => scroll('left')} 
               className="w-10 h-10 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-teal-600 transition-colors shadow-sm"
             >
               <ChevronLeft size={20} />
             </button>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => scroll('right')} 
               className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white hover:bg-teal-500 transition-colors shadow-sm"
             >

@@ -176,7 +176,7 @@ const NavItem = ({ item, onCloseAll }) => {
   return (
     <div ref={ref} className="relative" onMouseEnter={() => hasDropdown && setOpen(true)} onMouseLeave={() => hasDropdown && setOpen(false)}>
       {hasDropdown ? (
-        <button
+        <button title="Interactive Button" aria-label="Interactive Button"
           className={baseClass}
           onClick={() => setOpen((v) => !v)}
           aria-haspopup="true"
@@ -275,7 +275,7 @@ const Navbar = () => {
 
             {/* Desktop Right Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
                 className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-500 hover:text-[#B19CD9] hover:bg-[#B19CD9]/10 transition-all border border-transparent hover:border-[#B19CD9]/20 group"
                 title="Search Tools & Services (⌘K)"
@@ -304,7 +304,7 @@ const Navbar = () => {
 
             {/* Mobile Hamburger */}
             <div className="flex lg:hidden items-center gap-2">
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Search"
@@ -313,7 +313,7 @@ const Navbar = () => {
                 <Search size={20} />
               </button>
 
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Toggle menu"
@@ -349,7 +349,7 @@ const Navbar = () => {
                 return (
                   <div key={item.label}>
                     {hasDropdown ? (
-                      <button
+                      <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
                         className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors"
                       >

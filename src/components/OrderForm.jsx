@@ -53,7 +53,7 @@ const OrderForm = () => {
               <p className="text-lg text-slate-400 max-w-md mx-auto">
                 Thank you for choosing ToolBite. We have received your project details and will be in touch within 24 hours.
               </p>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => setFormState('idle')}
                 className="mt-8 px-6 py-2 rounded-full border border-teal-500 text-teal-400 font-semibold hover:bg-teal-500/10 transition-colors"
               >
@@ -203,7 +203,7 @@ const OrderForm = () => {
               </div>
 
               <div className="pt-6 border-t border-slate-700">
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   type="submit" 
                   disabled={formState === 'submitting'}
                   className="w-full md:w-auto px-10 py-4 rounded-xl font-bold bg-teal-500 text-slate-900 hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/25 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mx-auto text-lg"

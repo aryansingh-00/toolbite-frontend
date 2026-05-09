@@ -108,7 +108,7 @@ const GrammarFixer = () => {
                 <AlertCircle size={16} className="text-slate-400" />
                 Original Text
               </label>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={handleClear}
                 className="text-xs font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-wider"
               >
@@ -162,7 +162,7 @@ const GrammarFixer = () => {
           </div>
         </div>
 
-        <button 
+        <button title="Interactive Button" aria-label="Interactive Button" 
           onClick={fixGrammar}
           disabled={isFixing}
           className="w-full py-5 rounded-[2rem] bg-slate-900 text-white font-bold text-xl hover:bg-teal-600 disabled:opacity-50 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-3 group"

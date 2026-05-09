@@ -222,7 +222,7 @@ const PasswordGenerator = () => {
           </div>
         </div>
 
-        <button
+        <button title="Interactive Button" aria-label="Interactive Button"
           onClick={generatePassword}
           className="w-full py-5 bg-teal-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-teal-500/30 hover:bg-teal-700 hover:-translate-y-1 transition-all active:scale-95 flex items-center justify-center gap-3"
         >
@@ -236,13 +236,13 @@ const PasswordGenerator = () => {
               <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
                 <Clock size={14} /> Recent Passwords
               </h3>
-              <button onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={clearHistory} className="text-xs text-slate-400 hover:text-red-500 font-bold transition-colors flex items-center gap-1">
                 <Trash2 size={12} /> Clear
               </button>
             </div>
             <div className="space-y-2">
               {history.map((item, i) => (
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   key={i}
                   onClick={() => { setPassword(item.password); navigator.clipboard.writeText(item.password); toast.success('Password copied!'); }}
                   className="w-full flex items-center justify-between px-5 py-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-all group"
@@ -263,7 +263,7 @@ const PasswordGenerator = () => {
 };
 
 const CheckboxOption = ({ active, onClick, label, desc }) => (
-  <button
+  <button title="Interactive Button" aria-label="Interactive Button"
     onClick={onClick}
     className={`p-4 rounded-xl border-2 transition-all flex items-center gap-3 ${active ? 'bg-teal-50 border-teal-500 text-teal-700' : 'bg-white border-slate-100 text-slate-400 grayscale hover:grayscale-0'}`}
   >

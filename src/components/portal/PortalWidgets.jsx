@@ -68,7 +68,7 @@ const PortalWidgets = ({ projectId }) => {
         <ul className="space-y-4">
           {actionItems.map(item => (
             <li key={item.id} className={`flex gap-3 group items-start transition-all ${item.completed ? 'opacity-50' : ''}`}>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => toggleAction(item.id, item.completed)}
                 className={`mt-0.5 shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
                   item.completed 

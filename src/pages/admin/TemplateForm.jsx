@@ -155,7 +155,7 @@ const TemplateForm = () => {
                 {imagePreview ? (
                   <div className="relative inline-block">
                     <img src={imagePreview} alt="Preview" className="h-48 rounded-lg object-cover shadow-sm border border-slate-200" />
-                    <button 
+                    <button title="Interactive Button" aria-label="Interactive Button" 
                       type="button" 
                       onClick={(e) => { e.preventDefault(); setImage(null); setImagePreview(''); }}
                       className="absolute -top-3 -right-3 z-10 bg-red-100 text-red-600 rounded-full p-1.5 hover:bg-red-200 hover:scale-110 transition shadow-sm"
@@ -235,18 +235,18 @@ const TemplateForm = () => {
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition" 
                   placeholder="e.g., Responsive Design, React Integration..." 
                 />
-                <button type="button" onClick={() => removeFeature(index)} className="px-4 text-red-500 bg-red-50 hover:bg-red-100 hover:text-red-600 rounded-xl transition shadow-sm border border-red-100">
+                <button title="Interactive Button" aria-label="Interactive Button" type="button" onClick={() => removeFeature(index)} className="px-4 text-red-500 bg-red-50 hover:bg-red-100 hover:text-red-600 rounded-xl transition shadow-sm border border-red-100">
                   <X className="w-5 h-5 mx-auto" />
                 </button>
               </div>
             ))}
-            <button type="button" onClick={addFeature} className="text-blue-600 text-sm font-bold hover:text-blue-800 transition flex items-center mt-3 px-2 py-1 rounded-lg hover:bg-blue-50">
+            <button title="Interactive Button" aria-label="Interactive Button" type="button" onClick={addFeature} className="text-blue-600 text-sm font-bold hover:text-blue-800 transition flex items-center mt-3 px-2 py-1 rounded-lg hover:bg-blue-50">
               <Plus className="w-4 h-4 mr-1 stroke-[3px]" /> Add Another Feature
             </button>
           </div>
 
           <div className="pt-8 border-t border-slate-100">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               type="submit" 
               disabled={submitting} 
               className="w-full flex justify-center items-center py-4 px-4 border border-transparent rounded-xl shadow-md shadow-blue-500/30 text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 font-bold disabled:opacity-70 disabled:cursor-not-allowed"

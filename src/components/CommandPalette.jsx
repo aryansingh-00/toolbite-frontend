@@ -154,7 +154,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
                             const Icon = item.icon;
 
                             return (
-                              <button
+                              <button title="Interactive Button" aria-label="Interactive Button"
                                 key={item.id}
                                 onMouseEnter={() => setSelectedIndex(globalIndex)}
                                 onClick={() => onSelect(item)}

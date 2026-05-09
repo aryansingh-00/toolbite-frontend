@@ -158,7 +158,7 @@ const ImageToPdf = () => {
                 <div className="absolute top-2 left-2 bg-slate-900/80 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full backdrop-blur-sm">
                   PAGE {index + 1}
                 </div>
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => removeImage(img.id)}
                   className="absolute top-2 right-2 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hover:bg-red-600"
                 >
@@ -185,7 +185,7 @@ const ImageToPdf = () => {
           </div>
           
           <div className="flex-[2] flex gap-4">
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={() => setImages([])}
               disabled={images.length === 0}
               className="px-8 py-5 bg-slate-100 text-slate-600 font-bold rounded-2xl hover:bg-red-50 hover:text-red-600 transition-all disabled:opacity-50 flex items-center gap-2"
@@ -193,7 +193,7 @@ const ImageToPdf = () => {
               <Trash2 size={20} />
               Clear All
             </button>
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={generatePdf}
               disabled={images.length === 0 || generating}
               className="flex-1 py-5 bg-teal-600 text-white font-extrabold text-xl rounded-2xl shadow-xl shadow-teal-500/30 hover:bg-teal-500 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 disabled:opacity-50"

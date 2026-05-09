@@ -21,7 +21,7 @@ const DesignLab = ({ isOpen, onClose }) => {
           <Palette className="text-teal-500" size={20} />
           Design Lab
         </h3>
-        <button onClick={onClose} className="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="text-slate-400 hover:text-slate-600 dark:hover:text-white">
           <X size={20} />
         </button>
       </div>
@@ -85,7 +85,7 @@ const DesignLab = ({ isOpen, onClose }) => {
       </div>
 
       <div className="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-         <button className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
+         <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
             Save Configuration
          </button>
       </div>

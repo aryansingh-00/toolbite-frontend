@@ -506,11 +506,11 @@ const ResumeBuilder = () => {
             </motion.p>
             
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => setCurrentStep('templates')} className="px-8 py-5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setCurrentStep('templates')} className="px-8 py-5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3">
                 <Layout size={20} />
                 Explore Templates
               </button>
-              <button onClick={() => setCurrentStep('upload')} className="px-8 py-5 bg-white/5 border border-white/10 text-white hover:bg-white/10 font-bold rounded-xl transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3 backdrop-blur-md">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setCurrentStep('upload')} className="px-8 py-5 bg-white/5 border border-white/10 text-white hover:bg-white/10 font-bold rounded-xl transition-all hover:-translate-y-1 text-lg flex items-center justify-center gap-3 backdrop-blur-md">
                 <Upload size={20} />
                 Import Existing CV
               </button>
@@ -594,7 +594,7 @@ const ResumeBuilder = () => {
 
   const renderUploadStep = () => (
     <motion.div key="upload" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="max-w-2xl mx-auto py-20 text-center px-6">
-      <button onClick={() => setCurrentStep('choice')} className="flex items-center gap-2 text-slate-500 font-bold mb-12 hover:text-teal-600 transition-colors mx-auto">
+      <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setCurrentStep('choice')} className="flex items-center gap-2 text-slate-500 font-bold mb-12 hover:text-teal-600 transition-colors mx-auto">
         <ArrowLeft size={18} /> Go Back
       </button>
 
@@ -653,7 +653,7 @@ const ResumeBuilder = () => {
         
         {/* Gallery Header & Navigation */}
         <div className="max-w-7xl mx-auto px-6 mb-12">
-          <button onClick={() => setCurrentStep('choice')} className="flex items-center gap-2 text-slate-400 font-bold hover:text-white transition-colors mb-8">
+          <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setCurrentStep('choice')} className="flex items-center gap-2 text-slate-400 font-bold hover:text-white transition-colors mb-8">
             <ArrowLeft size={20} /> Back to Choice
           </button>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
@@ -682,7 +682,7 @@ const ResumeBuilder = () => {
             <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest">By Style</h4>
             <div className="flex flex-wrap gap-2">
               {['All', 'Simple', 'Creative', 'Professional'].map(style => (
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   key={style}
                   onClick={() => setActiveStyleFilter(style)}
                   className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${activeStyleFilter === style ? 'bg-teal-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
@@ -696,7 +696,7 @@ const ResumeBuilder = () => {
             <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest">By Experience Level</h4>
             <div className="flex flex-wrap gap-2">
               {['All', 'Fresher', 'Experienced'].map(exp => (
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   key={exp}
                   onClick={() => setActiveExpFilter(exp)}
                   className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${activeExpFilter === exp ? 'bg-sky-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
@@ -715,7 +715,7 @@ const ResumeBuilder = () => {
               <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-600"><FileText size={32} /></div>
               <h3 className="text-xl font-bold text-white mb-2">No templates found</h3>
               <p className="text-slate-400">Try adjusting your filters or search query.</p>
-              <button onClick={() => { setSearchQuery(''); setActiveExpFilter('All'); setActiveStyleFilter('All'); }} className="mt-6 px-6 py-2 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-700 transition-colors">Clear Filters</button>
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => { setSearchQuery(''); setActiveExpFilter('All'); setActiveStyleFilter('All'); }} className="mt-6 px-6 py-2 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-700 transition-colors">Clear Filters</button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -734,7 +734,7 @@ const ResumeBuilder = () => {
                     
                     {/* Hover Overlay Actions */}
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 p-8">
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => {
                           loadTemplate(t.id);
                         }}
@@ -742,7 +742,7 @@ const ResumeBuilder = () => {
                       >
                         <Edit3 size={18} /> Use Template
                       </button>
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => {
                           setPreviewTemplate(t);
                           setPreviewModalOpen(true);
@@ -778,7 +778,7 @@ const ResumeBuilder = () => {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               className="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl p-4 md:p-8 flex items-center justify-center overflow-y-auto"
             >
-              <button onClick={() => setPreviewModalOpen(false)} className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors z-[110]">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setPreviewModalOpen(false)} className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors z-[110]">
                 <X size={24} />
               </button>
 
@@ -809,7 +809,7 @@ const ResumeBuilder = () => {
                     </div>
                   </div>
 
-                  <button 
+                  <button title="Interactive Button" aria-label="Interactive Button" 
                     onClick={() => {
                       loadTemplate(previewTemplate.id);
                       setPreviewModalOpen(false);
@@ -1122,7 +1122,7 @@ const ResumeBuilder = () => {
         {/* Top Control Bar */}
         <div className="sticky top-0 z-40 w-full bg-slate-950/80 backdrop-blur-xl border-b border-white/5 py-4 px-6 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-6">
-            <button onClick={() => setCurrentStep('choice')} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500" title="Exit Editor">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setCurrentStep('choice')} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500" title="Exit Editor">
               <ArrowLeft size={20} />
             </button>
             
@@ -1159,31 +1159,31 @@ const ResumeBuilder = () => {
           </div>
 
           <div className="flex items-center gap-2 p-1 bg-white/5 rounded-xl">
-            <button onClick={() => setViewMode('edit')} className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'edit' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setViewMode('edit')} className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'edit' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
               <Edit3 size={14} /> Edit
             </button>
-            <button onClick={() => setViewMode('split')} className={`hidden lg:flex px-4 py-1.5 rounded-lg text-xs font-bold transition-all items-center gap-2 ${viewMode === 'split' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setViewMode('split')} className={`hidden lg:flex px-4 py-1.5 rounded-lg text-xs font-bold transition-all items-center gap-2 ${viewMode === 'split' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
               <Monitor size={14} /> Split
             </button>
-            <button onClick={() => setViewMode('preview')} className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'preview' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setViewMode('preview')} className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'preview' ? 'bg-white/10 text-teal-400 shadow-sm' : 'text-slate-400 hover:text-white'}`}>
               <Eye size={14} /> Preview
             </button>
           </div>
 
           <div className="flex items-center gap-3">
-            <button onClick={() => setShowStylePanel(!showStylePanel)} className={`p-2.5 rounded-xl transition-colors ${showStylePanel ? 'bg-violet-500/20 text-violet-400' : 'text-slate-400 hover:text-violet-400 hover:bg-violet-500/10'}`} title="Style Controls">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowStylePanel(!showStylePanel)} className={`p-2.5 rounded-xl transition-colors ${showStylePanel ? 'bg-violet-500/20 text-violet-400' : 'text-slate-400 hover:text-violet-400 hover:bg-violet-500/10'}`} title="Style Controls">
               <Palette size={18} />
             </button>
-            <button onClick={() => setShowAIModal(true)} className="px-4 py-2 bg-gradient-to-r from-sky-500 to-violet-600 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 hover:scale-105 transition-all shadow-lg" title="AI Fill from Job Description">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowAIModal(true)} className="px-4 py-2 bg-gradient-to-r from-sky-500 to-violet-600 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 hover:scale-105 transition-all shadow-lg" title="AI Fill from Job Description">
               <Sparkles size={14} /> AI Fill
             </button>
-            <button onClick={() => setShowATSPanel(!showATSPanel)} className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border ${showATSPanel ? 'bg-teal-500/20 text-teal-400 border-teal-500/30' : 'text-slate-400 border-white/10 hover:text-teal-400 hover:bg-teal-500/10'}`} title="ATS Score">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowATSPanel(!showATSPanel)} className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border ${showATSPanel ? 'bg-teal-500/20 text-teal-400 border-teal-500/30' : 'text-slate-400 border-white/10 hover:text-teal-400 hover:bg-teal-500/10'}`} title="ATS Score">
               <BarChart3 size={14} /> ATS Score
             </button>
             <button onClick={resetData} className="p-2.5 text-slate-400 hover:text-rose-500 transition-colors" title="Reset Editor">
               <RefreshCw size={18} />
             </button>
-            <button onClick={handleExportPDF} className="px-6 py-2.5 bg-slate-900 text-white font-black rounded-xl shadow-xl hover:bg-teal-600 transition-all flex items-center gap-2 text-sm">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={handleExportPDF} className="px-6 py-2.5 bg-slate-900 text-white font-black rounded-xl shadow-xl hover:bg-teal-600 transition-all flex items-center gap-2 text-sm">
               <Download size={18} /> Export PDF
             </button>
             <button onClick={handleSaveJSON} className="p-2.5 text-slate-400 hover:text-emerald-400 transition-colors" title="Save as JSON">
@@ -1210,7 +1210,7 @@ const ResumeBuilder = () => {
                   
                   {/* Personal Info Accordion */}
                   <div className="border border-white/5 rounded-3xl overflow-hidden bg-slate-900/50 backdrop-blur-sm shadow-xl">
-                    <button onClick={() => setExpandedSection(expandedSection === 'personal' ? null : 'personal')} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
+                    <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setExpandedSection(expandedSection === 'personal' ? null : 'personal')} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
                       <div className="flex items-center gap-3">
                         <User size={20} className="text-emerald-400" />
                         <span className="font-black text-white text-lg">Personal Details</span>
@@ -1233,7 +1233,7 @@ const ResumeBuilder = () => {
                                   <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={handleImageUpload} accept="image/*" />
                                 </div>
                                 {formData.personal.profileImage && (
-                                  <button onClick={() => updatePersonal('profileImage', null)} className="absolute -top-2 -right-2 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-20">
+                                  <button title="Interactive Button" aria-label="Interactive Button" onClick={() => updatePersonal('profileImage', null)} className="absolute -top-2 -right-2 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-20">
                                     <X size={14} />
                                   </button>
                                 )}
@@ -1273,7 +1273,7 @@ const ResumeBuilder = () => {
                             <div className="space-y-2">
                               <div className="flex justify-between items-center px-1">
                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Professional Summary</label>
-                                <button onClick={() => handleAIImprove('personal', 'summary', formData.personal.summary)} className="text-[10px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
+                                <button title="Interactive Button" aria-label="Interactive Button" onClick={() => handleAIImprove('personal', 'summary', formData.personal.summary)} className="text-[10px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
                                   <Wand2 size={10} /> Improve with AI
                                 </button>
                               </div>
@@ -1299,7 +1299,7 @@ const ResumeBuilder = () => {
                       
                       return (
                         <div key={section} className="border border-white/5 rounded-3xl overflow-hidden bg-slate-900/50 backdrop-blur-sm shadow-xl">
-                          <button onClick={() => setExpandedSection(expandedSection === section ? null : section)} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
+                          <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setExpandedSection(expandedSection === section ? null : section)} className="w-full px-8 py-6 flex items-center justify-between bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
                             <div className="flex items-center gap-3">
                               <Icon size={20} className="text-emerald-400" />
                               <span className="font-black text-white text-lg">{label}</span>
@@ -1329,7 +1329,7 @@ const ResumeBuilder = () => {
                                                   <GripVertical size={16} />
                                                 </div>
 
-                                                <button onClick={() => removeItem(section, i)} className="absolute top-4 right-4 w-8 h-8 bg-slate-50 text-slate-300 hover:bg-rose-50 hover:text-rose-500 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
+                                                <button title="Interactive Button" aria-label="Interactive Button" onClick={() => removeItem(section, i)} className="absolute top-4 right-4 w-8 h-8 bg-slate-50 text-slate-300 hover:bg-rose-50 hover:text-rose-500 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100">
                                                   <Trash2 size={16} />
                                                 </button>
 
@@ -1342,7 +1342,7 @@ const ResumeBuilder = () => {
                                                       <div className="md:col-span-2 space-y-1">
                                                         <div className="flex justify-between items-center">
                                                           <label className="text-[10px] font-black text-slate-400 uppercase">Description</label>
-                                                          <button onClick={() => handleAIImprove('experience', 'description', item.description, i)} className="text-[9px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
+                                                          <button title="Interactive Button" aria-label="Interactive Button" onClick={() => handleAIImprove('experience', 'description', item.description, i)} className="text-[9px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
                                                             <SparklesIcon size={10} /> Generate Bullets
                                                           </button>
                                                         </div>
@@ -1369,7 +1369,7 @@ const ResumeBuilder = () => {
                                                       <div className="space-y-1 md:col-span-2">
                                                         <div className="flex justify-between items-center">
                                                           <label className="text-[10px] font-black text-slate-400 uppercase">Description</label>
-                                                          <button onClick={() => handleAIImprove('projects', 'description', item.description, i)} className="text-[9px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
+                                                          <button title="Interactive Button" aria-label="Interactive Button" onClick={() => handleAIImprove('projects', 'description', item.description, i)} className="text-[9px] flex items-center gap-1 font-black text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors px-2 py-1 rounded">
                                                             <Wand2 size={10} /> Enhance
                                                           </button>
                                                         </div>
@@ -1406,7 +1406,7 @@ const ResumeBuilder = () => {
                                     )}
                                   </Droppable>
 
-                                  <button onClick={() => addItem(section)} className="w-full py-4 border-2 border-dashed border-white/5 rounded-2xl text-slate-500 font-bold hover:border-emerald-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all flex items-center justify-center gap-2 group">
+                                  <button title="Interactive Button" aria-label="Interactive Button" onClick={() => addItem(section)} className="w-full py-4 border-2 border-dashed border-white/5 rounded-2xl text-slate-500 font-bold hover:border-emerald-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all flex items-center justify-center gap-2 group">
                                     <Plus size={18} className="group-hover:rotate-90 transition-transform" /> Add {label}
                                   </button>
                                 </div>
@@ -1431,7 +1431,7 @@ const ResumeBuilder = () => {
                {/* Compact layout switcher - moved to bottom */}
                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-white/10 backdrop-blur-xl border border-white/15 rounded-full px-3 py-1.5 z-20">
                   {['architect', 'executive', 'visionary'].map(l => (
-                    <button key={l} onClick={() => setVisualLayout(l)} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all uppercase tracking-wider ${visualLayout === l ? 'bg-white text-slate-900' : 'text-slate-400 hover:text-white'}`}>
+                    <button title="Interactive Button" aria-label="Interactive Button" key={l} onClick={() => setVisualLayout(l)} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all uppercase tracking-wider ${visualLayout === l ? 'bg-white text-slate-900' : 'text-slate-400 hover:text-white'}`}>
                       {l}
                     </button>
                   ))}

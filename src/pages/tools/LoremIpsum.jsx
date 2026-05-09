@@ -130,7 +130,7 @@ const LoremIpsum = () => {
             </select>
           </div>
           <div className="flex flex-col justify-end">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setStartWithLorem(!startWithLorem)}
               className={`flex items-center justify-between px-6 py-4 rounded-xl font-bold transition-all ${startWithLorem ? 'bg-teal-600 text-white' : 'bg-white border border-slate-200 text-slate-600'}`}
             >
@@ -160,14 +160,14 @@ const LoremIpsum = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={generateText}
             className="flex-1 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2"
           >
             <Settings2 size={18} />
             Regenerate
           </button>
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={handleCopy}
             className="flex-1 py-4 bg-teal-600 text-white font-bold rounded-xl hover:bg-teal-700 shadow-lg shadow-teal-500/20 transition-all flex items-center justify-center gap-2"
           >

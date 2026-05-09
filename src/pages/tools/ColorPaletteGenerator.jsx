@@ -86,7 +86,7 @@ const ColorPaletteGenerator = () => {
               />
               <div className="mt-4 flex items-center gap-2">
                 <span className="font-mono font-bold text-slate-700">{color}</span>
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => handleCopy(color)}
                   className="p-1.5 text-slate-400 hover:text-teal-600 transition-colors"
                 >
@@ -98,14 +98,14 @@ const ColorPaletteGenerator = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 pt-8">
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={generatePalette}
             className="flex items-center gap-2 px-8 py-4 bg-teal-600 text-white rounded-2xl font-bold hover:bg-teal-500 transition-all shadow-lg shadow-teal-500/20 active:scale-95"
           >
             <RefreshCw size={20} />
             Generate New Palette
           </button>
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={handleDownload}
             className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-lg active:scale-95"
           >

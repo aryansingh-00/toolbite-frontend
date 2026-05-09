@@ -79,13 +79,13 @@ const Base64Converter = () => {
       <div className="space-y-8">
         <div className="flex justify-center">
           <div className="inline-flex bg-slate-100 p-1 rounded-2xl">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setMode('encode')}
               className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'encode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
             >
               Encode
             </button>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setMode('decode')}
               className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'decode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
             >
@@ -130,13 +130,13 @@ const Base64Converter = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={handleProcess}
             className="px-10 py-5 bg-teal-600 text-white rounded-2xl font-black text-lg hover:bg-teal-500 transition-all shadow-xl shadow-teal-500/20 active:scale-95 flex items-center gap-3"
           >
             {mode === 'encode' ? 'Encode to Base64' : 'Decode from Base64'}
           </button>
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={swapMode}
             className="px-10 py-5 bg-slate-100 text-slate-700 rounded-2xl font-bold hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95"
           >

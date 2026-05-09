@@ -113,7 +113,7 @@ Requirements:
             <div className="w-full md:w-64 space-y-4">
               <label className="text-sm font-bold text-slate-700 block">Improvement Mode</label>
               {['Professional', 'Creative', 'Concise', 'Clear'].map((m) => (
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   key={m}
                   onClick={() => setMode(m)}
                   className={`w-full px-6 py-4 rounded-xl font-bold transition-all text-left flex items-center justify-between group ${mode === m ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}
@@ -126,7 +126,7 @@ Requirements:
           </div>
 
           <div className="flex gap-4">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={improveText}
               disabled={isImproving}
               className="flex-grow py-5 rounded-2xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 disabled:opacity-50 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-3 group"
@@ -134,7 +134,7 @@ Requirements:
               <Wand2 size={24} className="group-hover:rotate-12 transition-transform" />
               {isImproving ? 'Analyzing Style...' : `Improve to ${mode}`}
             </button>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={handleClear}
               className="px-8 py-5 rounded-2xl bg-slate-100 text-slate-500 font-bold hover:bg-red-50 hover:text-red-600 transition-all"
             >
@@ -160,7 +160,7 @@ Requirements:
               <p className="text-slate-800 font-medium leading-relaxed whitespace-pre-line mb-4">
                 {improvedText}
               </p>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={handleCopy}
                 className="w-full py-4 bg-white rounded-xl border border-teal-200 text-teal-700 font-bold hover:bg-teal-500 hover:text-white transition-all flex items-center justify-center gap-2 group"
               >

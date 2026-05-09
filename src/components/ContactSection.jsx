@@ -142,7 +142,7 @@ const ContactSection = () => {
                 </div>
                 <h4 className="text-2xl font-bold text-slate-900 mb-2">Message Sent!</h4>
                 <p className="text-slate-600 mb-8">We'll get back to you as soon as possible.</p>
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => setStatus('idle')}
                   className="px-6 py-2 rounded-full border border-teal-500 text-teal-600 font-bold hover:bg-teal-50 transition-colors"
                 >
@@ -181,7 +181,7 @@ const ContactSection = () => {
                   <textarea name="message" required rows="4" className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition-all resize-none text-slate-900" placeholder="Tell us about your project..."></textarea>
                 </div>
 
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   type="submit" 
                   disabled={status === 'sending'}
                   className="w-full py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-teal-600 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-2 hover:shadow-teal-500/20 disabled:opacity-70 text-lg"

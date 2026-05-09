@@ -122,7 +122,7 @@ const ProjectEstimator = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {types.map((type) => (
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       key={type.id}
                       onClick={() => setSelections({ ...selections, type })}
                       className={`flex items-start gap-4 p-6 rounded-3xl border-2 transition-all text-left ${selections.type.id === type.id ? 'border-teal-500 bg-teal-50/30 dark:bg-teal-500/5' : 'border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700'}`}
@@ -155,7 +155,7 @@ const ProjectEstimator = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   {pageOptions.map((opt) => (
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       key={opt.id}
                       onClick={() => setSelections({ ...selections, pages: opt })}
                       className={`flex items-center justify-between p-6 rounded-3xl border-2 transition-all text-left ${selections.pages.id === opt.id ? 'border-teal-500 bg-teal-50/30 dark:bg-teal-500/5' : 'border-slate-100 dark:border-slate-800 hover:border-slate-200'}`}
@@ -185,7 +185,7 @@ const ProjectEstimator = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   {complexityOptions.map((opt) => (
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       key={opt.id}
                       onClick={() => setSelections({ ...selections, complexity: opt })}
                       className={`flex items-start gap-4 p-6 rounded-3xl border-2 transition-all text-left ${selections.complexity.id === opt.id ? 'border-teal-500 bg-teal-50/30 dark:bg-teal-500/5' : 'border-slate-100 dark:border-slate-800 hover:border-slate-200'}`}
@@ -215,7 +215,7 @@ const ProjectEstimator = () => {
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   {timelineOptions.map((opt) => (
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       key={opt.id}
                       onClick={() => setSelections({ ...selections, timeline: opt })}
                       className={`flex items-center justify-between p-6 rounded-3xl border-2 transition-all text-left ${selections.timeline.id === opt.id ? 'border-teal-500 bg-teal-50/30 dark:bg-teal-500/5' : 'border-slate-100 dark:border-slate-800 hover:border-slate-200'}`}
@@ -280,13 +280,13 @@ const ProjectEstimator = () => {
                       This is an algorithmic estimate based on current market rates for **{selections.type.label}** projects with **{selections.complexity.label}**.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => setCurrentStep(0)}
                         className="px-8 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all dark:text-white"
                       >
                         Recalculate
                       </button>
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => {
                           window.location.href = `/#ai-strategist?refine=true&budget=${finalEstimate.max}&type=${selections.type.label}&goal=${selections.complexity.label}`;
                         }}
@@ -295,7 +295,7 @@ const ProjectEstimator = () => {
                         <Sparkles size={18} className="text-teal-400" />
                         Refine with AI Strategist
                       </button>
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => {
                           const contactSection = document.getElementById('custom-order');
                           if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -316,7 +316,7 @@ const ProjectEstimator = () => {
         {/* Footer Navigation */}
         {currentStep < 4 && (
           <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={prevStep}
               className={`flex items-center gap-2 font-bold text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors ${currentStep === 0 ? 'opacity-0 pointer-events-none' : ''}`}
             >
@@ -326,7 +326,7 @@ const ProjectEstimator = () => {
             <div className="text-sm font-bold text-slate-400 tracking-widest uppercase">
               Step {currentStep + 1} of 4
             </div>
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={nextStep}
               className="flex items-center gap-2 px-8 py-3 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 rounded-2xl font-bold hover:bg-teal-600 dark:hover:bg-teal-400 transition-all shadow-lg"
             >

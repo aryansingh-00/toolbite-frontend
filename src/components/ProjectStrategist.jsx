@@ -322,7 +322,7 @@ const ProjectStrategist = () => {
                     <p className="text-slate-500 dark:text-slate-400 text-sm mb-8 font-medium">
                       Your business requirements have been analyzed. Download your professional Strategy Brief below.
                     </p>
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={generatePDF}
                       className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 group"
                     >
@@ -337,7 +337,7 @@ const ProjectStrategist = () => {
                           Strategy Sent to ToolBite!
                         </div>
                       ) : (
-                        <button
+                        <button title="Interactive Button" aria-label="Interactive Button"
                           onClick={handleSubmitToTeam}
                           disabled={isSubmitting}
                           className="w-full py-4 bg-slate-900 dark:bg-slate-800 text-white hover:bg-slate-800 dark:hover:bg-slate-700 font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 disabled:opacity-70"
@@ -348,7 +348,7 @@ const ProjectStrategist = () => {
                       )}
                     </div>
 
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={() => {
                         setMessages([{ role: 'bot', content: questions[0].text }]);
                         setCurrentQuestionIndex(0);
@@ -384,7 +384,7 @@ const ProjectStrategist = () => {
                         onChange={(e) => setRangeValue(parseInt(e.target.value))}
                         className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500 transition-all"
                       />
-                      <button
+                      <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => handleSend(`$${rangeValue}`)}
                         className="w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-xl shadow-xl shadow-teal-500/10 transition-all flex items-center justify-center gap-2 group"
                       >
@@ -395,7 +395,7 @@ const ProjectStrategist = () => {
                   ) : questions[currentQuestionIndex].type === 'choice' ? (
                     <div className="grid grid-cols-2 gap-3 mt-8">
                       {questions[currentQuestionIndex].options.map((opt, i) => (
-                        <button
+                        <button title="Interactive Button" aria-label="Interactive Button"
                           key={i}
                           onClick={() => handleSend(opt)}
                           className="py-3 px-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 text-sm font-bold text-slate-600 dark:text-slate-400 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 bg-slate-50 dark:bg-slate-950 transition-all"
@@ -414,7 +414,7 @@ const ProjectStrategist = () => {
                         placeholder="Type your message..."
                         className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-950 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-500/5 focus:border-teal-500 dark:text-white transition-all pr-16"
                       />
-                      <button
+                      <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => handleSend()}
                         className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-teal-500 text-white rounded-xl shadow-lg shadow-teal-500/20 hover:bg-teal-400 transition-colors disabled:opacity-50"
                         disabled={!inputValue}

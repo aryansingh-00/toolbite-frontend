@@ -61,13 +61,13 @@ const CookieConsent = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3">
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={handleDecline}
               className="w-full sm:w-1/2 px-4 py-2.5 rounded-xl border-2 border-slate-100 text-slate-700 font-semibold hover:bg-slate-50 transition-colors text-sm"
             >
               Decline
             </button>
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={handleAccept}
               className="w-full sm:w-1/2 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-600/20 transition-all text-sm"
             >

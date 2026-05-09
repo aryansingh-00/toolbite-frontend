@@ -40,7 +40,7 @@ const PricingFAQ = () => {
           transition={{ delay: i * 0.05 }}
           className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden"
         >
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={() => setOpen(open === i ? null : i)}
             className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
           >

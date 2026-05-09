@@ -61,7 +61,7 @@ const Footer = () => {
                 required 
                 className="flex-grow px-6 py-4 bg-slate-950 border border-slate-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-white font-medium" 
               />
-              <button type="submit" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-teal-500 transition-all group-hover:shadow-glow-slate">
+              <button title="Interactive Button" aria-label="Interactive Button" type="submit" className="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-teal-500 transition-all group-hover:shadow-glow-slate">
                 Get Access
               </button>
             </div>

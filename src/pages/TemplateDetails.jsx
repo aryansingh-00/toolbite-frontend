@@ -144,7 +144,7 @@ const TemplateDetails = () => {
             </div>
 
             <div className="flex gap-4">
-               <button 
+               <button title="Interactive Button" aria-label="Interactive Button" 
                  onClick={() => setIsLabOpen(true)}
                  className="flex-1 flex items-center justify-center gap-2 py-4 bg-teal-500 text-white font-bold rounded-2xl hover:bg-teal-600 transition shadow-xl shadow-teal-500/20 group"
                >
@@ -283,7 +283,7 @@ const TemplateDetails = () => {
                   <label className="block text-sm font-bold text-slate-700 mb-2">Comment *</label>
                   <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 resize-none"></textarea>
                 </div>
-                <button type="submit" className="mt-4 bg-slate-900 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
+                <button title="Interactive Button" aria-label="Interactive Button" type="submit" className="mt-4 bg-slate-900 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
                   Post Comment
                 </button>
               </form>

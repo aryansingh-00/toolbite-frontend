@@ -80,7 +80,7 @@ const ExitIntentModal = () => {
             className="relative bg-white dark:bg-slate-900 w-full max-w-xl rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800"
           >
             {/* Close Button */}
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={closePortal}
               className="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors z-10"
             >
@@ -108,7 +108,7 @@ const ExitIntentModal = () => {
                     <p className="text-slate-600 dark:text-slate-400">
                       Chek your inbox! We've sent the **Web ROI Checklist** directly to your email.
                     </p>
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={closePortal}
                       className="mt-8 px-8 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold rounded-xl hover:scale-105 transition-transform"
                     >
@@ -135,7 +135,7 @@ const ExitIntentModal = () => {
                           className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 dark:text-white transition-all text-lg"
                         />
                       </div>
-                      <button
+                      <button title="Interactive Button" aria-label="Interactive Button"
                         type="submit"
                         disabled={status === 'sending'}
                         className="w-full py-5 bg-teal-500 hover:bg-teal-400 text-slate-900 font-black text-lg rounded-2xl shadow-xl shadow-teal-500/20 transition-all active:scale-95 flex items-center justify-center gap-3 disabled:opacity-50"

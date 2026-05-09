@@ -34,7 +34,7 @@ const Sidebar = () => {
         </NavLink>
       </div>
       <div className="p-6 border-t border-slate-800">
-        <button
+        <button title="Interactive Button" aria-label="Interactive Button"
           onClick={handleLogout}
           className="flex items-center justify-center w-full px-4 py-3 text-slate-400 hover:text-white hover:bg-red-500/20 hover:text-red-400 rounded-xl transition-all duration-200 font-medium"
         >

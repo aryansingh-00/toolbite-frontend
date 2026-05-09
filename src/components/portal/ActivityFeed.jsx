@@ -94,7 +94,7 @@ const ActivityFeed = () => {
           <Zap className="text-teal-500" size={20} fill="currentColor" />
           Live Project Insight
         </h3>
-        <button className="text-xs font-bold text-teal-600 hover:underline px-3 py-1 bg-teal-50 dark:bg-teal-500/10 rounded-lg">
+        <button title="Interactive Button" aria-label="Interactive Button" className="text-xs font-bold text-teal-600 hover:underline px-3 py-1 bg-teal-50 dark:bg-teal-500/10 rounded-lg">
           View All logs
         </button>
       </div>

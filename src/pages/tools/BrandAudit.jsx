@@ -154,7 +154,7 @@ const BrandAudit = () => {
                 onChange={(e) => setUrl(e.target.value)}
                 className="w-full pl-16 pr-44 py-6 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-3xl focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-500 transition-all text-lg dark:text-white font-medium shadow-inner"
               />
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 type="submit"
                 className="absolute right-3 top-1/2 -translate-y-1/2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl hover:scale-105 transition-transform shadow-xl shadow-teal-500/20"
               >
@@ -275,14 +275,14 @@ const BrandAudit = () => {
                     These automated results are just the surface. Schedule an expert-guided strategy session to receive a full manual teardown and development roadmap.
                   </p>
                   <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <button 
+                    <button title="Interactive Button" aria-label="Interactive Button" 
                       onClick={() => window.location.href = '/contact'}
                       className="px-10 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center justify-center gap-3"
                     >
                       Book My Full Strategy Call
                       <ArrowRight size={20} />
                     </button>
-                    <button 
+                    <button title="Interactive Button" aria-label="Interactive Button" 
                       onClick={() => setIsComplete(false)}
                       className="px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-2xl transition-all border border-white/10"
                     >

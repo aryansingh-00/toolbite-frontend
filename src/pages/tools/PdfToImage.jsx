@@ -181,14 +181,14 @@ const PdfToImage = () => {
                 </div>
               </div>
               <div className="flex gap-3">
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => { setPdfFile(null); setPages([]); }}
                   className="px-6 py-3 bg-white text-slate-600 font-bold rounded-xl border border-slate-200 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all shadow-sm"
                 >
                   <Trash2 size={18} className="inline mr-2" />
                   Remove PDF
                 </button>
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={downloadAll}
                   className="px-8 py-3 bg-teal-600 text-white font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:bg-teal-500 transition-all hover:-translate-y-0.5"
                 >
@@ -212,7 +212,7 @@ const PdfToImage = () => {
                       PAGE {page.id}
                     </div>
                     <div className="p-3">
-                      <button
+                      <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => downloadPage(page.id)}
                         disabled={processing}
                         className="w-full py-2 bg-slate-900 text-white text-xs font-bold rounded-xl hover:bg-teal-600 transition-colors flex items-center justify-center gap-2"

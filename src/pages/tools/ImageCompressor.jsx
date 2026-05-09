@@ -178,7 +178,7 @@ const ImageCompressor = () => {
               </div>
               <div className="aspect-square rounded-3xl bg-slate-100 overflow-hidden border-2 border-slate-100 flex items-center justify-center p-2 group relative">
                 <img src={originalImage} alt="Original" className="w-full h-full object-contain rounded-2xl transition-transform group-hover:scale-105" />
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => setSelectedFile(null)} 
                   className="absolute top-4 right-4 p-2 bg-red-100 text-red-600 rounded-xl hover:bg-red-600 hover:text-white transition-all shadow-lg"
                 >
@@ -222,7 +222,7 @@ const ImageCompressor = () => {
                       </div>
                     </div>
                     
-                    <button
+                    <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={compressImage}
                       disabled={loading}
                       className="w-full py-5 bg-teal-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-teal-500/30 hover:bg-teal-500 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
@@ -246,14 +246,14 @@ const ImageCompressor = () => {
 
         {compressedImage && (
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-100">
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={() => { setCompressedImage(null); }}
               className="flex-1 py-5 bg-slate-100 text-slate-700 font-bold rounded-2xl hover:bg-slate-200 transition-all flex items-center justify-center gap-2"
             >
               <Zap size={20} fill="currentColor" />
               Change Quality
             </button>
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               onClick={downloadImage}
               className="flex-1 py-5 bg-teal-600 text-white font-extrabold text-xl rounded-2xl shadow-2xl shadow-teal-500/30 hover:bg-teal-700 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3"
             >

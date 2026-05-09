@@ -65,7 +65,7 @@ const StagingView = ({ stagingUrl = "https://staging.client-site-demo.toolbite.a
       <div className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-4 overflow-hidden h-[400px]">
         <div className="w-full h-full bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center relative group">
           <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-             <button className="px-8 py-4 bg-teal-500 text-slate-900 font-bold rounded-2xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+             <button title="Interactive Button" aria-label="Interactive Button" className="px-8 py-4 bg-teal-500 text-slate-900 font-bold rounded-2xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
                 Enter Fullscreen Preview
              </button>
           </div>

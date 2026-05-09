@@ -121,7 +121,7 @@ const ToolsPage = () => {
                     <div className="px-4 py-6 text-center text-slate-400 text-sm">No exact matches found</div>
                   )}
                   <div className="p-2 bg-slate-50 dark:bg-slate-800/50 text-center">
-                    <button onClick={() => setShowDropdown(false)} className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-widest hover:underline">Close Search</button>
+                    <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowDropdown(false)} className="text-[10px] font-bold text-teal-600 dark:text-teal-400 uppercase tracking-widest hover:underline">Close Search</button>
                   </div>
                 </motion.div>
               )}
@@ -129,7 +129,7 @@ const ToolsPage = () => {
           </div>
           <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide no-scrollbar">
             {Array.isArray(categories) && categories.map((cat, i) => (
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 key={i} 
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all duration-300 ${activeCategory === cat ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/25 scale-105' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}

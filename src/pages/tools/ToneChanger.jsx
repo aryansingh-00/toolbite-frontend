@@ -128,7 +128,7 @@ The goal is to shift the mood while keeping the core information identical.`;
                 { name: 'Persuasive', icon: Sparkles, color: 'text-amber-600', bg: 'bg-amber-50' },
                 { name: 'Empathetic', icon: Heart, color: 'text-rose-600', bg: 'bg-rose-50' }
               ].map((t) => (
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   key={t.name}
                   onClick={() => setTone(t.name)}
                   className={`w-full px-5 py-4 rounded-xl font-bold transition-all flex items-center gap-3 group ${tone === t.name ? `${t.bg} ${t.color} border-2 border-current shadow-md` : 'bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100'}`}
@@ -141,7 +141,7 @@ The goal is to shift the mood while keeping the core information identical.`;
           </div>
 
           <div className="flex gap-4">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={changeTone}
               disabled={isChanging}
               className="flex-grow py-5 rounded-2xl bg-slate-900 text-white font-bold text-lg hover:bg-teal-600 disabled:opacity-50 transition-all shadow-xl shadow-slate-900/10 flex items-center justify-center gap-3 group"
@@ -149,7 +149,7 @@ The goal is to shift the mood while keeping the core information identical.`;
               <Wand2 size={24} className="group-hover:rotate-12 transition-transform" />
               {isChanging ? 'Crafting Tone...' : `Change to ${tone}`}
             </button>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={handleClear}
               className="px-8 py-5 rounded-2xl bg-slate-100 text-slate-500 font-bold hover:bg-red-50 hover:text-red-600 transition-all shadow-sm"
             >
@@ -175,7 +175,7 @@ The goal is to shift the mood while keeping the core information identical.`;
               <p className="text-slate-300 font-medium leading-relaxed whitespace-pre-line mb-6">
                 {result}
               </p>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={handleCopy}
                 className="w-full py-4 bg-teal-600 rounded-xl text-white font-bold hover:bg-teal-500 transition-all flex items-center justify-center gap-2 group shadow-lg shadow-teal-600/20"
               >

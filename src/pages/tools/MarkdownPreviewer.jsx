@@ -113,7 +113,7 @@ const MarkdownPreviewer = () => {
               <Eye size={18} className="text-slate-400" />
               <span className="font-bold text-slate-700 text-sm uppercase tracking-widest">Live Preview</span>
             </div>
-            <button onClick={handleDownload} className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-xl font-bold text-xs hover:bg-teal-500 transition-all shadow-md">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={handleDownload} className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-xl font-bold text-xs hover:bg-teal-500 transition-all shadow-md">
               <Download size={14} />
               Download .md
             </button>

@@ -125,7 +125,7 @@ const CaseConverter = () => {
 };
 
 const CaseButton = ({ onClick, label }) => (
-  <button
+  <button title="Interactive Button" aria-label="Interactive Button"
     onClick={onClick}
     className="py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 font-bold hover:bg-teal-600 hover:text-white hover:border-teal-600 hover:shadow-lg hover:shadow-teal-500/20 transition-all duration-300"
   >

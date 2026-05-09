@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer }) => {
   
   return (
     <div className="border-b border-slate-100 dark:border-slate-800 last:border-0">
-      <button 
+      <button title="Interactive Button" aria-label="Interactive Button" 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left group"
       >
@@ -97,7 +97,7 @@ const PortalSupport = () => {
                    { label: "Technical Support", val: "hello.toolbite@gmail.com", icon: <Mail size={20} />, color: "teal", action: "Send Email" },
                    { label: "Strategic Advisor", val: "Schedule a Call", icon: <Clock size={20} />, color: "indigo", action: "Book" }
                  ].map((opt, i) => (
-                   <button key={i} className="w-full flex items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
+                   <button title="Interactive Button" aria-label="Interactive Button" key={i} className="w-full flex items-center justify-between p-4 rounded-2xl border border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group">
                       <div className="flex items-center gap-4">
                          <div className={`p-3 rounded-xl bg-${opt.color}-500/10 text-${opt.color}-500`}>
                             {opt.icon}
@@ -120,7 +120,7 @@ const PortalSupport = () => {
               <p className="text-teal-50/80 text-sm mb-6 leading-relaxed font-medium">
                 As a Premium Tier client, your requests are automatically routed to the top of our technical queue. Typical response time: **{"<"} 15 mins**.
               </p>
-              <button className="w-full py-4 bg-white text-teal-700 font-black rounded-xl hover:scale-105 transition-transform shadow-lg shadow-teal-900/20">
+              <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-4 bg-white text-teal-700 font-black rounded-xl hover:scale-105 transition-transform shadow-lg shadow-teal-900/20">
                  Create Support Ticket
               </button>
            </div>
@@ -142,7 +142,7 @@ const PortalSupport = () => {
 
               <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                  <p className="text-sm text-slate-500 font-medium italic">Can't find what you need?</p>
-                 <button className="flex items-center gap-2 text-sm font-bold text-teal-600 hover:gap-3 transition-all">
+                 <button title="Interactive Button" aria-label="Interactive Button" className="flex items-center gap-2 text-sm font-bold text-teal-600 hover:gap-3 transition-all">
                     Search Full Docs <ExternalLink size={16} />
                  </button>
               </div>

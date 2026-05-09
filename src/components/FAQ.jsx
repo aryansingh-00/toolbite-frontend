@@ -43,7 +43,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => (
         : 'hover:border-slate-300 dark:hover:border-slate-700'
     }`}
   >
-    <button
+    <button title="Interactive Button" aria-label="Interactive Button"
       className={`w-full flex items-center justify-between py-5 px-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 transition-colors ${
         isOpen ? 'bg-teal-50/50 dark:bg-teal-900/10' : 'bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/40'
       }`}
@@ -129,7 +129,7 @@ const FAQ = () => {
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((cat) => (
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               key={cat.label}
               onClick={() => { setActiveCategory(cat.label); setOpenIndex(null); }}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all border ${
@@ -168,7 +168,7 @@ const FAQ = () => {
                 ))}
                 
                 {filtered.length > 5 && (
-                  <button 
+                  <button title="Interactive Button" aria-label="Interactive Button" 
                     onClick={() => setShowAll(!showAll)}
                     className="w-full py-4 mt-2 text-sm font-bold text-slate-400 hover:text-white transition-colors border border-dashed border-white/10 rounded-2xl hover:bg-white/5"
                   >

@@ -63,7 +63,7 @@ const PortalSettings = ({ clientData }) => {
       {/* Sidebar Nav */}
       <div className="w-full lg:w-64 space-y-1">
         {sections.map(section => (
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             key={section.id}
             onClick={() => setActiveSubTab(section.id)}
             className={`w-full flex items-center gap-3 px-5 py-3 rounded-2xl font-bold transition-all ${activeSubTab === section.id ? 'bg-white dark:bg-slate-900 text-teal-600 shadow-sm border border-slate-200 dark:border-slate-800' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
@@ -92,7 +92,7 @@ const PortalSettings = ({ clientData }) => {
                 <div className="text-center sm:text-left">
                   <h4 className="text-xl font-bold dark:text-white mb-2">Public Profile</h4>
                   <p className="text-sm text-slate-500 mb-4">Your avatar and name are visible to the ToolBite team.</p>
-                  <button className="px-5 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:bg-slate-900 hover:text-white transition-all">
+                  <button title="Interactive Button" aria-label="Interactive Button" className="px-5 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:bg-slate-900 hover:text-white transition-all">
                     Change Avatar
                   </button>
                 </div>
@@ -150,7 +150,7 @@ const PortalSettings = ({ clientData }) => {
                     <p className="font-bold text-slate-900 dark:text-white">{item.label}</p>
                     <p className="text-xs text-slate-500">{item.desc}</p>
                   </div>
-                  <button 
+                  <button title="Interactive Button" aria-label="Interactive Button" 
                     onClick={() => setFormData({
                       ...formData, 
                       notifications: {...formData.notifications, [item.key]: !formData.notifications[item.key]}
@@ -197,7 +197,7 @@ const PortalSettings = ({ clientData }) => {
                       placeholder="Enter new password"
                       className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-2xl focus:ring-2 focus:ring-teal-500/20 dark:text-white" 
                     />
-                    <button 
+                    <button title="Interactive Button" aria-label="Interactive Button" 
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-teal-500 transition-colors"
                     >
@@ -213,7 +213,7 @@ const PortalSettings = ({ clientData }) => {
         </AnimatePresence>
 
         <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-          <button 
+          <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={handleSave}
             disabled={isSaving}
             className="flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50"

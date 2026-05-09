@@ -119,7 +119,7 @@ const ROICalculator = () => {
               </div>
 
               <div className="space-y-4">
-                <button className="w-full py-5 bg-teal-500 text-slate-900 font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20 group">
+                <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-5 bg-teal-500 text-slate-900 font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20 group">
                   <Mail size={20} />
                   Claim My Full Audit Report
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

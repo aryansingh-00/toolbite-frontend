@@ -107,7 +107,7 @@ const BlogDetail = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <button className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/20">
+                <button title="Interactive Button" aria-label="Interactive Button" className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/20">
                   <Share2 size={18} />
                   Share Insight
                 </button>

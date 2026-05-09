@@ -62,7 +62,7 @@ const AssetGenerator = () => {
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Format</label>
                   <div className="grid grid-cols-3 gap-2">
                     {['Instagram', 'LinkedIn', 'Twitter'].map(p => (
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         key={p}
                         onClick={() => setPlatform(p)}
                         className={`py-2 rounded-xl text-xs font-bold transition-all ${platform === p ? 'bg-teal-500 text-white' : 'bg-slate-50 dark:bg-slate-800 text-slate-500'}`}
@@ -77,7 +77,7 @@ const AssetGenerator = () => {
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Accent Color</label>
                   <div className="flex gap-2">
                     {['#14b8a6', '#6366f1', '#f43f5e', '#f59e0b', '#0f172a'].map(c => (
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         key={c}
                         onClick={() => setAccentColor(c)}
                         className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-800 transition-transform hover:scale-110"
@@ -103,7 +103,7 @@ const AssetGenerator = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={generateAsset}
                   className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-black rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-teal-500/10 hover:translate-y-[-2px] transition-all"
                 >
@@ -164,7 +164,7 @@ const AssetGenerator = () => {
               </motion.div>
 
               <div className="absolute bottom-8 right-8">
-                 <button className="p-3 bg-white dark:bg-slate-900 rounded-full shadow-lg text-slate-400 hover:text-teal-500 transition-colors border border-slate-100 dark:border-slate-800">
+                 <button title="Interactive Button" aria-label="Interactive Button" className="p-3 bg-white dark:bg-slate-900 rounded-full shadow-lg text-slate-400 hover:text-teal-500 transition-colors border border-slate-100 dark:border-slate-800">
                     <RefreshCw size={20} />
                  </button>
               </div>

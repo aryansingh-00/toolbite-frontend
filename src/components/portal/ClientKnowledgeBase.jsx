@@ -51,7 +51,7 @@ const ClientKnowledgeBase = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar Nav */}
         <div className="space-y-2">
-          <button 
+          <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={() => setActiveCat('all')}
             className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === 'all' ? 'bg-teal-500 text-slate-900 shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
           >
@@ -60,7 +60,7 @@ const ClientKnowledgeBase = () => {
           </button>
           <div className="h-px bg-slate-200 dark:bg-slate-800 my-4"></div>
           {categories.map((cat) => (
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               key={cat.id}
               onClick={() => setActiveCat(cat.id)}
               className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === cat.id ? 'bg-teal-500 text-slate-900 shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
@@ -113,7 +113,7 @@ const ClientKnowledgeBase = () => {
                 <h4 className="text-2xl font-black mb-1">Need specific help?</h4>
                 <p className="font-medium opacity-80">Our strategists are ready to jump on a 1-on-1 call with you.</p>
              </div>
-             <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 hover:scale-105 transition-transform">
+             <button title="Interactive Button" aria-label="Interactive Button" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl shadow-xl flex items-center gap-2 hover:scale-105 transition-transform">
                 <ExternalLink size={20} />
                 Schedule Strategy Session
              </button>

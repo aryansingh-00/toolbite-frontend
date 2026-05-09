@@ -46,7 +46,7 @@ const BlogPage = () => {
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-16 bg-white dark:bg-slate-900 p-6 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none">
         <div className="flex flex-wrap items-center gap-2">
           {categories.map((cat) => (
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-2.5 rounded-full text-sm font-black transition-all ${activeCategory === cat ? 'bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 shadow-lg' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-600 dark:hover:text-teal-400'}`}
@@ -121,7 +121,7 @@ const BlogPage = () => {
             </div>
             <h3 className="text-2xl font-black text-slate-900 mb-2">No matching insights found</h3>
             <p className="text-slate-500 font-medium">Try adjusting your search or filters to find what you're looking for.</p>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
               className="mt-8 px-8 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl hover:bg-teal-400 transition-all"
             >

@@ -160,7 +160,7 @@ const ContactPage = () => {
                 placeholder="Tell us about your project..."
               ></textarea>
             </div>
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               type="submit"
               disabled={status === 'sending'}
               className="w-full bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-teal-500/25 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"

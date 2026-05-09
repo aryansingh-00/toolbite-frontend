@@ -77,7 +77,7 @@ const TemplatesPage = () => {
               />
               <div className="flex items-center gap-2 pr-2">
                 {(searchTerm || activeCategory !== 'All') && (
-                  <button 
+                  <button title="Interactive Button" aria-label="Interactive Button" 
                     onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
                     className="p-3 hover:bg-slate-100 rounded-full text-slate-400 hover:text-red-500 transition-all active:scale-90"
                     title="Clear all filters"
@@ -85,7 +85,7 @@ const TemplatesPage = () => {
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                   </button>
                 )}
-                <button 
+                <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => {
                     const results = document.getElementById('templates-grid');
                     if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -112,7 +112,7 @@ const TemplatesPage = () => {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {categories.map((cat, i) => (
-                      <button 
+                      <button title="Interactive Button" aria-label="Interactive Button" 
                         key={i} 
                         onMouseDown={(e) => {
                           e.preventDefault(); // Prevent input onBlur from firing too early
@@ -164,7 +164,7 @@ const TemplatesPage = () => {
               We couldn't find any active templates matching your search criteria. Check back later or clear your filters!
             </p>
             {(searchTerm || activeCategory !== 'All') && (
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
                 className="mt-6 px-6 py-2 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition"
               >

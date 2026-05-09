@@ -211,7 +211,7 @@ export default function ATSScorePanel({ formData, onClose }) {
             <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Intelligence Engine</p>
           </div>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
+        <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
           <X size={18} />
         </button>
       </div>
@@ -266,7 +266,7 @@ export default function ATSScorePanel({ formData, onClose }) {
 
         {/* Keyword Match — JD Input */}
         <div className="bg-white/5 rounded-3xl border border-white/10 overflow-hidden">
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={() => setShowJDInput(!showJDInput)}
             className="w-full px-5 py-4 flex items-center justify-between text-left"
           >
@@ -345,7 +345,7 @@ export default function ATSScorePanel({ formData, onClose }) {
         <div className="space-y-2">
           <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Score Breakdown</p>
           {Object.entries(result.scores).map(([key, data]) => (
-            <button
+            <button title="Interactive Button" aria-label="Interactive Button"
               key={key}
               onClick={() => setExpandedCategory(expandedCategory === key ? null : key)}
               className="w-full bg-white/5 hover:bg-white/8 border border-white/10 rounded-2xl px-4 py-3 flex items-center gap-3 transition-colors text-left"

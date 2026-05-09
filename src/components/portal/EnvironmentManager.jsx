@@ -52,7 +52,7 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
           <span className="text-sm font-bold text-slate-500">Active URL</span>
           <div className="flex items-center gap-3">
             <code className="text-sm text-slate-600 dark:text-slate-300 font-mono">{url.replace('https://', '')}</code>
-            <button onClick={() => copyToClipboard(url)} className="text-slate-400 hover:text-teal-500 transition-colors">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => copyToClipboard(url)} className="text-slate-400 hover:text-teal-500 transition-colors">
               <Copy size={16} />
             </button>
           </div>
@@ -69,7 +69,7 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
               <span className="text-slate-500 font-bold tracking-tight">Pass:</span>
               <div className="flex items-center gap-2">
                 <span className="text-slate-700 dark:text-slate-300 font-mono">••••••••</span>
-                <button onClick={() => copyToClipboard(credentials.password)} className="text-slate-400 hover:text-teal-500 transition-colors">
+                <button title="Interactive Button" aria-label="Interactive Button" onClick={() => copyToClipboard(credentials.password)} className="text-slate-400 hover:text-teal-500 transition-colors">
                   <Copy size={12} />
                 </button>
               </div>
@@ -126,7 +126,7 @@ const EnvironmentManager = ({ envData }) => {
           <p className="text-slate-500 dark:text-slate-400 font-medium">Manage your active builds and access secrets.</p>
         </div>
         <div className="flex gap-2">
-           <button className="px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-slate-50 transition-colors">
+           <button title="Interactive Button" aria-label="Interactive Button" className="px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-slate-50 transition-colors">
               <Code2 size={16} /> Update Config
            </button>
         </div>
@@ -158,7 +158,7 @@ const EnvironmentManager = ({ envData }) => {
                   <p className="text-slate-400 text-sm">Edge Network: Global | SSL: Active | CDN: Purged 2h ago</p>
                </div>
             </div>
-            <button className="px-6 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
+            <button title="Interactive Button" aria-label="Interactive Button" className="px-6 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
                Purge Global Cache
             </button>
          </div>

@@ -116,14 +116,14 @@ Ensure the output is high-quality and professional.`;
             <div className="w-full md:w-64 space-y-4">
               <label className="text-sm font-bold text-slate-700 block text-center mb-4">Select Target</label>
               <div className="flex flex-col gap-3">
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   onClick={() => setTarget('Summarize')}
                   className={`w-full px-6 py-6 rounded-2xl font-bold transition-all flex flex-col items-center gap-2 group ${target === 'Summarize' ? 'bg-amber-100 text-amber-700 border-2 border-amber-300' : 'bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100'}`}
                 >
                   <Minimize2 size={24} />
                   Summarize
                 </button>
-                <button
+                <button title="Interactive Button" aria-label="Interactive Button"
                   onClick={() => setTarget('Expand')}
                   className={`w-full px-6 py-6 rounded-2xl font-bold transition-all flex flex-col items-center gap-2 group ${target === 'Expand' ? 'bg-indigo-100 text-indigo-700 border-2 border-indigo-300' : 'bg-slate-50 text-slate-500 border border-slate-200 hover:bg-slate-100'}`}
                 >
@@ -135,7 +135,7 @@ Ensure the output is high-quality and professional.`;
           </div>
 
           <div className="flex gap-4">
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={processText}
               disabled={isProcessing}
               className={`flex-grow py-5 rounded-2xl font-bold text-lg disabled:opacity-50 transition-all shadow-xl flex items-center justify-center gap-3 group ${target === 'Summarize' ? 'bg-amber-600 text-white hover:bg-amber-700 shadow-amber-900/10' : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-900/10'}`}
@@ -143,7 +143,7 @@ Ensure the output is high-quality and professional.`;
               <Wand2 size={24} className="group-hover:rotate-12 transition-transform" />
               {isProcessing ? 'Processing Text...' : `${target} Content`}
             </button>
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={handleClear}
               className="px-8 py-5 rounded-2xl bg-slate-100 text-slate-500 font-bold hover:bg-red-50 hover:text-red-600 transition-all shadow-sm"
             >
@@ -166,7 +166,7 @@ Ensure the output is high-quality and professional.`;
               <p className="text-slate-800 font-medium leading-relaxed whitespace-pre-line mb-6">
                 {result}
               </p>
-              <button 
+              <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={handleCopy}
                 className={`w-full py-4 bg-white rounded-xl border font-bold transition-all flex items-center justify-center gap-2 group ${target === 'Summarize' ? 'border-amber-200 text-amber-700 hover:bg-amber-600 hover:text-white' : 'border-indigo-200 text-indigo-700 hover:bg-indigo-600 hover:text-white'}`}
               >

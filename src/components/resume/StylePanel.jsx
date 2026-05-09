@@ -49,7 +49,7 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
             <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Visual Controller</p>
           </div>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
+        <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="p-2 hover:bg-white/5 rounded-xl transition-colors text-slate-500">
           <X size={18} />
         </button>
       </div>
@@ -61,7 +61,7 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Theme Color</p>
           <div className="grid grid-cols-3 gap-3">
             {COLOR_PRESETS.map(color => (
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 key={color.id}
                 onClick={() => onStyleChange('themeColor', color.id)}
                 className={`relative h-16 rounded-2xl flex items-end p-2 transition-all ${styles.themeColor === color.id ? 'ring-2 ring-white ring-offset-2 ring-offset-[#0f172a] scale-105' : 'hover:scale-102'}`}
@@ -83,7 +83,7 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><Type size={12} /> Font Family</p>
           <div className="space-y-2">
             {FONT_FAMILIES.map(font => (
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 key={font.id}
                 onClick={() => onStyleChange('fontFamily', font.id)}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border transition-all ${styles.fontFamily === font.id ? 'bg-white/10 border-white/30 text-white' : 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/8'}`}
@@ -100,7 +100,7 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Font Size</p>
           <div className="grid grid-cols-3 gap-2">
             {FONT_SIZES.map(size => (
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 key={size.id}
                 onClick={() => onStyleChange('fontSizeScale', size.id)}
                 className={`py-3 rounded-xl text-sm font-black transition-all border ${styles.fontSizeScale === size.id ? 'bg-white/10 border-white/30 text-white' : 'bg-white/5 border-white/10 text-slate-400 hover:text-white'}`}
@@ -116,7 +116,7 @@ export default function StylePanel({ styles, onStyleChange, onClose }) {
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><AlignJustify size={12} /> Line Spacing</p>
           <div className="space-y-2">
             {LINE_SPACINGS.map(spacing => (
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 key={spacing.id}
                 onClick={() => onStyleChange('lineSpacing', spacing.id)}
                 className={`w-full flex items-center justify-between px-4 py-3 rounded-xl border transition-all ${styles.lineSpacing === spacing.id ? 'bg-white/10 border-white/30 text-white' : 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/8'}`}

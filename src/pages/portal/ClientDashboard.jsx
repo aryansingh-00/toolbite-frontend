@@ -121,7 +121,7 @@ const ClientDashboard = () => {
               Tool<span className="text-teal-500">Bite</span> <span className="text-sm font-medium text-slate-500 uppercase tracking-widest ml-1 hidden sm:inline">Portal</span>
             </span>
           </Link>
-          <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-slate-500">
+          <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setSidebarOpen(false)} className="lg:hidden text-slate-500">
             <X size={24} />
           </button>
         </div>
@@ -142,7 +142,7 @@ const ClientDashboard = () => {
         {/* Navigation Links */}
         <nav className="flex-1 px-4 space-y-2 overflow-y-auto">
           {navItems.map((item, index) => (
-            <button 
+            <button title="Interactive Button" aria-label="Interactive Button" 
               key={index}
               onClick={() => { setActiveTab(item.label); setSidebarOpen(false); }}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all duration-200 ${activeTab === item.label ? 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
@@ -155,7 +155,7 @@ const ClientDashboard = () => {
 
         {/* Bottom Actions */}
         <div className="p-4 border-t border-slate-200 dark:border-slate-800">
-          <button 
+          <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={async () => {
               await logout();
               navigate('/client-login');
@@ -174,7 +174,7 @@ const ClientDashboard = () => {
         {/* Top Header */}
         <header className="h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-8 shrink-0 z-10">
           <div className="flex items-center gap-4">
-            <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-slate-600 dark:text-slate-300 p-2 border border-slate-200 dark:border-slate-700 rounded-lg">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setSidebarOpen(true)} className="lg:hidden text-slate-600 dark:text-slate-300 p-2 border border-slate-200 dark:border-slate-700 rounded-lg">
               <Menu size={20} />
             </button>
             <h1 className="text-xl font-bold text-slate-900 dark:text-white hidden sm:block">Project Overview</h1>
@@ -190,7 +190,7 @@ const ClientDashboard = () => {
               />
             </div>
             <div className="relative">
-              <button onClick={() => setShowNotifications(!showNotifications)} className="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowNotifications(!showNotifications)} className="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
                 <Bell size={20} />
                 <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
               </button>
@@ -335,7 +335,7 @@ const ClientDashboard = () => {
                             </span>
                           </td>
                           <td className="px-8 py-6 text-right">
-                            <button className="p-2 text-slate-400 hover:text-teal-500 transition-colors">
+                            <button title="Interactive Button" aria-label="Interactive Button" className="p-2 text-slate-400 hover:text-teal-500 transition-colors">
                               <Download size={18} />
                             </button>
                           </td>
@@ -368,10 +368,10 @@ const ClientDashboard = () => {
                       <h4 className="font-bold text-slate-900 dark:text-white mb-1 truncate">{doc.name}</h4>
                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{doc.size} • {doc.type}</p>
                       <div className="mt-6 flex justify-between items-center">
-                        <button className="flex items-center gap-2 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline">
+                        <button title="Interactive Button" aria-label="Interactive Button" className="flex items-center gap-2 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline">
                           <Download size={16} /> Download
                         </button>
-                        <button className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <button title="Interactive Button" aria-label="Interactive Button" className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
                           <ExternalLink size={16} />
                         </button>
                       </div>

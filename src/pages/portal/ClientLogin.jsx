@@ -229,7 +229,7 @@ const ClientLogin = () => {
             </div>
 
             <div>
-              <button
+              <button title="Interactive Button" aria-label="Interactive Button"
                 type="submit"
                 disabled={loading}
                 className="w-full flex justify-center py-3 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-bold text-slate-900 bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"

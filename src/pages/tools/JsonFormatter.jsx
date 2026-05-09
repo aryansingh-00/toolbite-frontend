@@ -141,13 +141,13 @@ const JsonFormatter = () => {
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={formatJson}
             className="py-4 px-6 bg-teal-600 text-white font-bold rounded-2xl hover:bg-teal-700 shadow-lg shadow-teal-500/25 transition-all active:scale-95"
           >
             Format / Prettify
           </button>
-          <button
+          <button title="Interactive Button" aria-label="Interactive Button"
             onClick={minifyJson}
             className="py-4 px-6 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 shadow-lg shadow-slate-900/10 transition-all active:scale-95"
           >

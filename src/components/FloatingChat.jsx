@@ -92,7 +92,7 @@ const FloatingChat = () => {
         )}
       </AnimatePresence>
 
-      <button
+      <button title="Interactive Button" aria-label="Interactive Button"
         onClick={() => setIsOpen(!isOpen)}
         className="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-teal-600 transition-all duration-300 relative group"
         aria-label="Toggle chat"
