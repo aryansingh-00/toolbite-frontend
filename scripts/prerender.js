@@ -44,8 +44,8 @@ async function prerender() {
   let executablePath;
   let args = ['--no-sandbox', '--disable-setuid-sandbox'];
   
-  if (process.env.VERCEL === '1' || process.env.CI) {
-    console.log('Using @sparticuz/chromium for Vercel/CI environment...');
+  if (process.env.VERCEL || process.env.CI || process.platform === 'linux') {
+    console.log('Using @sparticuz/chromium for Vercel/CI/Linux environment...');
     const chromium = (await import('@sparticuz/chromium')).default;
     executablePath = await chromium.executablePath();
     args = chromium.args;
