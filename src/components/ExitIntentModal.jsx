@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Gift, Check, Send } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+
 
 const ExitIntentModal = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,26 +34,25 @@ const ExitIntentModal = () => {
     setStatus('sending');
     
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{
+          source: 'Exit Intent',
           email: email,
-          type: "Exit Intent - Web ROI Checklist Request",
-          _captcha: "false"
-        })
-      });
+          data: {
+            type: "Exit Intent - Web ROI Checklist Request"
+          }
+        }]);
 
-      if (response.ok) {
+      if (!error) {
         setStatus('success');
       } else {
+        console.error("Supabase insert error:", error);
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }
-    } catch {
+    } catch (error) {
+      console.error("Submission error:", error);
       setStatus('idle');
       alert("Submission failed. Please check your connection.");
     }

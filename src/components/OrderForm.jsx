@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Send, CheckCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+
 
 const OrderForm = () => {
   const [formState, setFormState] = useState('idle');
@@ -18,8 +20,73 @@ const OrderForm = () => {
     }
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setFormState('submitting');
+    
+    try {
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      let fileUrl = null;
+      
+      // Handle file upload if present
+      const attachment = formData.get('attachment');
+      if (attachment && attachment.size > 0) {
+        const fileExt = attachment.name.split('.').pop();
+        const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+        const filePath = `${Date.now()}-${fileName}`;
+        
+        const { error: uploadError } = await supabase.storage
+          .from('attachments')
+          .upload(filePath, attachment);
+          
+        if (uploadError) {
+          console.error("Upload error:", uploadError);
+          alert("Failed to upload the attachment. Please try again.");
+          setFormState('idle');
+          return;
+        }
+        
+        const { data: { publicUrl } } = supabase.storage
+          .from('attachments')
+          .getPublicUrl(filePath);
+          
+        fileUrl = publicUrl;
+      }
+      
+      // Remove File object from data to keep jsonb clean
+      delete data.attachment;
+      if (fileUrl) {
+        data.attachmentUrl = fileUrl;
+      }
+      
+      const { error } = await supabase
+        .from('order_requests')
+        .insert([{
+          name: data.name,
+          email: data.email,
+          phone: data.phone || null,
+          business_name: data.businessName,
+          website_type: data.websiteType,
+          budget_range: data.budgetRange,
+          delivery_timeline: data.deliveryTimeline,
+          data: data
+        }]);
+
+      if (!error) {
+        setFormState('success');
+      } else {
+        console.error("Supabase insert error:", error);
+        setFormState('idle');
+        alert("Something went wrong saving your order. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setFormState('idle');
+      alert("Submission failed. Please check your connection.");
+    }
   };
 
   return (
@@ -62,16 +129,9 @@ const OrderForm = () => {
             </div>
           ) : (
             <form 
-              action="https://formsubmit.co/hello.toolbite@gmail.com" 
-              method="POST" 
-              encType="multipart/form-data"
               onSubmit={handleSubmit} 
               className="space-y-8"
             >
-              {/* FormSubmit Configuration */}
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_subject" value="New Massive Project Request - ToolBite Order Form" />
-              <input type="hidden" name="_next" value={window.location.href + (window.location.href.includes('?') ? '&' : '?') + 'success=true'} />
 
               {/* Personal Details */}
               <div className="space-y-6">

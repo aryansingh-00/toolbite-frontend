@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import SEO from '../components/SEO';
+import { supabase } from '../lib/supabase';
+
 
 const ContactPage = () => {
   useEffect(() => {
@@ -23,28 +25,25 @@ const ContactPage = () => {
     e.preventDefault();
     setStatus('sending');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          ...formData,
-          _captcha: "false",
-          _subject: `New ToolBite Inquiry: ${formData.subject || 'General'}`
-        })
-      });
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{
+          source: 'Contact Page',
+          email: formData.email,
+          data: formData
+        }]);
       
-      if (response.ok) {
+      if (!error) {
         setStatus('sent');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => setStatus(''), 5000);
       } else {
+        console.error("Supabase insert error:", error);
         setStatus('');
         alert("Something went wrong. Please try again.");
       }
-    } catch {
+    } catch (error) {
+      console.error("Submission error:", error);
       setStatus('');
       alert("Something went wrong. Please check your connection and try again.");
     }

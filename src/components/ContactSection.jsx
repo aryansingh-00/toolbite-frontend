@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { FiInstagram as Instagram, FiTwitter as Twitter, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
+import { supabase } from '../lib/supabase';
+
 
 const ContactSection = () => {
   const [status, setStatus] = useState('idle');
@@ -15,23 +17,24 @@ const ContactSection = () => {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([{
+          source: 'Contact Section',
+          email: data.email,
+          data: data
+        }]);
       
-      if (response.ok) {
+      if (!error) {
         setStatus('sent');
         form.reset();
       } else {
+        console.error("Supabase insert error:", error);
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }
     } catch (error) {
+      console.error("Submission error:", error);
       setStatus('idle');
       alert("Something went wrong. Please check your connection and try again.");
     }
@@ -151,9 +154,8 @@ const ContactSection = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* FormSubmit Configuration */}
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="New Submission via Contact Form - ToolBite" />
+                {/* Removed FormSubmit Configuration */}
+
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
