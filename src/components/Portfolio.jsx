@@ -14,8 +14,8 @@ const Portfolio = () => {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-teal-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Work</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Featured Client Projects</h2>
-          <p className="text-lg text-slate-600">
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6 tracking-tight">Featured Client Projects</h2>
+          <p className="text-lg text-black">
             Take a look at some of the premium websites and custom applications we've built for ambitious brands worldwide.
           </p>
         </div>
@@ -81,7 +81,7 @@ const Portfolio = () => {
                   
                   <div className="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-slate-900 shadow-xl hover:scale-110 transition-transform cursor-pointer">
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black shadow-xl hover:scale-110 transition-transform cursor-pointer">
                       <ArrowUpRight size={24} />
                     </div>
                   </div>
@@ -93,16 +93,16 @@ const Portfolio = () => {
                     <span className="text-teal-600 font-semibold text-sm tracking-wide uppercase mb-2 block">
                       {project.category}
                     </span>
-                    <h4 className="text-2xl font-bold text-slate-900 leading-tight">{project.title}</h4>
+                    <h4 className="text-2xl font-bold text-black leading-tight">{project.title}</h4>
                   </div>
                   
-                  <p className="text-slate-600 leading-relaxed mb-6 flex-1">
+                  <p className="text-black leading-relaxed mb-6 flex-1">
                     {project.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-8">
                     {project.tags.map((tag, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-slate-50 border border-slate-200 text-slate-600 text-xs font-semibold uppercase tracking-wider rounded-full">
+                      <span key={idx} className="px-3 py-1 bg-slate-50 border border-slate-200 text-black text-xs font-semibold uppercase tracking-wider rounded-full">
                         {tag}
                       </span>
                     ))}
@@ -120,7 +120,7 @@ const Portfolio = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-slate-900 transition-colors text-sm font-bold"
+                      className="text-slate-400 hover:text-black transition-colors text-sm font-bold"
                     >
                       Live Demo
                     </a>

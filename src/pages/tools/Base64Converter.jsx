@@ -52,23 +52,23 @@ const Base64Converter = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">Understanding Base64 Encoding</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">Understanding Base64 Encoding</h2>
+            <p className="text-lg leading-relaxed text-black">
               Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It is widely used in web development for embedding images within CSS/HTML, transmitting data via APIs, and handling binary protocols over text-only transport layers. By converting complex binary data into a limited set of 64 characters, it ensures data integrity across diverse systems.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">When to Use Base64</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">When to Use Base64</h3>
+              <p className="text-black leading-relaxed">
                 Base64 is particularly useful for small data transfers. For instance, developers often encode small icons or logos into Data URIs to reduce the number of HTTP requests, thereby improving page load times. It's also frequently used in Basic Authentication headers and for encoding parameters in URLs where special characters might cause issues.
               </p>
             </section>
 
             <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Security Considerations</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Security Considerations</h3>
+              <p className="text-black leading-relaxed">
                 It is vital to understand that <strong>Base64 is NOT encryption</strong>. It is merely a way to represent data differently. Base64 strings can be easily decoded by anyone with access to the encoded string. Never use Base64 to "secure" passwords or sensitive private data. For true security, always use cryptographic hashing and encryption standards.
               </p>
             </section>
@@ -81,13 +81,13 @@ const Base64Converter = () => {
           <div className="inline-flex bg-slate-100 p-1 rounded-2xl">
             <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setMode('encode')}
-              className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'encode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'encode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-black'}`}
             >
               Encode
             </button>
             <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => setMode('decode')}
-              className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'decode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-slate-700'}`}
+              className={`px-8 py-3 rounded-xl font-bold transition-all ${mode === 'decode' ? 'bg-white text-teal-600 shadow-md' : 'text-slate-500 hover:text-black'}`}
             >
               Decode
             </button>
@@ -119,7 +119,7 @@ const Base64Converter = () => {
               {outputText && (
                 <button 
                   onClick={handleCopy}
-                  className="absolute bottom-4 right-4 p-3 bg-white text-slate-600 border border-slate-200 rounded-xl hover:text-teal-600 hover:border-teal-200 transition-all shadow-sm"
+                  className="absolute bottom-4 right-4 p-3 bg-white text-black border border-slate-200 rounded-xl hover:text-teal-600 hover:border-teal-200 transition-all shadow-sm"
                   title="Copy Output"
                 >
                   <Copy size={20} />
@@ -138,7 +138,7 @@ const Base64Converter = () => {
           </button>
           <button title="Interactive Button" aria-label="Interactive Button"
             onClick={swapMode}
-            className="px-10 py-5 bg-slate-100 text-slate-700 rounded-2xl font-bold hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95"
+            className="px-10 py-5 bg-slate-100 text-black rounded-2xl font-bold hover:bg-slate-200 transition-all flex items-center gap-3 active:scale-95"
           >
             <ArrowRightLeft size={20} />
             Swap Mode

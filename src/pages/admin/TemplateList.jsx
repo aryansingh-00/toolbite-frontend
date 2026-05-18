@@ -79,7 +79,7 @@ const TemplateList = () => {
   return (
     <div className="max-w-7xl mx-auto pb-12">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-8 gap-4">
-        <h1 className="text-3xl font-extrabold text-slate-800">Templates</h1>
+        <h1 className="text-3xl font-extrabold text-black">Templates</h1>
         <Link
           to="/admin/templates/new"
           className="bg-blue-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition flex items-center shadow-md shadow-blue-500/30"
@@ -98,7 +98,7 @@ const TemplateList = () => {
           <input
             type="text"
             placeholder="Search templates..."
-            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-slate-700"
+            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-black"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -110,7 +110,7 @@ const TemplateList = () => {
               <Filter className="h-4 w-4 text-slate-400" />
             </div>
             <select
-              className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-slate-700 appearance-none cursor-pointer"
+              className="w-full pl-9 pr-8 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-black appearance-none cursor-pointer"
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
             >
@@ -122,7 +122,7 @@ const TemplateList = () => {
           </div>
           
           <select
-            className="w-full sm:w-40 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-slate-700 cursor-pointer appearance-none"
+            className="w-full sm:w-40 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition text-sm text-black cursor-pointer appearance-none"
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
           >
@@ -135,7 +135,7 @@ const TemplateList = () => {
 
       <div className="bg-white rounded-b-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left text-slate-600">
+          <table className="w-full text-sm text-left text-black">
             <thead className="text-xs text-slate-500 uppercase bg-slate-50 border-y border-slate-200">
               <tr>
                 <th className="px-6 py-4">Template</th>
@@ -151,7 +151,7 @@ const TemplateList = () => {
                   <td colSpan="5" className="px-6 py-16 text-center text-slate-500">
                     <div className="flex flex-col items-center">
                       <Search className="h-10 w-10 text-slate-300 mb-3" />
-                      <p className="text-base font-medium text-slate-600">No templates found</p>
+                      <p className="text-base font-medium text-black">No templates found</p>
                       <p className="text-sm mt-1">Try adjusting your filters or search term.</p>
                     </div>
                   </td>
@@ -167,7 +167,7 @@ const TemplateList = () => {
                           className="w-14 h-14 rounded-lg object-cover mr-4 shadow-sm border border-slate-200"
                         />
                         <div>
-                          <p className="font-bold text-slate-900 text-base">{template.title}</p>
+                          <p className="font-bold text-black text-base">{template.title}</p>
                           <p className="text-xs text-slate-500 mt-0.5 max-w-[200px] md:max-w-xs truncate" title={template.shortDescription}>
                             {template.shortDescription}
                           </p>
@@ -178,7 +178,7 @@ const TemplateList = () => {
                       <span className="inline-block px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide mb-1">
                         {template.category}
                       </span>
-                      <p className="font-bold text-slate-800">${template.price}</p>
+                      <p className="font-bold text-black">${template.price}</p>
                     </td>
                     <td className="px-6 py-4 hidden md:table-cell whitespace-nowrap text-slate-500">
                       {new Date(template.createdAt).toLocaleDateString('en-US', {
@@ -191,7 +191,7 @@ const TemplateList = () => {
                         className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-sm ${
                           template.status === 'active' 
                             ? 'bg-green-100 text-green-700 hover:bg-green-200 hover:shadow-green-500/20' 
-                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:shadow-slate-500/20'
+                            : 'bg-slate-100 text-black hover:bg-slate-200 hover:shadow-slate-500/20'
                         }`}
                       >
                         {template.status === 'active' ? <CheckCircle className="w-3.5 h-3.5 mr-1.5" /> : <XCircle className="w-3.5 h-3.5 mr-1.5" />}

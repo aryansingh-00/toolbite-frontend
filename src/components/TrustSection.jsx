@@ -16,12 +16,12 @@ function SmileIcon() {
 }
 
 const partners = [
-  { name: 'TechFlow', logo: 'TF' },
-  { name: 'Nexus', logo: 'NX' },
-  { name: 'Quantum', logo: 'QT' },
-  { name: 'Aura', logo: 'AR' },
-  { name: 'Stylekat Salon', logo: 'SS' },
-  { name: 'Bytesool', logo: 'BS' },
+  { name: 'TechFlow', logo: 'TF', color: 'from-teal-400 to-cyan-500', textColor: 'text-teal-600 dark:text-teal-400' },
+  { name: 'Nexus', logo: 'NX', color: 'from-indigo-500 to-purple-600', textColor: 'text-indigo-600 dark:text-indigo-400' },
+  { name: 'Quantum', logo: 'QT', color: 'from-rose-500 to-pink-600', textColor: 'text-rose-600 dark:text-rose-400' },
+  { name: 'Aura', logo: 'AR', color: 'from-amber-400 to-orange-500', textColor: 'text-amber-600 dark:text-amber-400' },
+  { name: 'Stylekat Salon', logo: 'SS', color: 'from-fuchsia-500 to-pink-500', textColor: 'text-fuchsia-600 dark:text-fuchsia-400' },
+  { name: 'Bytesool', logo: 'BS', color: 'from-emerald-400 to-teal-600', textColor: 'text-emerald-600 dark:text-emerald-400' },
 ];
 
 const TrustSection = () => {
@@ -37,11 +37,11 @@ const TrustSection = () => {
           <div className="relative flex overflow-hidden group">
             <div className="flex animate-marquee whitespace-nowrap py-4">
               {[...partners, ...partners].map((partner, i) => (
-                <div key={i} className="flex items-center gap-3 px-12 opacity-40 hover:opacity-100 transition-opacity cursor-default grayscale hover:grayscale-0">
-                  <div className="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center font-black text-xs">
+                <div key={i} className="flex items-center gap-3 px-12 opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:scale-105">
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${partner.color} text-white flex items-center justify-center font-black text-xs shadow-md shadow-black/5`}>
                     {partner.logo}
                   </div>
-                  <span className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white uppercase">{partner.name}</span>
+                  <span className={`text-xl font-black tracking-tighter uppercase ${partner.textColor}`}>{partner.name}</span>
                 </div>
               ))}
             </div>
@@ -66,7 +66,7 @@ const TrustSection = () => {
                 {stat.icon}
               </div>
               <div className="flex items-center justify-center gap-1 mb-2">
-                <span className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter">
+                <span className="text-4xl font-black text-black dark:text-white tracking-tighter">
                   {stat.value}{stat.suffix}
                 </span>
               </div>

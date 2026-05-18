@@ -42,19 +42,19 @@ const CookieConsent = () => {
           <div className="flex justify-between items-start mb-3">
             <div className="flex items-center gap-2">
               <span className="text-xl">🍪</span>
-              <h3 className="font-bold text-slate-800">We value your privacy</h3>
+              <h3 className="font-bold text-black">We value your privacy</h3>
             </div>
             <button 
               onClick={handleDecline}
-              className="text-slate-400 hover:text-slate-600 transition-colors p-1"
+              className="text-slate-400 hover:text-black transition-colors p-1"
               aria-label="Close"
             >
               <FiX className="w-5 h-5" />
             </button>
           </div>
           
-          <p className="text-sm text-slate-600 mb-5 leading-relaxed">
-            We use cookies to enhance your browsing experience, display personalized content, and analyze our traffic. By clicking "<span className="font-semibold text-slate-700">Accept All</span>", you consent to our use of cookies according to our{' '}
+          <p className="text-sm text-black mb-5 leading-relaxed">
+            We use cookies to enhance your browsing experience, display personalized content, and analyze our traffic. By clicking "<span className="font-semibold text-black">Accept All</span>", you consent to our use of cookies according to our{' '}
             <Link to="/cookie-policy" onClick={handleDecline} className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 hover:underline">
               Cookie Policy
             </Link>.
@@ -63,7 +63,7 @@ const CookieConsent = () => {
           <div className="flex flex-col sm:flex-row gap-3">
             <button title="Interactive Button" aria-label="Interactive Button"
               onClick={handleDecline}
-              className="w-full sm:w-1/2 px-4 py-2.5 rounded-xl border-2 border-slate-100 text-slate-700 font-semibold hover:bg-slate-50 transition-colors text-sm"
+              className="w-full sm:w-1/2 px-4 py-2.5 rounded-xl border-2 border-slate-100 text-black font-semibold hover:bg-slate-50 transition-colors text-sm"
             >
               Decline
             </button>

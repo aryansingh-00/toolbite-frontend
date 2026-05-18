@@ -24,8 +24,8 @@ const BacklinkChecker = () => {
           {/* Main Educational Section */}
           <section className="relative">
             <div className="absolute -left-4 top-0 w-1 h-full bg-teal-500 rounded-full opacity-50"></div>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">What are Backlinks?</h2>
-            <div className="prose prose-lg text-slate-600 max-w-none space-y-6">
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-8 tracking-tight">What are Backlinks?</h2>
+            <div className="prose prose-lg text-black max-w-none space-y-6">
               <p className="text-xl leading-relaxed font-medium">
                 Backlinks, also known as <span className="text-teal-600 font-bold">inbound links</span> or <span className="text-teal-600 font-bold">incoming links</span>, are links from other websites that point to a page on your website. 
               </p>
@@ -44,8 +44,8 @@ const BacklinkChecker = () => {
               <div className="w-12 h-12 bg-teal-500/10 text-teal-600 rounded-2xl flex items-center justify-center mb-6">
                 <Target size={24} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Domain Authority</h3>
-              <p className="text-slate-600 leading-relaxed text-sm">
+              <h3 className="text-xl font-bold text-black mb-4">Domain Authority</h3>
+              <p className="text-black leading-relaxed text-sm">
                 Search engines view each backlink as a "vote of confidence." The more high-quality votes you have, the more authoritative your domain appears in the eyes of ranking algorithms.
               </p>
             </motion.div>
@@ -57,8 +57,8 @@ const BacklinkChecker = () => {
               <div className="w-12 h-12 bg-blue-500/10 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                 <Globe size={24} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Referral Ecosystem</h3>
-              <p className="text-slate-600 leading-relaxed text-sm">
+              <h3 className="text-xl font-bold text-black mb-4">Referral Ecosystem</h3>
+              <p className="text-black leading-relaxed text-sm">
                 Beyond SEO, backlinks create a network of referral traffic. They connect your brand to relevant communities, driving pre-qualified users directly to your high-value landing pages.
               </p>
             </motion.div>
@@ -94,7 +94,7 @@ const BacklinkChecker = () => {
                 href="https://www.bing.com/webmasters/backlinks" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl hover:scale-105 transition-transform"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-teal-500 text-black font-black rounded-2xl hover:scale-105 transition-transform"
               >
                 Launch Bing Backlink Tool
                 <ExternalLink size={20} />
@@ -104,7 +104,7 @@ const BacklinkChecker = () => {
 
           {/* Actionable Checklist */}
           <section>
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">The High-Authority Checklist</h3>
+            <h3 className="text-2xl font-bold text-black mb-8">The High-Authority Checklist</h3>
             <div className="space-y-4">
               {[
                 "Audit your existing backlink profile for 'Toxic' links.",
@@ -117,7 +117,7 @@ const BacklinkChecker = () => {
                   <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all">
                     <ShieldCheck size={16} className="text-slate-400 group-hover:text-white transition-colors" />
                   </div>
-                  <span className="text-slate-700 font-medium">{item}</span>
+                  <span className="text-black font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -125,8 +125,8 @@ const BacklinkChecker = () => {
 
           {/* CTA Footer */}
           <div className="pt-16 border-t border-slate-200 text-center">
-            <h3 className="text-3xl font-black text-slate-900 mb-6">Need an SEO Infrastructure?</h3>
-            <p className="text-slate-600 mb-10 max-w-2xl mx-auto">
+            <h3 className="text-3xl font-black text-black mb-6">Need an SEO Infrastructure?</h3>
+            <p className="text-black mb-10 max-w-2xl mx-auto">
               Link building is only one part of the puzzle. Our engineering team builds platforms that are technically optimized for search engines from day one.
             </p>
             <div className="flex justify-center gap-4">
@@ -155,16 +155,16 @@ const BacklinkChecker = () => {
                 <TrendingUp size={48} />
              </div>
              <div className="text-center md:text-left flex-grow">
-                <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Launch Your <span className="text-teal-500">Backlink Audit</span></h2>
-                <p className="text-slate-600 dark:text-slate-400 text-lg font-medium leading-relaxed mb-8">
+                <h2 className="text-3xl md:text-5xl font-black text-black dark:text-white mb-6">Launch Your <span className="text-teal-500">Backlink Audit</span></h2>
+                <p className="text-black dark:text-slate-400 text-lg font-medium leading-relaxed mb-8">
                   The most powerful way to track and compare backlinks is through the Bing Webmaster Portal. This guide explains why it's critical for your growth journey.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                   <div className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-bold flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                   <div className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-black dark:text-slate-400 text-sm font-bold flex items-center gap-2 border border-slate-200 dark:border-slate-700">
                       <Search size={16} />
                       Competitor Analysis
                    </div>
-                   <div className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-bold flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                   <div className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-black dark:text-slate-400 text-sm font-bold flex items-center gap-2 border border-slate-200 dark:border-slate-700">
                       <Link2 size={16} />
                       Link Toxicity Scan
                    </div>

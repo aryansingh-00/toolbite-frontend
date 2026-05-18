@@ -7,13 +7,13 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    @apply bg-slate-950 text-slate-100;
+    @apply bg-white text-black;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#B19CD9] via-[#FFB6C1] to-[#87CEEB];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2563EB] via-[#F43F5E] to-[#14B8A6];
   }
   .glass-card {
     @apply bg-white/5 backdrop-blur-2xl border border-white/10;
@@ -40,7 +40,7 @@
 }
 
 ::selection {
-  background-color: #B19CD9;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -58,11 +58,11 @@
 }
 
 :root {  
-  --lavender: #B19CD9;
-  --pink: #FFB6C1;
-  --sky-blue: #87CEEB;
-  --purple: rgb(123, 31, 162);
-  --violet: rgb(103, 58, 183);
+  --sapphire: #000000;
+  --rose: #000000;
+  --teal: #000000;
+  --purple: #000000;
+  --violet: #000000;
 }
 
 @keyframes background-pan {
@@ -111,18 +111,7 @@
 }
 
 .magic-text {
-  animation: background-pan 3s linear infinite;
-  background: linear-gradient(
-    to right,
-    var(--lavender),
-    var(--pink),
-    var(--sky-blue),
-    var(--lavender)
-  );
-  background-size: 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #000000;
   white-space: nowrap;
 }
 

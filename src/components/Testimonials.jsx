@@ -55,7 +55,7 @@ const TestimonialCard = ({ review, index, containerRef }) => {
             <Star key={idx} size={14} fill="currentColor" className="text-amber-400 drop-shadow-sm" />
           ))}
         </div>
-        <p className="text-slate-600 dark:text-slate-400 group-hover:text-white/95 text-sm leading-relaxed mb-6 italic flex-1 relative z-10 transition-colors duration-300">
+        <p className="text-black dark:text-slate-400 group-hover:text-white/95 text-sm leading-relaxed mb-6 italic flex-1 relative z-10 transition-colors duration-300">
           "{review.text}"
         </p>
         <div className="flex items-center gap-3 mt-auto pt-4 border-t border-slate-50 group-hover:border-white/20 relative z-10 transition-colors duration-300">
@@ -63,7 +63,7 @@ const TestimonialCard = ({ review, index, containerRef }) => {
             {review.name.charAt(0)}
           </div>
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-white text-sm leading-tight transition-colors duration-300">{review.name}</h4>
+            <h4 className="font-bold text-black dark:text-white group-hover:text-white text-sm leading-tight transition-colors duration-300">{review.name}</h4>
             <p className="text-[11px] text-teal-600 group-hover:text-white/80 font-bold uppercase tracking-wider mt-0.5 transition-colors duration-300">{review.business}</p>
           </div>
         </div>
@@ -88,7 +88,7 @@ const Testimonials = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
           <div className="max-w-xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-2 tracking-tight">
               Real results from real founders.
             </h2>
             <p className="text-slate-500 dark:text-slate-400 text-sm">
@@ -99,7 +99,7 @@ const Testimonials = () => {
           <div className="flex gap-2">
             <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => scroll('left')} 
-              className="w-10 h-10 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-teal-600 transition-colors shadow-sm"
+              className="w-10 h-10 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-black hover:text-teal-600 transition-colors shadow-sm"
             >
               <ChevronLeft size={20} />
             </button>
@@ -132,6 +132,30 @@ const Testimonials = () => {
             ))}
             {/* Spacer */}
             <div className="flex-shrink-0 w-[5vw]"></div>
+          </div>
+        </div>
+
+        {/* Centered Client Badge */}
+        <div className="mt-8 flex justify-center w-full">
+          <div className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md cursor-default">
+            <div className="flex -space-x-3">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&h=100&q=80" 
+                alt="Client 1" 
+                className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 shadow-md object-cover filter grayscale"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" 
+                alt="Client 2" 
+                className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 shadow-md object-cover filter grayscale"
+              />
+              <img 
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80" 
+                alt="Client 3" 
+                className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 shadow-md object-cover filter grayscale"
+              />
+            </div>
+            <span className="text-xs font-black text-black dark:text-white">Join 500+ happy clients worldwide</span>
           </div>
         </div>
       </div>

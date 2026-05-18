@@ -72,7 +72,7 @@ const BlogDetail = () => {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-[1] mb-10 tracking-tighter">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-black leading-[1] mb-10 tracking-tighter">
               {post.title}
             </h1>
             
@@ -87,9 +87,9 @@ const BlogDetail = () => {
 
           <section 
             className="px-8 md:px-16 pb-16 prose prose-slate prose-xl max-w-none 
-            prose-headings:text-slate-900 prose-headings:font-black prose-headings:tracking-tight
-            prose-p:text-slate-600 prose-p:leading-relaxed prose-p:font-medium
-            prose-strong:text-slate-900 prose-strong:font-black
+            prose-headings:text-black prose-headings:font-black prose-headings:tracking-tight
+            prose-p:text-black prose-p:leading-relaxed prose-p:font-medium
+            prose-strong:text-black prose-strong:font-black
             prose-blockquote:border-l-4 prose-blockquote:border-teal-500 prose-blockquote:bg-teal-50/50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl
             prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -98,12 +98,12 @@ const BlogDetail = () => {
           <footer className="px-8 md:px-16 pb-16 border-t border-slate-50 pt-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-8 bg-slate-50 rounded-[32px]">
               <div className="flex items-center gap-5">
-                <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-slate-900 text-xl font-black shadow-lg">
+                <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-black text-xl font-black shadow-lg">
                   {post.author.charAt(0)}
                 </div>
                 <div>
                   <p className="text-xs text-slate-400 font-black uppercase tracking-widest mb-1">Architected by</p>
-                  <p className="text-xl text-slate-900 font-black">{post.author}</p>
+                  <p className="text-xl text-black font-black">{post.author}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ const BlogDetail = () => {
 
         {/* Related Posts */}
         <div className="mt-24">
-          <h2 className="text-3xl font-black text-slate-900 mb-10 flex items-center gap-4">
+          <h2 className="text-3xl font-black text-black mb-10 flex items-center gap-4">
             Related Intelligence
             <div className="h-1 flex-grow bg-slate-100 rounded-full" />
           </h2>
@@ -136,7 +136,7 @@ const BlogDetail = () => {
                     <img src={related.image} alt={related.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   </div>
                   <span className="text-teal-600 text-xs font-black uppercase tracking-widest mb-3 block">{related.category}</span>
-                  <h3 className="text-xl font-black text-slate-900 leading-tight group-hover:text-teal-600 transition-colors">{related.title}</h3>
+                  <h3 className="text-xl font-black text-black leading-tight group-hover:text-teal-600 transition-colors">{related.title}</h3>
                 </Link>
               ))
             }
@@ -152,7 +152,7 @@ const BlogDetail = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
               to="/contact" 
-              className="w-full sm:w-auto px-12 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20"
+              className="w-full sm:w-auto px-12 py-5 bg-teal-500 text-black font-black rounded-2xl hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20"
             >
               Start Architecture Call
             </Link>

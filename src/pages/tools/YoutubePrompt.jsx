@@ -41,19 +41,19 @@ Use professional formatting with [Visual Cues] and [Audio Cues].`;
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">Mastering Long-Form Video Content</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">Mastering Long-Form Video Content</h2>
+            <p className="text-lg leading-relaxed text-black">
               Unlike short-form content that relies entirely on an explosive 3-second hook, YouTube requires a complex narrative structure to maintain audience attention over 10, 20, or even 60 minutes. ToolBite's YouTube Script Prompt Generator is engineered to instruct AI to build these deep architectures, ensuring your viewer's Average View Duration (AVD) remains as high as possible.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">The P.A.S. Framework</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">The P.A.S. Framework</h3>
+              <p className="text-black leading-relaxed mb-4">
                 The most successful educational and tutorial scripts follow the Problem, Agitate, Solve (PAS) copywriting framework.
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Problem:</strong> Acknowledge the exact pain point the viewer searched for.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Agitate:</strong> Explain why their current approach failing and the consequences of not fixing it.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Solve:</strong> Deliver the step-by-step value promised in the title and thumbnail.</span></li>
@@ -61,16 +61,16 @@ Use professional formatting with [Visual Cues] and [Audio Cues].`;
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Visual and Audio Anchoring</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Visual and Audio Anchoring</h3>
+              <p className="text-black leading-relaxed">
                 A script is not just dialogue; it's a production blueprint. Our generated prompts specifically ask the AI to include [Visual Cues] (like B-roll suggestions, text overlays, and camera angle shifts) alongside [Audio Cues] (like sound effects or music shifts). This pacing resets the viewer's attention span every 8-12 seconds, combating algorithmic drop-off.
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Strategic Call to Actions (CTAs)</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Strategic Call to Actions (CTAs)</h3>
+            <p className="text-black leading-relaxed">
               Amateur scripts place the "Like and Subscribe" at the very beginning of the video before any value has been delivered. Our prompt architecture positions the CTA strategically within the content flow—specifically using the "Value Exchange" method (e.g., "If this specific tip helped you, drop a like so the algorithm shows you more of it"). It also designs the ending to flow directly into a recommendation for another video, creating highly rewarded "Session Time" loops in the YouTube algorithm.
             </p>
           </section>
@@ -81,7 +81,7 @@ Use professional formatting with [Visual Cues] and [Audio Cues].`;
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Sparkles size={16} className="text-teal-500" />
                 Video Topic or Title
               </label>
@@ -90,19 +90,19 @@ Use professional formatting with [Visual Cues] and [Audio Cues].`;
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
                 placeholder="e.g., How to Start a Digital Agency in 2024"
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black"
               />
             </div>
             
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Wand2 size={16} className="text-purple-500" />
                 Content Style
               </label>
               <select 
                 value={style}
                 onChange={(e) => setStyle(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black appearance-none"
               >
                 <option>Educational / Tutorial</option>
                 <option>Storytelling / Vlog</option>
@@ -114,14 +114,14 @@ Use professional formatting with [Visual Cues] and [Audio Cues].`;
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <PlayCircle size={16} className="text-blue-500" />
                 Target Length
               </label>
               <select 
                 value={length}
                 onChange={(e) => setLength(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black appearance-none"
               >
                 <option>Under 5 Minutes</option>
                 <option>5-10 Minutes</option>
@@ -178,7 +178,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-12 h-12 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={24} />
       </div>
-      <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
+      <h4 className="text-lg font-bold text-black mb-2">{title}</h4>
       <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

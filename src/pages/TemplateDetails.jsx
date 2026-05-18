@@ -38,7 +38,7 @@ const TemplateDetails = () => {
       <div className="pt-32 pb-24 min-h-screen bg-slate-50 flex flex-col justify-center items-center px-4">
         <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center max-w-md w-full">
           <Server className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-slate-800 mb-2">Not Found</h2>
+          <h2 className="text-2xl font-bold text-black mb-2">Not Found</h2>
           <p className="text-slate-500 mb-6">{error || 'This template could not be loaded.'}</p>
           <Link to="/templates" className="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition">
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -90,7 +90,7 @@ const TemplateDetails = () => {
                   className="w-full h-auto aspect-[4/3] object-cover transform hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-6 left-6 flex gap-2">
-                  <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-slate-800 text-xs font-black tracking-widest uppercase rounded-full shadow-md border border-slate-100">
+                  <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-black text-xs font-black tracking-widest uppercase rounded-full shadow-md border border-slate-100">
                     {template.category}
                   </span>
                 </div>
@@ -156,7 +156,7 @@ const TemplateDetails = () => {
                     href={template.previewLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-4 bg-white border-2 border-slate-200 text-slate-700 font-bold rounded-2xl hover:border-teal-400 hover:text-teal-700 transition shadow-sm group"
+                    className="flex-1 flex items-center justify-center gap-2 py-4 bg-white border-2 border-slate-200 text-black font-bold rounded-2xl hover:border-teal-400 hover:text-teal-700 transition shadow-sm group"
                   >
                     <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                     Live Preview
@@ -172,11 +172,11 @@ const TemplateDetails = () => {
             transition={{ delay: 0.1 }}
             className="flex flex-col"
           >
-            <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 tracking-tight">
               {template.title}
             </h1>
             
-            <p className="text-xl text-slate-600 mb-8 font-medium leading-relaxed">
+            <p className="text-xl text-black mb-8 font-medium leading-relaxed">
               {template.shortDescription}
             </p>
 
@@ -193,14 +193,14 @@ const TemplateDetails = () => {
             </div>
 
             {template.fullDescription && (
-              <div className="mb-10 text-slate-600 leading-relaxed text-lg prose prose-slate">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">About the Template</h3>
+              <div className="mb-10 text-black leading-relaxed text-lg prose prose-slate">
+                <h3 className="text-xl font-bold text-black mb-4">About the Template</h3>
                 <p>{template.fullDescription}</p>
               </div>
             )}
 
             <div className="mb-10">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-black mb-6 flex items-center gap-2">
                 <Zap className="w-5 h-5 text-teal-500" />
                 Core Features
               </h3>
@@ -210,7 +210,7 @@ const TemplateDetails = () => {
                     <div className="mt-1 bg-teal-100 p-1 rounded-full text-teal-600 shrink-0">
                       <Check size={14} className="stroke-[3px]" />
                     </div>
-                    <span className="text-slate-700 font-medium">{feat}</span>
+                    <span className="text-black font-medium">{feat}</span>
                   </div>
                 ))}
               </div>
@@ -219,8 +219,8 @@ const TemplateDetails = () => {
             <div className="bg-slate-100 rounded-2xl p-6 flex items-start gap-4 border border-slate-200">
               <ShieldCheck className="w-8 h-8 text-emerald-500 shrink-0 mt-1" />
               <div>
-                <h4 className="font-bold text-slate-900 mb-1">Guaranteed Premium Quality</h4>
-                <p className="text-sm text-slate-600">
+                <h4 className="font-bold text-black mb-1">Guaranteed Premium Quality</h4>
+                <p className="text-sm text-black">
                   Includes full source code access, free updates for 6 months, and completely scalable architecture built by senior engineers.
                 </p>
               </div>
@@ -238,7 +238,7 @@ const TemplateDetails = () => {
           className="mt-20 pt-16 border-t border-slate-200"
         >
           <div className="max-w-3xl">
-            <h3 className="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
+            <h3 className="text-3xl font-extrabold text-black mb-8 flex items-center gap-3">
               User Reviews & Comments
               <span className="bg-teal-100 text-teal-700 text-sm py-1 px-3 rounded-full">3</span>
             </h3>
@@ -255,32 +255,32 @@ const TemplateDetails = () => {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-bold text-slate-900">{review.name}</h4>
+                      <h4 className="font-bold text-black">{review.name}</h4>
                       <span className="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">{review.role}</span>
                     </div>
                     <div className="text-xs text-slate-400 mb-3">{review.date}</div>
-                    <p className="text-slate-600 leading-relaxed">{review.comment}</p>
+                    <p className="text-black leading-relaxed">{review.comment}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200">
-              <h4 className="text-xl font-bold text-slate-900 mb-6">Leave a Reply</h4>
+              <h4 className="text-xl font-bold text-black mb-6">Leave a Reply</h4>
               <p className="text-sm text-slate-500 mb-6">Your email address will not be published. Required fields are marked *</p>
               <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your comment! It is pending moderation."); }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Name *</label>
+                    <label className="block text-sm font-bold text-black mb-2">Name *</label>
                     <input type="text" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Email *</label>
+                    <label className="block text-sm font-bold text-black mb-2">Email *</label>
                     <input type="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Comment *</label>
+                  <label className="block text-sm font-bold text-black mb-2">Comment *</label>
                   <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 resize-none"></textarea>
                 </div>
                 <button title="Interactive Button" aria-label="Interactive Button" type="submit" className="mt-4 bg-slate-900 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">

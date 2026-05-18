@@ -48,10 +48,6 @@ const navMenu = [
     href: '/templates',
   },
   {
-    label: 'Pricing',
-    href: '/pricing',
-  },
-  {
     label: 'Company',
     href: '/about',
     dropdown: [
@@ -83,7 +79,7 @@ const FlatDropdown = ({ items, onClose }) => (
           >
             <span className="mt-0.5 shrink-0">{item.icon}</span>
             <div>
-              <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</p>
+              <p className="text-sm font-semibold text-black dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</p>
               {item.desc && <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>}
             </div>
           </a>
@@ -96,7 +92,7 @@ const FlatDropdown = ({ items, onClose }) => (
           >
             <span className="mt-0.5 shrink-0">{item.icon}</span>
             <div>
-              <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</p>
+              <p className="text-sm font-semibold text-black dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</p>
               {item.desc && <p className="text-xs text-slate-500 dark:text-slate-400">{item.desc}</p>}
             </div>
           </Link>
@@ -129,7 +125,7 @@ const MegaDropdown = ({ groups, seeAll, onClose }) => (
                   className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors group"
                 >
                   <span>{item.icon}</span>
-                  <span className="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</span>
+                  <span className="text-xs font-medium text-black dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400">{item.label}</span>
                 </Link>
               ))}
             </div>
@@ -170,7 +166,7 @@ const NavItem = ({ item, onCloseAll }) => {
   const baseClass = `flex items-center gap-1 text-sm font-semibold transition-colors whitespace-nowrap ${
       isActive
         ? 'text-[#B19CD9]'
-        : 'text-slate-700 dark:text-slate-200 hover:text-[#B19CD9]'
+        : 'text-black dark:text-slate-200 hover:text-[#B19CD9]'
   }`;
 
   return (
@@ -209,7 +205,8 @@ const Navbar = () => {
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
   useEffect(() => {
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
   }, []);
 
   useEffect(() => {
@@ -256,13 +253,13 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 80 80"
                   fill="none"
-                  className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
+                  className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300"
                 >
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="4.5" />
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="currentColor" strokeWidth="4" />
                   <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="currentColor" />
                 </motion.svg>
-                <span className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white ml-2">Tool<span className="text-[#B19CD9]">Bite</span></span>
+                <span className="text-3xl font-bold tracking-tight text-black ml-2">ToolBite</span>
               </Link>
             </div>
 
@@ -277,11 +274,12 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-3">
               <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-500 hover:text-[#B19CD9] hover:bg-[#B19CD9]/10 transition-all border border-transparent hover:border-[#B19CD9]/20 group"
+                className="flex items-center gap-2.5 px-4 py-2 rounded-xl text-slate-500 hover:text-black hover:bg-slate-100 transition-all border border-slate-200 group"
                 title="Search Tools & Services (⌘K)"
               >
-                <Search size={20} />
-                <div className="hidden xl:flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                <Search size={18} className="text-slate-400 group-hover:text-black" />
+                <span className="text-xs font-semibold text-slate-400 group-hover:text-black transition-colors">Search Tools...</span>
+                <div className="hidden xl:flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-slate-50 border border-slate-200">
                   <Command size={10} className="text-slate-400" />
                   <span className="text-[10px] font-bold text-slate-400">K</span>
                 </div>
@@ -289,16 +287,16 @@ const Navbar = () => {
 
               <Link
                 to="/client-login"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-black dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-black hover:text-black transition-all"
               >
                 <User size={15} />
                 Login
               </Link>
               <Link
                 to="/start-project"
-                className="px-5 py-2 rounded-full bg-slate-900 dark:bg-[#B19CD9] text-white dark:text-slate-900 text-sm font-bold hover:opacity-90 transition-all shadow-md hover:shadow-[#B19CD9]/25"
+                className="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-black transition-all shadow-md"
               >
-                Start Project
+                Claim Free Blueprint
               </Link>
             </div>
 
@@ -306,7 +304,7 @@ const Navbar = () => {
             <div className="flex lg:hidden items-center gap-2">
               <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-                className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
+                className="p-2 rounded-full text-black dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Search"
                 title="Search Tools & Services"
               >
@@ -315,7 +313,7 @@ const Navbar = () => {
 
               <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="p-2 rounded-full text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
+                className="p-2 rounded-full text-black dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Toggle menu"
                 title="Toggle menu"
               >
@@ -351,15 +349,15 @@ const Navbar = () => {
                     {hasDropdown ? (
                       <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
-                        className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors"
+                        className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold text-black dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors"
                       >
                         {item.label}
                         <ChevronDown size={16} className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                       </button>
                     ) : item.isHash ? (
-                      <a href={item.href} onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors">{item.label}</a>
+                      <a href={item.href} onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-bold text-black dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors">{item.label}</a>
                     ) : (
-                      <Link to={item.href} onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors">{item.label}</Link>
+                      <Link to={item.href} onClick={() => setMobileOpen(false)} className="block px-4 py-3 rounded-xl text-sm font-bold text-black dark:text-slate-100 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors">{item.label}</Link>
                     )}
 
                     <AnimatePresence>
@@ -374,11 +372,11 @@ const Navbar = () => {
                           {/* Flat items */}
                           {!item.dropdown[0]?.group && item.dropdown.map((sub) => (
                             sub.isHash ? (
-                              <a key={sub.label} href={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
+                              <a key={sub.label} href={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-black dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
                                 {sub.icon}<span>{sub.label}</span>
                               </a>
                             ) : (
-                              <Link key={sub.label} to={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
+                              <Link key={sub.label} to={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-black dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
                                 {sub.icon}<span>{sub.label}</span>
                               </Link>
                             )
@@ -388,7 +386,7 @@ const Navbar = () => {
                             <div key={group.group}>
                               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 px-3 pt-2 pb-1">{group.group}</p>
                               {group.items.map((sub) => (
-                                <Link key={sub.label} to={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
+                                <Link key={sub.label} to={sub.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-black dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/10 transition-colors">
                                   {sub.icon}<span>{sub.label}</span>
                                 </Link>
                               ))}
@@ -408,11 +406,11 @@ const Navbar = () => {
 
               {/* Mobile Actions */}
               <div className="pt-4 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col gap-2">
-                <Link to="/client-login" onClick={() => setMobileOpen(false)} className="w-full py-3 flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                <Link to="/client-login" onClick={() => setMobileOpen(false)} className="w-full py-3 flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-700 text-black dark:text-slate-300 font-bold text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
                   <User size={16} /> Client Login
                 </Link>
-                <Link to="/start-project" onClick={() => setMobileOpen(false)} className="w-full py-3 text-center rounded-xl bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold text-sm hover:bg-teal-600 dark:hover:bg-teal-400 transition-all shadow-md">
-                  Start Project
+                <Link to="/start-project" onClick={() => setMobileOpen(false)} className="w-full py-3 text-center rounded-xl bg-teal-600 text-white font-bold text-sm hover:bg-teal-700 transition-all shadow-md">
+                  Claim Free Blueprint
                 </Link>
               </div>
             </div>

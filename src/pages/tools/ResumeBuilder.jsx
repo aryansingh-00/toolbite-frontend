@@ -494,7 +494,7 @@ const ResumeBuilder = () => {
           <div className="text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="flex items-center gap-2 mb-6">
               <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
-              <span className="text-slate-600 font-medium"><strong>49,171</strong> CVs created today</span>
+              <span className="text-black font-medium"><strong>49,171</strong> CVs created today</span>
             </motion.div>
             
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.05]">
@@ -572,16 +572,16 @@ const ResumeBuilder = () => {
             >
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles size={16} className="text-sky-500" />
-                <span className="font-bold text-slate-800 text-sm">AI-powered ideas:</span>
+                <span className="font-bold text-black text-sm">AI-powered ideas:</span>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 bg-slate-50 p-3 rounded-xl">
                   <div className="w-6 h-6 bg-sky-500 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><ArrowLeft size={12} className="rotate-180" /></div>
-                  <p className="text-xs text-slate-600 leading-tight">Analyzed market trends to identify new growth opportunities.</p>
+                  <p className="text-xs text-black leading-tight">Analyzed market trends to identify new growth opportunities.</p>
                 </div>
                 <div className="flex items-start gap-3 bg-slate-50 p-3 rounded-xl">
                   <div className="w-6 h-6 bg-sky-500 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><ArrowLeft size={12} className="rotate-180" /></div>
-                  <p className="text-xs text-slate-600 leading-tight">Reduced operational costs by 15% through process optimization.</p>
+                  <p className="text-xs text-black leading-tight">Reduced operational costs by 15% through process optimization.</p>
                 </div>
               </div>
             </motion.div>
@@ -712,7 +712,7 @@ const ResumeBuilder = () => {
         <div className="max-w-7xl mx-auto px-6">
           {filteredTemplates.length === 0 ? (
             <div className="text-center py-20">
-              <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-600"><FileText size={32} /></div>
+              <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-black"><FileText size={32} /></div>
               <h3 className="text-xl font-bold text-white mb-2">No templates found</h3>
               <p className="text-slate-400">Try adjusting your filters or search query.</p>
               <button title="Interactive Button" aria-label="Interactive Button" onClick={() => { setSearchQuery(''); setActiveExpFilter('All'); setActiveStyleFilter('All'); }} className="mt-6 px-6 py-2 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-700 transition-colors">Clear Filters</button>
@@ -882,7 +882,7 @@ const ResumeBuilder = () => {
 
 
   const renderArchitectTemplate = () => (
-    <div id="resume-content" className="bg-white text-slate-900 w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm p-12 lg:p-20 relative z-10 resume-print">
+    <div id="resume-content" className="bg-white text-black w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm p-12 lg:p-20 relative z-10 resume-print">
       <div className="flex justify-between items-start border-b-4 pb-10 mb-12" style={{ borderBottomColor: themeColor }}>
         <div className="flex-1">
           <h2 className="text-5xl font-black uppercase tracking-tighter mb-2 leading-none">{formData.personal.fullName || 'YOUR NAME'}</h2>
@@ -903,7 +903,7 @@ const ResumeBuilder = () => {
       {formData.personal.summary && (
         <div className="mb-12">
           <h3 className="text-xs font-black uppercase border-b-2 border-slate-100 mb-4 pb-1 tracking-widest text-slate-400">Strategic Profile</h3>
-          <p className="text-[13px] leading-[1.8] text-slate-700 font-medium">{formData.personal.summary}</p>
+          <p className="text-[13px] leading-[1.8] text-black font-medium">{formData.personal.summary}</p>
           {selectedTemplate === 'developer' && renderGitHubGraph()}
         </div>
       )}
@@ -924,7 +924,7 @@ const ResumeBuilder = () => {
                         <span className="text-[10px] font-black text-slate-300 uppercase">{item.period || item.year}</span>
                       </div>
                       <p className="text-[11px] font-black uppercase mb-3" style={{ color: themeColor }}>{item.company || item.issuer || item.school}</p>
-                      <p className="text-[12px] leading-[1.7] text-slate-600 font-medium">{item.description || item.list || item.degree}</p>
+                      <p className="text-[12px] leading-[1.7] text-black font-medium">{item.description || item.list || item.degree}</p>
                     </div>
                   ))}
                 </div>
@@ -942,7 +942,7 @@ const ResumeBuilder = () => {
                 <div className="space-y-4">
                   {formData[sec].map((item, i) => (
                     <div key={i}>
-                      <p className="text-[11px] font-black text-slate-900 uppercase mb-1">{item.category || item.name || item.title || item.degree}</p>
+                      <p className="text-[11px] font-black text-black uppercase mb-1">{item.category || item.name || item.title || item.degree}</p>
                       <p className="text-[10px] text-slate-400 leading-relaxed font-bold">
                         {item.list || item.level || item.school || item.description}
                         {item.issuer && ` · ${item.issuer}`}
@@ -960,10 +960,10 @@ const ResumeBuilder = () => {
   );
 
   const renderExecutiveTemplate = () => (
-    <div id="resume-content" className="bg-white text-slate-900 w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm p-16 relative z-10 resume-print font-serif">
+    <div id="resume-content" className="bg-white text-black w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm p-16 relative z-10 resume-print font-serif">
       <div className="text-center border-b-[3px] border-slate-900 pb-8 mb-10 relative">
-        <h2 className="text-4xl font-bold uppercase tracking-widest mb-4 text-slate-900">{formData.personal.fullName || 'YOUR NAME'}</h2>
-        <div className="flex flex-wrap justify-center items-center gap-3 text-[11px] font-sans text-slate-600 uppercase tracking-widest font-bold">
+        <h2 className="text-4xl font-bold uppercase tracking-widest mb-4 text-black">{formData.personal.fullName || 'YOUR NAME'}</h2>
+        <div className="flex flex-wrap justify-center items-center gap-3 text-[11px] font-sans text-black uppercase tracking-widest font-bold">
           {formData.personal.email && <span>{formData.personal.email}</span>}
           {formData.personal.phone && <span className="text-slate-300">•</span>}
           {formData.personal.phone && <span>{formData.personal.phone}</span>}
@@ -980,7 +980,7 @@ const ResumeBuilder = () => {
       </div>
       {formData.personal.summary && (
         <div className="mb-10 text-justify">
-          <p className="text-[13px] leading-relaxed text-slate-800 font-medium">{formData.personal.summary}</p>
+          <p className="text-[13px] leading-relaxed text-black font-medium">{formData.personal.summary}</p>
         </div>
       )}
       <div className="space-y-10">
@@ -988,18 +988,18 @@ const ResumeBuilder = () => {
           if (formData[sec]?.length === 0) return null;
           return (
             <section key={sec}>
-              <h3 className="text-sm font-bold uppercase border-b border-slate-300 mb-5 pb-1 tracking-widest text-slate-900" style={{ color: themeColor }}>
+              <h3 className="text-sm font-bold uppercase border-b border-slate-300 mb-5 pb-1 tracking-widest text-black" style={{ color: themeColor }}>
                 {sec === 'experience' ? 'Professional Experience' : sec === 'projects' ? 'Selected Projects' : sec.charAt(0).toUpperCase() + sec.slice(1)}
               </h3>
               <div className="space-y-6">
                 {formData[sec].map((item, i) => (
                   <div key={i} className="relative">
                     <div className="flex justify-between items-baseline mb-1">
-                      <h4 className="text-[13px] font-bold uppercase font-sans tracking-tight text-slate-900">{item.role || item.name || item.title || item.school || item.category}</h4>
+                      <h4 className="text-[13px] font-bold uppercase font-sans tracking-tight text-black">{item.role || item.name || item.title || item.school || item.category}</h4>
                       <span className="text-[11px] font-bold text-slate-500 uppercase font-sans">{item.period || item.year || item.level}</span>
                     </div>
-                    <p className="text-[12px] font-bold mb-2 font-sans text-slate-700">{item.company || item.issuer || item.degree || item.list}</p>
-                    {item.description && <p className="text-[12px] leading-[1.6] text-slate-700 font-medium">{item.description}</p>}
+                    <p className="text-[12px] font-bold mb-2 font-sans text-black">{item.company || item.issuer || item.degree || item.list}</p>
+                    {item.description && <p className="text-[12px] leading-[1.6] text-black font-medium">{item.description}</p>}
                   </div>
                 ))}
               </div>
@@ -1011,7 +1011,7 @@ const ResumeBuilder = () => {
   );
 
   const renderVisionaryTemplate = () => (
-    <div id="resume-content" className="bg-white text-slate-900 w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm flex relative z-10 resume-print overflow-hidden">
+    <div id="resume-content" className="bg-white text-black w-full max-w-[800px] min-h-[1050px] shadow-[0_0_100px_rgba(0,0,0,0.5)] rounded-sm flex relative z-10 resume-print overflow-hidden">
       {/* Left Sidebar */}
       <div className="w-[280px] shrink-0 p-10 text-white flex flex-col h-[1050px]" style={{ backgroundColor: themeColor }}>
         {formData.personal.profileImage && (
@@ -1054,7 +1054,7 @@ const ResumeBuilder = () => {
         {formData.personal.summary && (
           <div className="mb-12">
             <div className="w-10 h-1 mb-6" style={{ backgroundColor: themeColor }}></div>
-            <p className="text-[13px] leading-relaxed text-slate-700 font-medium">{formData.personal.summary}</p>
+            <p className="text-[13px] leading-relaxed text-black font-medium">{formData.personal.summary}</p>
           </div>
         )}
         
@@ -1063,7 +1063,7 @@ const ResumeBuilder = () => {
              if (formData[sec]?.length === 0) return null;
              return (
                <section key={sec}>
-                 <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 mb-6 flex items-center gap-3">
+                 <h3 className="text-lg font-black uppercase tracking-tight text-black mb-6 flex items-center gap-3">
                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: themeColor }}></div>
                    {sec}
                  </h3>
@@ -1072,11 +1072,11 @@ const ResumeBuilder = () => {
                      <div key={i} className="relative pl-6 border-l-2 border-white/10">
                        <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-300"></div>
                        <div className="flex justify-between items-baseline mb-1">
-                         <h4 className="text-[14px] font-bold text-slate-900">{item.role || item.name || item.degree}</h4>
+                         <h4 className="text-[14px] font-bold text-black">{item.role || item.name || item.degree}</h4>
                          <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-white shadow-sm px-2 py-1 rounded">{item.period || item.year}</span>
                        </div>
                        <p className="text-[11px] font-black uppercase mb-3 text-slate-500" style={{ color: themeColor }}>{item.company || item.school}</p>
-                       {item.description && <p className="text-[12px] leading-relaxed text-slate-600 font-medium">{item.description}</p>}
+                       {item.description && <p className="text-[12px] leading-relaxed text-black font-medium">{item.description}</p>}
                      </div>
                    ))}
                  </div>
@@ -1228,7 +1228,7 @@ const ResumeBuilder = () => {
                                   {formData.personal.profileImage ? (
                                     <img src={formData.personal.profileImage} alt="Profile" className="w-full h-full object-cover" />
                                   ) : (
-                                    <Camera className="text-slate-700" size={32} />
+                                    <Camera className="text-black" size={32} />
                                   )}
                                   <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" onChange={handleImageUpload} accept="image/*" />
                                 </div>
@@ -1239,9 +1239,9 @@ const ResumeBuilder = () => {
                                 )}
                               </div>
                               <div className="text-center md:text-left">
-                                <h4 className="text-lg font-black text-slate-900 mb-1">Profile Photo</h4>
+                                <h4 className="text-lg font-black text-black mb-1">Profile Photo</h4>
                                 <p className="text-slate-500 text-sm mb-4">Adding a photo can build trust and authority.</p>
-                                <label className="cursor-pointer px-6 py-2.5 bg-white text-slate-900 font-bold rounded-xl border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition-all shadow-sm inline-block text-sm">
+                                <label className="cursor-pointer px-6 py-2.5 bg-white text-black font-bold rounded-xl border border-slate-200 hover:border-teal-500 hover:text-teal-600 transition-all shadow-sm inline-block text-sm">
                                   Upload Photo
                                   <input type="file" className="hidden" onChange={handleImageUpload} accept="image/*" />
                                 </label>
@@ -1264,7 +1264,7 @@ const ResumeBuilder = () => {
                                     value={formData.personal[field.id]} 
                                     onChange={(e) => updatePersonal(field.id, e.target.value)} 
                                     placeholder={field.placeholder} 
-                                    className="w-full px-4 py-3.5 bg-slate-950 border border-white/5 rounded-2xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-slate-700 transition-all" 
+                                    className="w-full px-4 py-3.5 bg-slate-950 border border-white/5 rounded-2xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-black transition-all" 
                                   />
                                 </div>
                               ))}
@@ -1282,7 +1282,7 @@ const ResumeBuilder = () => {
                                 value={formData.personal.summary} 
                                 onChange={(e) => updatePersonal('summary', e.target.value)} 
                                 placeholder="Write a compelling summary of your career..." 
-                                className="w-full px-4 py-4 bg-slate-950 border border-white/5 rounded-[2rem] focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-slate-700 transition-all resize-none" 
+                                className="w-full px-4 py-4 bg-slate-950 border border-white/5 rounded-[2rem] focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none font-bold text-white placeholder:text-black transition-all resize-none" 
                               />
                             </div>
                           </div>
@@ -1431,7 +1431,7 @@ const ResumeBuilder = () => {
                {/* Compact layout switcher - moved to bottom */}
                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1 bg-white/10 backdrop-blur-xl border border-white/15 rounded-full px-3 py-1.5 z-20">
                   {['architect', 'executive', 'visionary'].map(l => (
-                    <button title="Interactive Button" aria-label="Interactive Button" key={l} onClick={() => setVisualLayout(l)} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all uppercase tracking-wider ${visualLayout === l ? 'bg-white text-slate-900' : 'text-slate-400 hover:text-white'}`}>
+                    <button title="Interactive Button" aria-label="Interactive Button" key={l} onClick={() => setVisualLayout(l)} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all uppercase tracking-wider ${visualLayout === l ? 'bg-white text-black' : 'text-slate-400 hover:text-white'}`}>
                       {l}
                     </button>
                   ))}

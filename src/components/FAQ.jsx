@@ -50,7 +50,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => (
       onClick={onClick}
       aria-expanded={isOpen}
     >
-      <span className={`text-base font-bold pr-6 transition-colors leading-snug ${isOpen ? 'text-teal-700 dark:text-teal-400' : 'text-slate-900 dark:text-slate-100'}`}>
+      <span className={`text-base font-bold pr-6 transition-colors leading-snug ${isOpen ? 'text-teal-700 dark:text-teal-400' : 'text-black dark:text-slate-100'}`}>
         {question}
       </span>
       <div className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
@@ -70,7 +70,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, index }) => (
           transition={{ duration: 0.28, ease: 'easeInOut' }}
           className="overflow-hidden"
         >
-          <div className="px-6 py-5 text-slate-600 dark:text-slate-400 leading-relaxed text-sm border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <div className="px-6 py-5 text-black dark:text-slate-400 leading-relaxed text-sm border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
             {answer}
           </div>
         </motion.div>
@@ -109,7 +109,7 @@ const FAQ = () => {
             <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
             Support Matrix
           </span>
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-3 tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-black text-black dark:text-white mb-3 tracking-tighter">
             Frequent <span className="text-emerald-500">Inquiries.</span>
           </h2>
         </div>
@@ -122,7 +122,7 @@ const FAQ = () => {
             placeholder="Search the system..."
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setOpenIndex(null); }}
-            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-slate-900 dark:text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all placeholder:text-slate-500"
+            className="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 text-black dark:text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all placeholder:text-slate-500"
           />
         </div>
 
@@ -135,7 +135,7 @@ const FAQ = () => {
               className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all border ${
                 activeCategory === cat.label
                   ? 'bg-teal-500 text-white border-teal-500 shadow-md shadow-teal-500/20'
-                  : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-teal-300 hover:text-teal-600 dark:hover:text-teal-400'
+                  : 'bg-white dark:bg-slate-900 text-black dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-teal-300 hover:text-teal-600 dark:hover:text-teal-400'
               }`}
             >
               <span>{cat.emoji}</span>
@@ -177,7 +177,7 @@ const FAQ = () => {
                 )}
               </>
             ) : (
-              <div className="text-center py-16 text-slate-600">
+              <div className="text-center py-16 text-black">
                 <p className="text-4xl mb-3 opacity-20">🔍</p>
                 <p className="font-semibold text-slate-400">No results found in the support matrix.</p>
               </div>
@@ -188,7 +188,7 @@ const FAQ = () => {
         {/* Still Have Questions CTA */}
         <div className="mt-12 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/10 border border-teal-100 dark:border-teal-800/40 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-left">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Still have questions?</h3>
+            <h3 className="text-xl font-bold text-black dark:text-white mb-1">Still have questions?</h3>
             <p className="text-slate-500 dark:text-slate-400 text-sm">Can't find the answer you're looking for? Chat with our team directly.</p>
           </div>
           <a

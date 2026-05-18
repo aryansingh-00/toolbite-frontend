@@ -13,13 +13,18 @@
     <meta charset="UTF-8" />
     <script>
       (function() {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
+        // Light mode default
+        localStorage.setItem('theme', 'light');
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="/pwa-icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    
+    <!-- Preconnect to external domains for faster DNS/TLS resolution -->
+    <link rel="preconnect" href="https://elements-resized.envatousercontent.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">

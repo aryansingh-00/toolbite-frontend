@@ -58,7 +58,7 @@ const PortalWidgets = ({ projectId }) => {
         className="lg:col-span-1 bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm"
       >
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <h3 className="text-lg font-bold text-black dark:text-white flex items-center gap-2">
             <CheckCircle2 className="text-teal-500" size={20} />
             Your To-Do List
           </h3>
@@ -82,7 +82,7 @@ const PortalWidgets = ({ projectId }) => {
               </button>
               <span className={`text-sm font-medium transition-all ${
                 item.completed ? 'line-through text-slate-400 dark:text-slate-500' :
-                item.type === 'urgent' ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'
+                item.type === 'urgent' ? 'text-black dark:text-white' : 'text-black dark:text-slate-400'
               } group-hover:text-teal-600 dark:group-hover:text-teal-400 cursor-pointer`}
               onClick={() => toggleAction(item.id, item.completed)}
               >
@@ -125,7 +125,7 @@ const PortalWidgets = ({ projectId }) => {
         transition={{ delay: 0.4 }}
         className="lg:col-span-1 bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm"
       >
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Recent Activity</h3>
+        <h3 className="text-lg font-bold text-black dark:text-white mb-6">Recent Activity</h3>
         <div className="space-y-6">
           {feedItems.map((feed, index) => (
             <div key={feed.id} className="flex gap-4 relative">
@@ -138,7 +138,7 @@ const PortalWidgets = ({ projectId }) => {
                  <MessageSquare size={10} className="text-blue-500" />}
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight mb-1">{feed.action}</p>
+                <p className="text-sm font-bold text-black dark:text-white leading-tight mb-1">{feed.action}</p>
                 <div className="flex items-center gap-2 text-xs text-slate-500">
                   <span className="font-medium text-teal-600 dark:text-teal-400">{feed.user}</span>
                   <span>•</span>

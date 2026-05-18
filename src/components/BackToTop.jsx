@@ -39,7 +39,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 w-14 h-14 bg-white dark:bg-slate-900 rounded-full shadow-2xl z-50 flex items-center justify-center text-slate-900 dark:text-white border border-slate-100 dark:border-slate-800 group"
+          className="fixed bottom-24 right-6 w-14 h-14 bg-white dark:bg-slate-900 rounded-full shadow-2xl z-50 flex items-center justify-center text-black dark:text-white border border-slate-100 dark:border-slate-800 group"
           aria-label="Back to top"
         >
           <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none">

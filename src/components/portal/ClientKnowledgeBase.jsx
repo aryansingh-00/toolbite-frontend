@@ -53,7 +53,7 @@ const ClientKnowledgeBase = () => {
         <div className="space-y-2">
           <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={() => setActiveCat('all')}
-            className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === 'all' ? 'bg-teal-500 text-slate-900 shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
+            className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === 'all' ? 'bg-teal-500 text-black shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-black dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
           >
             All Articles
             <span className="text-xs opacity-60">{articles.length}</span>
@@ -63,7 +63,7 @@ const ClientKnowledgeBase = () => {
             <button title="Interactive Button" aria-label="Interactive Button" 
               key={cat.id}
               onClick={() => setActiveCat(cat.id)}
-              className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === cat.id ? 'bg-teal-500 text-slate-900 shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
+              className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl font-bold transition-all ${activeCat === cat.id ? 'bg-teal-500 text-black shadow-lg shadow-teal-500/20' : 'bg-white dark:bg-slate-900 text-black dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'}`}
             >
               {cat.label}
               <span className="text-xs opacity-60">{cat.count}</span>
@@ -89,7 +89,7 @@ const ClientKnowledgeBase = () => {
                     {article.time}
                   </div>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                <h4 className="text-lg font-bold text-black dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                   {article.title}
                 </h4>
                 <div className="flex items-center text-sm font-bold text-teal-600 dark:text-teal-400 gap-2">
@@ -102,13 +102,13 @@ const ClientKnowledgeBase = () => {
           {filteredArticles.length === 0 && (
             <div className="py-20 text-center">
               <Lightbulb size={48} className="text-slate-300 mx-auto mb-4" />
-              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">No matching resources</h4>
+              <h4 className="text-xl font-bold text-black dark:text-white mb-2">No matching resources</h4>
               <p className="text-slate-500 max-w-xs mx-auto">We couldn't find any articles matching "{searchQuery}". Try different keywords.</p>
             </div>
           )}
 
           {/* Expert Contact CTA */}
-          <div className="mt-12 p-8 rounded-[2rem] bg-teal-500 text-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="mt-12 p-8 rounded-[2rem] bg-teal-500 text-black flex flex-col md:flex-row justify-between items-center gap-6">
              <div>
                 <h4 className="text-2xl font-black mb-1">Need specific help?</h4>
                 <p className="font-medium opacity-80">Our strategists are ready to jump on a 1-on-1 call with you.</p>

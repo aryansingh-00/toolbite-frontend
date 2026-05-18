@@ -58,10 +58,10 @@ const ContactPage = () => {
         keywords="contact toolbite, hire web designer, web development inquiry, contact digital agency india"
       />
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 font-sans">
+        <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 font-sans">
           Discuss Your Next <span className="text-teal-500">High-Performance Project</span>
         </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <p className="text-lg text-black dark:text-slate-400 max-w-2xl mx-auto">
           Have a project in mind or just want to say hello? Fill out the form below 
           and our team will get back to you within 24 hours.
         </p>
@@ -70,15 +70,15 @@ const ContactPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-12">
         <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
           <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100/50 dark:border-slate-800">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Get in Touch</h3>
+            <h3 className="text-2xl font-bold text-black dark:text-white mb-6">Get in Touch</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center shrink-0">
                   <MapPin className="text-teal-500 w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">Our Office</h4>
-                  <p className="text-slate-600 dark:text-slate-400">New Delhi<br />India</p>
+                  <h4 className="text-lg font-bold text-black dark:text-white">Our Office</h4>
+                  <p className="text-black dark:text-slate-400">New Delhi<br />India</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -86,8 +86,8 @@ const ContactPage = () => {
                   <Mail className="text-teal-500 w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">Email Us</h4>
-                  <p className="text-slate-600 dark:text-slate-400">hello.toolbite@gmail.com</p>
+                  <h4 className="text-lg font-bold text-black dark:text-white">Email Us</h4>
+                  <p className="text-black dark:text-slate-400">hello.toolbite@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -95,8 +95,8 @@ const ContactPage = () => {
                   <Phone className="text-teal-500 w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">Call Us</h4>
-                  <p className="text-slate-600 dark:text-slate-400">+91 9598037255</p>
+                  <h4 className="text-lg font-bold text-black dark:text-white">Call Us</h4>
+                  <p className="text-black dark:text-slate-400">+91 9598037255</p>
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ const ContactPage = () => {
           <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-900 p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-bold text-black dark:text-slate-300 mb-2">Full Name</label>
                 <input
                   type="text"
                   id="name"
@@ -115,12 +115,12 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm font-bold text-black dark:text-slate-300 mb-2">Email Address</label>
                 <input
                   type="email"
                   id="email"
@@ -128,13 +128,13 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
             <div className="mb-6">
-              <label htmlFor="subject" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Subject</label>
+              <label htmlFor="subject" className="block text-sm font-bold text-black dark:text-slate-300 mb-2">Subject</label>
               <input
                 type="text"
                 id="subject"
@@ -142,12 +142,12 @@ const ContactPage = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors"
                 placeholder="How can we help?"
               />
             </div>
             <div className="mb-8">
-              <label htmlFor="message" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Message</label>
+              <label htmlFor="message" className="block text-sm font-bold text-black dark:text-slate-300 mb-2">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -155,14 +155,14 @@ const ContactPage = () => {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-colors resize-none"
                 placeholder="Tell us about your project..."
               ></textarea>
             </div>
             <button title="Interactive Button" aria-label="Interactive Button"
               type="submit"
               disabled={status === 'sending'}
-              className="w-full bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-teal-500/25 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"
+              className="w-full bg-teal-500 hover:bg-teal-400 text-black font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-teal-500/25 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:text-slate-500 disabled:shadow-none"
             >
               {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message Sent!' : (
                 <>

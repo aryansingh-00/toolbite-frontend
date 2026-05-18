@@ -54,7 +54,7 @@ const PdfConverter = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
+            className="text-5xl md:text-6xl font-extrabold text-black mb-6 tracking-tight"
           >
             The Ultimate <span className="text-teal-600">PDF Converter</span> Suite
           </motion.h1>
@@ -62,7 +62,7 @@ const PdfConverter = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-600 leading-relaxed"
+            className="text-xl text-black leading-relaxed"
           >
             Professional-grade PDF manipulation without the privacy risks. All processing happens locally on your device—your files never touch our servers.
           </motion.p>
@@ -83,8 +83,8 @@ const PdfConverter = () => {
                 <div className={`w-16 h-16 ${tool.color} rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg group-hover:scale-110 transition-transform`}>
                   <tool.icon size={32} />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors">{tool.title}</h2>
-                <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                <h2 className="text-3xl font-bold text-black mb-4 group-hover:text-teal-600 transition-colors">{tool.title}</h2>
+                <p className="text-black text-lg mb-8 leading-relaxed">
                   {tool.description}
                 </p>
                 <div className="flex items-center text-teal-600 font-bold text-lg group-hover:gap-3 transition-all">
@@ -98,37 +98,37 @@ const PdfConverter = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
-            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 mb-6">
+            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-black mb-6">
               <ShieldCheck size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Absolute Privacy</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">Absolute Privacy</h3>
+            <p className="text-black text-sm leading-relaxed">
               Unlike other "free" converters that store your sensitive documents, ToolBite processes everything in RAM. Once you close the tab, it's gone forever.
             </p>
           </div>
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
-            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 mb-6">
+            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-black mb-6">
               <Cpu size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Zero Lag Execution</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">Zero Lag Execution</h3>
+            <p className="text-black text-sm leading-relaxed">
               Our WebAssembly-powered engine bypasses server latency, offering near-instant conversion speeds regardless of your internet connection.
             </p>
           </div>
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
-            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 mb-6">
+            <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-black mb-6">
               <Zap size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">No Limits, No Ads</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">No Limits, No Ads</h3>
+            <p className="text-black text-sm leading-relaxed">
               We don't throttle your speed or limit the number of pages. Enjoy a clean, professional environment for all your document needs.
             </p>
           </div>
         </div>
 
         <section className="mt-32 pt-24 border-t border-slate-200">
-          <h2 className="text-4xl font-black text-slate-900 mb-12 tracking-tight">Why Use Our PDF Converter?</h2>
-          <div className="prose prose-slate max-w-none grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-slate-600">
+          <h2 className="text-4xl font-black text-black mb-12 tracking-tight">Why Use Our PDF Converter?</h2>
+          <div className="prose prose-slate max-w-none grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-black">
             <div>
               <p>
                 In the modern digital landscape, the PDF (Portable Document Format) remains the standard for business communication. However, the tools to manage them are often trapped behind expensive subscriptions or invasive, ad-riddled websites that compromise your data privacy.

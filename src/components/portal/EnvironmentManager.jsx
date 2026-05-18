@@ -30,7 +30,7 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
             {title === 'Production' ? <ShieldCheck size={24} /> : <Terminal size={24} />}
           </div>
           <div>
-            <h4 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h4>
+            <h4 className="text-xl font-bold text-black dark:text-white">{title}</h4>
             <div className="flex items-center gap-2 mt-1">
               <div className={`w-2 h-2 rounded-full bg-${status === 'online' ? 'emerald' : 'amber'}-500 animate-pulse`}></div>
               <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">{status}</span>
@@ -51,7 +51,7 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
         <div className="flex justify-between items-center p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800">
           <span className="text-sm font-bold text-slate-500">Active URL</span>
           <div className="flex items-center gap-3">
-            <code className="text-sm text-slate-600 dark:text-slate-300 font-mono">{url.replace('https://', '')}</code>
+            <code className="text-sm text-black dark:text-slate-300 font-mono">{url.replace('https://', '')}</code>
             <button title="Interactive Button" aria-label="Interactive Button" onClick={() => copyToClipboard(url)} className="text-slate-400 hover:text-teal-500 transition-colors">
               <Copy size={16} />
             </button>
@@ -63,12 +63,12 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
             <p className="text-[10px] font-black text-amber-600 uppercase tracking-wider mb-2">Access Credentials</p>
             <div className="flex justify-between text-xs">
               <span className="text-slate-500 font-bold tracking-tight">User:</span>
-              <span className="text-slate-700 dark:text-slate-300 font-mono">{credentials.username}</span>
+              <span className="text-black dark:text-slate-300 font-mono">{credentials.username}</span>
             </div>
             <div className="flex justify-between text-xs">
               <span className="text-slate-500 font-bold tracking-tight">Pass:</span>
               <div className="flex items-center gap-2">
-                <span className="text-slate-700 dark:text-slate-300 font-mono">••••••••</span>
+                <span className="text-black dark:text-slate-300 font-mono">••••••••</span>
                 <button title="Interactive Button" aria-label="Interactive Button" onClick={() => copyToClipboard(credentials.password)} className="text-slate-400 hover:text-teal-500 transition-colors">
                   <Copy size={12} />
                 </button>
@@ -80,7 +80,7 @@ const EnvironmentCard = ({ title, url, status, build, color, credentials }) => {
         <div className="flex items-center gap-6 pt-4 border-t border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2">
             <History size={14} className="text-slate-400" />
-            <span className="text-xs text-slate-500 font-bold">Build: <span className="text-slate-700 dark:text-slate-300">v{build}</span></span>
+            <span className="text-xs text-slate-500 font-bold">Build: <span className="text-black dark:text-slate-300">v{build}</span></span>
           </div>
           <div className="flex items-center gap-2">
             <Activity size={14} className="text-slate-400" />
@@ -119,7 +119,7 @@ const EnvironmentManager = ({ envData }) => {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+          <h3 className="text-2xl font-black text-black dark:text-white flex items-center gap-3">
              <Server className="text-teal-500" />
              Environment Manager
           </h3>
@@ -158,7 +158,7 @@ const EnvironmentManager = ({ envData }) => {
                   <p className="text-slate-400 text-sm">Edge Network: Global | SSL: Active | CDN: Purged 2h ago</p>
                </div>
             </div>
-            <button title="Interactive Button" aria-label="Interactive Button" className="px-6 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
+            <button title="Interactive Button" aria-label="Interactive Button" className="px-6 py-3 bg-teal-500 text-black font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:scale-105 transition-transform">
                Purge Global Cache
             </button>
          </div>

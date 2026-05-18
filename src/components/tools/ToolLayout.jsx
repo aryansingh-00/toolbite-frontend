@@ -39,7 +39,7 @@ const ToolLayout = ({
           <ChevronRight size={14} />
           <Link to="/tools" className="hover:text-teal-600 transition-colors">Tools</Link>
           <ChevronRight size={14} />
-          <span className="text-slate-900 truncate">{title}</span>
+          <span className="text-black truncate">{title}</span>
         </nav>
 
         {/* Header */}
@@ -59,15 +59,15 @@ const ToolLayout = ({
               </div>
             )}
             <div>
-              <span className="inline-block px-3 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded-full mb-2 uppercase tracking-wider">
+              <span className="inline-block px-3 py-1 bg-slate-200 text-black text-xs font-bold rounded-full mb-2 uppercase tracking-wider">
                 {category}
               </span>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-black tracking-tight">
                 {title}
               </h1>
             </div>
           </div>
-          <p className="text-xl text-slate-600 max-w-2xl leading-relaxed">
+          <p className="text-xl text-black max-w-2xl leading-relaxed">
             {description}
           </p>
         </div>
@@ -97,16 +97,16 @@ const ToolLayout = ({
         {/* Info Section (For SEO value) */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-slate-900 mb-2">100% Secure</h3>
-            <p className="text-sm text-slate-600">Your data never leaves your device. All processing happens locally in your browser.</p>
+            <h3 className="font-bold text-black mb-2">100% Secure</h3>
+            <p className="text-sm text-black">Your data never leaves your device. All processing happens locally in your browser.</p>
           </div>
           <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-slate-900 mb-2">Completely Free</h3>
-            <p className="text-sm text-slate-600">No account required, no ads, and no hidden costs. Unlimited usage for everyone.</p>
+            <h3 className="font-bold text-black mb-2">Completely Free</h3>
+            <p className="text-sm text-black">No account required, no ads, and no hidden costs. Unlimited usage for everyone.</p>
           </div>
           <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
-            <h3 className="font-bold text-slate-900 mb-2">Fast & Modern</h3>
-            <p className="text-sm text-slate-600">Built with high-performance React technology for an instant user experience.</p>
+            <h3 className="font-bold text-black mb-2">Fast & Modern</h3>
+            <p className="text-sm text-black">Built with high-performance React technology for an instant user experience.</p>
           </div>
         </div>
       </div>

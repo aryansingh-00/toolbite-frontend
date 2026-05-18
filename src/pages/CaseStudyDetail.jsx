@@ -25,8 +25,8 @@ const CaseStudyDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
         <div className="text-center">
-          <h1 className="text-4xl font-black text-slate-900 mb-4">Project Not Found</h1>
-          <p className="text-slate-600 mb-8">Redirecting you back to the portfolio...</p>
+          <h1 className="text-4xl font-black text-black mb-4">Project Not Found</h1>
+          <p className="text-black mb-8">Redirecting you back to the portfolio...</p>
           <div className="w-12 h-12 border-4 border-teal-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
         </div>
       </div>
@@ -90,8 +90,8 @@ const CaseStudyDetail = () => {
             {/* Project Overview */}
             <div className="lg:col-span-2 space-y-12">
               <div>
-                <h2 className="text-3xl font-black text-slate-900 mb-6">The Strategic Objective</h2>
-                <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                <h2 className="text-3xl font-black text-black mb-6">The Strategic Objective</h2>
+                <p className="text-xl text-black leading-relaxed font-medium">
                   {project.description}
                 </p>
                 <p className="text-lg text-slate-500 mt-6 leading-relaxed">
@@ -102,22 +102,22 @@ const CaseStudyDetail = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
                   <Cpu className="text-teal-500 mb-4" size={32} />
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Technical Core</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-black mb-2">Technical Core</h3>
+                  <p className="text-black text-sm leading-relaxed">
                     Built on a custom React/Vite stack with sub-second TTI (Time to Interactive) and optimized asset pipelines.
                   </p>
                 </div>
                 <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100">
                   <ShieldCheck className="text-blue-500 mb-4" size={32} />
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Security & Scale</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-black mb-2">Security & Scale</h3>
+                  <p className="text-black text-sm leading-relaxed">
                     Enterprise-grade security protocols and a globally distributed edge network for 99.99% uptime.
                   </p>
                 </div>
               </div>
 
               <div>
-                <h2 className="text-3xl font-black text-slate-900 mb-6">Key Engineering Milestones</h2>
+                <h2 className="text-3xl font-black text-black mb-6">Key Engineering Milestones</h2>
                 <ul className="space-y-4">
                   {[
                     "Zero-latency state management for real-time data synchronization.",
@@ -128,7 +128,7 @@ const CaseStudyDetail = () => {
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-4">
                       <CheckCircle2 className="text-teal-500 shrink-0 mt-1" size={20} />
-                      <span className="text-slate-600 font-medium">{item}</span>
+                      <span className="text-black font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -166,7 +166,7 @@ const CaseStudyDetail = () => {
                     href={project.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full py-4 bg-white text-slate-900 rounded-2xl font-black hover:bg-teal-400 transition-all group"
+                    className="flex items-center justify-center gap-3 w-full py-4 bg-white text-black rounded-2xl font-black hover:bg-teal-400 transition-all group"
                   >
                     Launch Live Site
                     <ExternalLink size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -192,15 +192,15 @@ const CaseStudyDetail = () => {
       {/* CTA Section */}
       <section className="py-24 bg-slate-50 border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-black text-slate-900 mb-6">Ready to scale your technical vision?</h2>
-          <p className="text-xl text-slate-600 mb-10">
+          <h2 className="text-4xl font-black text-black mb-6">Ready to scale your technical vision?</h2>
+          <p className="text-xl text-black mb-10">
             Let's build a platform that doesn't just look great, but dominates your market through engineering excellence.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/contact" className="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-2xl font-black shadow-xl hover:bg-teal-600 transition-all">
               Schedule Architecture Call
             </Link>
-            <Link to="/templates" className="w-full sm:w-auto px-10 py-5 bg-white border-2 border-slate-200 text-slate-900 rounded-2xl font-black hover:border-teal-500 transition-all">
+            <Link to="/templates" className="w-full sm:w-auto px-10 py-5 bg-white border-2 border-slate-200 text-black rounded-2xl font-black hover:border-teal-500 transition-all">
               Browse Template Vault
             </Link>
           </div>

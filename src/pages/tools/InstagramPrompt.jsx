@@ -41,19 +41,19 @@ The goal is to maximize shares and saves.`;
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Viral Architecture: Why Your Reels Need Strategy</h2>
-            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+            <h2 className="text-3xl font-black text-black mb-6 font-sans">The Viral Architecture: Why Your Reels Need Strategy</h2>
+            <p className="text-lg leading-relaxed text-black font-medium">
               In 2026, the Instagram algorithm has shifted from simple engagement to "Retention Depth." It's no longer enough to get a view; you must keep the viewer and inspire a save or share. Our prompt generator is designed to architect those exact psychological triggers.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">The 3-Second Hook Rule</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">The 3-Second Hook Rule</h3>
+              <p className="text-black leading-relaxed">
                 The first 3 seconds of your Reel are the most valuable real estate on the internet. Our generator prioritizes "Visual Pattern Interrupts"—elements that stop the thumb mid-scroll.
               </p>
-              <ul className="space-y-2 text-slate-600">
+              <ul className="space-y-2 text-black">
                 <li className="flex gap-2 font-medium">
                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
                    Negative Hook: "Stop doing X if you want Y"
@@ -70,11 +70,11 @@ The goal is to maximize shares and saves.`;
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Retention Engineering</h3>
-              <p className="text-slate-600 leading-relaxed italic border-l-4 border-slate-100 pl-4">
+              <h3 className="text-xl font-bold text-black mb-4">Retention Engineering</h3>
+              <p className="text-black leading-relaxed italic border-l-4 border-slate-100 pl-4">
                 "High retention is the signal Google and Meta use to determine if content is high value."
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 We use fast-paced structured flows to ensure there are no "dull" moments. Each prompt includes specific text-overlay strategies to keep users reading even when the audio is off.
               </p>
             </div>
@@ -88,8 +88,8 @@ The goal is to maximize shares and saves.`;
           </section>
 
           <section>
-            <h3 className="text-xl font-bold text-slate-900 mb-4 font-sans">Maximize Shares & Saves</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4 font-sans">Maximize Shares & Saves</h3>
+            <p className="text-black leading-relaxed">
               Shares are the #1 reach multiplier. Our prompts focus on "Relatable Truths" and "Saveable Value" (like checklists or hidden features) to ensure your followers act as your secondary distribution network.
             </p>
           </section>
@@ -100,7 +100,7 @@ The goal is to maximize shares and saves.`;
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Sparkles size={16} className="text-rose-500" />
                 Industry or Niche
               </label>
@@ -109,19 +109,19 @@ The goal is to maximize shares and saves.`;
                 value={niche}
                 onChange={(e) => setNiche(e.target.value)}
                 placeholder="e.g., Fitness, Tech, Food, Real Estate"
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-slate-800"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-black"
               />
             </div>
             
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Wand2 size={16} className="text-purple-500" />
                 Aesthetic Vibe
               </label>
               <select 
                 value={vibe}
                 onChange={(e) => setVibe(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-black appearance-none"
               >
                 <option>Aesthetic / Minimalist</option>
                 <option>High Energy / Fast Paced</option>
@@ -133,14 +133,14 @@ The goal is to maximize shares and saves.`;
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Zap size={16} className="text-amber-500" />
                 Ideal Length
               </label>
               <select 
                 value={duration}
                 onChange={(e) => setDuration(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-500 transition-all font-medium text-black appearance-none"
               >
                 <option>5-7 Seconds (Fast Hook)</option>
                 <option>7-15 Seconds (Normal)</option>
@@ -197,7 +197,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-12 h-12 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={24} />
       </div>
-      <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
+      <h4 className="text-lg font-bold text-black mb-2">{title}</h4>
       <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

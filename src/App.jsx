@@ -7,13 +7,15 @@ import { PersonalizationProvider } from './contexts/PersonalizationContext';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import FloatingChat from './components/FloatingChat';
-import CookieConsent from './components/CookieConsent';
-import ExitIntentModal from './components/ExitIntentModal';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
-import CommandPalette from './components/CommandPalette';
+
+const FloatingChat = React.lazy(() => import('./components/FloatingChat'));
+const CookieConsent = React.lazy(() => import('./components/CookieConsent'));
+const ExitIntentModal = React.lazy(() => import('./components/ExitIntentModal'));
+const CommandPalette = React.lazy(() => import('./components/CommandPalette'));
+
 import NoiseOverlay from './components/NoiseOverlay';
 import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
@@ -57,7 +59,6 @@ const ROICalculator = React.lazy(() => import('./pages/tools/ROICalculator'));
 const BrandAudit = React.lazy(() => import('./pages/tools/BrandAudit'));
 const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
-const PricingPage = React.lazy(() => import('./pages/PricingPage'));
 const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
 const PdfConverter = React.lazy(() => import('./pages/tools/PdfConverter'));
@@ -101,11 +102,7 @@ function App() {
       <PersonalizationProvider>
         <AuthProvider>
           <ClientAuthProvider>
-          <div className="min-h-screen relative overflow-hidden bg-white dark:bg-[#030712] font-sans text-slate-900 dark:text-slate-100 flex flex-col transition-colors duration-300">
-            {/* Ambient Background Glows */}
-            <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-            <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-            <div className="fixed top-[30%] right-[10%] w-[30%] h-[30%] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
+          <div className="min-h-screen relative overflow-hidden bg-white font-sans text-black flex flex-col transition-colors duration-300">
             
             <NoiseOverlay />
             <Toaster position="top-right" />
@@ -125,7 +122,6 @@ function App() {
                   <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
-                  <Route path="/pricing" element={<PageTransition><PricingPage /></PageTransition>} />
                   <Route path="/partners" element={<PageTransition><PartnerShowcase /></PageTransition>} />
                   <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
@@ -182,14 +178,14 @@ function App() {
           </main>
 
           {!isCustomLayoutRoute && (
-            <>
+            <React.Suspense fallback={null}>
               <Footer />
               <FloatingChat />
               <BackToTop />
               <CookieConsent />
               <ExitIntentModal />
               <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
-            </>
+            </React.Suspense>
           )}
           </div>
           </ClientAuthProvider>

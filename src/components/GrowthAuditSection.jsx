@@ -17,7 +17,7 @@ const GrowthAuditSection = () => {
           <div className="flex-shrink-0 flex gap-4">
             <Link 
               to="/tools/roi-calculator"
-              className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-xl shadow-md flex items-center gap-2 transition-all"
+              className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-black font-bold rounded-xl shadow-md flex items-center gap-2 transition-all"
             >
               Predict My ROI <TrendingUp size={18} />
             </Link>

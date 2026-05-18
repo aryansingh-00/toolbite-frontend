@@ -19,14 +19,13 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-16 bg-transparent relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#B19CD9]/5 rounded-bl-[100px] -z-10 blur-[80px]"></div>
+    <section id="services" className="pt-0 pb-16 bg-white relative overflow-hidden">
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-[#B19CD9] font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
-          <p className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+          <h2 className="text-black font-bold tracking-widest uppercase text-xs mb-4">What We Do</h2>
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tighter">Digital Engineering for <br className="hidden md:block"/> Absolute Dominance.</h3>
+          <p className="text-lg text-black dark:text-slate-400 font-medium leading-relaxed">
             From enterprise-grade mobile ecosystems to high-velocity web applications, we architect digital foundations that transform vision into immediate market authority.
           </p>
         </div>
@@ -36,7 +35,7 @@ const Services = () => {
           
           {/* Left Arrow */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 hidden md:block opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => scroll('left')} title="Scroll Left" aria-label="Scroll Left" className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-[#B19CD9] transition-all shadow-xl hover:scale-110">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => scroll('left')} title="Scroll Left" aria-label="Scroll Left" className="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-black hover:bg-slate-50 hover:text-[#B19CD9] transition-all shadow-xl hover:scale-110">
               <ChevronLeft size={28} />
             </button>
           </div>
@@ -87,16 +86,16 @@ const Services = () => {
                   <TiltCard className="w-[85vw] sm:w-[45vw] lg:w-[28vw] xl:w-[300px]">
                     <Link 
                       to={service.slug ? `/services/${service.slug}` : `/#contact`}
-                      className={`p-8 rounded-3xl border border-slate-100 dark:border-slate-800 ${currentStyle.shadow} hover:border-transparent hover:bg-gradient-to-br ${currentStyle.bg} hover:-translate-y-1 transition-all duration-300 bg-white dark:bg-slate-900 group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px] z-10 block`}
+                      className="p-8 rounded-3xl border border-slate-200 hover:border-black hover:-translate-y-1 hover:shadow-xl transition-all duration-300 bg-white group cursor-pointer relative overflow-hidden flex flex-col items-start text-left h-full min-h-[320px] z-10 block"
                     >
-                      <div className={`relative z-10 w-14 h-14 rounded-2xl ${service.bg} group-hover:bg-white/20 flex items-center justify-center mb-6 group-hover:-translate-y-1 group-hover:!text-white transition-all duration-300 shadow-sm group-hover:shadow-none flex-shrink-0`}>
-                        {service.icon}
+                      <div className="relative z-10 w-14 h-14 rounded-2xl bg-black flex items-center justify-center mb-6 shadow-md transition-all duration-300 flex-shrink-0">
+                        {React.cloneElement(service.icon, { className: "w-6 h-6 text-white" })}
                       </div>
-                      <h4 className="relative z-10 text-xl font-bold text-slate-900 dark:text-white group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h4>
-                      <p className="relative z-10 text-slate-600 dark:text-slate-400 group-hover:text-white/90 leading-relaxed text-sm flex-grow transition-colors duration-300">
+                      <h4 className="relative z-10 text-xl font-bold text-black mb-3 transition-colors duration-300">{service.title}</h4>
+                      <p className="relative z-10 text-black/80 leading-relaxed text-sm flex-grow transition-colors duration-300">
                         {service.description}
                       </p>
-                      <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-bold text-[#B19CD9] group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
+                      <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-bold text-black opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 duration-300">
                         Learn More <ArrowRight size={14} />
                       </div>
                     </Link>
@@ -114,7 +113,7 @@ const Services = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mt-8"
         >
-          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-gradient-to-r from-[#B19CD9] via-[#FFB6C1] to-[#87CEEB] text-slate-950 font-black hover:opacity-90 transition-all shadow-[0_0_30px_rgba(177,156,217,0.3)] group hover:scale-105">
+          <a href="/#contact" className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full bg-black text-white font-black hover:bg-black/90 transition-all shadow-xl group hover:scale-105">
             Discuss Your Project 
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>

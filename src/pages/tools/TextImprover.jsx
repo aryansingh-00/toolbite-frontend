@@ -58,19 +58,19 @@ Requirements:
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Power of Persuasive Copywriting</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Power of Persuasive Copywriting</h2>
+            <p className="text-lg leading-relaxed text-black">
               The difference between content that simply <em>informs</em> and content that <em>converts</em> lies entirely in the execution of your prose. A robust text improver doesn't just fix typos; it strategically elevates your vocabulary, smooths out awkward phrasing, and refines your structure to maximize emotional impact and cognitive fluency. Whether you are generating sales copy, drafting CEO-level communications, or structuring an academic thesis, mastering tone is your ultimate lever for engagement.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Mastering Tone in Digital Communication</h3>
-              <p className="text-slate-600 leading-relaxed italic mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">Mastering Tone in Digital Communication</h3>
+              <p className="text-black leading-relaxed italic mb-4">
                 Choosing the right modality for your audience defines how your message is received.
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Professional:</strong> Employs authoritative terminology, passive voice where appropriate, and structured logic. Best for B2B proposals and corporate documentation.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Creative:</strong> Leverages vivid imagery, dynamic metaphors, and emotional hooks. Ideal for brand storytelling and consumer-facing ad copy.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Concise:</strong> Strips redundant adjectives and adverbs to deliver rapid value. Essential for social media updates and user interface (UI) microcopy.</span></li>
@@ -78,16 +78,16 @@ Requirements:
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Why First Impressions Matter</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Why First Impressions Matter</h3>
+              <p className="text-black leading-relaxed">
                 Eye-tracking studies consistently demonstrate that visitors spend less than 15 seconds evaluating a webpage. If your opening hook is weak, overly dense, or confusing, you lose the opportunity to convert. Using an AI-driven text improver acts as a real-time editorial team, guaranteeing that your first impression bridges the gap between your brand's intent and the reader's expectation. High-quality writing directly translates to lower bounce rates and higher time-on-page—key signals for search engine optimization (SEO).
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Structuring AI Prompts for Perfect Copy</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Structuring AI Prompts for Perfect Copy</h3>
+            <p className="text-black leading-relaxed">
               When utilizing Large Language Models (LLMs) like GPT-4 or Claude to rewrite text, the quality of the output depends entirely on the specificity of the input prompt. Our Text Improver acts as an algorithmic intermediate, taking your raw text and structuring a highly sophisticated, multi-parameter prompt. It defines the exact persona, grammatical constraints, and stylistic flair required, bypassing the generic "AI-voice" to produce organic, specialized output.
             </p>
           </section>
@@ -98,7 +98,7 @@ Requirements:
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
           <div className="flex flex-col md:flex-row gap-8 mb-8">
             <div className="flex-grow">
-              <label className="text-sm font-bold text-slate-700 flex items-center gap-2 mb-4">
+              <label className="text-sm font-bold text-black flex items-center gap-2 mb-4">
                 <MessageSquare size={16} className="text-slate-400" />
                 Your Original Text
               </label>
@@ -106,17 +106,17 @@ Requirements:
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Enter your sentence or paragraph to improve..."
-                className="w-full h-48 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none"
+                className="w-full h-48 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black resize-none"
               />
             </div>
             
             <div className="w-full md:w-64 space-y-4">
-              <label className="text-sm font-bold text-slate-700 block">Improvement Mode</label>
+              <label className="text-sm font-bold text-black block">Improvement Mode</label>
               {['Professional', 'Creative', 'Concise', 'Clear'].map((m) => (
                 <button title="Interactive Button" aria-label="Interactive Button"
                   key={m}
                   onClick={() => setMode(m)}
-                  className={`w-full px-6 py-4 rounded-xl font-bold transition-all text-left flex items-center justify-between group ${mode === m ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}
+                  className={`w-full px-6 py-4 rounded-xl font-bold transition-all text-left flex items-center justify-between group ${mode === m ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-50 text-black hover:bg-slate-100'}`}
                 >
                   {m}
                   <Sparkles size={14} className={mode === m ? 'opacity-100 rotate-12' : 'opacity-0'} />
@@ -157,7 +157,7 @@ Requirements:
                   optimized for chatgpt/opus
                 </span>
               </div>
-              <p className="text-slate-800 font-medium leading-relaxed whitespace-pre-line mb-4">
+              <p className="text-black font-medium leading-relaxed whitespace-pre-line mb-4">
                 {improvedText}
               </p>
               <button title="Interactive Button" aria-label="Interactive Button" 
@@ -208,7 +208,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-12 h-12 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={24} />
       </div>
-      <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
+      <h4 className="text-lg font-bold text-black mb-2">{title}</h4>
       <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

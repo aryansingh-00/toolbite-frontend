@@ -168,20 +168,20 @@ export default function AIFillModal({ formData, onApply, onClose }) {
                     value={jobTitle}
                     onChange={e => setJobTitle(e.target.value)}
                     placeholder="e.g. Senior Frontend Engineer"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-sky-500 text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3.5 text-white placeholder:text-black focus:outline-none focus:border-sky-500 text-sm"
                   />
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Job Description *</label>
-                    <span className="text-[10px] text-slate-600">{jobDescription.length} chars</span>
+                    <span className="text-[10px] text-black">{jobDescription.length} chars</span>
                   </div>
                   <textarea
                     value={jobDescription}
                     onChange={e => setJobDescription(e.target.value)}
                     placeholder="Paste the full job description here — requirements, responsibilities, qualifications..."
                     rows={12}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-sky-500 resize-none text-sm leading-relaxed"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-black focus:outline-none focus:border-sky-500 resize-none text-sm leading-relaxed"
                   />
                 </div>
                 <div className="p-4 bg-sky-500/5 border border-sky-500/20 rounded-2xl flex items-start gap-3">

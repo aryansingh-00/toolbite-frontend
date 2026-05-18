@@ -29,7 +29,6 @@ const CommandPalette = ({ isOpen, onClose }) => {
     { id: 'mobile-apps', title: 'Mobile App Development', desc: 'iOS, Android & Cross-Platform', category: 'Services', icon: Monitor, href: '/#services' },
     { id: 'brand-strategy', title: 'Brand Strategy', desc: 'Authority & identity engineering', category: 'Services', icon: Settings, href: '/#services' },
     // Pages
-    { id: 'pricing', title: 'Pricing & Plans', desc: 'Transparent tiered architecture pricing', category: 'Pages', icon: Command, href: '/pricing' },
     { id: 'about', title: 'About ToolBite', desc: 'Our mission and digital philosophy', category: 'Pages', icon: FileText, href: '/about' },
     { id: 'blog', title: 'Digital Insights Blog', desc: 'Strategy, design, and SEO updates', category: 'Pages', icon: FileText, href: '/blog' },
     { id: 'contact', title: 'Get in Touch', desc: 'Consult with our engineering team', category: 'Pages', icon: MessageCircle, href: '/contact' },
@@ -129,7 +128,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
                   placeholder="Where would you like to go?"
                   value={query}
                   onChange={(e) => { setQuery(e.target.value); setSelectedIndex(0); }}
-                  className="w-full bg-transparent border-none outline-none text-xl font-bold text-slate-800 dark:text-white placeholder:text-slate-400"
+                  className="w-full bg-transparent border-none outline-none text-xl font-bold text-black dark:text-white placeholder:text-slate-400"
                 />
                 <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700">
                   <span className="text-[10px] font-black uppercase text-slate-500">ESC</span>
@@ -172,7 +171,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
                                   {typeof Icon === 'function' ? <Icon size={20} /> : <Zap size={20} />}
                                 </div>
                                 <div className="flex-grow">
-                                  <p className={`text-sm font-bold ${active ? 'text-teal-600 dark:text-teal-400' : 'text-slate-800 dark:text-slate-100 uppercase'}`}>{item.title}</p>
+                                  <p className={`text-sm font-bold ${active ? 'text-teal-600 dark:text-teal-400' : 'text-black dark:text-slate-100 uppercase'}`}>{item.title}</p>
                                   <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">{item.desc}</p>
                                 </div>
                                 {active && (
@@ -188,9 +187,9 @@ const CommandPalette = ({ isOpen, onClose }) => {
                 ) : (
                   <div className="py-20 text-center">
                     <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Search className="text-slate-300 dark:text-slate-600" size={32} />
+                      <Search className="text-slate-300 dark:text-black" size={32} />
                     </div>
-                    <p className="text-lg font-bold text-slate-800 dark:text-white">No results for "{query}"</p>
+                    <p className="text-lg font-bold text-black dark:text-white">No results for "{query}"</p>
                     <p className="text-sm text-slate-500 mt-2">Try searching for a tool name or a service.</p>
                   </div>
                 )}

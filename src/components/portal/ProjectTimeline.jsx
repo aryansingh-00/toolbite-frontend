@@ -31,7 +31,7 @@ const ProjectTimeline = ({ projectId }) => {
       transition={{ delay: 0.1 }}
       className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm"
     >
-      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+      <h3 className="text-xl font-bold text-black dark:text-white mb-8 flex items-center gap-3">
         <CheckCircle2 className="text-teal-500" />
         Project Roadmap
       </h3>
@@ -68,7 +68,7 @@ const ProjectTimeline = ({ projectId }) => {
               {/* Text Content */}
               <div>
                 <h4 className={`font-bold mb-1 ${
-                  phase.status === 'completed' ? 'text-slate-900 dark:text-white' :
+                  phase.status === 'completed' ? 'text-black dark:text-white' :
                   phase.status === 'active' ? 'text-teal-600 dark:text-teal-400' :
                   'text-slate-400'
                 }`}>{phase.title}</h4>

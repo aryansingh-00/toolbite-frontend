@@ -22,7 +22,7 @@ const FAQItem = ({ question, answer }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left group"
       >
-        <span className={`font-bold transition-colors ${isOpen ? 'text-teal-600 dark:text-teal-400' : 'text-slate-900 dark:text-slate-100 group-hover:text-teal-500'}`}>
+        <span className={`font-bold transition-colors ${isOpen ? 'text-teal-600 dark:text-teal-400' : 'text-black dark:text-slate-100 group-hover:text-teal-500'}`}>
           {question}
         </span>
         <ChevronDown 
@@ -38,7 +38,7 @@ const FAQItem = ({ question, answer }) => {
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            <p className="pb-6 text-black dark:text-slate-400 leading-relaxed font-medium">
               {answer}
             </p>
           </motion.div>
@@ -73,7 +73,7 @@ const PortalSupport = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+          <h3 className="text-2xl font-black text-black dark:text-white flex items-center gap-3">
              <MessageSquare className="text-teal-500" />
              Client Success Support
           </h3>
@@ -89,7 +89,7 @@ const PortalSupport = () => {
         {/* Left: Contact Options */}
         <div className="lg:col-span-5 space-y-6">
            <div className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Connect Instantly</h4>
+              <h4 className="text-lg font-bold text-black dark:text-white mb-6">Connect Instantly</h4>
               
               <div className="space-y-4">
                  {[
@@ -104,7 +104,7 @@ const PortalSupport = () => {
                          </div>
                          <div className="text-left">
                             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{opt.label}</p>
-                            <p className="text-sm font-bold text-slate-900 dark:text-white">{opt.val}</p>
+                            <p className="text-sm font-bold text-black dark:text-white">{opt.val}</p>
                          </div>
                       </div>
                       <span className="text-xs font-bold text-teal-600 opacity-0 group-hover:opacity-100 transition-opacity">{opt.action}</span>
@@ -131,7 +131,7 @@ const PortalSupport = () => {
            <div className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm h-full">
               <div className="flex items-center gap-3 mb-8">
                  <ShieldQuestion className="text-indigo-500" />
-                 <h4 className="text-lg font-bold text-slate-900 dark:text-white">Client Knowledge Hub</h4>
+                 <h4 className="text-lg font-bold text-black dark:text-white">Client Knowledge Hub</h4>
               </div>
               
               <div className="space-y-1">

@@ -13,7 +13,6 @@ import {
   Clock,
   DollarSign
 } from 'lucide-react';
-import { jsPDF } from 'jspdf';
 
 const questions = [
   { id: 'name', text: "Hello! I'm the ToolBite AI Strategist. Let's start with your name?", type: 'text' },
@@ -120,7 +119,8 @@ const ProjectStrategist = () => {
     }, 3000);
   };
 
-  const generatePDF = () => {
+  const generatePDF = async () => {
+    const { jsPDF } = await import('jspdf');
     const doc = new jsPDF();
     
     // Styling
@@ -216,36 +216,36 @@ const ProjectStrategist = () => {
   };
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-950 transition-colors relative overflow-hidden" id="ai-strategist">
+    <section className="py-24 bg-white relative overflow-hidden" id="ai-strategist">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left: Content */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full font-bold text-sm mb-6 border border-teal-500/20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full font-bold text-sm mb-6 border border-black">
               <Sparkles size={16} />
               AI-Powered Project Scoping
             </div>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tighter">
-              Build with <span className="text-teal-500">Perfect Clarity.</span>
+            <h2 className="text-4xl md:text-6xl font-black text-black leading-[1.1] mb-8 tracking-tighter">
+              Build with <span className="text-black underline">Perfect Clarity.</span>
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 font-medium mb-10 leading-relaxed max-w-xl">
+            <p className="text-xl text-black font-medium mb-10 leading-relaxed max-w-xl">
               Don't guess your project requirements. Chat with our AI Strategist to define your goals, scope features, and receive a professional Strategy Brief in minutes.
             </p>
             
             <div className="space-y-6">
               {[
-                { icon: <TrendingUp className="text-teal-500" />, title: "Benchmark Analysis", desc: "We compare your goals against high-conversion market standards." },
-                { icon: <Target className="text-emerald-500" />, title: "Strategic Alignment", desc: "Ensure your features match your target audience's true needs." },
+                { icon: <TrendingUp />, title: "Benchmark Analysis", desc: "We compare your goals against high-conversion market standards." },
+                { icon: <Target />, title: "Strategic Alignment", desc: "Ensure your features match your target audience's true needs." },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 flex items-center justify-center shrink-0">
-                    {item.icon}
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center shrink-0">
+                    {React.cloneElement(item.icon, { className: "text-black w-5 h-5" })}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white">{item.title}</h4>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">{item.desc}</p>
+                    <h4 className="font-bold text-black">{item.title}</h4>
+                    <p className="text-black/60 text-sm">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -254,20 +254,26 @@ const ProjectStrategist = () => {
 
           {/* Right: Chat UI */}
           <div className="relative">
-            {/* Background elements */}
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -z-10"></div>
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -z-10"></div>
-
-            <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden min-h-[600px] flex flex-col">
+            <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden min-h-[600px] flex flex-col relative">
+              
+              {/* Background Illustration */}
+              <div 
+                className="absolute inset-0 opacity-[0.08] dark:opacity-[0.04] pointer-events-none z-0"
+                style={{
+                  backgroundImage: "url('/images/ai-strategist-chat.png')",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
               
               {/* Header */}
-              <div className="px-8 py-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-900">
+              <div className="px-8 py-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white/80 dark:bg-slate-900/80 backdrop-blur-md relative z-10">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/30">
+                  <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center text-white shadow-lg">
                     <Bot size={20} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white">AI Strategist</h3>
+                    <h3 className="font-bold text-black">AI Strategist</h3>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
                       <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Online now</span>
@@ -277,7 +283,7 @@ const ProjectStrategist = () => {
               </div>
 
               {/* Chat Area */}
-              <div ref={scrollRef} className="flex-1 p-8 overflow-y-auto space-y-6 max-h-[400px]">
+              <div ref={scrollRef} className="flex-1 p-8 overflow-y-auto space-y-6 max-h-[400px] relative z-10">
                 <AnimatePresence>
                   {messages.map((msg, idx) => (
                     <motion.div
@@ -289,7 +295,7 @@ const ProjectStrategist = () => {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${msg.role === 'bot' ? 'bg-slate-100 dark:bg-slate-800 text-teal-500' : 'bg-teal-500 text-white'}`}>
                         {msg.role === 'bot' ? <Bot size={16} /> : <User size={16} />}
                       </div>
-                      <div className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm font-medium leading-relaxed ${msg.role === 'bot' ? 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-tl-none' : 'bg-teal-500 text-white rounded-tr-none shadow-lg shadow-teal-500/20'}`}>
+                      <div className={`max-w-[80%] px-5 py-3 rounded-2xl text-sm font-medium leading-relaxed ${msg.role === 'bot' ? 'bg-slate-50 dark:bg-slate-800 text-black dark:text-slate-300 rounded-tl-none' : 'bg-teal-500 text-white rounded-tr-none shadow-lg shadow-teal-500/20'}`}>
                         {msg.content}
                       </div>
                     </motion.div>
@@ -318,13 +324,13 @@ const ProjectStrategist = () => {
                     <div className="w-16 h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-emerald-500/20">
                       <CheckCircle2 size={32} />
                     </div>
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Strategy Complete!</h4>
+                    <h4 className="text-xl font-bold text-black dark:text-white mb-2">Strategy Complete!</h4>
                     <p className="text-slate-500 dark:text-slate-400 text-sm mb-8 font-medium">
                       Your business requirements have been analyzed. Download your professional Strategy Brief below.
                     </p>
                     <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={generatePDF}
-                      className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 group"
+                      className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3 group"
                     >
                       Download My Strategy Brief
                       <FileDown size={20} className="group-hover:translate-y-0.5 transition-transform" />
@@ -366,12 +372,12 @@ const ProjectStrategist = () => {
 
               {/* Input Area */}
               {!isComplete && !isFinishing && (
-                <div className="p-8 pt-0 border-t border-slate-100 dark:border-slate-800">
+                <div className="p-8 pt-0 border-t border-slate-100 dark:border-slate-800 relative z-10">
                   {questions[currentQuestionIndex].type === 'range' ? (
                     <div className="mt-8 space-y-8 p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-100 dark:border-slate-800">
                       <div className="flex justify-between items-center mb-4">
                         <span className="text-xs font-black text-slate-400 uppercase tracking-widest">$0</span>
-                        <div className="px-4 py-2 bg-teal-500 text-slate-900 rounded-full font-black text-xl shadow-lg shadow-teal-500/20">
+                        <div className="px-4 py-2 bg-teal-500 text-black rounded-full font-black text-xl shadow-lg shadow-teal-500/20">
                           ${rangeValue}
                         </div>
                         <span className="text-xs font-black text-slate-400 uppercase tracking-widest">$500</span>
@@ -386,7 +392,7 @@ const ProjectStrategist = () => {
                       />
                       <button title="Interactive Button" aria-label="Interactive Button"
                         onClick={() => handleSend(`$${rangeValue}`)}
-                        className="w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-xl shadow-xl shadow-teal-500/10 transition-all flex items-center justify-center gap-2 group"
+                        className="w-full py-4 bg-teal-500 hover:bg-teal-400 text-black font-bold rounded-xl shadow-xl shadow-teal-500/10 transition-all flex items-center justify-center gap-2 group"
                       >
                         Confirm Budget Selection
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -398,7 +404,7 @@ const ProjectStrategist = () => {
                         <button title="Interactive Button" aria-label="Interactive Button"
                           key={i}
                           onClick={() => handleSend(opt)}
-                          className="py-3 px-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 text-sm font-bold text-slate-600 dark:text-slate-400 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 bg-slate-50 dark:bg-slate-950 transition-all"
+                          className="py-3 px-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 text-sm font-bold text-black dark:text-slate-400 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 bg-slate-50 dark:bg-slate-950 transition-all"
                         >
                           {opt}
                         </button>

@@ -11,7 +11,7 @@ const StagingView = ({ stagingUrl = "https://staging.client-site-demo.toolbite.a
     >
       <div className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2 flex items-center gap-3">
+          <h3 className="text-2xl font-black text-black dark:text-white mb-2 flex items-center gap-3">
             <Globe className="text-teal-500" />
             Live Staging Environment
           </h3>
@@ -21,7 +21,7 @@ const StagingView = ({ stagingUrl = "https://staging.client-site-demo.toolbite.a
           href={stagingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:bg-teal-400 transition-all flex items-center gap-2"
+          className="px-6 py-3 bg-teal-500 text-black font-bold rounded-xl shadow-lg shadow-teal-500/20 hover:bg-teal-400 transition-all flex items-center gap-2"
         >
           Open Staging Link
           <ExternalLink size={18} />
@@ -34,16 +34,16 @@ const StagingView = ({ stagingUrl = "https://staging.client-site-demo.toolbite.a
             <div className="w-10 h-10 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center">
               <Lock size={20} />
             </div>
-            <h4 className="font-bold text-slate-900 dark:text-white">Credentials</h4>
+            <h4 className="font-bold text-black dark:text-white">Credentials</h4>
           </div>
           <div className="space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-[10px]">Username</span>
-              <span className="text-slate-900 dark:text-white font-mono bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">admin_staging</span>
+              <span className="text-black dark:text-white font-mono bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">admin_staging</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-[10px]">Password</span>
-              <span className="text-slate-900 dark:text-white font-mono bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">tb_2026_demo</span>
+              <span className="text-black dark:text-white font-mono bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">tb_2026_demo</span>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const StagingView = ({ stagingUrl = "https://staging.client-site-demo.toolbite.a
       <div className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm p-4 overflow-hidden h-[400px]">
         <div className="w-full h-full bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center relative group">
           <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-             <button title="Interactive Button" aria-label="Interactive Button" className="px-8 py-4 bg-teal-500 text-slate-900 font-bold rounded-2xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+             <button title="Interactive Button" aria-label="Interactive Button" className="px-8 py-4 bg-teal-500 text-black font-bold rounded-2xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
                 Enter Fullscreen Preview
              </button>
           </div>

@@ -105,19 +105,19 @@ const PdfToImage = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">Liberating Your Visual Assets</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">Liberating Your Visual Assets</h2>
+            <p className="text-lg leading-relaxed text-black">
               While PDFs are incredible for maintaining layout consistency, they are notoriously difficult to edit, embed, or share selectively. If you need to post a specific chart from an annual report to social media, or embed a single slide from a presentation into an email, extracting high-fidelity images is the only elegant solution.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">The Flaw in Screenshots</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">The Flaw in Screenshots</h3>
+              <p className="text-black leading-relaxed mb-4">
                 The most common workaround for extracting PDF content is using the OS screenshot tool. This fails for three reasons:
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Resolution Loss:</strong> Screenshots are limited to your monitor's pixel density, meaning zooming in on an embedded vector will result in heavy pixelation.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Color Artifacts:</strong> OS rendering often applies subtle color profile shifts that distort brand assets.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Inefficiency:</strong> Manually framing and capturing a 50-page document is completely unscalable.</span></li>
@@ -125,16 +125,16 @@ const PdfToImage = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Vector to Raster Execution</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Vector to Raster Execution</h3>
+              <p className="text-black leading-relaxed">
                 Our rendering engine directly taps into the mathematical vector data inherent in the PDF structure. We render the page onto a hidden HTML5 Canvas at a 2.0x scale factor (often equivalent to 300 DPI print quality) before encoding it into a lossless PNG format. This guarantees that text remains crisp and charts remain sharp.
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Browser-Native Processing Power</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Browser-Native Processing Power</h3>
+            <p className="text-black leading-relaxed">
               Traditionally, manipulating PDFs required downloading clunky desktop software like Adobe Acrobat. We leverage `pdf.js` technology to parse the document binaries directly in your browser. This means you get desktop-grade extraction speeds with zero installation required, all while maintaining strict offline privacy for your proprietary documents.
             </p>
           </section>
@@ -160,7 +160,7 @@ const PdfToImage = () => {
               }`}>
                 <Upload size={48} className={isDragging ? 'text-teal-500 animate-bounce' : 'text-teal-600'} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">
+              <h3 className="text-2xl font-bold text-black mb-2">
                 {isDragging ? '✨ Drop your PDF here!' : 'Upload PDF Document'}
               </h3>
               <p className="text-slate-500 font-medium italic">
@@ -176,14 +176,14 @@ const PdfToImage = () => {
                   <FileImage size={28} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-extrabold text-slate-900 truncate max-w-md">{pdfFile.name}</h4>
+                  <h4 className="text-lg font-extrabold text-black truncate max-w-md">{pdfFile.name}</h4>
                   <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{numPages} Total Pages</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => { setPdfFile(null); setPages([]); }}
-                  className="px-6 py-3 bg-white text-slate-600 font-bold rounded-xl border border-slate-200 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all shadow-sm"
+                  className="px-6 py-3 bg-white text-black font-bold rounded-xl border border-slate-200 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all shadow-sm"
                 >
                   <Trash2 size={18} className="inline mr-2" />
                   Remove PDF
@@ -208,7 +208,7 @@ const PdfToImage = () => {
                 {pages.map((page) => (
                   <div key={page.id} className="group relative bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                     <img src={page.url} alt={`Page ${page.id}`} className="w-full h-auto aspect-[3/4] object-contain bg-slate-50 border-b border-slate-50" />
-                    <div className="absolute top-2 left-2 px-2 py-1 bg-white/90 backdrop-blur rounded-lg text-[10px] font-extrabold text-slate-800 shadow-sm">
+                    <div className="absolute top-2 left-2 px-2 py-1 bg-white/90 backdrop-blur rounded-lg text-[10px] font-extrabold text-black shadow-sm">
                       PAGE {page.id}
                     </div>
                     <div className="p-3">

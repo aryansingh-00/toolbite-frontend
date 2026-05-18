@@ -203,7 +203,7 @@ const ClientLogin = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border border-slate-800 rounded-2xl focus:ring-1 focus:ring-teal-500 focus:border-teal-500 bg-slate-950/50 text-white transition-all outline-none placeholder:text-slate-700"
+                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border border-slate-800 rounded-2xl focus:ring-1 focus:ring-teal-500 focus:border-teal-500 bg-slate-950/50 text-white transition-all outline-none placeholder:text-black"
                   placeholder="name@agency.com"
                 />
               </div>
@@ -222,7 +222,7 @@ const ClientLogin = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border border-slate-800 rounded-2xl focus:ring-1 focus:ring-teal-500 focus:border-teal-500 bg-slate-950/50 text-white transition-all outline-none placeholder:text-slate-700"
+                  className="block w-full pl-11 pr-4 py-3 sm:text-sm border border-slate-800 rounded-2xl focus:ring-1 focus:ring-teal-500 focus:border-teal-500 bg-slate-950/50 text-white transition-all outline-none placeholder:text-black"
                   placeholder="••••••••••••"
                 />
               </div>
@@ -232,11 +232,11 @@ const ClientLogin = () => {
               <button title="Interactive Button" aria-label="Interactive Button"
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-bold text-slate-900 bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-2xl shadow-sm text-sm font-bold text-black bg-teal-500 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all disabled:opacity-70 disabled:cursor-not-allowed group relative overflow-hidden"
               >
                 <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out" />
                 {loading ? (
-                  <Loader2 className="animate-spin w-5 h-5 text-slate-900" />
+                  <Loader2 className="animate-spin w-5 h-5 text-black" />
                 ) : (
                   <span className="flex items-center gap-2">
                     Sign In

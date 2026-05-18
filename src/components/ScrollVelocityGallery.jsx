@@ -28,7 +28,7 @@ function ParallaxColumn({ images, baseVelocity = 100 }) {
   });
 
   return (
-    <div className="flex flex-col gap-4 overflow-hidden h-[3000px]">
+    <div className="flex flex-col gap-4 overflow-hidden h-[800px]">
       <motion.div className="flex flex-col gap-4" style={{ y: x }}>
         {/* We repeat the large image array to ensure infinite smooth scrolling */}
         {[...images, ...images].map((src, i) => (
@@ -39,7 +39,7 @@ function ParallaxColumn({ images, baseVelocity = 100 }) {
             <OptimizedImage 
               src={src} 
               alt="Website Template Interface" 
-              priority={i < 5} // Load first few images with priority
+              priority={i < 2} // Load first few images with priority
               className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

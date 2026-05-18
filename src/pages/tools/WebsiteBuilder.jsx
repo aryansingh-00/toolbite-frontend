@@ -34,7 +34,7 @@ const WebsiteBuilder = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight leading-[1.1]"
+            className="text-5xl md:text-7xl font-black text-black mb-8 tracking-tight leading-[1.1]"
           >
             Don't Just Build. <br/>
             <span className="text-indigo-600">Launch with Authority.</span>
@@ -43,7 +43,7 @@ const WebsiteBuilder = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12"
+            className="text-xl text-black max-w-2xl mx-auto leading-relaxed mb-12"
           >
             Bypass the 3-month development cycle. Our Ready-Made Platforms provide enterprise-grade architecture that we brand, populate, and deploy for you in under 7 days.
           </motion.p>
@@ -51,7 +51,7 @@ const WebsiteBuilder = () => {
             <Link to="/start-project" className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl shadow-xl hover:bg-indigo-600 transition-all hover:-translate-y-1">
               Start Your Build
             </Link>
-            <a href="#how-it-works" className="px-10 py-5 bg-slate-50 text-slate-600 font-bold rounded-2xl border border-slate-200 hover:bg-slate-100 transition-all">
+            <a href="#how-it-works" className="px-10 py-5 bg-slate-50 text-black font-bold rounded-2xl border border-slate-200 hover:bg-slate-100 transition-all">
               See How It Works
             </a>
           </div>
@@ -75,8 +75,8 @@ const WebsiteBuilder = () => {
               <div className={`w-14 h-14 ${feature.bg} ${feature.color} rounded-2xl flex items-center justify-center mb-6`}>
                 <feature.icon size={28} />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">{feature.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+              <h3 className="text-2xl font-bold text-black mb-4">{feature.title}</h3>
+              <p className="text-black leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -116,10 +116,10 @@ const WebsiteBuilder = () => {
 
         {/* Pricing Comparison */}
         <div id="how-it-works" className="max-w-5xl mx-auto mb-32">
-          <h2 className="text-4xl font-black text-slate-900 mb-16 text-center tracking-tight">Rapid Deployment vs. Custom Build</h2>
+          <h2 className="text-4xl font-black text-black mb-16 text-center tracking-tight">Rapid Deployment vs. Custom Build</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 rounded-[3rem] overflow-hidden border border-slate-200 shadow-2xl">
             <div className="bg-white p-12">
-              <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <h3 className="text-2xl font-bold text-black mb-8 flex items-center gap-3">
                 <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 italic font-serif">C</div>
                 Traditional Custom Build
               </h3>
@@ -142,7 +142,7 @@ const WebsiteBuilder = () => {
               <div className="absolute top-0 right-0 px-6 py-2 bg-indigo-600 text-white text-[10px] font-black uppercase tracking-widest -rotate-0 rounded-bl-2xl">
                 Recommended for Speed
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+              <h3 className="text-2xl font-bold text-black mb-8 flex items-center gap-3">
                 <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
                   <Zap size={16} fill="currentColor" />
                 </div>
@@ -156,7 +156,7 @@ const WebsiteBuilder = () => {
                   'Zero Technical Debt (Vetted Code)',
                   '95+ Performance Scores Guaranteed'
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-900 font-bold">
+                  <li key={i} className="flex items-center gap-3 text-black font-bold">
                     <CheckCircle2 className="text-indigo-600" size={20} />
                     {item}
                   </li>

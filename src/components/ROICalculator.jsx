@@ -98,7 +98,7 @@ const ROICalculator = () => {
                   key={annualLeak}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter block mb-2"
+                  className="text-6xl md:text-8xl font-black text-black tracking-tighter block mb-2"
                 >
                   ${Math.round(annualLeak).toLocaleString()}
                 </motion.span>
@@ -109,17 +109,17 @@ const ROICalculator = () => {
                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
                   <Zap className="text-teal-500 mb-3" size={20} />
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Speed Impact</p>
-                  <p className="text-xl font-black text-slate-900">+${Math.round(currentRevenue * TB_SPEED_BOOST * 12).toLocaleString()}/yr</p>
+                  <p className="text-xl font-black text-black">+${Math.round(currentRevenue * TB_SPEED_BOOST * 12).toLocaleString()}/yr</p>
                 </div>
                 <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100">
                   <TrendingUp className="text-emerald-500 mb-3" size={20} />
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Conv. Optimization</p>
-                  <p className="text-xl font-black text-slate-900">+35% Lift</p>
+                  <p className="text-xl font-black text-black">+35% Lift</p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-5 bg-teal-500 text-slate-900 font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20 group">
+                <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-5 bg-teal-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20 group">
                   <Mail size={20} />
                   Claim My Full Audit Report
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

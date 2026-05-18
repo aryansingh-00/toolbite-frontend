@@ -37,42 +37,42 @@ const WordCounter = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">Mastering Your Message: The Science of Word Counts</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">Mastering Your Message: The Science of Word Counts</h2>
+            <p className="text-lg leading-relaxed text-black">
               In the modern digital landscape, the length of your content isn't just a technical detail—it's a critical factor in how your message is perceived, shared, and ranked. Whether you're an SEO strategist, a creative writer, or a student, understanding the nuances of word and character counts is essential for effective communication.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">SEO & Digital Marketing</h3>
-              <p className="text-slate-600 leading-relaxed italic">
+              <h3 className="text-xl font-bold text-black mb-4">SEO & Digital Marketing</h3>
+              <p className="text-black leading-relaxed italic">
                 Modern search algorithms have evolved beyond simple length checks. However, "depth" is still highly correlated with higher rankings.
               </p>
-              <ul className="mt-4 space-y-2 text-slate-600">
-                <li><strong className="text-slate-900">High-Authority Blogs:</strong> Aim for 1,500 - 2,500 words for comprehensive coverage.</li>
-                <li><strong className="text-slate-900">Meta Descriptions:</strong> Keep characters under 160 to prevent truncation in SERPs.</li>
-                <li><strong className="text-slate-900">Product Pages:</strong> Concise, value-driven descriptions of 300-500 words work best.</li>
+              <ul className="mt-4 space-y-2 text-black">
+                <li><strong className="text-black">High-Authority Blogs:</strong> Aim for 1,500 - 2,500 words for comprehensive coverage.</li>
+                <li><strong className="text-black">Meta Descriptions:</strong> Keep characters under 160 to prevent truncation in SERPs.</li>
+                <li><strong className="text-black">Product Pages:</strong> Concise, value-driven descriptions of 300-500 words work best.</li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Social Media Benchmarks</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Social Media Benchmarks</h3>
+              <p className="text-black leading-relaxed">
                 Platform constraints define how users consume your content. Staying within "Sweet Spots" maximizes your engagement.
               </p>
-              <ul className="mt-4 space-y-2 text-slate-600">
-                <li><strong className="text-slate-900">Instagram Captions:</strong> 125-150 characters for immediate impact without "more" clicks.</li>
-                <li><strong className="text-slate-900">Twitter (X):</strong> 70-100 characters often see the highest engagement rates.</li>
-                <li><strong className="text-slate-900">LinkedIn:</strong> 500-1,000 characters for authoritative professional storytelling.</li>
+              <ul className="mt-4 space-y-2 text-black">
+                <li><strong className="text-black">Instagram Captions:</strong> 125-150 characters for immediate impact without "more" clicks.</li>
+                <li><strong className="text-black">Twitter (X):</strong> 70-100 characters often see the highest engagement rates.</li>
+                <li><strong className="text-black">LinkedIn:</strong> 500-1,000 characters for authoritative professional storytelling.</li>
               </ul>
             </section>
           </div>
 
           <section className="bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-bl-full"></div>
-            <h3 className="text-2xl font-black text-slate-900 mb-6">The Strategic Impact of SEO/GEO</h3>
-            <div className="space-y-6 text-slate-600 leading-relaxed">
+            <h3 className="text-2xl font-black text-black mb-6">The Strategic Impact of SEO/GEO</h3>
+            <div className="space-y-6 text-black leading-relaxed">
               <p>
                 It is important for <span className="text-teal-600 font-bold">SEO/GEO</span> to ensure that web pages have enough words because search engines use the content of a page to determine its relevance and quality. Pages with very little content may be seen as low-quality or "thin content" by search engines, which can negatively impact the site’s performance.
               </p>
@@ -86,15 +86,15 @@ const WordCounter = () => {
           </section>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Understanding Reading vs. Speaking Time</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Understanding Reading vs. Speaking Time</h3>
+            <p className="text-black leading-relaxed">
               Our analyzer uses industry-standard benchmarks for time prediction. The average professional reads at approximately <strong>225 words per minute (WPM)</strong>, while standard speaking rates for presentations and podcasts hover around <strong>130 WPM</strong>. Knowing these metrics helps you tailor your content for newsletters, keynote speeches, or YouTube scripts.
             </p>
           </section>
 
           <section>
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Accuracy Matters</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Why Accuracy Matters</h3>
+            <p className="text-black leading-relaxed">
               Using a reliable word counter prevents "scope creep" in academic assignments and ensures your marketing copy doesn't get cut off in mobile app views. ToolBite uses advanced regex processing to ensure that whitespace, punctuation, and multi-line breaks are handled with architectural precision.
             </p>
           </section>
@@ -107,7 +107,7 @@ const WordCounter = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Paste your text here to begin analysis..."
-            className="w-full h-80 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none placeholder:text-slate-400"
+            className="w-full h-80 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black resize-none placeholder:text-slate-400"
           />
           <div className="absolute top-4 right-4 flex gap-2">
             <button 
@@ -141,7 +141,7 @@ const WordCounter = () => {
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Reading Time</p>
-              <p className="text-xl font-extrabold text-slate-900">
+              <p className="text-xl font-extrabold text-black">
                 {stats.readingTime} {stats.readingTime === 1 ? 'minute' : 'minutes'}
               </p>
             </div>
@@ -152,7 +152,7 @@ const WordCounter = () => {
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Speaking Time</p>
-              <p className="text-xl font-extrabold text-slate-900">
+              <p className="text-xl font-extrabold text-black">
                 {stats.speakingTime} {stats.speakingTime === 1 ? 'minute' : 'minutes'}
               </p>
             </div>
@@ -179,7 +179,7 @@ const StatCard = ({ icon: Icon, label, value, color }) => {
       <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
         {label}
       </p>
-      <p className="text-3xl font-extrabold text-slate-900">
+      <p className="text-3xl font-extrabold text-black">
         {value.toLocaleString()}
       </p>
     </div>

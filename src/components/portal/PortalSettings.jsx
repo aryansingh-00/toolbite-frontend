@@ -66,7 +66,7 @@ const PortalSettings = ({ clientData }) => {
           <button title="Interactive Button" aria-label="Interactive Button"
             key={section.id}
             onClick={() => setActiveSubTab(section.id)}
-            className={`w-full flex items-center gap-3 px-5 py-3 rounded-2xl font-bold transition-all ${activeSubTab === section.id ? 'bg-white dark:bg-slate-900 text-teal-600 shadow-sm border border-slate-200 dark:border-slate-800' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'}`}
+            className={`w-full flex items-center gap-3 px-5 py-3 rounded-2xl font-bold transition-all ${activeSubTab === section.id ? 'bg-white dark:bg-slate-900 text-teal-600 shadow-sm border border-slate-200 dark:border-slate-800' : 'text-slate-500 hover:text-black dark:hover:text-white'}`}
           >
             <section.icon size={18} />
             {section.label}
@@ -92,7 +92,7 @@ const PortalSettings = ({ clientData }) => {
                 <div className="text-center sm:text-left">
                   <h4 className="text-xl font-bold dark:text-white mb-2">Public Profile</h4>
                   <p className="text-sm text-slate-500 mb-4">Your avatar and name are visible to the ToolBite team.</p>
-                  <button title="Interactive Button" aria-label="Interactive Button" className="px-5 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300 hover:bg-slate-900 hover:text-white transition-all">
+                  <button title="Interactive Button" aria-label="Interactive Button" className="px-5 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-bold uppercase tracking-widest text-black dark:text-slate-300 hover:bg-slate-900 hover:text-white transition-all">
                     Change Avatar
                   </button>
                 </div>
@@ -147,7 +147,7 @@ const PortalSettings = ({ clientData }) => {
               ].map(item => (
                 <div key={item.key} className="flex items-center justify-between p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800">
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-white">{item.label}</p>
+                    <p className="font-bold text-black dark:text-white">{item.label}</p>
                     <p className="text-xs text-slate-500">{item.desc}</p>
                   </div>
                   <button title="Interactive Button" aria-label="Interactive Button" 
@@ -176,7 +176,7 @@ const PortalSettings = ({ clientData }) => {
                  <Shield className="text-amber-500 shrink-0" size={24} />
                  <div>
                     <h5 className="font-bold text-amber-700 dark:text-amber-400 text-sm">Account Security</h5>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">We recommend changing your password every 90 days to maintain elite security for your project data.</p>
+                    <p className="text-xs text-black dark:text-slate-400 mt-1">We recommend changing your password every 90 days to maintain elite security for your project data.</p>
                  </div>
               </div>
 
@@ -216,7 +216,7 @@ const PortalSettings = ({ clientData }) => {
           <button title="Interactive Button" aria-label="Interactive Button" 
             onClick={handleSave}
             disabled={isSaving}
-            className="flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-black font-bold rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
           >
             {isSaving ? (
               <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />

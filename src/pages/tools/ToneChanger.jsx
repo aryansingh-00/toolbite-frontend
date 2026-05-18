@@ -59,16 +59,16 @@ The goal is to shift the mood while keeping the core information identical.`;
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Psychology of Emotional Tone</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Psychology of Emotional Tone</h2>
+            <p className="text-lg leading-relaxed text-black">
               In written communication, "tone" refers to the attitude and emotional resonance conveyed by your choice of words. Without the benefit of body language or vocal inflection, your text alone must establish the relationship between you and your reader. Misjudging tone can lead to catastrophic communication breakdowns—such as sounding overly aggressive in a customer support email or too casual in a legal document.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Navigating Different Modalities</h3>
-              <ul className="space-y-4 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">Navigating Different Modalities</h3>
+              <ul className="space-y-4 text-black">
                 <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
                   <strong className="text-blue-600 block mb-1">Professional Tone</strong>
                   Strips away emotion to focus on objective facts, clear structure, and authoritative vocabulary. It builds trust through competence. Essential for B2B communications, proposals, and official announcements.
@@ -85,19 +85,19 @@ The goal is to shift the mood while keeping the core information identical.`;
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">The ROI of Tone Consistency</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">The ROI of Tone Consistency</h3>
+              <p className="text-black leading-relaxed mb-4">
                 Brands that maintain a consistent, appropriate tone across all touchpoints experience significantly higher customer retention. When your tone aligns with your brand identity and the specific context of the user's journey, you reduce friction. 
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 By utilizing an AI tone changer, you can rapidly prototype different voices for A/B testing in ad campaigns, ensuring you find the precise emotional resonance that drives the highest conversion rate (CVR) and lowest Cost Per Acquisition (CPA).
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">How Our Algorithmic Tone Mapping Works</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">How Our Algorithmic Tone Mapping Works</h3>
+            <p className="text-black leading-relaxed">
               Transforming tone requires more than a simple thesaurus lookup. Our tool generates logic-driven AI prompts that analyze your text at the semantic level. It instructs Large Language Models to map the core intent of your sentence to a new emotional axis—swapping aggressive verbs for softer alternatives, restructuring passive sentences into active persuasive calls-to-action, and systematically injecting or removing empathy markers. This ensures a complete paradigm shift in mood without sacrificing your fundamental message.
             </p>
           </section>
@@ -108,7 +108,7 @@ The goal is to shift the mood while keeping the core information identical.`;
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
           <div className="flex flex-col md:flex-row gap-8 mb-8">
             <div className="flex-grow">
-              <label className="text-sm font-bold text-slate-700 flex items-center gap-2 mb-4">
+              <label className="text-sm font-bold text-black flex items-center gap-2 mb-4">
                 <MessageSquare size={16} className="text-slate-400" />
                 Original Message
               </label>
@@ -116,12 +116,12 @@ The goal is to shift the mood while keeping the core information identical.`;
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Paste your text here to change its emotional tone..."
-                className="w-full h-48 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none"
+                className="w-full h-48 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black resize-none"
               />
             </div>
             
             <div className="w-full md:w-64 space-y-3">
-              <label className="text-sm font-bold text-slate-700 block text-center mb-4">Select Mood</label>
+              <label className="text-sm font-bold text-black block text-center mb-4">Select Mood</label>
               {[
                 { name: 'Professional', icon: ShieldCheck, color: 'text-blue-600', bg: 'bg-blue-50' },
                 { name: 'Casual', icon: Smile, color: 'text-emerald-600', bg: 'bg-emerald-50' },
@@ -230,7 +230,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-10 h-10 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={20} />
       </div>
-      <h4 className="text-base font-bold text-slate-900 mb-1">{title}</h4>
+      <h4 className="text-base font-bold text-black mb-1">{title}</h4>
       <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

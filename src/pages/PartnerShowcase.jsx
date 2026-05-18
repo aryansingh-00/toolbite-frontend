@@ -46,10 +46,10 @@ const PartnerShowcase = () => {
         <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-6 border border-blue-100">
           <Handshake size={14} /> The Elite Network
         </div>
-        <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-black text-black mb-8 tracking-tight">
           Find Your Perfect <span className="text-blue-600">Growth Partner</span>
         </h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-xl text-black max-w-2xl mx-auto font-medium leading-relaxed">
           We've curated a global network of digital architects, technical consultants, and creative specialists tailored to fit your business goals.
         </p>
       </div>
@@ -73,7 +73,7 @@ const PartnerShowcase = () => {
               </div>
             </div>
             <div className="p-8 flex-grow">
-              <h3 className="text-2xl font-black text-slate-900 mb-4">{partner.name}</h3>
+              <h3 className="text-2xl font-black text-black mb-4">{partner.name}</h3>
               <p className="text-slate-500 font-medium mb-6 leading-relaxed">{partner.desc}</p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {partner.tags.map(tag => (
@@ -118,7 +118,7 @@ const PartnerShowcase = () => {
       {/* Contact Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
-          <h2 className="text-4xl font-black text-slate-900 mb-8">Let's Build the <span className="text-blue-600">Future Together.</span></h2>
+          <h2 className="text-4xl font-black text-black mb-8">Let's Build the <span className="text-blue-600">Future Together.</span></h2>
           <p className="text-xl text-slate-500 font-medium mb-12 leading-relaxed">
             Whether you're looking for a partner or want to join our elite network, our team is here to engineer the connection.
           </p>
@@ -129,7 +129,7 @@ const PartnerShowcase = () => {
               </div>
               <div>
                 <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">Email Our Ecosystem</p>
-                <a href="mailto:hello.toolbite@gmail.com" className="text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors">hello.toolbite@gmail.com</a>
+                <a href="mailto:hello.toolbite@gmail.com" className="text-2xl font-bold text-black hover:text-blue-600 transition-colors">hello.toolbite@gmail.com</a>
               </div>
             </div>
             <div className="flex items-start gap-6">
@@ -138,7 +138,7 @@ const PartnerShowcase = () => {
               </div>
               <div>
                 <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">Global Support</p>
-                <a href="tel:+919598037255" className="text-2xl font-bold text-slate-900 hover:text-emerald-600 transition-colors">+91 9598037255</a>
+                <a href="tel:+919598037255" className="text-2xl font-bold text-black hover:text-emerald-600 transition-colors">+91 9598037255</a>
               </div>
             </div>
             <div className="flex items-start gap-6">
@@ -147,7 +147,7 @@ const PartnerShowcase = () => {
               </div>
               <div>
                 <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">India Headquarters</p>
-                <p className="text-2xl font-bold text-slate-900">Aryan Singh, New Delhi, IN</p>
+                <p className="text-2xl font-bold text-black">Aryan Singh, New Delhi, IN</p>
               </div>
             </div>
           </div>
@@ -157,16 +157,16 @@ const PartnerShowcase = () => {
           <form className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-black text-slate-900 uppercase tracking-widest">Full Name</label>
+                <label className="text-sm font-black text-black uppercase tracking-widest">Full Name</label>
                 <input type="text" placeholder="John Doe" className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-bold" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-black text-slate-900 uppercase tracking-widest">Company</label>
+                <label className="text-sm font-black text-black uppercase tracking-widest">Company</label>
                 <input type="text" placeholder="Acme Corp" className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-bold" />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-black text-slate-900 uppercase tracking-widest">Inquiry Type</label>
+              <label className="text-sm font-black text-black uppercase tracking-widest">Inquiry Type</label>
               <select className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-bold appearance-none">
                 <option>Looking for a Partner</option>
                 <option>Apply to Join Network</option>
@@ -174,7 +174,7 @@ const PartnerShowcase = () => {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-black text-slate-900 uppercase tracking-widest">Message</label>
+              <label className="text-sm font-black text-black uppercase tracking-widest">Message</label>
               <textarea rows="4" placeholder="Tell us about your project or agency..." className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 font-bold resize-none"></textarea>
             </div>
             <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-5 rounded-2xl bg-blue-600 text-white font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/25">

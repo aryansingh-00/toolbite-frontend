@@ -139,7 +139,7 @@ const TemplateForm = () => {
         <Link to="/admin/dashboard" className="mr-4 p-2 text-slate-500 hover:bg-white hover:shadow-sm rounded-full transition">
           <ArrowLeft className="w-5 h-5" />
         </Link>
-        <h1 className="text-3xl font-extrabold text-slate-900">
+        <h1 className="text-3xl font-extrabold text-black">
           {isEditMode ? 'Edit Template' : 'Add New Template'}
         </h1>
       </div>
@@ -149,7 +149,7 @@ const TemplateForm = () => {
           
           {/* Image Upload Area */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Template Image</label>
+            <label className="block text-sm font-semibold text-black mb-2">Template Image</label>
             <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-slate-300 border-dashed rounded-xl hover:border-blue-400 hover:bg-blue-50/50 transition cursor-pointer relative group">
               <div className="space-y-2 text-center">
                 {imagePreview ? (
@@ -166,7 +166,7 @@ const TemplateForm = () => {
                 ) : (
                   <>
                     <UploadCloud className="mx-auto h-12 w-12 text-slate-300 group-hover:text-blue-500 transition" />
-                    <div className="flex text-sm text-slate-600 justify-center">
+                    <div className="flex text-sm text-black justify-center">
                       <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 py-1 transition">
                         <span>Upload a file</span>
                         <input id="file-upload" name="image" type="file" className="sr-only" onChange={handleImageChange} accept="image/*" />
@@ -182,11 +182,11 @@ const TemplateForm = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Title</label>
+              <label className="block text-sm font-semibold text-black mb-2">Title</label>
               <input type="text" name="title" required value={formData.title} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="SaaS Landing Page" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Category</label>
+              <label className="block text-sm font-semibold text-black mb-2">Category</label>
               <select name="category" required value={formData.category} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition cursor-pointer appearance-none">
                 <option value="" disabled>Select a category</option>
                 <option value="E-Commerce">E-Commerce</option>
@@ -200,32 +200,32 @@ const TemplateForm = () => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Price ($)</label>
+              <label className="block text-sm font-semibold text-black mb-2">Price ($)</label>
               <input type="number" name="price" required value={formData.price} onChange={handleChange} min="0" step="0.01" className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="49.99" />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Status</label>
+              <label className="block text-sm font-semibold text-black mb-2">Status</label>
               <select name="status" value={formData.status} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition cursor-pointer appearance-none">
                 <option value="active">Active (Visible formatting)</option>
                 <option value="inactive">Inactive (Hidden formatting)</option>
               </select>
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Preview Demo Link</label>
+              <label className="block text-sm font-semibold text-black mb-2">Preview Demo Link</label>
               <input type="url" name="previewLink" value={formData.previewLink} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="https://demo.toolbite.com/..." />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Short Description</label>
+              <label className="block text-sm font-semibold text-black mb-2">Short Description</label>
               <input type="text" name="shortDescription" required value={formData.shortDescription} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="A brief one-liner summarizing the template" />
             </div>
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Full Description</label>
+              <label className="block text-sm font-semibold text-black mb-2">Full Description</label>
               <textarea name="fullDescription" rows="5" value={formData.fullDescription} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition resize-none" placeholder="Detailed insights about what the template features..."></textarea>
             </div>
           </div>
 
           <div className="space-y-4 pt-2">
-            <label className="block text-sm font-semibold text-slate-700">Template Details & Features</label>
+            <label className="block text-sm font-semibold text-black">Template Details & Features</label>
             {features.map((feature, index) => (
               <div key={index} className="flex gap-3">
                 <input 

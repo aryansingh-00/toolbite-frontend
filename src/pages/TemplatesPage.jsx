@@ -73,7 +73,7 @@ const TemplatesPage = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                className="w-full py-6 px-6 text-xl font-bold text-slate-900 placeholder:text-slate-300 focus:outline-none bg-transparent"
+                className="w-full py-6 px-6 text-xl font-bold text-black placeholder:text-slate-300 focus:outline-none bg-transparent"
               />
               <div className="flex items-center gap-2 pr-2">
                 {(searchTerm || activeCategory !== 'All') && (
@@ -120,7 +120,7 @@ const TemplatesPage = () => {
                           setSearchTerm(''); // Clear search for clean category view
                           setIsSearchFocused(false);
                         }}
-                        className={`group flex items-center justify-between px-6 py-4 rounded-[24px] text-sm font-black transition-all ${activeCategory === cat ? 'bg-teal-500 text-white shadow-xl shadow-teal-500/30 scale-105' : 'bg-slate-50 text-slate-600 hover:bg-teal-50 hover:text-teal-600 hover:translate-x-1'}`}
+                        className={`group flex items-center justify-between px-6 py-4 rounded-[24px] text-sm font-black transition-all ${activeCategory === cat ? 'bg-teal-500 text-white shadow-xl shadow-teal-500/30 scale-105' : 'bg-slate-50 text-black hover:bg-teal-50 hover:text-teal-600 hover:translate-x-1'}`}
                       >
                         {cat}
                         <Check size={16} className={`transition-opacity ${activeCategory === cat ? 'opacity-100' : 'opacity-0'}`} />
@@ -142,7 +142,7 @@ const TemplatesPage = () => {
           <motion.h1 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter"
+            className="text-4xl md:text-5xl font-black text-black mb-4 tracking-tighter"
           >
             Premium <span className="text-teal-500">Architecture Vault</span>
           </motion.h1>
@@ -159,14 +159,14 @@ const TemplatesPage = () => {
         ) : filteredTemplates.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-32 bg-white rounded-3xl border border-dashed border-slate-300">
             <Search className="h-16 w-16 text-slate-200 mb-4" />
-            <h3 className="text-2xl font-bold text-slate-700 mb-2">No Templates Found</h3>
+            <h3 className="text-2xl font-bold text-black mb-2">No Templates Found</h3>
             <p className="text-slate-500 text-center max-w-md">
               We couldn't find any active templates matching your search criteria. Check back later or clear your filters!
             </p>
             {(searchTerm || activeCategory !== 'All') && (
               <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
-                className="mt-6 px-6 py-2 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition"
+                className="mt-6 px-6 py-2 bg-slate-100 text-black font-semibold rounded-lg hover:bg-slate-200 transition"
               >
                 Clear Filters
               </button>
@@ -192,7 +192,7 @@ const TemplatesPage = () => {
                     />
                     
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-extrabold text-slate-800 rounded-full shadow-sm uppercase tracking-wider">
+                      <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-extrabold text-black rounded-full shadow-sm uppercase tracking-wider">
                         {tpl.category}
                       </span>
                     </div>
@@ -201,17 +201,17 @@ const TemplatesPage = () => {
                   {/* Card Content */}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="mb-3">
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight">{tpl.title}</h4>
+                      <h4 className="text-xl font-bold text-black leading-tight">{tpl.title}</h4>
                     </div>
                     
-                    <p className="text-slate-600 text-sm mb-5 h-10 line-clamp-2" title={tpl.shortDescription}>
+                    <p className="text-black text-sm mb-5 h-10 line-clamp-2" title={tpl.shortDescription}>
                       {tpl.shortDescription}
                     </p>
 
                     <div className="space-y-3 mb-8 flex-1 pt-4 border-t border-slate-50">
                       {/* Map up to 4 features locally */}
                       {tpl.features.slice(0, 4).map((feat, idx) => (
-                        <div key={idx} className="flex items-start gap-3 text-sm text-slate-600 font-medium">
+                        <div key={idx} className="flex items-start gap-3 text-sm text-black font-medium">
                           <Check size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
                           <span className="leading-tight">{feat}</span>
                         </div>
@@ -225,7 +225,7 @@ const TemplatesPage = () => {
                     <div className="grid grid-cols-2 gap-3 mt-auto pt-4 border-t border-slate-100">
                       <Link 
                         to={`/template/${tpl._id}`} 
-                        className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors border border-slate-200 hover:border-slate-300"
+                        className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 text-black font-semibold text-sm hover:bg-slate-100 transition-colors border border-slate-200 hover:border-slate-300"
                       >
                         <ExternalLink size={16} />
                         Preview

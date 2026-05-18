@@ -29,7 +29,7 @@ const AssetGenerator = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+          <h3 className="text-2xl font-black text-black dark:text-white flex items-center gap-3">
              <Sparkles className="text-teal-500" />
              Marketing Hub
           </h3>
@@ -42,7 +42,7 @@ const AssetGenerator = () => {
         {/* Left: Controls */}
         <div className="lg:col-span-4 space-y-6">
            <div className="bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Customization</h4>
+              <h4 className="text-lg font-bold text-black dark:text-white mb-6">Customization</h4>
               
               <div className="space-y-6">
                 <div>
@@ -105,7 +105,7 @@ const AssetGenerator = () => {
               <div className="mt-8 pt-8 border-t border-slate-100 dark:border-slate-800">
                 <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={generateAsset}
-                  className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-black rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-teal-500/10 hover:translate-y-[-2px] transition-all"
+                  className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-black font-black rounded-2xl flex items-center justify-center gap-2 shadow-xl shadow-teal-500/10 hover:translate-y-[-2px] transition-all"
                 >
                   <Download size={20} />
                   Download Card
@@ -145,12 +145,12 @@ const AssetGenerator = () => {
 
                  <div className="relative z-10">
                     <p className="text-[10px] font-black uppercase tracking-[0.3em] mb-4" style={{ color: accentColor }}>Engineering Update</p>
-                    <h4 className={`text-4xl font-black leading-tight mb-6 ${theme === 'Light Clean' ? 'text-slate-900' : 'text-white'}`}>
+                    <h4 className={`text-4xl font-black leading-tight mb-6 ${theme === 'Light Clean' ? 'text-black' : 'text-white'}`}>
                        {projectName} <br /> 
                        <span className="opacity-40">Build v1.0.2</span>
                     </h4>
                     <div className="flex items-center gap-3">
-                       <div className="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-slate-900">
+                       <div className="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-black">
                           <Zap size={16} fill="currentColor" />
                        </div>
                        <span className={`text-xs font-bold ${theme === 'Light Clean' ? 'text-slate-500' : 'text-slate-400'}`}>Authenticated ToolBite Project</span>

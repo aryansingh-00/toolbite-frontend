@@ -21,10 +21,10 @@ const CookiePolicy = () => {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-3xl p-8 md:p-12 md:px-16 shadow-sm border border-slate-200"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Cookie Policy</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 tracking-tight">Cookie Policy</h1>
           <p className="text-slate-500 mb-10 font-medium border-b border-slate-100 pb-6">Effective Date: March 24, 2026</p>
           
-          <div className="prose prose-slate max-w-none prose-headings:text-slate-900 prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 prose-p:mb-6 prose-li:text-slate-600 text-lg leading-relaxed">
+          <div className="prose prose-slate max-w-none prose-headings:text-black prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-black prose-p:mb-6 prose-li:text-black text-lg leading-relaxed">
             
             <h2>1. Introduction</h2>
             <p>

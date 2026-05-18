@@ -40,7 +40,7 @@ const PortfolioPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight"
+            className="text-4xl md:text-6xl font-black text-black mb-6 tracking-tight"
           >
             Explore All <span className="text-teal-500">Client Projects</span>
           </motion.h1>
@@ -48,7 +48,7 @@ const PortfolioPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-black max-w-2xl mx-auto leading-relaxed"
           >
             A curated showcase of premium digital architectures we've engineered to help ambitious brands dominate their industries.
           </motion.p>
@@ -87,7 +87,7 @@ const PortfolioPage = () => {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-slate-900 hover:scale-110 transition-transform shadow-xl"
+                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black hover:scale-110 transition-transform shadow-xl"
                         >
                             <ExternalLink size={20} />
                         </a>
@@ -100,10 +100,10 @@ const PortfolioPage = () => {
                       <span className="text-teal-600 font-bold text-[10px] tracking-widest uppercase mb-2 block">
                         {project.category}
                       </span>
-                      <h4 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-teal-600 transition-colors">{project.title}</h4>
+                      <h4 className="text-xl font-bold text-black leading-tight group-hover:text-teal-600 transition-colors">{project.title}</h4>
                     </div>
                     
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
+                    <p className="text-black text-sm leading-relaxed mb-6 flex-1">
                       {project.description}
                     </p>
 
@@ -118,7 +118,7 @@ const PortfolioPage = () => {
                     <div className="mt-auto pt-6 border-t border-slate-50">
                       <Link
                         to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="inline-flex items-center gap-2 text-slate-900 text-sm font-bold hover:text-teal-600 transition-colors group/btn"
+                        className="inline-flex items-center gap-2 text-black text-sm font-bold hover:text-teal-600 transition-colors group/btn"
                       >
                         View Case Study
                         <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -146,7 +146,7 @@ const PortfolioPage = () => {
           >
             <a
               href="/start-project"
-              className="px-10 py-5 rounded-full bg-teal-500 text-slate-900 font-black text-lg hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20"
+              className="px-10 py-5 rounded-full bg-teal-500 text-black font-black text-lg hover:bg-teal-400 transition-all shadow-xl shadow-teal-500/20"
             >
               Start Your Project Now
             </a>

@@ -117,7 +117,7 @@ const ClientDashboard = () => {
         {/* Portal Logo */}
         <div className="h-20 flex items-center justify-between px-8 border-b border-slate-200 dark:border-slate-800">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            <span className="text-2xl font-black text-black dark:text-white tracking-tight">
               Tool<span className="text-teal-500">Bite</span> <span className="text-sm font-medium text-slate-500 uppercase tracking-widest ml-1 hidden sm:inline">Portal</span>
             </span>
           </Link>
@@ -133,7 +133,7 @@ const ClientDashboard = () => {
               A
             </div>
             <div>
-              <h3 className="font-bold text-slate-900 dark:text-white leading-tight">{clientData.name}</h3>
+              <h3 className="font-bold text-black dark:text-white leading-tight">{clientData.name}</h3>
               <p className="text-xs text-slate-500 font-medium">{clientData.project}</p>
             </div>
           </div>
@@ -145,7 +145,7 @@ const ClientDashboard = () => {
             <button title="Interactive Button" aria-label="Interactive Button" 
               key={index}
               onClick={() => { setActiveTab(item.label); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all duration-200 ${activeTab === item.label ? 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold transition-all duration-200 ${activeTab === item.label ? 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400' : 'text-black dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
             >
               <item.icon size={20} />
               {item.label}
@@ -174,10 +174,10 @@ const ClientDashboard = () => {
         {/* Top Header */}
         <header className="h-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-8 shrink-0 z-10">
           <div className="flex items-center gap-4">
-            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setSidebarOpen(true)} className="lg:hidden text-slate-600 dark:text-slate-300 p-2 border border-slate-200 dark:border-slate-700 rounded-lg">
+            <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setSidebarOpen(true)} className="lg:hidden text-black dark:text-slate-300 p-2 border border-slate-200 dark:border-slate-700 rounded-lg">
               <Menu size={20} />
             </button>
-            <h1 className="text-xl font-bold text-slate-900 dark:text-white hidden sm:block">Project Overview</h1>
+            <h1 className="text-xl font-bold text-black dark:text-white hidden sm:block">Project Overview</h1>
           </div>
           
           <div className="flex items-center gap-4">
@@ -190,13 +190,13 @@ const ClientDashboard = () => {
               />
             </div>
             <div className="relative">
-              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowNotifications(!showNotifications)} className="relative p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+              <button title="Interactive Button" aria-label="Interactive Button" onClick={() => setShowNotifications(!showNotifications)} className="relative p-2 text-black dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
                 <Bell size={20} />
                 <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
               </button>
               {showNotifications && (
                 <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-4">
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-2">Notifications</h4>
+                  <h4 className="font-bold text-black dark:text-white mb-2">Notifications</h4>
                   <div className="text-sm text-slate-500">You have no new notifications.</div>
                 </div>
               )}
@@ -220,7 +220,7 @@ const ClientDashboard = () => {
                   
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
                     <div>
-                      <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-2">Welcome back, {clientData.contact.split(' ')[0]} 👋</h2>
+                      <h2 className="text-3xl font-black text-black dark:text-white mb-2">Welcome back, {clientData.contact.split(' ')[0]} 👋</h2>
                       <p className="text-slate-500 dark:text-slate-400 font-medium">Here is the latest status of your project.</p>
                     </div>
                     <div className="px-5 py-2 bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full font-bold text-sm border border-teal-100 dark:border-teal-500/20 flex items-center gap-2 shadow-sm">
@@ -235,7 +235,7 @@ const ClientDashboard = () => {
                   {/* Progress Bar overall */}
                   <div>
                     <div className="flex justify-between items-end mb-3">
-                      <span className="text-sm font-bold text-slate-700 dark:text-slate-300">Overall Completion</span>
+                      <span className="text-sm font-bold text-black dark:text-slate-300">Overall Completion</span>
                       <span className="text-2xl font-black text-teal-500">{clientData.completion}%</span>
                     </div>
                     <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden border border-slate-200 dark:border-slate-700">
@@ -275,7 +275,7 @@ const ClientDashboard = () => {
                                <img src={`https://i.pravatar.cc/150?u=${i+20}`} alt="team" />
                              </div>
                            ))}
-                           <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-teal-500 flex items-center justify-center text-xs font-black text-slate-900 ring-4 ring-slate-900/50">
+                           <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-teal-500 flex items-center justify-center text-xs font-black text-black ring-4 ring-slate-900/50">
                              +2
                            </div>
                         </div>
@@ -300,12 +300,12 @@ const ClientDashboard = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                 <div className="flex justify-between items-center bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
                   <div>
-                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">Billing History</h3>
+                    <h3 className="text-2xl font-black text-black dark:text-white">Billing History</h3>
                     <p className="text-slate-500 dark:text-slate-400 text-sm">Download and manage your project invoices.</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Outstanding Balance</p>
-                    <p className="text-3xl font-black text-slate-900 dark:text-white">$0.00</p>
+                    <p className="text-3xl font-black text-black dark:text-white">$0.00</p>
                   </div>
                 </div>
 
@@ -326,9 +326,9 @@ const ClientDashboard = () => {
                         { id: 'INV-2026-002', date: 'March 15, 2026', amount: '$850.00', status: 'Paid' }
                       ].map((inv, idx) => (
                         <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
-                          <td className="px-8 py-6 font-bold text-slate-900 dark:text-white">{inv.id}</td>
-                          <td className="px-8 py-6 text-slate-600 dark:text-slate-400">{inv.date}</td>
-                          <td className="px-8 py-6 font-black text-slate-900 dark:text-white">{inv.amount}</td>
+                          <td className="px-8 py-6 font-bold text-black dark:text-white">{inv.id}</td>
+                          <td className="px-8 py-6 text-black dark:text-slate-400">{inv.date}</td>
+                          <td className="px-8 py-6 font-black text-black dark:text-white">{inv.amount}</td>
                           <td className="px-8 py-6">
                             <span className="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-bold">
                               {inv.status}
@@ -350,7 +350,7 @@ const ClientDashboard = () => {
             {activeTab === 'Documents' && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                 <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
-                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Project Assets</h3>
+                  <h3 className="text-2xl font-black text-black dark:text-white mb-2">Project Assets</h3>
                   <p className="text-slate-500 dark:text-slate-400 text-sm">Access your wireframes, logos, and project documentation.</p>
                 </div>
 
@@ -365,13 +365,13 @@ const ClientDashboard = () => {
                       <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-teal-500 group-hover:text-white transition-colors">
                         <File size={24} />
                       </div>
-                      <h4 className="font-bold text-slate-900 dark:text-white mb-1 truncate">{doc.name}</h4>
+                      <h4 className="font-bold text-black dark:text-white mb-1 truncate">{doc.name}</h4>
                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{doc.size} • {doc.type}</p>
                       <div className="mt-6 flex justify-between items-center">
                         <button title="Interactive Button" aria-label="Interactive Button" className="flex items-center gap-2 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline">
                           <Download size={16} /> Download
                         </button>
-                        <button title="Interactive Button" aria-label="Interactive Button" className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <button title="Interactive Button" aria-label="Interactive Button" className="text-slate-400 hover:text-black dark:hover:text-slate-200">
                           <ExternalLink size={16} />
                         </button>
                       </div>
@@ -384,7 +384,7 @@ const ClientDashboard = () => {
             {activeTab === 'Milestones' && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                 <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
-                  <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Project Roadmap</h3>
+                  <h3 className="text-2xl font-black text-black dark:text-white mb-2">Project Roadmap</h3>
                   <p className="text-slate-500 dark:text-slate-400 text-sm">Detailed breakdown of your project completion status.</p>
                 </div>
                 {activeProjectId && <ProjectTimeline projectId={activeProjectId} />}

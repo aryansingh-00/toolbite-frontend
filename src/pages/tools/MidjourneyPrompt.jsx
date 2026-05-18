@@ -43,19 +43,19 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Art of Prompt Engineering</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Art of Prompt Engineering</h2>
+            <p className="text-lg leading-relaxed text-black">
               In the rapidly evolving landscape of Generative AI, the difference between an amateur rendering and a professional, award-winning piece of digital art comes entirely down to prompt engineering. Midjourney v6 has completely redefined the generative model space, offering hyper-realistic textures and perfect text generation, but it requires highly specific, comma-separated tokens to reach its full potential.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Structuring the Perfect Prompt</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">Structuring the Perfect Prompt</h3>
+              <p className="text-black leading-relaxed mb-4">
                 A Midjourney prompt isn't just a sentence; it's a mathematical equation for art. Our generator follows the industry-standard "Token Hierarchy" to ensure the AI prioritizes the most important elements:
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>The Core Subject:</strong> Define the main focus clearly before adding modifiers.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Environmental Context:</strong> Establish the background, time of day, and weather.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Optical Parameters:</strong> Simulate high-end photography by injecting terms like "85mm lens," "f/1.8 aperture," and "depth of field."</span></li>
@@ -64,16 +64,16 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Parameters & Aspect Ratios</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Parameters & Aspect Ratios</h3>
+              <p className="text-black leading-relaxed">
                 By default, Midjourney generates square (1:1) images. Professional workflows require dimension control. Our tool automatically injects the `--ar` (Aspect Ratio) parameter based on your use case—whether you need 16:9 for YouTube thumbnails or 9:16 for Instagram Reels and TikTok. We also append `--stylize` commands to instruct the AI on how strictly to adhere to the prompt versus taking creative liberties.
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Use a Meta-Prompt Generator?</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Why Use a Meta-Prompt Generator?</h3>
+            <p className="text-black leading-relaxed">
               Writing a flawless 50-word prompt from scratch is incredibly time-consuming and often involves trial and error that drains your GPU hours/credits. By using our tool to generate a "Meta-Prompt" (asking an LLM to write the Midjourney prompt for you), you leverage AI to instruct AI. This results in incredibly dense, descriptive token combinations that human writers rarely think of natively.
             </p>
           </section>
@@ -84,7 +84,7 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
         <div className="bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-xl shadow-slate-200/40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Sparkles size={16} className="text-teal-500" />
                 Image Subject
               </label>
@@ -93,19 +93,19 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 placeholder="e.g., A cyber-punk street photographer in Tokyo at night"
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black"
               />
             </div>
             
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Palette size={16} className="text-purple-500" />
                 Artistic Style
               </label>
               <select 
                 value={style}
                 onChange={(e) => setStyle(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black appearance-none"
               >
                 <option>Photorealistic</option>
                 <option>Digital Art / Pixar</option>
@@ -118,14 +118,14 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Wand2 size={16} className="text-amber-500" />
                 Aspect Ratio
               </label>
               <select 
                 value={aspect}
                 onChange={(e) => setAspect(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black appearance-none"
               >
                 <option>1:1 (Square)</option>
                 <option>16:9 (Widescreen)</option>
@@ -136,14 +136,14 @@ Final Version: /imagine prompt: ${subject} in ${style} style, ${lighting} lighti
             </div>
 
             <div className="md:col-span-2">
-              <label className="block text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+              <label className="block text-sm font-bold text-black mb-3 flex items-center gap-2">
                 <Camera size={16} className="text-blue-500" />
                 Lighting Scene
               </label>
               <select 
                 value={lighting}
                 onChange={(e) => setLighting(e.target.value)}
-                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 appearance-none"
+                className="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black appearance-none"
               >
                 <option>Cinematic Lighting</option>
                 <option>Golden Hour / Soft Warm</option>
@@ -201,7 +201,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-12 h-12 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={24} />
       </div>
-      <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
+      <h4 className="text-lg font-bold text-black mb-2">{title}</h4>
       <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

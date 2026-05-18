@@ -88,32 +88,32 @@ const ImageToPdf = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Universal Document Standard</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Universal Document Standard</h2>
+            <p className="text-lg leading-relaxed text-black">
               In a digital ecosystem flooded with proprietary image formats (HEIC, WebP, raw formats), the PDF (Portable Document Format) remains the gold standard for universal accessibility. Converting your image assets into a single, cohesive PDF ensures that your document will render exactly the same on an iPhone, a Windows desktop, or a commercial printing press.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Why Combine Images?</h3>
-              <ul className="space-y-3 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">Why Combine Images?</h3>
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Professional Portfolios:</strong> Sending a zip file of 20 images to a recruiter or client is unprofessional and often triggers spam filters. A clean, multi-page PDF demonstrates polish and organization.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Legal and Administrative:</strong> Most government portals and banking applications require scanned documents (like passports and utility bills) to be uploaded as a single PDF rather than disjointed JPEGs.</span></li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Precision Scaling</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Precision Scaling</h3>
+              <p className="text-black leading-relaxed">
                 A common issue with manual image conversion is skewed aspect ratios. Our conversion engine analyzes the native dimensions of your original photography and dynamically generates the PDF page size to match. This guarantees your images are never stretched, squashed, or degraded during the compilation process.
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Client-Side Architecture for Maximum Privacy</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Client-Side Architecture for Maximum Privacy</h3>
+            <p className="text-black leading-relaxed">
               When you upload personal documents (like tax returns or IDs) to a cloud-based converter, you are surrendering your sensitive data to a third-party server. ToolBite utilizes high-performance browser APIs (`jsPDF`) to build the document entirely within your local RAM. The conversion happens instantly, and your files never touch an external network.
             </p>
           </section>
@@ -140,7 +140,7 @@ const ImageToPdf = () => {
             }`}>
               <Plus size={32} className={isDragging ? 'text-teal-500 animate-bounce' : 'text-teal-600'} />
             </div>
-            <h3 className="text-xl font-bold text-slate-800">
+            <h3 className="text-xl font-bold text-black">
               {isDragging ? '✨ Drop images here!' : 'Add More Images'}
             </h3>
             <p className="text-sm text-slate-500">
@@ -172,12 +172,12 @@ const ImageToPdf = () => {
         {/* Controls */}
         <div className="flex flex-col md:flex-row gap-6 pt-8 border-t border-slate-100">
           <div className="flex-1 space-y-2">
-            <h4 className="text-sm font-extrabold text-slate-900 flex items-center gap-2">
+            <h4 className="text-sm font-extrabold text-black flex items-center gap-2">
               <Layers size={16} />
               PDF Document Info
             </h4>
             <p className="text-sm text-slate-500">
-              Total Pages: <span className="font-bold text-slate-900">{images.length}</span>
+              Total Pages: <span className="font-bold text-black">{images.length}</span>
             </p>
             <p className="text-xs text-slate-400 italic">
               Each image will be placed on its own page, automatically scaled to fit.
@@ -188,7 +188,7 @@ const ImageToPdf = () => {
             <button title="Interactive Button" aria-label="Interactive Button"
               onClick={() => setImages([])}
               disabled={images.length === 0}
-              className="px-8 py-5 bg-slate-100 text-slate-600 font-bold rounded-2xl hover:bg-red-50 hover:text-red-600 transition-all disabled:opacity-50 flex items-center gap-2"
+              className="px-8 py-5 bg-slate-100 text-black font-bold rounded-2xl hover:bg-red-50 hover:text-red-600 transition-all disabled:opacity-50 flex items-center gap-2"
             >
               <Trash2 size={20} />
               Clear All

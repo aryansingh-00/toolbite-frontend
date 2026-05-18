@@ -21,10 +21,10 @@ const TermsOfService = () => {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 md:px-16 shadow-sm border border-slate-200 dark:border-slate-800"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">Terms of Service</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black dark:text-white mb-4 tracking-tight">Terms of Service</h1>
           <p className="text-slate-500 dark:text-slate-400 mb-10 font-medium border-b border-slate-100 dark:border-slate-800 pb-6">Effective Date: March 24, 2026</p>
           
-          <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:mb-6 prose-li:text-slate-600 dark:prose-li:text-slate-400 text-lg leading-relaxed">
+          <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-black dark:prose-headings:text-white prose-headings:font-bold prose-a:text-teal-600 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-black dark:prose-p:text-slate-400 prose-p:mb-6 prose-li:text-black dark:prose-li:text-slate-400 text-lg leading-relaxed">
             
             <h2>1. Introduction</h2>
             <p>

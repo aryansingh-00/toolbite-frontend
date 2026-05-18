@@ -15,94 +15,48 @@ import ProjectStrategist from '../components/ProjectStrategist';
 import ROICalculator from '../components/ROICalculator';
 import ScrollReveal from '../components/ScrollReveal';
 
-const PricingTeaser = () => {
-  return (
-    <section className="py-16 bg-slate-900 dark:bg-[#030712] relative overflow-hidden transition-colors duration-300">
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-900/20 to-slate-900/50 pointer-events-none" />
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <span className="inline-block text-[#B19CD9] font-semibold tracking-wide uppercase text-xs mb-3">Transparent Pricing</span>
-        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Simple, Honest Plans</h2>
-        <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">
-          We believe in complete transparency. No hidden fees, no scope creep. Just premium engineering at fixed, predictable costs. 
-          Discover the plan that fits your vision.
-        </p>
-        <Link
-          to="/pricing"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#B19CD9] to-[#87CEEB] text-slate-900 font-bold hover:opacity-90 transition-all shadow-lg hover:shadow-[#B19CD9]/25"
-        >
-          View Full Pricing & Plans <ArrowRight size={18} />
-        </Link>
-      </div>
-    </section>
-  );
-};
 
 const PortfolioTeaser = () => {
   return (
     <section className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="text-teal-600 dark:text-teal-500 font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
-        <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">World-Class <span className="text-[#B19CD9]">Digital Architectures</span></h2>
-        <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-          We don't just build websites; we engineer digital assets that drive massive ROI. 
-          Explore our full portfolio of high-performance client success stories.
-        </p>
-        <Link
-          to="/portfolio"
-          className="px-5 py-2 rounded-full bg-slate-900 dark:bg-[#B19CD9] text-white dark:text-slate-900 text-sm font-bold hover:opacity-90 transition-all shadow-md hover:shadow-[#B19CD9]/25"
-        >
-          Explore All Client Projects <ArrowRight size={20} />
-        </Link>
-      </div>
-    </section>
-  );
-};
-
-const ToolsTeaser = () => {
-  const topTools = [
-    { title: "PDF Converter", desc: "Fast, secure PDF manipulation.", link: "/tools/pdf-converter", icon: "📄" },
-    { title: "Word Counter", desc: "Real-time writing analysis.", link: "/tools/word-counter", icon: "✍️" },
-    { title: "Image Compressor", desc: "Optimize images without loss.", link: "/tools/image-compressor", icon: "🖼️" },
-    { title: "JSON Formatter", desc: "Pretty-print & validate code.", link: "/tools/json-formatter", icon: "💻" }
-  ];
-
-  return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="max-w-2xl text-left">
-            <span className="text-[#B19CD9] font-bold tracking-widest uppercase text-xs mb-4 block">Utility Power Center</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">Free <span className="text-[#B19CD9]">Professional Tools</span> for Modern Teams</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-              Experience the same elite engineering we provide our enterprise clients. 
-              Our suite of browser-native utility tools is fast, secure, and 100% free.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Text & CTA */}
+          <div className="text-left">
+            <span className="text-black font-black tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black mb-6 tracking-tighter leading-[1.1]">
+              World-Class <br className="hidden md:block"/>
+              Digital Architectures
+            </h2>
+            <p className="text-black/80 leading-relaxed text-lg mb-10 max-w-xl font-medium">
+              We don't just build websites; we engineer digital assets that drive massive ROI. 
+              Explore our full portfolio of high-performance client success stories.
             </p>
-          </div>
-          <Link to="/tools" className="inline-flex items-center gap-2 text-[#B19CD9] font-black hover:gap-3 transition-all mb-2">
-            View All 20+ Tools <ArrowRight size={20} />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {topTools.map((tool, i) => (
-            <Link 
-              key={i} 
-              to={tool.link}
-              className="group bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-[#B19CD9] transition-all duration-300"
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-black text-white font-black hover:bg-black/90 transition-all shadow-xl group hover:scale-105"
             >
-              <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">{tool.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#B19CD9] transition-colors">{tool.title}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">{tool.desc}</p>
-              <div className="flex items-center text-slate-900 dark:text-slate-300 font-bold text-xs group-hover:text-[#B19CD9] transition-colors">
-                Launch <ArrowRight size={14} className="ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </div>
+              Explore All Client Projects <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-          ))}
+          </div>
+
+          {/* Right Column: Premium Generated Colorful Illustration (No border line) */}
+          <div className="relative w-full h-[400px] lg:h-[450px] overflow-hidden flex items-center justify-center group">
+            <img 
+              src="/images/portfolio_collaboration_color.png" 
+              alt="World-Class Digital Architectures Illustration" 
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+
         </div>
       </div>
     </section>
   );
 };
+
+
 
 const HomePage = () => {
   return (
@@ -113,14 +67,12 @@ const HomePage = () => {
         keywords="web design agency, custom website development, premium templates, landing pages, react web development, toolbite agency"
       />
       <Hero />
-      <ScrollReveal><TrustSection /></ScrollReveal>
       <ScrollReveal><Services /></ScrollReveal>
-      <ScrollReveal><ToolsTeaser /></ScrollReveal>
       <ScrollReveal><ReadyMade /></ScrollReveal>
       <ScrollReveal><PortfolioTeaser /></ScrollReveal>
       <ScrollReveal><WhyChooseUs /></ScrollReveal>
-      <ScrollReveal><PricingTeaser /></ScrollReveal>
       <ScrollReveal><Testimonials /></ScrollReveal>
+      <ScrollReveal><TrustSection /></ScrollReveal>
       <ScrollReveal><ProjectStrategist /></ScrollReveal>
       <ScrollReveal><GrowthAuditSection /></ScrollReveal>
       <ScrollReveal><FAQ /></ScrollReveal>

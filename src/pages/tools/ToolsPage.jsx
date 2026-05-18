@@ -53,7 +53,7 @@ const ToolsPage = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight"
+            className="text-5xl md:text-6xl font-extrabold text-black mb-6 tracking-tight"
           >
             Free Online <span className="text-teal-600">Utility Tools</span> & Development Power Center
           </motion.h1>
@@ -61,7 +61,7 @@ const ToolsPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl text-black max-w-2xl mx-auto leading-relaxed"
           >
             Fast, secure, and completely free. All tools run locally in your browser, keeping your data private and secure.
           </motion.p>
@@ -112,7 +112,7 @@ const ToolsPage = () => {
                           {<tool.icon size={16} />}
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-slate-900 dark:text-white">{tool.title}</p>
+                          <p className="text-sm font-bold text-black dark:text-white">{tool.title}</p>
                           <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black">{tool.category}</p>
                         </div>
                       </Link>
@@ -132,7 +132,7 @@ const ToolsPage = () => {
               <button title="Interactive Button" aria-label="Interactive Button" 
                 key={i} 
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all duration-300 ${activeCategory === cat ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/25 scale-105' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}
+                className={`px-6 py-3 rounded-xl font-bold whitespace-nowrap transition-all duration-300 ${activeCategory === cat ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/25 scale-105' : 'bg-slate-50 text-black hover:bg-slate-100'}`}
               >
                 {cat}
               </button>
@@ -146,7 +146,7 @@ const ToolsPage = () => {
             <div className="p-6 bg-slate-50 rounded-full mb-6">
               <Search className="h-12 w-12 text-slate-300" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-2">No tools found</h3>
+            <h3 className="text-2xl font-bold text-black mb-2">No tools found</h3>
             <p className="text-slate-500 text-center max-w-md">
               We couldn't find any tools matching your search criteria. Try a different keyword or category.
             </p>
@@ -168,7 +168,7 @@ const ToolsPage = () => {
                     className="block h-full bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-teal-200 hover:-translate-y-2 transition-all duration-300"
                   >
                     <div className="flex items-start justify-between mb-8">
-                      <div className={`p-4 rounded-2xl ${tool.popular ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-100 text-slate-600'}`}>
+                      <div className={`p-4 rounded-2xl ${tool.popular ? 'bg-teal-600 text-white shadow-lg shadow-teal-500/20' : 'bg-slate-100 text-black'}`}>
                         {typeof Icon === 'function' || (typeof Icon === 'object' && Icon !== null) ? <Icon size={32} /> : <Zap size={32} />}
                       </div>
                       {tool.popular && (
@@ -178,10 +178,10 @@ const ToolsPage = () => {
                       )}
                     </div>
 
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-teal-600 transition-colors">
                       {tool.title || 'Untitled Tool'}
                     </h3>
-                    <p className="text-slate-600 mb-8 line-clamp-3 leading-relaxed">
+                    <p className="text-black mb-8 line-clamp-3 leading-relaxed">
                       {tool.description || 'No description available.'}
                     </p>
 
@@ -201,22 +201,22 @@ const ToolsPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="space-y-12">
               <section>
-                <h2 className="text-4xl font-black text-slate-900 mb-6 tracking-tight">The ToolBite Digital Ecosystem</h2>
-                <p className="text-lg leading-relaxed text-slate-600 font-medium">
+                <h2 className="text-4xl font-black text-black mb-6 tracking-tight">The ToolBite Digital Ecosystem</h2>
+                <p className="text-lg leading-relaxed text-black font-medium">
                   At ToolBite, we believe that professional-grade utility shouldn't come with a privacy tax. Our Power Center was architected to give developers, designers, and marketers the high-performance tools they need without the bloat, tracking, or data-collection common in the industry.
                 </p>
               </section>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Edge Processing</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <h3 className="text-xl font-bold text-black mb-4">Edge Processing</h3>
+                  <p className="text-sm text-black leading-relaxed">
                     Unlike traditional "cloud" tools, 95% of our processing happens in your browser's local sandbox. This means faster speeds, offline capability, and absolute data privacy.
                   </p>
                 </div>
                 <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Zero Data Retention</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <h3 className="text-xl font-bold text-black mb-4">Zero Data Retention</h3>
+                  <p className="text-sm text-black leading-relaxed">
                     We don't store your logs, your images, or your converted files. Once you close the tab, all session data is permanently purged from your device cache.
                   </p>
                 </div>

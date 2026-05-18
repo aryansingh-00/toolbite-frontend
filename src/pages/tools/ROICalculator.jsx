@@ -47,26 +47,26 @@ const ROICalculator = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Business Case for High-Performance Design</h2>
-            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+            <h2 className="text-3xl font-black text-black mb-6 font-sans">The Business Case for High-Performance Design</h2>
+            <p className="text-lg leading-relaxed text-black font-medium">
               In 2026, the performance of your digital platform is directly proportional to your bottom-line revenue. A one-second delay in page load time can lead to a 7% reduction in conversions. Our ROI Predictor helping you visualize exactly much "invisible revenue" is lost to sub-optimal architecture.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Understanding Conversion Lift</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4 tracking-tight">Understanding Conversion Lift</h3>
+              <p className="text-black leading-relaxed">
                 Most e-commerce platforms operate at an average conversion rate of 1.5% to 2.5%. By moving that needle even slightly through **Psychological UX patterns** and **Instant LCP**, the exponential growth in annual revenue is often enough to fund your entire technology budget for the year.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">The Cost of Latency</h3>
-              <p className="text-slate-600 leading-relaxed italic border-l-4 border-teal-500/20 pl-4">
+              <h3 className="text-xl font-bold text-black mb-4 tracking-tight">The Cost of Latency</h3>
+              <p className="text-black leading-relaxed italic border-l-4 border-teal-500/20 pl-4">
                 "Google's Core Web Vitals are now a core business KPI. Failure to pass means you're being outranked and outearned by leaner competitors."
               </p>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-black leading-relaxed">
                 Our benchmarks are derived from real-world data across 500+ premium brand launches. We focus on the "Magic 3": Loading Security, Visual Stability, and Interaction Readiness.
               </p>
             </div>
@@ -80,8 +80,8 @@ const ROICalculator = () => {
           </section>
 
           <section>
-            <h3 className="text-xl font-bold text-slate-900 mb-4 font-sans">Strategic Roadmap Integration</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4 font-sans">Strategic Roadmap Integration</h3>
+            <p className="text-black leading-relaxed">
               Once you've calculated your potential, the next step is implementation. Our AI Strategist takes these benchmarks and builds a 90-day technical plan to transform your platform into a high-converting growth engine.
             </p>
           </section>
@@ -98,7 +98,7 @@ const ROICalculator = () => {
         {/* Left: Controls */}
         <div className="lg:col-span-5 space-y-8">
           <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 border border-slate-200 dark:border-slate-800 shadow-xl">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-black dark:text-white mb-8 flex items-center gap-2">
               <Zap className="text-teal-500" size={20} />
               Growth Parameters
             </h3>
@@ -173,7 +173,7 @@ const ROICalculator = () => {
             <h4 className="font-bold text-teal-700 dark:text-teal-400 mb-2 flex items-center gap-2">
               <ShieldCheck size={18} /> ToolBite Benchmark
             </h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            <p className="text-sm text-black dark:text-slate-400 leading-relaxed font-medium">
               We assume a baseline conversion lift of **+1.5%** through mobile-first performance, ultra-fast LCP, and psychological design patterns.
             </p>
           </div>
@@ -212,7 +212,7 @@ const ROICalculator = () => {
                 </div>
                 <Link 
                   to={`/#ai-strategist?refine=true&roi_gain=${Math.floor(results.annualGain)}&conv_boost=${results.percentageGrowth.toFixed(1)}`}
-                  className="w-full md:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-2xl flex items-center justify-center gap-2 transition-all shadow-xl shadow-teal-500/20 group"
+                  className="w-full md:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-black font-bold rounded-2xl flex items-center justify-center gap-2 transition-all shadow-xl shadow-teal-500/20 group"
                 >
                   Start Strategic Roadmap
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -231,7 +231,7 @@ const ROICalculator = () => {
                 <div className="text-teal-500">{stat.icon}</div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{stat.label}</p>
-                  <p className="text-xl font-bold text-slate-900 dark:text-white">{stat.val}</p>
+                  <p className="text-xl font-bold text-black dark:text-white">{stat.val}</p>
                 </div>
               </div>
             ))}

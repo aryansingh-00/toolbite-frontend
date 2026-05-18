@@ -88,23 +88,23 @@ const UnitConverter = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Universal Language of Measurement</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Universal Language of Measurement</h2>
+            <p className="text-lg leading-relaxed text-black">
               Measurement is the language of science, engineering, and commerce. While the metric system (SI) is the global standard, many regions still rely on imperial units for day-to-day activities. Bridging the gap between these systems is crucial for international collaboration, accurate scientific research, and seamless digital engineering.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Metric vs. Imperial</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Metric vs. Imperial</h3>
+              <p className="text-black leading-relaxed">
                 The Metric system is based on powers of ten, making calculations and scaling remarkably simple. The Imperial system, while more complex in its ratios (e.g., 12 inches in a foot), is deeply rooted in human history and physical scales. Our converter ensures that you never have to memorize complex conversion factors again.
               </p>
             </section>
 
             <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Precision in Digital Engineering</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Precision in Digital Engineering</h3>
+              <p className="text-black leading-relaxed">
                 In web development, we often convert between pixels, rems, and ems. While this tool focuses on physical units, the principle of precise conversion remains the same. Whether you're calculating server rack space in square feet or determining the weight limit for shipping logistics, precision is paramount.
               </p>
             </section>
@@ -120,7 +120,7 @@ const UnitConverter = () => {
             <select 
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-slate-700 capitalize"
+              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-black capitalize"
             >
               {Object.keys(units).map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
@@ -134,7 +134,7 @@ const UnitConverter = () => {
               type="number"
               value={value}
               onChange={(e) => setValue(parseFloat(e.target.value) || 0)}
-              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-slate-700"
+              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-black"
             />
           </div>
 
@@ -143,7 +143,7 @@ const UnitConverter = () => {
             <select 
               value={fromUnit}
               onChange={(e) => setFromUnit(e.target.value)}
-              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-slate-700 capitalize"
+              className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none font-bold text-black capitalize"
             >
               {Object.keys(units[category]).map(unit => (
                 <option key={unit} value={unit}>{unit}</option>
@@ -164,7 +164,7 @@ const UnitConverter = () => {
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{unit}</span>
                 <Copy size={14} className="text-slate-300 group-hover:text-teal-600 transition-colors" />
               </div>
-              <p className="text-xl font-mono font-bold text-slate-900 truncate">
+              <p className="text-xl font-mono font-bold text-black truncate">
                 {typeof val === 'number' ? (val.toString().includes('.') ? val.toFixed(4).replace(/\.?0+$/, '') : val) : val}
               </p>
             </div>

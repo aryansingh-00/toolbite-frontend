@@ -11,12 +11,12 @@ const ReadyMade = () => {
   const templates = staticTemplates.slice(0, 8);
 
   return (
-    <section id="ready-made" className="py-12 bg-slate-50 relative">
+    <section id="ready-made" className="py-12 bg-white relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-[#B19CD9] font-semibold tracking-wide uppercase text-sm mb-3">Template Marketplace</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Launch Your Premium Website Today.</h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-black font-extrabold tracking-wide uppercase text-sm mb-3">Template Marketplace</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6 tracking-tight">Launch Your Premium Website Today.</h2>
+          <p className="text-lg text-black">
             Browse our collection of high-converting, fully customized templates designed for specific industries. Install instantly, customize easily.
           </p>
         </div>
@@ -29,7 +29,7 @@ const ReadyMade = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-[#B19CD9]/20 hover:border-[#B19CD9] transition-all duration-300 flex flex-col h-full overflow-hidden"
+                className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-black transition-all duration-300 flex flex-col h-full overflow-hidden"
               >
                 {/* Image */}
                 <div className="aspect-[4/3] w-full relative bg-slate-100 overflow-hidden border-b border-slate-100">
@@ -37,10 +37,12 @@ const ReadyMade = () => {
                   <img
                     src={tpl.imageUrl}
                     alt={tpl.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-extrabold text-slate-800 rounded-full shadow-sm uppercase tracking-wider">
+                    <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-extrabold text-black rounded-full shadow-sm uppercase tracking-wider">
                       {tpl.category}
                     </span>
                   </div>
@@ -49,10 +51,10 @@ const ReadyMade = () => {
                 {/* Card Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="mb-3">
-                    <h4 className="text-xl font-bold text-slate-900 leading-tight">{tpl.title}</h4>
+                    <h4 className="text-xl font-bold text-black leading-tight">{tpl.title}</h4>
                   </div>
 
-                  <p className="text-slate-600 text-sm mb-6 h-10 line-clamp-2" title={tpl.shortDescription}>
+                  <p className="text-black text-sm mb-6 h-10 line-clamp-2" title={tpl.shortDescription}>
                     {tpl.shortDescription}
                   </p>
 
@@ -60,7 +62,7 @@ const ReadyMade = () => {
                   <div className="grid grid-cols-2 gap-3 mt-auto pt-4 border-t border-slate-100">
                     <Link
                       to={`/template/${tpl._id}`}
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 text-slate-700 font-semibold text-sm hover:bg-slate-100 transition-colors border border-slate-200 hover:border-slate-300"
+                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 text-black font-semibold text-sm hover:bg-slate-100 transition-colors border border-slate-200 hover:border-slate-300"
                     >
                       <ExternalLink size={16} />
                       Details
@@ -69,7 +71,7 @@ const ReadyMade = () => {
                       href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${tpl.title}* template.\n\n📦 *Category:* ${tpl.category}\n\nCould you please guide me through the next steps?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-[#B19CD9] transition-all shadow-md hover:shadow-[#B19CD9]/25"
+                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-black text-white font-semibold text-sm hover:bg-black/90 transition-all shadow-md"
                     >
                       <ShoppingCart size={16} />
                       Buy Now
@@ -84,7 +86,7 @@ const ReadyMade = () => {
         <div className="mt-16 text-center">
           <Link
             to="/templates"
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full border-2 border-[#B19CD9]/20 bg-[#B19CD9]/5 text-[#B19CD9] font-bold hover:bg-[#B19CD9] hover:text-white hover:border-[#B19CD9] transition-all"
+            className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-full border-2 border-black bg-white text-black font-bold hover:bg-black hover:text-white transition-all"
           >
             Explore All 20 Templates →
           </Link>

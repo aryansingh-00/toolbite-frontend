@@ -56,33 +56,33 @@ const GrammarFixer = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Psychology of Error-Free Writing</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Psychology of Error-Free Writing</h2>
+            <p className="text-lg leading-relaxed text-black">
               In digital communication, grammar isn't just a set of arbitrary rules—it's a critical component of <strong>trust and authority</strong>. When readers encounter grammatical errors, psychological studies show that their perception of the author's credibility drops instantly. Whether you are drafting a professional email, writing website copy, or preparing an academic paper, clean prose ensures your audience focuses on your <em>message</em>, not your mistakes.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Top 5 Common Grammatical Mistakes</h3>
-              <p className="text-slate-600 leading-relaxed italic mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">Top 5 Common Grammatical Mistakes</h3>
+              <p className="text-black leading-relaxed italic mb-4">
                 Even seasoned professionals slip up. Here are the most frequent errors that undermine professional credibility:
               </p>
-              <ul className="space-y-3 text-slate-600 list-disc pl-5">
-                <li><strong className="text-slate-900">Their/There/They're:</strong> The classic homophone trap that is easily missed during manual proofreading.</li>
-                <li><strong className="text-slate-900">Affect vs. Effect:</strong> Remember: action vs. result.</li>
-                <li><strong className="text-slate-900">Dangling Modifiers:</strong> When a descriptive phrase doesn't logically attach to the subject.</li>
-                <li><strong className="text-slate-900">Comma Splices:</strong> Joining two independent clauses without a conjunction.</li>
-                <li><strong className="text-slate-900">Subject-Verb Agreement:</strong> Especially tricky in long, complex sentences with multiple clauses.</li>
+              <ul className="space-y-3 text-black list-disc pl-5">
+                <li><strong className="text-black">Their/There/They're:</strong> The classic homophone trap that is easily missed during manual proofreading.</li>
+                <li><strong className="text-black">Affect vs. Effect:</strong> Remember: action vs. result.</li>
+                <li><strong className="text-black">Dangling Modifiers:</strong> When a descriptive phrase doesn't logically attach to the subject.</li>
+                <li><strong className="text-black">Comma Splices:</strong> Joining two independent clauses without a conjunction.</li>
+                <li><strong className="text-black">Subject-Verb Agreement:</strong> Especially tricky in long, complex sentences with multiple clauses.</li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">How AI Polishes Your Prose</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">How AI Polishes Your Prose</h3>
+              <p className="text-black leading-relaxed mb-4">
                 Traditional spellcheckers rely on rigid dictionaries and often miss contextual errors. Our AI-driven approach goes deeper:
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Syntactic Analysis:</strong> Understands the grammatical function of every word in your sentence.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Style Consistency:</strong> Flags abrupt changes in tone or formality.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Readability Optimization:</strong> Recommends simpler alternatives for overly complex jargon.</span></li>
@@ -91,8 +91,8 @@ const GrammarFixer = () => {
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">SEO Benefits of Perfect Grammar</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">SEO Benefits of Perfect Grammar</h3>
+            <p className="text-black leading-relaxed">
               Search engines like Google increasingly prioritize user experience (UX) algorithms, which monitor metrics like bounce rate and "dwell time." Content riddled with grammatical errors frustrates users, leading them to leave your site quickly. By using a sophisticated grammar fixer, you organically boost your engagement metrics, signaling to search engines that your content is high-quality, authoritative, and worthy of top rankings.
             </p>
           </section>
@@ -104,7 +104,7 @@ const GrammarFixer = () => {
           {/* Input Area */}
           <div className="flex flex-col h-full">
             <div className="flex items-center justify-between mb-4 px-2">
-              <label className="text-sm font-bold text-slate-700 flex items-center gap-2">
+              <label className="text-sm font-bold text-black flex items-center gap-2">
                 <AlertCircle size={16} className="text-slate-400" />
                 Original Text
               </label>
@@ -119,7 +119,7 @@ const GrammarFixer = () => {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Paste your text here to scan for errors..."
-              className="flex-grow w-full h-80 p-8 rounded-[2rem] bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none shadow-sm"
+              className="flex-grow w-full h-80 p-8 rounded-[2rem] bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black resize-none shadow-sm"
             />
           </div>
 
@@ -144,7 +144,7 @@ const GrammarFixer = () => {
                     <p className="font-bold text-teal-700 animate-pulse">Analyzing Grammar...</p>
                   </div>
                 ) : (
-                  <p className={`h-full overflow-auto font-medium ${fixedText ? 'text-slate-800' : 'text-slate-400 italic'}`}>
+                  <p className={`h-full overflow-auto font-medium ${fixedText ? 'text-black' : 'text-slate-400 italic'}`}>
                     {fixedText || 'The improved version will appear here after scanning.'}
                   </p>
                 )}
@@ -208,7 +208,7 @@ const FeatureCard = ({ icon: Icon, title, desc, color }) => {
       <div className={`w-12 h-12 rounded-2xl ${colors[color]} flex items-center justify-center mb-4`}>
         <Icon size={24} />
       </div>
-      <h4 className="text-lg font-bold text-slate-900 mb-2">{title}</h4>
+      <h4 className="text-lg font-bold text-black mb-2">{title}</h4>
       <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );

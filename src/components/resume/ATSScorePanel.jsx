@@ -290,7 +290,7 @@ export default function ATSScorePanel({ formData, onClose }) {
                     onChange={e => setJobDescription(e.target.value)}
                     placeholder="Paste the job description here to analyze keyword match..."
                     rows={5}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-teal-500 resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-black focus:outline-none focus:border-teal-500 resize-none"
                   />
                   {jobDescription && (
                     <div className="space-y-3">

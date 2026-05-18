@@ -51,16 +51,16 @@ const CaseConverter = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Importance of Typographical Hierarchy</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Importance of Typographical Hierarchy</h2>
+            <p className="text-lg leading-relaxed text-black">
               In digital design and content creation, how your words look is often just as important as what they say. Case formatting isn't merely a stylistic choice; it's a fundamental element of visual hierarchy that guides the reader's eye, establishes structural relationships between text elements, and ensures accessibility across different devices and screen sizes.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">When to Use Different Cases</h3>
-              <ul className="space-y-3 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">When to Use Different Cases</h3>
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>UPPERCASE:</strong> Best used sparingly for strong emphasis, acronyms, or short navigational labels. Excessive use feels like "shouting" and severely decreases readability.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>lowercase:</strong> Often employed in modern, minimalist branding to convey approachability and simplicity. Used heavily in casual UI microcopy.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Title Case:</strong> The standard for blog post titles, book covers, and primary headings. It naturally draws attention while remaining easy to scan.</span></li>
@@ -70,16 +70,16 @@ const CaseConverter = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Accessibility and UX Design</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Accessibility and UX Design</h3>
+              <p className="text-black leading-relaxed">
                 Dyslexic users and those with cognitive impairments rely heavily on the distinct visual shapes of words. Because ALL CAPS eliminates the ascenders and descenders (the parts of letters that go up and down, like 'b' or 'p'), words form uniform rectangular blocks that are difficult to distinguish. By using a case converter to enforce Sentence case in your main body copy, you adhere to global accessibility standards and ensure a seamless experience for all users.
               </p>
             </section>
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">SEO Implications of Title Formatting</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">SEO Implications of Title Formatting</h3>
+            <p className="text-black leading-relaxed">
               When search engines index your website, they pay close attention to your <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code> tags. While Google's algorithm does not penalize you directly for case choices in headers, Click-Through Rates (CTR) on Search Engine Results Pages (SERPs) are heavily influenced by it. Studies show that Title Case headlines generally perform better in SERPs than lowercase ones because they stand out visually against standard descriptive text. Keeping your case formatting consistent across your entire site also signals strong editorial standards to both users and crawlers.
             </p>
           </section>
@@ -92,7 +92,7 @@ const CaseConverter = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type or paste your text here..."
-            className="w-full h-80 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-slate-800 resize-none placeholder:text-slate-400"
+            className="w-full h-80 p-6 rounded-2xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all font-medium text-black resize-none placeholder:text-slate-400"
           />
           <div className="absolute top-4 right-4 flex gap-2">
             <button 
@@ -127,7 +127,7 @@ const CaseConverter = () => {
 const CaseButton = ({ onClick, label }) => (
   <button title="Interactive Button" aria-label="Interactive Button"
     onClick={onClick}
-    className="py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 font-bold hover:bg-teal-600 hover:text-white hover:border-teal-600 hover:shadow-lg hover:shadow-teal-500/20 transition-all duration-300"
+    className="py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl text-black font-bold hover:bg-teal-600 hover:text-white hover:border-teal-600 hover:shadow-lg hover:shadow-teal-500/20 transition-all duration-300"
   >
     {label}
   </button>

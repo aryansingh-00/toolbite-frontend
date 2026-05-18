@@ -20,7 +20,7 @@ const AssetApproval = () => {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white">Design & Asset Approval</h3>
+          <h3 className="text-2xl font-black text-black dark:text-white">Design & Asset Approval</h3>
           <p className="text-slate-500 dark:text-slate-400 font-medium">Review and approve assets to move the project forward.</p>
         </div>
         <div className="flex gap-2">
@@ -48,7 +48,7 @@ const AssetApproval = () => {
                 {asset.preview ? (
                   <img src={asset.preview} alt={asset.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
-                  <FileText size={48} className="text-slate-300 dark:text-slate-600" />
+                  <FileText size={48} className="text-slate-300 dark:text-black" />
                 )}
                 
                 <div className="absolute top-4 right-4">
@@ -68,7 +68,7 @@ const AssetApproval = () => {
               {/* Asset Info */}
               <div className="p-6">
                 <div className="mb-4">
-                  <h4 className="font-bold text-slate-900 dark:text-white truncate" title={asset.name}>{asset.name}</h4>
+                  <h4 className="font-bold text-black dark:text-white truncate" title={asset.name}>{asset.name}</h4>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1">{asset.size} • {asset.type}</p>
                 </div>
 
@@ -77,13 +77,13 @@ const AssetApproval = () => {
                     <>
                       <button title="Interactive Button" aria-label="Interactive Button" 
                         onClick={() => updateStatus(asset.id, 'Approved')}
-                        className="flex-1 py-2 bg-teal-500 text-slate-900 text-xs font-bold rounded-xl hover:bg-teal-400 transition-colors flex items-center justify-center gap-1.5"
+                        className="flex-1 py-2 bg-teal-500 text-black text-xs font-bold rounded-xl hover:bg-teal-400 transition-colors flex items-center justify-center gap-1.5"
                       >
                         <CheckCircle2 size={14} /> Approve
                       </button>
                       <button title="Interactive Button" aria-label="Interactive Button" 
                          onClick={() => updateStatus(asset.id, 'Revision Requested')}
-                         className="px-3 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl hover:bg-rose-500 hover:text-white transition-all"
+                         className="px-3 py-2 bg-slate-100 dark:bg-slate-800 text-black dark:text-slate-400 rounded-xl hover:bg-rose-500 hover:text-white transition-all"
                       >
                         <MessageSquare size={14} />
                       </button>

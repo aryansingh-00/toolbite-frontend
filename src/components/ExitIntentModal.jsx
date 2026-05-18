@@ -83,7 +83,7 @@ const ExitIntentModal = () => {
             {/* Close Button */}
             <button title="Interactive Button" aria-label="Interactive Button"
               onClick={closePortal}
-              className="absolute top-6 right-6 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors z-10"
+              className="absolute top-6 right-6 p-2 text-slate-400 hover:text-black dark:hover:text-white transition-colors z-10"
             >
               <X size={24} />
             </button>
@@ -105,23 +105,23 @@ const ExitIntentModal = () => {
                     <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Check className="text-emerald-600" size={40} />
                     </div>
-                    <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-4">Request Sent!</h2>
-                    <p className="text-slate-600 dark:text-slate-400">
+                    <h2 className="text-3xl font-black text-black dark:text-white mb-4">Request Sent!</h2>
+                    <p className="text-black dark:text-slate-400">
                       Chek your inbox! We've sent the **Web ROI Checklist** directly to your email.
                     </p>
                     <button title="Interactive Button" aria-label="Interactive Button"
                       onClick={closePortal}
-                      className="mt-8 px-8 py-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-bold rounded-xl hover:scale-105 transition-transform"
+                      className="mt-8 px-8 py-3 bg-slate-900 dark:bg-white dark:text-black text-white font-bold rounded-xl hover:scale-105 transition-transform"
                     >
                       Awesome, thanks!
                     </button>
                   </motion.div>
                 ) : (
                   <>
-                    <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4 leading-tight">
+                    <h2 className="text-3xl md:text-4xl font-black text-black dark:text-white mb-4 leading-tight">
                       Wait! Don't Miss <span className="text-teal-500">Your Gift.</span>
                     </h2>
-                    <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg font-medium">
+                    <p className="text-black dark:text-slate-400 mb-8 text-lg font-medium">
                       Get our exclusive **Web ROI Checklist** (valued at $99) absolutely free before you leave.
                     </p>
 
@@ -139,7 +139,7 @@ const ExitIntentModal = () => {
                       <button title="Interactive Button" aria-label="Interactive Button"
                         type="submit"
                         disabled={status === 'sending'}
-                        className="w-full py-5 bg-teal-500 hover:bg-teal-400 text-slate-900 font-black text-lg rounded-2xl shadow-xl shadow-teal-500/20 transition-all active:scale-95 flex items-center justify-center gap-3 disabled:opacity-50"
+                        className="w-full py-5 bg-teal-500 hover:bg-teal-400 text-black font-black text-lg rounded-2xl shadow-xl shadow-teal-500/20 transition-all active:scale-95 flex items-center justify-center gap-3 disabled:opacity-50"
                       >
                         {status === 'sending' ? (
                           'sending...'

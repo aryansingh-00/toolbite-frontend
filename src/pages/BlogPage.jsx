@@ -34,10 +34,10 @@ const BlogPage = () => {
           <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
           Insight Hub
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-black dark:text-white mb-6 tracking-tight">
           The <span className="text-teal-500">ToolBite</span> Digital Feed
         </h1>
-        <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
+        <p className="text-xl text-black dark:text-slate-400 max-w-2xl mx-auto font-medium">
           Authoritative insights and high-performance strategies for modern digital brands.
         </p>
       </div>
@@ -49,7 +49,7 @@ const BlogPage = () => {
             <button title="Interactive Button" aria-label="Interactive Button"
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-sm font-black transition-all ${activeCategory === cat ? 'bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 shadow-lg' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-600 dark:hover:text-teal-400'}`}
+              className={`px-6 py-2.5 rounded-full text-sm font-black transition-all ${activeCategory === cat ? 'bg-slate-900 dark:bg-teal-500 text-white dark:text-black shadow-lg' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-600 dark:hover:text-teal-400'}`}
             >
               {cat}
             </button>
@@ -61,7 +61,7 @@ const BlogPage = () => {
             placeholder="Search insights..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-500/5 focus:border-teal-500 transition-all font-bold"
+            className="w-full pl-12 pr-6 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-black dark:text-white rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-500/5 focus:border-teal-500 transition-all font-bold"
           />
           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-teal-500 transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -79,7 +79,7 @@ const BlogPage = () => {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-6 left-6">
-                <span className="bg-slate-900/90 dark:bg-teal-500/90 backdrop-blur-md text-white dark:text-slate-900 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
+                <span className="bg-slate-900/90 dark:bg-teal-500/90 backdrop-blur-md text-white dark:text-black text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
                   {post.category}
                 </span>
               </div>
@@ -95,19 +95,19 @@ const BlogPage = () => {
                   {post.author}
                 </div>
               </div>
-              <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6 leading-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+              <h2 className="text-3xl font-black text-black dark:text-white mb-6 leading-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                 <Link to={`/blog/${post.id}`}>{post.title}</Link>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 mb-10 flex-grow leading-relaxed text-lg font-medium">
+              <p className="text-black dark:text-slate-400 mb-10 flex-grow leading-relaxed text-lg font-medium">
                 {post.excerpt}
               </p>
               <div className="mt-auto">
                 <Link 
                   to={`/blog/${post.id}`} 
-                  className="inline-flex items-center gap-3 text-slate-900 dark:text-white font-black text-lg group/btn"
+                  className="inline-flex items-center gap-3 text-black dark:text-white font-black text-lg group/btn"
                 >
                   <span className="bg-teal-500 group-hover/btn:bg-teal-400 p-2 rounded-xl transition-colors">
-                    <ArrowRight size={20} className="dark:text-slate-900" />
+                    <ArrowRight size={20} className="dark:text-black" />
                   </span>
                   Full Article
                 </Link>
@@ -119,11 +119,11 @@ const BlogPage = () => {
             <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </div>
-            <h3 className="text-2xl font-black text-slate-900 mb-2">No matching insights found</h3>
+            <h3 className="text-2xl font-black text-black mb-2">No matching insights found</h3>
             <p className="text-slate-500 font-medium">Try adjusting your search or filters to find what you're looking for.</p>
             <button title="Interactive Button" aria-label="Interactive Button" 
               onClick={() => { setSearchTerm(''); setActiveCategory('All'); }}
-              className="mt-8 px-8 py-3 bg-teal-500 text-slate-900 font-bold rounded-xl hover:bg-teal-400 transition-all"
+              className="mt-8 px-8 py-3 bg-teal-500 text-black font-bold rounded-xl hover:bg-teal-400 transition-all"
             >
               Clear All Filters
             </button>
@@ -133,15 +133,15 @@ const BlogPage = () => {
 
       <div className="mt-24 pt-12 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center text-center">
         <div className="w-16 h-16 bg-slate-50 dark:bg-slate-800 rounded-full flex items-center justify-center mb-6">
-          <Calendar className="text-slate-300 dark:text-slate-600" size={24} />
+          <Calendar className="text-slate-300 dark:text-black" size={24} />
         </div>
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Weekly Strategy Dispatches</h3>
+        <h3 className="text-xl font-bold text-black dark:text-white mb-2">Weekly Strategy Dispatches</h3>
         <p className="text-slate-500 dark:text-slate-400 max-w-sm mb-8">
           Join 5,000+ architects and founders receiving our weekly breakdown on high-performance design, SEO, and conversion engineering.
         </p>
         <Link 
           to="/contact" 
-          className="px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-slate-900/10 dark:shadow-teal-500/20"
+          className="px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-black font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-slate-900/10 dark:shadow-teal-500/20"
         >
           Subscribe to Insights
         </Link>

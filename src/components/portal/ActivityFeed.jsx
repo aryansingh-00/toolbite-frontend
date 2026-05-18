@@ -71,7 +71,7 @@ const ActivityItem = ({ activity, index }) => (
     </div>
     <div className="flex-grow">
       <div className="flex justify-between items-start mb-1">
-        <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-teal-600 transition-colors">
+        <h4 className="font-bold text-black dark:text-white group-hover:text-teal-600 transition-colors">
           {activity.title}
         </h4>
         <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
@@ -90,7 +90,7 @@ const ActivityFeed = () => {
   return (
     <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 border border-slate-200 dark:border-slate-800 shadow-sm h-full">
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+        <h3 className="text-xl font-bold text-black dark:text-white flex items-center gap-3">
           <Zap className="text-teal-500" size={20} fill="currentColor" />
           Live Project Insight
         </h3>

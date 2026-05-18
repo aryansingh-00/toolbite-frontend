@@ -17,11 +17,11 @@ const DesignLab = ({ isOpen, onClose }) => {
       className="fixed top-0 right-0 w-80 h-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-[100] shadow-2xl flex flex-col"
     >
       <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-        <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <h3 className="font-bold text-black dark:text-white flex items-center gap-2">
           <Palette className="text-teal-500" size={20} />
           Design Lab
         </h3>
-        <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <button title="Interactive Button" aria-label="Interactive Button" onClick={onClose} className="text-slate-400 hover:text-black dark:hover:text-white">
           <X size={20} />
         </button>
       </div>
@@ -35,7 +35,7 @@ const DesignLab = ({ isOpen, onClose }) => {
             type="text" 
             value={brandName}
             onChange={(e) => setBrandName(e.target.value)}
-            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20"
+            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 text-sm font-bold text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500/20"
             placeholder="Enter your brand name..."
           />
         </div>
@@ -54,7 +54,7 @@ const DesignLab = ({ isOpen, onClose }) => {
                      onChange={(e) => setPrimaryColor(e.target.value)}
                      className="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-none"
                    />
-                   <span className="text-sm font-mono text-slate-600 dark:text-slate-400">{primaryColor}</span>
+                   <span className="text-sm font-mono text-black dark:text-slate-400">{primaryColor}</span>
                 </div>
              </div>
              <div>
@@ -66,7 +66,7 @@ const DesignLab = ({ isOpen, onClose }) => {
                      onChange={(e) => setAccentColor(e.target.value)}
                      className="w-10 h-10 rounded-lg cursor-pointer bg-transparent border-none"
                    />
-                   <span className="text-sm font-mono text-slate-600 dark:text-slate-400">{accentColor}</span>
+                   <span className="text-sm font-mono text-black dark:text-slate-400">{accentColor}</span>
                 </div>
              </div>
           </div>
@@ -85,7 +85,7 @@ const DesignLab = ({ isOpen, onClose }) => {
       </div>
 
       <div className="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-         <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
+         <button title="Interactive Button" aria-label="Interactive Button" className="w-full py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-black font-bold rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
             Save Configuration
          </button>
       </div>

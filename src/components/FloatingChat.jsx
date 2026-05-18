@@ -42,7 +42,7 @@ const FloatingChat = () => {
               </span>
               <span className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Online Now</span>
             </div>
-            <p className="text-sm font-bold text-slate-800 dark:text-slate-200 leading-tight">
+            <p className="text-sm font-bold text-black dark:text-slate-200 leading-tight">
               👋 Need a custom quote or have a question? I'm available!
             </p>
           </motion.div>
@@ -72,7 +72,7 @@ const FloatingChat = () => {
             
             <div className="p-6 bg-slate-50 dark:bg-slate-800/50 space-y-4">
               <div className="flex gap-3">
-                <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed">
+                <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 dark:border-slate-700 text-sm font-medium text-black dark:text-slate-300 leading-relaxed">
                   Welcome back! 👋 <br/><br/> Looking for a custom build or interested in one of our premium templates?
                 </div>
               </div>

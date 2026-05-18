@@ -45,16 +45,16 @@ const ColorPaletteGenerator = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">Mastering the Psychology of Color</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">Mastering the Psychology of Color</h2>
+            <p className="text-lg leading-relaxed text-black">
               Color is one of the most powerful tools in a designer's arsenal. It has the ability to evoke emotions, establish brand identity, and guide user behavior. A well-chosen color palette can elevate a simple layout into a premium digital experience, while poor color choices can confuse users and diminish trust.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Color Harmonies</h3>
-              <ul className="space-y-3 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">Color Harmonies</h3>
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Monochromatic:</strong> Using different shades and tints of a single color for a clean, cohesive look.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Analogous:</strong> Colors that are next to each other on the color wheel, creating a serene and comfortable design.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Complementary:</strong> Opposite colors on the wheel that provide high contrast and vibrant energy.</span></li>
@@ -63,8 +63,8 @@ const ColorPaletteGenerator = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Accessibility in Color Choice</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Accessibility in Color Choice</h3>
+              <p className="text-black leading-relaxed">
                 When generating palettes, it's crucial to consider color contrast for accessibility (WCAG standards). Ensure that your text color has enough contrast against the background so that users with visual impairments can read your content comfortably. Our generator provides diverse colors to help you find the perfect balance between aesthetics and utility.
               </p>
             </section>
@@ -85,7 +85,7 @@ const ColorPaletteGenerator = () => {
                 onClick={() => handleCopy(color)}
               />
               <div className="mt-4 flex items-center gap-2">
-                <span className="font-mono font-bold text-slate-700">{color}</span>
+                <span className="font-mono font-bold text-black">{color}</span>
                 <button title="Interactive Button" aria-label="Interactive Button" 
                   onClick={() => handleCopy(color)}
                   className="p-1.5 text-slate-400 hover:text-teal-600 transition-colors"

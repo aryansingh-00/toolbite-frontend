@@ -42,10 +42,10 @@ const ServiceDetail = () => {
             <div className={`w-16 h-16 ${service.bg} rounded-2xl flex items-center justify-center mb-8 shadow-sm border ${service.border}`}>
               {service.icon}
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-black mb-6 tracking-tight leading-tight">
               {service.title}
             </h1>
-            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
+            <p className="text-xl text-black mb-10 leading-relaxed max-w-2xl">
               {service.extendedDescription || service.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -57,7 +57,7 @@ const ServiceDetail = () => {
               </Link>
               <Link 
                 to="/portfolio" 
-                className="px-10 py-5 bg-white text-slate-900 font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-center"
+                className="px-10 py-5 bg-white text-black font-bold rounded-2xl border border-slate-200 hover:bg-slate-50 transition-all text-center"
               >
                 View Case Studies
               </Link>
@@ -85,22 +85,22 @@ const ServiceDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
             <Zap className="text-amber-500 mb-4" size={32} />
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Rapid Deployment</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">Rapid Deployment</h3>
+            <p className="text-black text-sm leading-relaxed">
               We leverage proprietary modular frameworks to launch your {service.title.toLowerCase()} infrastructure 3x faster than traditional agencies.
             </p>
           </div>
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
             <ShieldCheck className="text-blue-500 mb-4" size={32} />
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Enterprise Security</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">Enterprise Security</h3>
+            <p className="text-black text-sm leading-relaxed">
               Every {service.title.toLowerCase()} build undergoes rigorous security auditing and penetration testing before the final production push.
             </p>
           </div>
           <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
             <Globe className="text-teal-500 mb-4" size={32} />
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Global Scalability</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-3">Global Scalability</h3>
+            <p className="text-black text-sm leading-relaxed">
               Our architectures are designed to scale gracefully from your first 1,000 users to millions of global visitors without performance degradation.
             </p>
           </div>
@@ -108,14 +108,14 @@ const ServiceDetail = () => {
 
         <div className="bg-white rounded-[4rem] p-12 md:p-24 border border-slate-100 shadow-sm mb-24">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-black text-slate-900 mb-12 tracking-tight">Mastering {service.title}</h2>
-            <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed space-y-8">
+            <h2 className="text-4xl font-black text-black mb-12 tracking-tight">Mastering {service.title}</h2>
+            <div className="prose prose-slate prose-lg max-w-none text-black leading-relaxed space-y-8">
               <p>
                 In today's hyper-competitive digital economy, {service.title.toLowerCase()} is no longer just a technical requirement—it's a critical business advantage. Whether you are a scaling startup or a global enterprise, the way your {service.title.toLowerCase()} layer functions directly impacts your bottom line.
               </p>
               
               <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 my-12">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">Our Engineering Philosophy</h3>
+                <h3 className="text-2xl font-bold text-black mb-6">Our Engineering Philosophy</h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-none p-0">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="text-teal-500 shrink-0 mt-1" size={20} />
@@ -146,15 +146,15 @@ const ServiceDetail = () => {
         {/* Service FAQ Section */}
         {service.faqs && service.faqs.length > 0 && (
           <div className="mb-24">
-            <h2 className="text-3xl font-black text-slate-900 mb-12 text-center tracking-tight">Service FAQ</h2>
+            <h2 className="text-3xl font-black text-black mb-12 text-center tracking-tight">Service FAQ</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {service.faqs.map((faq, idx) => (
                 <div key={idx} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                  <h4 className="font-bold text-slate-900 mb-4 flex items-start gap-3">
+                  <h4 className="font-bold text-black mb-4 flex items-start gap-3">
                     <span className="text-teal-500 font-black">Q.</span>
                     {faq.question}
                   </h4>
-                  <p className="text-slate-600 text-sm leading-relaxed pl-7">
+                  <p className="text-black text-sm leading-relaxed pl-7">
                     {faq.answer}
                   </p>
                 </div>

@@ -63,23 +63,23 @@ const BrandAudit = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Power of Backlinks in Digital Auditing</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Power of Backlinks in Digital Auditing</h2>
+            <p className="text-lg leading-relaxed text-black">
               Backlinks, also known as inbound links or incoming links, are links from other websites that point to a page on your website. They are important for search engines because they help search engines understand the relevance and authority of your website, which can help improve your rankings in search engine results.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Driving Referral Traffic</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Driving Referral Traffic</h3>
+              <p className="text-black leading-relaxed">
                 Backlinks can also help to increase referral traffic to your site, as people who click on the links from other websites are directed to your site. This can help to increase your site's visibility and engagement, generating highly qualified leads natively rather than relying completely on paid advertising.
               </p>
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Bing Webmaster Tools Integration</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
+              <h3 className="text-xl font-bold text-black mb-4">Bing Webmaster Tools Integration</h3>
+              <p className="text-black leading-relaxed mb-6">
                 A critical part of any successful digital brand audit is to review backlinks to your site and compare backlinks to any other website via Bing Webmaster Tools. Monitoring your inbound link profile ensures you stay ahead of algorithmic changes and protect your domain authority against toxic links.
               </p>
               <Link to="/tools/backlink-checker" className="text-teal-600 font-bold hover:underline flex items-center gap-2">
@@ -89,24 +89,24 @@ const BrandAudit = () => {
           </div>
 
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6 font-sans">The Technical Health Checklist</h2>
-            <p className="text-slate-600 leading-relaxed mb-6">
+            <h2 className="text-3xl font-black text-black mb-6 font-sans">The Technical Health Checklist</h2>
+            <p className="text-black leading-relaxed mb-6">
               A modern digital audit evaluates your platform across four primary pillars. If any pillar is weak, the entire structure of your digital growth is at risk.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-slate-700">
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-black">
                 <div className="w-2 h-2 rounded-full bg-teal-500" />
                 LCP (Largest Contentful Paint) under 1.2s
               </div>
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-slate-700">
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-black">
                 <div className="w-2 h-2 rounded-full bg-teal-500" />
                 Semantic HTML5 & WAI-ARIA Compliance
               </div>
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-slate-700">
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-black">
                 <div className="w-2 h-2 rounded-full bg-teal-500" />
                 Zero Render-Blocking Resources in Head
               </div>
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-slate-700">
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 italic font-medium text-black">
                 <div className="w-2 h-2 rounded-full bg-teal-500" />
                 Modern Image Formats (WebP/AVIF) Only
               </div>
@@ -139,7 +139,7 @@ const BrandAudit = () => {
             <div className="w-20 h-20 bg-teal-500/10 text-teal-600 rounded-2.5xl flex items-center justify-center mx-auto mb-8">
               <SearchCode size={40} />
             </div>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">Enter your URL to <span className="text-teal-500">Analyze</span></h2>
+            <h2 className="text-3xl md:text-5xl font-black text-black dark:text-white mb-6 tracking-tight">Enter your URL to <span className="text-teal-500">Analyze</span></h2>
             <p className="text-slate-500 dark:text-slate-400 font-medium mb-12 max-w-xl mx-auto text-lg leading-relaxed">
               Our audit engine evaluates your site against Global Performance Benchmarks and ToolBite Engineering Standards.
             </p>
@@ -156,7 +156,7 @@ const BrandAudit = () => {
               />
               <button title="Interactive Button" aria-label="Interactive Button" 
                 type="submit"
-                className="absolute right-3 top-1/2 -translate-y-1/2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-900 font-bold rounded-2xl hover:scale-105 transition-transform shadow-xl shadow-teal-500/20"
+                className="absolute right-3 top-1/2 -translate-y-1/2 px-8 py-4 bg-slate-900 dark:bg-teal-500 text-white dark:text-black font-bold rounded-2xl hover:scale-105 transition-transform shadow-xl shadow-teal-500/20"
               >
                 Start Audit
               </button>
@@ -186,7 +186,7 @@ const BrandAudit = () => {
                   exit={{ opacity: 0, y: -10 }}
                   className="space-y-4"
                 >
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{scanSteps[scanStepIndex]}</h3>
+                  <h3 className="text-2xl font-bold text-black dark:text-white">{scanSteps[scanStepIndex]}</h3>
                   <div className="flex justify-center gap-1">
                     {[0, 1, 2, 3, 4, 5, 6].map(i => (
                       <div key={i} className={`w-8 h-1.5 rounded-full transition-all duration-500 ${i <= scanStepIndex ? 'bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]' : 'bg-slate-200 dark:bg-slate-800'}`}></div>
@@ -229,9 +229,9 @@ const BrandAudit = () => {
                   <div className={`p-3 rounded-xl bg-${item.color}-500/10 text-${item.color}-500 w-fit mb-6`}>
                     {item.icon}
                   </div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-2">{item.label}</h4>
+                  <h4 className="font-bold text-black dark:text-white mb-2">{item.label}</h4>
                   <div className="flex items-end gap-3 mb-4">
-                     <span className="text-4xl font-black text-slate-900 dark:text-white">{item.score}</span>
+                     <span className="text-4xl font-black text-black dark:text-white">{item.score}</span>
                      <span className={`text-xs font-bold uppercase tracking-widest text-${item.color}-500 mb-1.5`}>{item.status}</span>
                   </div>
                   <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
@@ -250,7 +250,7 @@ const BrandAudit = () => {
             <div className="bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
                <div className="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex items-center gap-3">
                   <AlertCircle className="text-rose-500" />
-                  <h3 className="font-bold text-slate-900 dark:text-white">Strategic Gaps Identified</h3>
+                  <h3 className="font-bold text-black dark:text-white">Strategic Gaps Identified</h3>
                </div>
                <div className="p-8 space-y-6">
                   {[
@@ -261,7 +261,7 @@ const BrandAudit = () => {
                   ].map((gap, i) => (
                     <div key={i} className="flex gap-4 items-start">
                        <div className="mt-1 w-2 h-2 rounded-full bg-rose-500 shrink-0"></div>
-                       <p className="text-slate-600 dark:text-slate-400 font-medium">{gap}</p>
+                       <p className="text-black dark:text-slate-400 font-medium">{gap}</p>
                     </div>
                   ))}
                </div>
@@ -277,7 +277,7 @@ const BrandAudit = () => {
                   <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <button title="Interactive Button" aria-label="Interactive Button" 
                       onClick={() => window.location.href = '/contact'}
-                      className="px-10 py-5 bg-teal-500 text-slate-900 font-black rounded-2xl shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center justify-center gap-3"
+                      className="px-10 py-5 bg-teal-500 text-black font-black rounded-2xl shadow-xl shadow-teal-500/20 hover:scale-105 transition-transform flex items-center justify-center gap-3"
                     >
                       Book My Full Strategy Call
                       <ArrowRight size={20} />

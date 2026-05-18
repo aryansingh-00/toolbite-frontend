@@ -85,27 +85,27 @@ const PasswordGenerator = () => {
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Anatomy of a Cryptographic Password</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Anatomy of a Cryptographic Password</h2>
+            <p className="text-lg leading-relaxed text-black">
               In an era where automated brute-force attacks and credential stuffing are occurring constantly, relying on easily memorable passwords is a severe security vulnerability. A truly secure password shouldn't be a word found in any dictionary; it should be a high-entropy string of pseudorandom characters. ToolBite's Password Generator executes entirely client-side, ensuring your keys are minted mathematically without ever touching a live database or traveling across a network.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Understanding Password Entropy</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">Understanding Password Entropy</h3>
+              <p className="text-black leading-relaxed mb-4">
                 "Entropy" in cybersecurity measures how unpredictable a password is. It is calculated based on the length of the password and the size of the character pool.
               </p>
-              <ul className="space-y-3 text-slate-600">
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Length is King:</strong> A 16-character password using only lowercase letters is exponentially harder to crack than an 8-character password using all symbols. Always prioritize length.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>The Computation Reality:</strong> An 8-character complex password can be cracked by modern GPUs in roughly 40 minutes. A 16-character complex password would take billions of years.</span></li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Cybersecurity Best Practices</h3>
-              <ul className="space-y-4 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">Cybersecurity Best Practices</h3>
+              <ul className="space-y-4 text-black">
                 <li className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
                   <strong className="text-rose-600 block mb-1">Never Reuse Passwords</strong>
                   If one service is compromised, hackers will rapidly test that exact username and password combination across hundreds of other popular platforms.
@@ -123,8 +123,8 @@ const PasswordGenerator = () => {
           </div>
 
           <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Why Local Generation Matters for Privacy</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="text-xl font-bold text-black mb-4">Why Local Generation Matters for Privacy</h3>
+            <p className="text-black leading-relaxed">
               Many online password generators operate server-side, meaning the password is created on their computer and transmitted to your browser via the internet. Even with HTTPS, this introduces a point of interception risk. Our tool relies exclusively on your browser's native JavaScript execution environment. Your cryptographically secure random numbers are generated locally within your RAM, ensuring Absolute Zero-Knowledge privacy.
             </p>
           </section>
@@ -177,7 +177,7 @@ const PasswordGenerator = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="space-y-6">
             <label className="block text-sm font-bold text-slate-500 uppercase tracking-widest">
-              Password Length: <span className="text-slate-900 text-xl ml-2">{length}</span>
+              Password Length: <span className="text-black text-xl ml-2">{length}</span>
             </label>
             <input
               type="range"
@@ -247,7 +247,7 @@ const PasswordGenerator = () => {
                   onClick={() => { setPassword(item.password); navigator.clipboard.writeText(item.password); toast.success('Password copied!'); }}
                   className="w-full flex items-center justify-between px-5 py-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-teal-300 hover:bg-teal-50 transition-all group"
                 >
-                  <span className="font-mono text-sm text-slate-700 truncate max-w-[60%]">{item.password}</span>
+                  <span className="font-mono text-sm text-black truncate max-w-[60%]">{item.password}</span>
                   <div className="flex items-center gap-3 shrink-0">
                     <span className="text-[10px] text-slate-400">{item.savedAt}</span>
                     <Copy size={12} className="text-slate-300 group-hover:text-teal-500 transition-colors" />

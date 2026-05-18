@@ -37,16 +37,16 @@ border-radius: 24px;`;
       extendedContent={
         <div className="space-y-12">
           <section>
-            <h2 className="text-3xl font-black text-slate-900 mb-6">The Rise of Glassmorphism</h2>
-            <p className="text-lg leading-relaxed text-slate-600">
+            <h2 className="text-3xl font-black text-black mb-6">The Rise of Glassmorphism</h2>
+            <p className="text-lg leading-relaxed text-black">
               Glassmorphism is a modern UI trend characterized by background blur, multi-layered transparency, and subtle borders. It creates a "frosted glass" effect that adds depth, hierarchy, and a sense of premium quality to digital interfaces. Popularized by Apple (macOS Big Sur) and Microsoft (Windows 11), it has become a staple in high-end web design.
             </p>
           </section>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <section>
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Design Principles</h3>
-              <ul className="space-y-3 text-slate-600">
+              <h3 className="text-xl font-bold text-black mb-4">Design Principles</h3>
+              <ul className="space-y-3 text-black">
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Transparency:</strong> Use subtle background colors with low alpha values.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Blur:</strong> The backdrop-filter blur is what creates the "glass" look.</span></li>
                 <li className="flex items-start gap-2"><div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500 mt-2"></div><span><strong>Borders:</strong> A very thin, light-colored border helps define the element's edges.</span></li>
@@ -55,8 +55,8 @@ border-radius: 24px;`;
             </section>
 
             <section className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">Implementation Best Practices</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-black mb-4">Implementation Best Practices</h3>
+              <p className="text-black leading-relaxed">
                 While visually stunning, glassmorphism should be used thoughtfully. Ensure that text over glass elements remains legible by choosing appropriate font colors and weights. Avoid nesting too many glass layers, as it can impact browser performance on lower-end devices. Always test the <code>backdrop-filter</code> support across different browsers.
               </p>
             </section>
@@ -70,7 +70,7 @@ border-radius: 24px;`;
           <div className="space-y-6">
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="font-bold text-slate-700">Blur Amount ({blur}px)</label>
+                <label className="font-bold text-black">Blur Amount ({blur}px)</label>
               </div>
               <input 
                 type="range" min="0" max="25" step="1" 
@@ -81,7 +81,7 @@ border-radius: 24px;`;
 
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="font-bold text-slate-700">Transparency ({Math.round(transparency * 100)}%)</label>
+                <label className="font-bold text-black">Transparency ({Math.round(transparency * 100)}%)</label>
               </div>
               <input 
                 type="range" min="0" max="1" step="0.01" 
@@ -92,7 +92,7 @@ border-radius: 24px;`;
 
             <div className="space-y-2">
               <div className="flex justify-between items-center">
-                <label className="font-bold text-slate-700">Outline Opacity ({Math.round(outline * 100)}%)</label>
+                <label className="font-bold text-black">Outline Opacity ({Math.round(outline * 100)}%)</label>
               </div>
               <input 
                 type="range" min="0" max="0.5" step="0.01" 
@@ -102,7 +102,7 @@ border-radius: 24px;`;
             </div>
 
             <div className="space-y-2">
-              <label className="font-bold text-slate-700 block">Glass Color</label>
+              <label className="font-bold text-black block">Glass Color</label>
               <div className="flex gap-4">
                 <input 
                   type="color" 
@@ -112,14 +112,14 @@ border-radius: 24px;`;
                 <input 
                   type="text" 
                   value={color.toUpperCase()} onChange={(e) => setColor(e.target.value)}
-                  className="flex-grow px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl font-mono font-bold text-slate-700 uppercase"
+                  className="flex-grow px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl font-mono font-bold text-black uppercase"
                 />
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-slate-100">
-            <h4 className="font-bold text-slate-900 mb-4">Generated CSS</h4>
+            <h4 className="font-bold text-black mb-4">Generated CSS</h4>
             <div className="relative">
               <pre className="bg-slate-900 text-teal-400 p-6 rounded-2xl font-mono text-sm overflow-x-auto whitespace-pre-wrap">
                 {cssCode}
