@@ -14,5 +14,5 @@ export const FORM_CONFIG = {
   // - For Web3Forms: Enter your Web3Forms Access Key here (e.g. "8b51d1e4-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
   // - For Formspree: Enter your Formspree Form ID here (e.g. "mjvldpyw")
   // - For FormSubmit: Enter your target email here (e.g. "hello.toolbite@gmail.com")
-  accessKey: 'hello.toolbite@gmail.com',
+  accessKey: '9d343e4a-82d2-4b5e-9dca-c706a4c08e0b',
 };
