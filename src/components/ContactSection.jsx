@@ -1,9 +1,9 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { FiInstagram as Instagram, FiTwitter as Twitter, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
 import { supabase } from '../lib/supabase';
+import { submitForm } from '../lib/formSubmitter';
 
 
 const ContactSection = () => {
@@ -26,17 +26,13 @@ const ContactSection = () => {
         message: data.message
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(formPayload)
-      });
+      const isSuccess = await submitForm(formPayload);
 
-      if (response.ok) {
+      if (isSuccess) {
         setStatus('sent');
         form.reset();
       } else {
-        console.error("FormSubmit error");
+        console.error("Submission error");
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }

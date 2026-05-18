@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Gift, Check, Send } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { submitForm } from '../lib/formSubmitter';
 
 
 const ExitIntentModal = () => {
@@ -41,16 +41,12 @@ const ExitIntentModal = () => {
         type: "Exit Intent - Web ROI Checklist Request"
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(formPayload)
-      });
+      const isSuccess = await submitForm(formPayload);
 
-      if (response.ok) {
+      if (isSuccess) {
         setStatus('success');
       } else {
-        console.error("FormSubmit error");
+        console.error("Submission error");
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }

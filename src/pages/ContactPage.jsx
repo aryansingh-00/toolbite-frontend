@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import SEO from '../components/SEO';
 import { supabase } from '../lib/supabase';
+import { submitForm } from '../lib/formSubmitter';
 
 
 const ContactPage = () => {
@@ -34,18 +35,14 @@ const ContactPage = () => {
         message: formData.message
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(formPayload)
-      });
+      const isSuccess = await submitForm(formPayload);
 
-      if (response.ok) {
+      if (isSuccess) {
         setStatus('sent');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => setStatus(''), 5000);
       } else {
-        console.error("FormSubmit error");
+        console.error("Submission error");
         setStatus('');
         alert("Something went wrong. Please try again.");
       }

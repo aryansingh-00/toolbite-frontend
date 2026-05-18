@@ -13,6 +13,7 @@ import {
   Clock,
   DollarSign
 } from 'lucide-react';
+import { submitForm } from '../lib/formSubmitter';
 
 const questions = [
   { id: 'name', text: "Hello! I'm the ToolBite AI Strategist. Let's start with your name?", type: 'text' },
@@ -198,14 +199,12 @@ const ProjectStrategist = () => {
         _captcha: "false"
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(payload)
-      });
+      const isSuccess = await submitForm(payload);
 
-      if (response.ok) {
+      if (isSuccess) {
         setIsSent(true);
+      } else {
+        alert("Failed to send strategy. Please try again.");
       }
     } catch (error) {
       console.error("Submission failed", error);

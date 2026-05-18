@@ -1,9 +1,8 @@
-/* eslint-disable */
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Send, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { submitForm } from '../lib/formSubmitter';
 
 
 const OrderForm = () => {
@@ -61,7 +60,7 @@ const OrderForm = () => {
         data.attachmentUrl = fileUrl;
       }
       
-      // Submit to FormSubmit.co email endpoint
+      // Submit via centralized form submit helper
       const formPayload = {
         _subject: `New Custom Order Request from ${data.name}`,
         name: data.name,
@@ -74,16 +73,12 @@ const OrderForm = () => {
         attachment_url: fileUrl || 'No attachment uploaded'
       };
 
-      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(formPayload)
-      });
+      const isSuccess = await submitForm(formPayload);
 
-      if (response.ok) {
+      if (isSuccess) {
         setFormState('success');
       } else {
-        console.error("FormSubmit response error");
+        console.error("Submission response error");
         setFormState('idle');
         alert("Something went wrong saving your order. Please try again.");
       }
