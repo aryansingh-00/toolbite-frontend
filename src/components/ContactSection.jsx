@@ -17,19 +17,26 @@ const ContactSection = () => {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([{
-          source: 'Contact Section',
-          email: data.email,
-          data: data
-        }]);
-      
-      if (!error) {
+      const formPayload = {
+        _subject: `Contact Section Message from ${data.name}`,
+        source: 'Contact Section',
+        name: data.name,
+        email: data.email,
+        subject: data.subject || 'General Inquiry',
+        message: data.message
+      };
+
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(formPayload)
+      });
+
+      if (response.ok) {
         setStatus('sent');
         form.reset();
       } else {
-        console.error("Supabase insert error:", error);
+        console.error("FormSubmit error");
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }

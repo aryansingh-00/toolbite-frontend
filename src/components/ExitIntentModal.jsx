@@ -34,20 +34,23 @@ const ExitIntentModal = () => {
     setStatus('sending');
     
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([{
-          source: 'Exit Intent',
-          email: email,
-          data: {
-            type: "Exit Intent - Web ROI Checklist Request"
-          }
-        }]);
+      const formPayload = {
+        _subject: `Exit Intent Request - Web ROI Checklist`,
+        source: 'Exit Intent Modal',
+        email: email,
+        type: "Exit Intent - Web ROI Checklist Request"
+      };
 
-      if (!error) {
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(formPayload)
+      });
+
+      if (response.ok) {
         setStatus('success');
       } else {
-        console.error("Supabase insert error:", error);
+        console.error("FormSubmit error");
         setStatus('idle');
         alert("Something went wrong. Please try again.");
       }

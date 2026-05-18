@@ -25,20 +25,27 @@ const ContactPage = () => {
     e.preventDefault();
     setStatus('sending');
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([{
-          source: 'Contact Page',
-          email: formData.email,
-          data: formData
-        }]);
-      
-      if (!error) {
+      const formPayload = {
+        _subject: `Contact Page Inquiry: ${formData.subject}`,
+        source: 'Contact Page',
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      };
+
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(formPayload)
+      });
+
+      if (response.ok) {
         setStatus('sent');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => setStatus(''), 5000);
       } else {
-        console.error("Supabase insert error:", error);
+        console.error("FormSubmit error");
         setStatus('');
         alert("Something went wrong. Please try again.");
       }

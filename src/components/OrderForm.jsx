@@ -31,54 +31,59 @@ const OrderForm = () => {
       
       let fileUrl = null;
       
-      // Handle file upload if present
+      // Handle file upload if present (optional try-catch for Supabase Storage)
       const attachment = formData.get('attachment');
       if (attachment && attachment.size > 0) {
-        const fileExt = attachment.name.split('.').pop();
-        const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
-        const filePath = `${Date.now()}-${fileName}`;
-        
-        const { error: uploadError } = await supabase.storage
-          .from('attachments')
-          .upload(filePath, attachment);
+        try {
+          const fileExt = attachment.name.split('.').pop();
+          const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+          const filePath = `${Date.now()}-${fileName}`;
           
-        if (uploadError) {
-          console.error("Upload error:", uploadError);
-          alert("Failed to upload the attachment. Please try again.");
-          setFormState('idle');
-          return;
+          const { error: uploadError } = await supabase.storage
+            .from('attachments')
+            .upload(filePath, attachment);
+            
+          if (!uploadError) {
+            const { data: { publicUrl } } = supabase.storage
+              .from('attachments')
+              .getPublicUrl(filePath);
+              
+            fileUrl = publicUrl;
+          }
+        } catch (uploadErr) {
+          console.error("Storage upload failed: ", uploadErr);
         }
-        
-        const { data: { publicUrl } } = supabase.storage
-          .from('attachments')
-          .getPublicUrl(filePath);
-          
-        fileUrl = publicUrl;
       }
       
-      // Remove File object from data to keep jsonb clean
+      // Remove File object from data to keep payload clean
       delete data.attachment;
       if (fileUrl) {
         data.attachmentUrl = fileUrl;
       }
       
-      const { error } = await supabase
-        .from('order_requests')
-        .insert([{
-          name: data.name,
-          email: data.email,
-          phone: data.phone || null,
-          business_name: data.businessName,
-          website_type: data.websiteType,
-          budget_range: data.budgetRange,
-          delivery_timeline: data.deliveryTimeline,
-          data: data
-        }]);
+      // Submit to FormSubmit.co email endpoint
+      const formPayload = {
+        _subject: `New Custom Order Request from ${data.name}`,
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'N/A',
+        business_name: data.businessName || 'N/A',
+        website_type: data.websiteType || 'N/A',
+        budget_range: data.budgetRange || 'N/A',
+        delivery_timeline: data.deliveryTimeline || 'N/A',
+        attachment_url: fileUrl || 'No attachment uploaded'
+      };
 
-      if (!error) {
+      const response = await fetch("https://formsubmit.co/ajax/hello.toolbite@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(formPayload)
+      });
+
+      if (response.ok) {
         setFormState('success');
       } else {
-        console.error("Supabase insert error:", error);
+        console.error("FormSubmit response error");
         setFormState('idle');
         alert("Something went wrong saving your order. Please try again.");
       }
