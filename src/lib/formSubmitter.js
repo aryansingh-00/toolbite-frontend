@@ -13,8 +13,16 @@ export const submitForm = async (payload) => {
   let url = '';
   let finalPayload = { ...payload };
 
+  let activeProvider = provider;
+  
+  // Smart fallback: If provider is web3forms or formspree but accessKey is still an email, fall back to formsubmit
+  if ((provider === 'web3forms' || provider === 'formspree') && accessKey.includes('@')) {
+    console.warn(`[formSubmitter] "${provider}" requires a valid access key/ID. Falling back to "formsubmit" since accessKey looks like an email.`);
+    activeProvider = 'formsubmit';
+  }
+
   // Set up Web3Forms parameters
-  if (provider === 'web3forms') {
+  if (activeProvider === 'web3forms') {
     url = 'https://api.web3forms.com/submit';
     finalPayload.access_key = accessKey;
     // Map _subject to subject for Web3Forms standard compliance
@@ -24,7 +32,7 @@ export const submitForm = async (payload) => {
     }
   } 
   // Set up Formspree parameters
-  else if (provider === 'formspree') {
+  else if (activeProvider === 'formspree') {
     url = `https://formspree.io/f/${accessKey}`;
     if (payload._subject) {
       finalPayload.subject = payload._subject;
@@ -49,7 +57,7 @@ export const submitForm = async (payload) => {
     if (response.ok) {
       const result = await response.json();
       // Web3Forms returns success inside a boolean field 'success'
-      if (provider === 'web3forms') {
+      if (activeProvider === 'web3forms') {
         return result.success === true;
       }
       return true;
