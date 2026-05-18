@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
+import { submitForm } from '../lib/formSubmitter';
 
 const Footer = () => {
   const location = useLocation();
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState('idle'); // idle, sending, success, error
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setNewsletterStatus('sending');
+    try {
+      const isSuccess = await submitForm({
+        _subject: 'New ToolBite Newsletter Subscriber - Web ROI Checklist Request',
+        email: newsletterEmail,
+        source: 'Footer Newsletter',
+        type: 'Web ROI Checklist Request'
+      });
+      if (isSuccess) {
+        setNewsletterStatus('success');
+        setNewsletterEmail('');
+      } else {
+        setNewsletterStatus('error');
+      }
+    } catch (err) {
+      console.error(err);
+      setNewsletterStatus('error');
+    }
+  };
   const hideMarketing = location.pathname.startsWith('/tools') || 
                         location.pathname.includes('-policy') || 
                         location.pathname.includes('terms-') ||
@@ -42,26 +68,49 @@ const Footer = () => {
               Join 5,000+ founders receiving our weekly breakdown on high-performance design, SEO secrets, and conversion engineering.
             </p>
           </div>
-          <form action="https://formsubmit.co/hello.toolbite@gmail.com" method="POST" className="relative group">
-            <input type="hidden" name="_subject" value="New ToolBite Newsletter Subscriber!" />
-            <input type="hidden" name="_next" value={window.location.href} />
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input 
-                type="email" 
-                name="email" 
-                placeholder="your@email.com" 
-                required 
-                className="flex-grow px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-black transition-all text-black font-medium" 
-                style={{ color: '#000000' }}
-              />
-              <button title="Interactive Button" aria-label="Interactive Button" type="submit" className="px-8 py-4 bg-black text-white font-bold rounded-2xl hover:bg-black/90 transition-all">
-                Get Access
-              </button>
-            </div>
-            <p className="mt-4 text-[10px] text-slate-500 font-medium italic">
-              * By subscribing, you agree to receive technical updates and high-performance strategy guides.
-            </p>
-          </form>
+          <div className="relative">
+            {newsletterStatus === 'success' ? (
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center">
+                <CheckCircle2 className="text-emerald-500 mx-auto mb-3 animate-bounce" size={36} />
+                <h4 className="text-xl font-bold text-emerald-900 mb-1">Checklist Request Sent!</h4>
+                <p className="text-sm text-emerald-700">
+                  Check your inbox! We've sent the **Web ROI Checklist** directly to your email.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="relative group">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input 
+                    type="email" 
+                    placeholder="your@email.com" 
+                    required 
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    className="flex-grow px-6 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-black transition-all text-black font-medium" 
+                    style={{ color: '#000000' }}
+                    disabled={newsletterStatus === 'sending'}
+                  />
+                  <button 
+                    title="Interactive Button" 
+                    aria-label="Interactive Button" 
+                    type="submit" 
+                    disabled={newsletterStatus === 'sending'}
+                    className="px-8 py-4 bg-black text-white font-bold rounded-2xl hover:bg-black/90 transition-all disabled:opacity-50"
+                  >
+                    {newsletterStatus === 'sending' ? 'Sending...' : 'Get Access'}
+                  </button>
+                </div>
+                {newsletterStatus === 'error' && (
+                  <p className="mt-2 text-xs text-red-500 font-semibold">
+                    Submission failed. Please try again.
+                  </p>
+                )}
+                <p className="mt-4 text-[10px] text-slate-500 font-medium italic">
+                  * By subscribing, you agree to receive technical updates and high-performance strategy guides.
+                </p>
+              </form>
+            )}
+          </div>
         </div>
           </>
         )}
