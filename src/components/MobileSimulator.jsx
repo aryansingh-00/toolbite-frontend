@@ -41,13 +41,13 @@ const MobileSimulator = () => {
       <div className="absolute -inset-10 bg-gradient-to-tr from-[#B19CD9]/20 via-[#FFB6C1]/20 to-[#87CEEB]/20 blur-3xl rounded-[4rem] pointer-events-none"></div>
 
       {/* Simulator Side Buttons */}
-      <div className="absolute left-[calc(50%-165px)] top-[140px] w-[5px] h-[50px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
-      <div className="absolute left-[calc(50%-165px)] top-[200px] w-[5px] h-[40px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
-      <div className="absolute left-[calc(50%-165px)] top-[250px] w-[5px] h-[40px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
-      <div className="absolute right-[calc(50%-165px)] top-[170px] w-[5px] h-[65px] bg-slate-800 rounded-r-md z-0 shadow-lg"></div>
+      <div className="absolute left-[calc(50%-140px)] top-[140px] w-[5px] h-[50px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
+      <div className="absolute left-[calc(50%-140px)] top-[200px] w-[5px] h-[40px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
+      <div className="absolute left-[calc(50%-140px)] top-[250px] w-[5px] h-[40px] bg-slate-800 rounded-l-md z-0 shadow-lg"></div>
+      <div className="absolute right-[calc(50%-140px)] top-[170px] w-[5px] h-[65px] bg-slate-800 rounded-r-md z-0 shadow-lg"></div>
 
       {/* Main Phone Chassis Container */}
-      <div className="w-[320px] aspect-[9/18.5] bg-slate-950 rounded-[50px] p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border-2 border-slate-800/80 z-10 flex flex-col items-stretch overflow-hidden relative">
+      <div className="w-[270px] aspect-[9/18.5] bg-slate-950 rounded-[50px] p-[10px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] border-2 border-slate-800/80 z-10 flex flex-col items-stretch overflow-hidden relative">
         
         {/* Screen Bezel / Glass finish */}
         <div className={`w-full h-full rounded-[42px] overflow-hidden flex flex-col justify-between relative transition-colors duration-500 ${isSimDarkMode ? 'bg-slate-900 text-white' : 'bg-slate-50 text-slate-900'}`}>
