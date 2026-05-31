@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Zap, Rocket, ShieldCheck, Globe } from 'lucide-react';
 import { servicesData } from '../data/content';
 import SEO from '../components/SEO';
+import MobileSimulator from '../components/MobileSimulator';
+
 
 const ServiceDetail = () => {
   const { slug } = useParams();
@@ -68,17 +70,24 @@ const ServiceDetail = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center w-full"
           >
-            <div className="absolute -inset-4 bg-gradient-to-tr from-teal-500/20 to-indigo-500/20 blur-3xl rounded-[4rem]"></div>
-            <div className="relative aspect-[4/3] bg-slate-900 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center p-12">
-              <div className="text-center">
-                <Rocket size={80} className="text-teal-400 mb-6 mx-auto animate-bounce" />
-                <p className="text-teal-400 font-black text-2xl uppercase tracking-widest">High Performance</p>
-                <p className="text-slate-400 mt-2">Engineered for Sub-Second Results</p>
-              </div>
-            </div>
+            {service.slug === 'mobile-app-development' ? (
+              <MobileSimulator />
+            ) : (
+              <>
+                <div className="absolute -inset-4 bg-gradient-to-tr from-teal-500/20 to-indigo-500/20 blur-3xl rounded-[4rem]"></div>
+                <div className="relative aspect-[4/3] w-full bg-slate-900 rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center p-12">
+                  <div className="text-center">
+                    <Rocket size={80} className="text-teal-400 mb-6 mx-auto animate-bounce" />
+                    <p className="text-teal-400 font-black text-2xl uppercase tracking-widest">High Performance</p>
+                    <p className="text-slate-400 mt-2">Engineered for Sub-Second Results</p>
+                  </div>
+                </div>
+              </>
+            )}
           </motion.div>
+
         </div>
 
         {/* Features / Why Choose Us for this Service */}
