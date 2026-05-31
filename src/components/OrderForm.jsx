@@ -13,6 +13,7 @@ const OrderForm = () => {
   const [selectedPlatform, setSelectedPlatform] = useState('');
   const [selectedBudget, setSelectedBudget] = useState('');
   const [marketingAttribution, setMarketingAttribution] = useState({});
+  const [selectedBlueprint, setSelectedBlueprint] = useState('');
 
   const toggleMobileFeature = (feature) => {
     setSelectedMobileFeatures(prev => 
@@ -76,6 +77,11 @@ const OrderForm = () => {
         const paramBudget = params.get('budget');
         if (paramBudget) {
           setSelectedBudget(paramBudget);
+        }
+
+        const paramBlueprint = params.get('blueprint');
+        if (paramBlueprint) {
+          setSelectedBlueprint(paramBlueprint);
         }
 
         // Scroll dynamically to order form
@@ -148,6 +154,9 @@ const OrderForm = () => {
         formPayload.target_platform = data.targetPlatform || 'N/A';
         formPayload.mobile_features = selectedMobileFeatures.length > 0 ? selectedMobileFeatures.join(', ') : 'None selected';
         formPayload.app_store_deployment = data.appStoreDeployment || 'N/A';
+        if (selectedBlueprint) {
+          formPayload.selected_blueprint = selectedBlueprint;
+        }
       } else {
         formPayload.number_of_pages = data.numberOfPages || 'N/A';
         formPayload.required_features = data.requiredFeatures || 'None specified';
@@ -276,6 +285,22 @@ const OrderForm = () => {
 
                   {selectedType === 'Custom Mobile Application' ? (
                     <>
+                      {selectedBlueprint && (
+                        <div className="md:col-span-2 p-5 bg-teal-50 border border-teal-200/60 rounded-2xl flex items-center justify-between shadow-sm">
+                          <div>
+                            <p className="text-[10px] font-black tracking-wider text-teal-600 uppercase">Selected Accelerated Foundation</p>
+                            <p className="text-sm font-black text-slate-900 mt-0.5">{selectedBlueprint}</p>
+                          </div>
+                          <button 
+                            type="button" 
+                            onClick={() => setSelectedBlueprint('')}
+                            className="text-xs font-bold text-slate-500 hover:text-slate-900 hover:underline transition-all"
+                          >
+                            Clear Selection
+                          </button>
+                        </div>
+                      )}
+
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">Target Platform *</label>
                         <select 
