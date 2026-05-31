@@ -8,14 +8,40 @@ import { submitForm } from '../lib/formSubmitter';
 const OrderForm = () => {
   const [formState, setFormState] = useState('idle');
   const [fileName, setFileName] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedMobileFeatures, setSelectedMobileFeatures] = useState([]);
 
-  // Handle redirect from FormSubmit
+  const toggleMobileFeature = (feature) => {
+    setSelectedMobileFeatures(prev => 
+      prev.includes(feature) 
+        ? prev.filter(f => f !== feature) 
+        : [...prev, feature]
+    );
+  };
+
+  // Handle redirect from FormSubmit and service pre-selection
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === 'true') {
       setFormState('success');
       // Clean up URL
       window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    const serviceParam = params.get('service');
+    if (serviceParam) {
+      const slugMap = {
+        'mobile-app-development': 'Custom Mobile Application',
+        'corporate-web-design': 'Business / Corporate',
+        'ecommerce-development': 'E-commerce Store',
+        'portfolio-design': 'Portfolio / Creator',
+        'landing-page-design': 'Landing Page',
+        'saas-development': 'Custom Web Application',
+      };
+      const matchedType = slugMap[serviceParam];
+      if (matchedType) {
+        setSelectedType(matchedType);
+      }
     }
   }, []);
 
@@ -67,11 +93,23 @@ const OrderForm = () => {
         email: data.email,
         phone: data.phone || 'N/A',
         business_name: data.businessName || 'N/A',
-        website_type: data.websiteType || 'N/A',
+        project_type: data.websiteType || 'N/A',
         budget_range: data.budgetRange || 'N/A',
         delivery_timeline: data.deliveryTimeline || 'N/A',
-        attachment_url: fileUrl || 'No attachment uploaded'
+        attachment_url: fileUrl || 'No attachment uploaded',
+        message: data.message || 'N/A'
       };
+
+      if (data.websiteType === 'Custom Mobile Application') {
+        formPayload.target_platform = data.targetPlatform || 'N/A';
+        formPayload.mobile_features = selectedMobileFeatures.length > 0 ? selectedMobileFeatures.join(', ') : 'None selected';
+        formPayload.app_store_deployment = data.appStoreDeployment || 'N/A';
+      } else {
+        formPayload.number_of_pages = data.numberOfPages || 'N/A';
+        formPayload.required_features = data.requiredFeatures || 'None specified';
+        formPayload.preferred_design_style = data.preferredDesign || 'N/A';
+        formPayload.reference_url = data.referenceUrl || 'N/A';
+      }
 
       const isSuccess = await submitForm(formPayload);
 
@@ -161,30 +199,104 @@ const OrderForm = () => {
                 <h4 className="text-xl font-bold text-black border-b border-slate-200 pb-2">Project Scope</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Website Type *</label>
-                    <select name="websiteType" required className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black">
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Project / Website Type *</label>
+                    <select 
+                      name="websiteType" 
+                      required 
+                      value={selectedType}
+                      onChange={(e) => setSelectedType(e.target.value)}
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black"
+                    >
                       <option value="">Select a type</option>
                       <option>Business / Corporate</option>
                       <option>E-commerce Store</option>
                       <option>Portfolio / Creator</option>
                       <option>Landing Page</option>
                       <option>Custom Web Application</option>
+                      <option value="Custom Mobile Application">Custom Mobile Application</option>
                       <option>Other</option>
                     </select>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Number of Pages</label>
-                    <select name="numberOfPages" className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black">
-                      <option>1 - 5 Pages (Standard)</option>
-                      <option>5 - 10 Pages</option>
-                      <option>10 - 20 Pages</option>
-                      <option>20+ Pages (Large)</option>
-                    </select>
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Required Features (Optional)</label>
-                    <input name="requiredFeatures" type="text" className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all" placeholder="e.g., Online Booking, Payment Gateway, User Accounts, Subscriptions" />
-                  </div>
+
+                  {selectedType === 'Custom Mobile Application' ? (
+                    <>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Target Platform *</label>
+                        <select 
+                          name="targetPlatform" 
+                          required={selectedType === 'Custom Mobile Application'} 
+                          className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black"
+                        >
+                          <option value="">Select platform(s)</option>
+                          <option>Cross-Platform (iOS & Android) - Recommended</option>
+                          <option>Purely iOS (Apple Store)</option>
+                          <option>Purely Android (Google Play)</option>
+                        </select>
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-3">Core App Features Needed</label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                          {[
+                            { id: 'push', label: 'Push Notifications' },
+                            { id: 'geo', label: 'Geo-Tracking & Maps' },
+                            { id: 'camera', label: 'Camera & Media Access' },
+                            { id: 'iap', label: 'In-App Purchases' },
+                            { id: 'biometric', label: 'Biometric Auth (FaceID)' },
+                            { id: 'offline', label: 'Offline-First Sync' },
+                            { id: 'ai', label: 'AI / Smart Features' },
+                            { id: 'ble', label: 'Bluetooth / BLE' }
+                          ].map((feat) => {
+                            const isSelected = selectedMobileFeatures.includes(feat.label);
+                            return (
+                              <button
+                                type="button"
+                                key={feat.id}
+                                onClick={() => toggleMobileFeature(feat.label)}
+                                className={`px-4 py-3 rounded-xl border text-sm font-semibold transition-all text-center flex items-center justify-center ${
+                                  isSelected 
+                                    ? 'bg-black border-black text-white shadow-md scale-[1.02]' 
+                                    : 'bg-white border-slate-200 text-slate-700 hover:border-slate-400 hover:bg-slate-50'
+                                }`}
+                              >
+                                {feat.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">App Store Deployment Assistance? *</label>
+                        <select 
+                          name="appStoreDeployment" 
+                          required={selectedType === 'Custom Mobile Application'} 
+                          className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black"
+                        >
+                          <option value="">Select option</option>
+                          <option>Yes, need deployment support (App Store & Google Play)</option>
+                          <option>No, we will handle deployment ourselves</option>
+                          <option>Not Sure / Need Guidance</option>
+                        </select>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Number of Pages</label>
+                        <select name="numberOfPages" className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black">
+                          <option>1 - 5 Pages (Standard)</option>
+                          <option>5 - 10 Pages</option>
+                          <option>10 - 20 Pages</option>
+                          <option>20+ Pages (Large)</option>
+                        </select>
+                      </div>
+                      <div className="md:col-span-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">Required Features (Optional)</label>
+                        <input name="requiredFeatures" type="text" className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all" placeholder="e.g., Online Booking, Payment Gateway, User Accounts, Subscriptions" />
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -230,7 +342,9 @@ const OrderForm = () => {
                 <h4 className="text-xl font-bold text-black border-b border-slate-200 pb-2">Additional Context</h4>
                 <div className="grid grid-cols-1 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Reference Website URL</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      {selectedType === 'Custom Mobile Application' ? 'Reference App / Website URL' : 'Reference Website URL'}
+                    </label>
                     <input name="referenceUrl" type="url" className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all" placeholder="https://example.com" />
                   </div>
                   

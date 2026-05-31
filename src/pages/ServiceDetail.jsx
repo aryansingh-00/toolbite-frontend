@@ -52,7 +52,7 @@ const ServiceDetail = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
-                to="/start-project" 
+                to={`/start-project?service=${service.slug}`} 
                 className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl shadow-xl hover:bg-teal-600 transition-all hover:-translate-y-1 text-center"
               >
                 Start Your Project
