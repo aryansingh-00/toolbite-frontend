@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   CreditCard, TrendingUp, Sliders, Smartphone, Wifi, Battery,
-  ChevronRight, ArrowUpRight, ArrowDownLeft, Zap, Sparkles, Moon, Sun
+  ChevronRight, ArrowUpRight, ArrowDownLeft, Zap, Sparkles, Moon, Sun,
+  DollarSign, Cpu, Palette, Plus, Bell, Shield, Activity
 } from 'lucide-react';
 
 const MobileSimulator = () => {
@@ -12,11 +13,11 @@ const MobileSimulator = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [notificationMsg, setNotificationMsg] = useState('');
 
-  // Simulated live data
+  // Simulated live data with enhanced visual colors and icons
   const transactions = [
-    { name: 'Stripe Payout', time: '10:42 AM', amount: '+$3,450.00', positive: true, icon: <ArrowDownLeft className="text-emerald-500 w-4 h-4" /> },
-    { name: 'Server Hosting', time: 'Yesterday', amount: '-$89.00', positive: false, icon: <ArrowUpRight className="text-rose-500 w-4 h-4" /> },
-    { name: 'Figma Pro subscription', time: 'May 24', amount: '-$15.00', positive: false, icon: <ArrowUpRight className="text-rose-500 w-4 h-4" /> }
+    { name: 'Stripe Merchant Payout', time: '10:42 AM', amount: '+$3,450.00', positive: true, icon: <DollarSign className="text-emerald-400 w-4 h-4" />, color: 'bg-emerald-500/10' },
+    { name: 'AWS Cloud Compute', time: 'Yesterday', amount: '-$89.00', positive: false, icon: <Cpu className="text-blue-400 w-4 h-4" />, color: 'bg-blue-500/10' },
+    { name: 'Figma Design Suite', time: 'May 24', amount: '-$15.00', positive: false, icon: <Palette className="text-pink-400 w-4 h-4" />, color: 'bg-pink-500/10' }
   ];
 
   const chartData = {
@@ -52,15 +53,20 @@ const MobileSimulator = () => {
         <div className={`w-full h-full rounded-[42px] overflow-hidden flex flex-col justify-between relative transition-colors duration-500 ${isSimDarkMode ? 'bg-slate-900 text-white' : 'bg-slate-50 text-slate-900'}`}>
           
           {/* Dynamic Island Notch */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[110px] h-[26px] bg-slate-950 rounded-full z-30 flex items-center justify-between px-3 shadow-md">
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+          <motion.div 
+            whileHover={{ width: 170, height: 28 }}
+            onClick={() => triggerNotification('Dynamic Island: Sync active! 🚀')}
+            className="absolute top-2.5 left-1/2 -translate-x-1/2 w-[110px] h-[26px] bg-slate-950 rounded-full z-30 flex items-center justify-between px-3 shadow-md cursor-pointer hover:shadow-indigo-500/20 transition-all duration-300 group"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-teal-400 transition-colors"></div>
+            <span className="text-[7px] font-black tracking-widest text-teal-400 opacity-0 group-hover:opacity-100 absolute left-1/2 -translate-x-1/2 uppercase transition-opacity duration-300">ToolBite App Sync</span>
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
               <div className="w-2.5 h-2.5 rounded-full bg-indigo-900/60 flex items-center justify-center">
                 <div className="w-1 h-1 rounded-full bg-blue-400"></div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* iOS Status Bar */}
           <div className={`h-11 flex justify-between items-end px-6 pb-1 text-[10px] font-black tracking-tight z-20 ${isSimDarkMode ? 'text-white' : 'text-slate-950'}`}>
@@ -107,8 +113,15 @@ const MobileSimulator = () => {
                       <p className={`text-[10px] font-black uppercase tracking-wider ${isSimDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>Operational Cash</p>
                       <h5 className="text-2xl font-black tracking-tight">$42,950.00</h5>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-400 to-indigo-500 p-[1.5px] shadow-md flex items-center justify-center">
-                      <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center text-[10px] font-bold text-white">AS</div>
+                    <div 
+                      onClick={() => triggerNotification('Profile: Aryan Singh (Lead Architect)')}
+                      className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-400 via-indigo-500 to-pink-500 p-[1.5px] shadow-lg flex items-center justify-center overflow-hidden active:scale-95 transition-all cursor-pointer"
+                    >
+                      <img 
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80" 
+                        alt="User Profile"
+                        className="w-full h-full rounded-full object-cover border border-slate-900"
+                      />
                     </div>
                   </div>
 
@@ -135,6 +148,27 @@ const MobileSimulator = () => {
                       </div>
                     </div>
                   </motion.div>
+
+                  {/* High-Fidelity Spend/Savings Attraction Widget */}
+                  <div 
+                    onClick={() => triggerNotification('Target Savings: On track! 🎯')}
+                    className={`p-3.5 rounded-2xl mb-4 border relative overflow-hidden transition-all cursor-pointer active:scale-[0.99] ${isSimDarkMode ? 'bg-slate-800/20 border-white/5 hover:bg-slate-800/40' : 'bg-white border-slate-100 hover:bg-slate-50 shadow-sm'}`}
+                  >
+                    <div className="flex justify-between items-center mb-1.5">
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles size={11} className="text-amber-400 animate-pulse" />
+                        <span className="text-[8px] font-black uppercase tracking-wider text-amber-400">Launch Goal Fund</span>
+                      </div>
+                      <span className="text-[8px] font-extrabold text-slate-400">74% Done</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden p-[0.5px] border border-white/5 relative z-10">
+                      <div className="w-[74%] h-full rounded-full bg-gradient-to-r from-teal-400 via-indigo-500 to-pink-500"></div>
+                    </div>
+                    <div className="flex justify-between items-center mt-1 text-[7px] font-bold text-slate-500">
+                      <span>$7,400 Met</span>
+                      <span>$10,000 Target</span>
+                    </div>
+                  </div>
 
                   {/* App Action Grid */}
                   <div className="grid grid-cols-3 gap-2.5 mb-5">
@@ -169,7 +203,7 @@ const MobileSimulator = () => {
                         className={`p-3 rounded-2xl flex items-center justify-between border cursor-pointer active:scale-[0.99] transition-all ${isSimDarkMode ? 'bg-slate-800/25 border-white/5 hover:bg-slate-800/50' : 'bg-white border-slate-100 hover:bg-slate-50/80 shadow-sm'}`}
                       >
                         <div className="flex items-center gap-2.5">
-                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${isSimDarkMode ? 'bg-slate-800' : 'bg-slate-100'}`}>
+                          <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${tx.color}`}>
                             {tx.icon}
                           </div>
                           <div>
