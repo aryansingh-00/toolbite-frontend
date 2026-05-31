@@ -9,7 +9,7 @@ const navMenu = [
     isHash: true,
     dropdown: [
       { label: 'Web Design & Dev', href: '/#services', isHash: true, desc: 'Custom high-performance websites', icon: <Code size={16} className="text-[#B19CD9]" /> },
-      { label: 'Mobile App Development', href: '/#services', isHash: true, desc: 'iOS, Android & Cross-Platform', icon: <Smartphone size={16} className="text-indigo-500" /> },
+      { label: 'Mobile App Development', href: '/services/mobile-app-development', isHash: false, desc: 'iOS, Android & Cross-Platform', icon: <Smartphone size={16} className="text-indigo-500" /> },
       { label: 'Landing Pages', href: '/#services', isHash: true, desc: 'Conversion-focused page builds', icon: <Zap size={16} className="text-amber-500" /> },
       { label: 'Brand Strategy', href: '/#services', isHash: true, desc: 'Authority & identity engineering', icon: <Palette size={16} className="text-rose-500" /> },
       { label: 'ROI Calculator', href: '/tools/roi-calculator', desc: 'Predict your revenue growth', icon: <TrendingUp size={16} className="text-emerald-500" /> },
