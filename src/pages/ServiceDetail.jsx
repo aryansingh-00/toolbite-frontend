@@ -16,7 +16,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+    <div className="pt-20 pb-24 bg-slate-50 min-h-screen">
       <SEO 
         title={service.seoTitle || service.title}
         description={service.extendedDescription || service.description}
