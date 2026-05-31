@@ -10,6 +10,9 @@ const OrderForm = () => {
   const [fileName, setFileName] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [selectedMobileFeatures, setSelectedMobileFeatures] = useState([]);
+  const [selectedPlatform, setSelectedPlatform] = useState('');
+  const [selectedBudget, setSelectedBudget] = useState('');
+  const [marketingAttribution, setMarketingAttribution] = useState({});
 
   const toggleMobileFeature = (feature) => {
     setSelectedMobileFeatures(prev => 
@@ -19,13 +22,25 @@ const OrderForm = () => {
     );
   };
 
-  // Handle redirect from FormSubmit and service pre-selection
+  // Handle redirect from FormSubmit, service pre-selection, estimator pre-fill, and UTM capture
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === 'true') {
       setFormState('success');
       // Clean up URL
       window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Capture UTM tracking parameters
+    const utmParams = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'ref', 'gclid'].forEach(key => {
+      const val = params.get(key);
+      if (val) {
+        utmParams[key] = val;
+      }
+    });
+    if (Object.keys(utmParams).length > 0) {
+      setMarketingAttribution(utmParams);
     }
 
     const serviceParam = params.get('service');
@@ -41,6 +56,35 @@ const OrderForm = () => {
       const matchedType = slugMap[serviceParam];
       if (matchedType) {
         setSelectedType(matchedType);
+      }
+
+      // Check for estimator handoff parameters
+      if (serviceParam === 'mobile-app-development') {
+        const paramPlatform = params.get('platform');
+        if (paramPlatform) {
+          if (paramPlatform.includes('iOS')) setSelectedPlatform('Purely iOS (Apple Store)');
+          else if (paramPlatform.includes('Android')) setSelectedPlatform('Purely Android (Google Play)');
+          else setSelectedPlatform('Cross-Platform (iOS & Android) - Recommended');
+        }
+
+        const paramFeatures = params.get('features');
+        if (paramFeatures) {
+          const feats = paramFeatures.split(',');
+          setSelectedMobileFeatures(feats);
+        }
+
+        const paramBudget = params.get('budget');
+        if (paramBudget) {
+          setSelectedBudget(paramBudget);
+        }
+
+        // Scroll dynamically to order form
+        const orderFormContainer = document.getElementById('order-form-container');
+        if (orderFormContainer) {
+          setTimeout(() => {
+            orderFormContainer.scrollIntoView({ behavior: 'smooth' });
+          }, 350);
+        }
       }
     }
   }, []);
@@ -109,6 +153,18 @@ const OrderForm = () => {
         formPayload.required_features = data.requiredFeatures || 'None specified';
         formPayload.preferred_design_style = data.preferredDesign || 'N/A';
         formPayload.reference_url = data.referenceUrl || 'N/A';
+      }
+
+      // Attach Marketing UTM attribution if captured
+      if (Object.keys(marketingAttribution).length > 0) {
+        formPayload.utm_source = marketingAttribution.utm_source || 'N/A';
+        formPayload.utm_medium = marketingAttribution.utm_medium || 'N/A';
+        formPayload.utm_campaign = marketingAttribution.utm_campaign || 'N/A';
+        formPayload.utm_content = marketingAttribution.utm_content || 'N/A';
+        formPayload.referral_ref = marketingAttribution.ref || 'N/A';
+        if (marketingAttribution.gclid) {
+          formPayload.google_ads_click_id = marketingAttribution.gclid;
+        }
       }
 
       const isSuccess = await submitForm(formPayload);
@@ -225,12 +281,14 @@ const OrderForm = () => {
                         <select 
                           name="targetPlatform" 
                           required={selectedType === 'Custom Mobile Application'} 
+                          value={selectedPlatform}
+                          onChange={(e) => setSelectedPlatform(e.target.value)}
                           className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black"
                         >
                           <option value="">Select platform(s)</option>
-                          <option>Cross-Platform (iOS & Android) - Recommended</option>
-                          <option>Purely iOS (Apple Store)</option>
-                          <option>Purely Android (Google Play)</option>
+                          <option value="Cross-Platform (iOS & Android) - Recommended">Cross-Platform (iOS & Android) - Recommended</option>
+                          <option value="Purely iOS (Apple Store)">Purely iOS (Apple Store)</option>
+                          <option value="Purely Android (Google Play)">Purely Android (Google Play)</option>
                         </select>
                       </div>
 
@@ -316,13 +374,19 @@ const OrderForm = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Budget Range *</label>
-                    <select name="budgetRange" required className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black">
+                    <select 
+                      name="budgetRange" 
+                      required 
+                      value={selectedBudget}
+                      onChange={(e) => setSelectedBudget(e.target.value)}
+                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-black transition-all appearance-none [&>option]:bg-white [&>option]:text-black"
+                    >
                       <option value="">Select budget</option>
-                      <option>$1 - $500</option>
-                      <option>$500 - $1,000</option>
-                      <option>$1,000 - $3,000</option>
-                      <option>$3,000 - $10,000</option>
-                      <option>$10,000+</option>
+                      <option value="$1 - $500">$1 - $500</option>
+                      <option value="$500 - $1,000">$500 - $1,000</option>
+                      <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                      <option value="$3,000 - $10,000">$3,000 - $10,000</option>
+                      <option value="$10,000+">$10,000+</option>
                     </select>
                   </div>
                   <div>

@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, Zap, Rocket, ShieldCheck, Globe } from 'lucid
 import { servicesData } from '../data/content';
 import SEO from '../components/SEO';
 import MobileSimulator from '../components/MobileSimulator';
+import MobileEstimator from '../components/MobileEstimator';
 
 
 const ServiceDetail = () => {
@@ -116,6 +117,8 @@ const ServiceDetail = () => {
             </p>
           </div>
         </div>
+
+        {service.slug === 'mobile-app-development' && <MobileEstimator />}
 
         <div className="bg-white rounded-[4rem] p-12 md:p-24 border border-slate-100 shadow-sm mb-24">
           <div className="max-w-4xl mx-auto">
