@@ -41,9 +41,11 @@ const ServiceDetail = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className={`w-16 h-16 ${service.bg} rounded-2xl flex items-center justify-center mb-8 shadow-sm border ${service.border}`}>
-              {service.icon}
-            </div>
+            {service.slug !== 'mobile-app-development' && (
+              <div className={`w-16 h-16 ${service.bg} rounded-2xl flex items-center justify-center mb-8 shadow-sm border ${service.border}`}>
+                {service.icon}
+              </div>
+            )}
             <h1 className="text-4xl md:text-6xl font-black text-black mb-6 tracking-tight leading-tight">
               {service.title}
             </h1>
