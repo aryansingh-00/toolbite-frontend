@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook, FiYoutube as Youtube } from 'react-icons/fi';
+import { FiTwitter as Twitter, FiInstagram as Instagram, FiLinkedin as Linkedin, FiGithub as Github, FiFacebook as Facebook } from 'react-icons/fi';
 import { submitForm } from '../lib/formSubmitter';
 
 const Footer = () => {
@@ -162,9 +162,6 @@ const Footer = () => {
               </a>
               <a href="https://github.com/aryansingh-00" aria-label="GitHub" title="GitHub" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all">
                 <Github size={18} />
-              </a>
-              <a href="https://www.youtube.com/@tool-bite" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-black hover:bg-black hover:text-white transition-all" aria-label="YouTube" title="YouTube">
-                <Youtube size={18} />
               </a>
             </div>
           </div>
