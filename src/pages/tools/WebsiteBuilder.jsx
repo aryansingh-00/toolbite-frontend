@@ -166,6 +166,63 @@ const WebsiteBuilder = () => {
           </div>
         </div>
 
+        {/* Educational Architecture Guide */}
+        <section className="mt-32 pt-20 border-t border-slate-200 mb-32">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
+            <Zap size={10} className="text-teal-400" />
+            Engineering Insights
+          </div>
+          <h2 className="text-4xl font-black text-black mb-12 tracking-tight">Understanding High-Performance Web Architecture</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start text-lg text-black leading-relaxed">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-black mb-4">Jamstack vs. Traditional Server-Side Monoliths</h3>
+                <p>
+                  In the early days of the web, websites relied on dynamic database queries for every single visitor request. Today, modern architectures prioritize static-first rendering (Jamstack). By decoupling the frontend presentation layer from the backend database, pages are pre-compiled and served directly from Global CDNs (Content Delivery Networks).
+                </p>
+                <p className="mt-4">
+                  This decoupling eliminates database connection delays, shields your site from common SQL-injection vulnerabilities, and guarantees that server costs remain near zero even under viral traffic spikes.
+                </p>
+              </div>
+
+              <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                <h3 className="text-xl font-bold text-black mb-3">Core Web Vitals: The Metric of Revenue</h3>
+                <p className="text-sm">
+                  Search engines like Google no longer just crawl keywords; they measure user experience. Core Web Vitals such as **Largest Contentful Paint (LCP)**, **Cumulative Layout Shift (CLS)**, and **Interaction to Next Paint (INP)** form the baseline ranking factors. Every 100ms improvement in load time correlates directly to a 7% decrease in user bounce rates.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-black mb-4">Modular Frameworks: Speed Without Sacrificing Brand</h3>
+                <p>
+                  A common misconception is that "ready-made" templates look generic. At ToolBite, our modular approach separates structural layouts from global styling tokens. This allows us to inject your brand's unique typography, color palettes, spacing hierarchies, and visual assets without rebuilding the underlying high-performance layout from scratch.
+                </p>
+                <p className="mt-4">
+                  This hybrid model gives modern brands the best of both worlds: the cost and speed advantages of a template, combined with the visual authority and customization of a bespoke design.
+                </p>
+              </div>
+
+              <ul className="space-y-4 text-sm font-semibold text-slate-700 list-none p-0">
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="text-indigo-600 shrink-0" size={20} />
+                  Component-driven React/Vite development baseline.
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="text-indigo-600 shrink-0" size={20} />
+                  Self-hosted typography assets for zero layout shifting.
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle2 className="text-indigo-600 shrink-0" size={20} />
+                  Pre-bundled sitemaps and Puppeteer-driven prerendering.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <div className="bg-indigo-600 rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>

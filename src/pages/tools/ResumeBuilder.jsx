@@ -588,6 +588,44 @@ const ResumeBuilder = () => {
 
           </div>
         </div>
+
+        {/* ATS & Career Guide for AdSense value */}
+        <div className="mt-32 pt-20 border-t border-white/10 text-left">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 text-slate-300">
+            <Sparkles size={10} className="text-emerald-400" />
+            Resume Optimization Guide
+          </div>
+          <h2 className="text-4xl font-black text-white mb-12 tracking-tight">How to Engineer an ATS-Optimized Professional Resume</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-slate-300 text-sm leading-relaxed">
+            <div className="p-8 bg-slate-900/40 rounded-3xl border border-white/5 shadow-sm">
+              <h3 className="text-lg font-bold text-white mb-3">1. Deciphering Applicant Tracking Systems (ATS)</h3>
+              <p>
+                Over 75% of resumes are filtered out by automated parser algorithms (ATS) before ever reaching human eyes. An ATS scans your document for specific contextual keywords, experience thresholds, and structural hierarchies. Common traps like using decorative icons, graphics, nested tables, or placing contact details inside headers/footers can break the parser's logic, leading to automatic rejection.
+              </p>
+            </div>
+            <div className="p-8 bg-slate-900/40 rounded-3xl border border-white/5 shadow-sm">
+              <h3 className="text-lg font-bold text-white mb-3">2. Action Verbs & Quantifiable Results</h3>
+              <p>
+                A high-performance resume should not read like a list of daily responsibilities. Instead, it must serve as an impact statement. Rather than writing "Responsible for team meetings," write "Facilitated weekly cross-functional sprints, accelerating release velocity by 18%." Focus on strong action verbs (e.g., *designed*, *architected*, *facilitated*) paired with concrete financial or operational outcomes.
+              </p>
+            </div>
+            <div className="p-8 bg-slate-900/40 rounded-3xl border border-white/5 shadow-sm">
+              <h3 className="text-lg font-bold text-white mb-3">3. Professional Layout Typography</h3>
+              <p>
+                Recruiters scan a resume for an average of 6 seconds. A clean layout with clear typography, adequate margins, and structured visual hierarchy is essential to keep them engaged. Standard, readable system fonts (like Inter, Arial, or Georgia) are preferred over complex styles. Make sure section headers stand out and use bullet points rather than dense, hard-to-read paragraphs.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-8 bg-white/5 rounded-3xl border border-white/10 text-slate-300 text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-white mb-3">Security and Privacy of Browser-Native Engineering</h3>
+            <p>
+              Unlike traditional SaaS builders that store your sensitive personal details (phone, email, career history) in central cloud databases, ToolBite's resume builder runs entirely on edge processing. All PDF rendering and content building are processed locally in your browser's RAM sandbox. Your data never touches our servers, offering 100% protection against data breaches.
+            </p>
+          </div>
+        </div>
+
       </div>
     </motion.div>
   );
