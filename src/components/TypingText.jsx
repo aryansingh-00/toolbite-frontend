@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-const words = ['Visionary', 'Ambitious', 'Modern', 'Innovative', 'Scaling'];
+const defaultWords = ['Visionary', 'Ambitious', 'Modern', 'Innovative', 'Scaling'];
 const skip_delay = 15;
 const speed = 70;
 
-const TypingText = () => {
+const TypingText = ({ words = defaultWords }) => {
   const [text, setText] = useState('');
 
   useEffect(() => {
+    if (!words || words.length === 0) return;
     let i = 0;
     let offset = 0;
     let forwards = true;
@@ -47,12 +48,12 @@ const TypingText = () => {
     }, speed);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [words]);
 
   return (
     <>
       {text || '\u200B'}
-      <span className="animate-pulse border-r-[4px] border-slate-900 ml-2 inline-block h-[0.9em] align-middle -translate-y-1"></span>
+      <span className="animate-pulse border-r-[4px] border-white ml-2 inline-block h-[0.9em] align-middle -translate-y-1"></span>
     </>
   );
 };
