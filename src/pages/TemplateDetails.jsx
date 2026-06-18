@@ -73,7 +73,10 @@ const TemplateDetails = () => {
   }
 
   return (
-    <div className="pt-24 pb-24 bg-slate-50 min-h-screen">
+    <div className="pt-24 pb-24 bg-slate-50 min-h-screen relative overflow-hidden z-0">
+      {/* Decorative Radial Background Blobs */}
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-teal-300/15 to-indigo-300/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 z-0"></div>
+      <div className="absolute bottom-1/4 right-0 w-[550px] h-[550px] bg-gradient-to-br from-emerald-300/15 to-blue-300/15 rounded-full blur-[120px] pointer-events-none translate-x-1/3 z-0"></div>
       <SEO 
         title={`${template.title} Template`}
         description={template.shortDescription}
@@ -307,57 +310,69 @@ const TemplateDetails = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="flex flex-col"
+            className="flex flex-col relative z-10"
           >
-            <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 tracking-tight">
+            {/* Category tag */}
+            <div className="inline-flex mb-3">
+              <span className="px-3.5 py-1 bg-teal-50 text-teal-700 text-[10px] font-black tracking-widest uppercase rounded-full border border-teal-200/50 shadow-sm">
+                {template.category}
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight leading-tight bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 bg-clip-text text-transparent">
               {template.title}
             </h1>
             
-            <p className="text-xl text-black mb-8 font-medium leading-relaxed">
+            <p className="text-lg text-slate-700 mb-8 font-medium leading-relaxed">
               {template.shortDescription}
             </p>
 
-            <div className="flex items-center gap-6 mb-8 pb-8 border-b border-slate-200">
+            <div className="flex items-center gap-6 mb-8 pb-8 border-b border-slate-200/80">
               <a
                 href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\nCould you please guide me through the next steps?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-4 px-8 bg-slate-900 text-white font-bold text-lg rounded-2xl hover:bg-teal-600 transition-all shadow-xl hover:shadow-teal-500/30 transform hover:-translate-y-1"
+                className="flex-1 flex items-center justify-center gap-2.5 py-4.5 px-8 bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 text-white font-black text-lg rounded-2xl hover:scale-[1.02] transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 border border-teal-500/30 group"
               >
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Buy Now — Instant Delivery
               </a>
             </div>
 
             {template.fullDescription && (
-              <div className="mb-10 text-black leading-relaxed text-lg prose prose-slate">
-                <h3 className="text-xl font-bold text-black mb-4">About the Template</h3>
+              <div className="mb-10 text-slate-700 leading-relaxed text-base prose prose-slate">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">About the Template</h3>
                 <p>{template.fullDescription}</p>
               </div>
             )}
 
             <div className="mb-10">
-              <h3 className="text-xl font-bold text-black mb-6 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <Zap className="w-5 h-5 text-teal-500" />
                 Core Features
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {template.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="mt-1 bg-teal-100 p-1 rounded-full text-teal-600 shrink-0">
+                  <div 
+                    key={idx} 
+                    className="bg-white/70 backdrop-blur-md border border-slate-200/60 p-4.5 rounded-2xl flex items-center gap-3.5 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 relative overflow-hidden group"
+                  >
+                    <div className="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-teal-500 to-indigo-500 opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="bg-teal-50 text-teal-600 p-1.5 rounded-xl group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
                       <Check size={14} className="stroke-[3px]" />
                     </div>
-                    <span className="text-black font-medium">{feat}</span>
+                    <span className="text-slate-800 font-bold text-sm leading-snug">{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-slate-100 rounded-2xl p-6 flex items-start gap-4 border border-slate-200">
-              <ShieldCheck className="w-8 h-8 text-emerald-500 shrink-0 mt-1" />
+            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 flex items-start gap-4 border border-teal-500/10 shadow-sm relative overflow-hidden group hover:border-teal-500/25 transition-colors">
+              <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-teal-500 to-emerald-400"></div>
+              <ShieldCheck className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-black mb-1">Guaranteed Premium Quality</h4>
-                <p className="text-sm text-black">
+                <h4 className="font-bold text-slate-900 mb-1 text-base">Guaranteed Premium Quality</h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
                   Includes full source code access, free updates for 6 months, and completely scalable architecture built by senior engineers.
                 </p>
               </div>
@@ -372,55 +387,75 @@ const TemplateDetails = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-20 pt-16 border-t border-slate-200"
+          className="mt-20 pt-16 border-t border-slate-200 relative z-10"
         >
           <div className="max-w-3xl">
-            <h3 className="text-3xl font-extrabold text-black mb-8 flex items-center gap-3">
+            <h3 className="text-3xl font-extrabold text-slate-900 mb-8 flex items-center gap-3">
               User Reviews & Comments
-              <span className="bg-teal-100 text-teal-700 text-sm py-1 px-3 rounded-full">3</span>
+              <span className="bg-teal-100 text-teal-700 text-xs font-extrabold py-1 px-3 rounded-full uppercase tracking-wider">3 Reviews</span>
             </h3>
             
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 mb-12">
               {[
-                { name: "Sarah Jenkins", role: "Agency Owner", date: "2 days ago", comment: "We used this template for a client last week and the conversion rates have already jumped by 22%. The code quality is absolutely pristine. Highly recommend!" },
-                { name: "Marcus Torres", role: "Freelance Developer", date: "1 week ago", comment: "The design is gorgeous, but what really sold me was how easy it was to customize. The Tailwind structure is very logical. Saved me at least 40 hours of work." },
-                { name: "Elena Rostova", role: "Marketing Director", date: "3 weeks ago", comment: "Beautiful animations and the responsive design works flawlessly on all devices we tested. Support was also very quick to answer a minor question I had." }
+                { name: "Sarah Jenkins", role: "Agency Owner", date: "2 days ago", comment: "We used this template for a client last week and the conversion rates have already jumped by 22%. The code quality is absolutely pristine. Highly recommend!", grad: "from-pink-500 to-rose-500" },
+                { name: "Marcus Torres", role: "Freelance Developer", date: "1 week ago", comment: "The design is gorgeous, but what really sold me was how easy it was to customize. The Tailwind structure is very logical. Saved me at least 40 hours of work.", grad: "from-blue-500 to-indigo-600" },
+                { name: "Elena Rostova", role: "Marketing Director", date: "3 weeks ago", comment: "Beautiful animations and the responsive design works flawlessly on all devices we tested. Support was also very quick to answer a minor question I had.", grad: "from-emerald-400 to-teal-600" }
               ].map((review, i) => (
-                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex gap-4 items-start">
-                  <div className="w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center font-bold text-lg shrink-0">
+                <div 
+                  key={i} 
+                  className="bg-white/80 backdrop-blur-xl p-6 rounded-3xl shadow-sm border border-slate-200/60 flex gap-5 items-start hover:shadow-md hover:border-slate-300 transition-all duration-300"
+                >
+                  <div className={`w-12 h-12 bg-gradient-to-br ${review.grad} text-white rounded-full flex items-center justify-center font-black text-lg shrink-0 shadow-md`}>
                     {review.name.charAt(0)}
                   </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-bold text-black">{review.name}</h4>
-                      <span className="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">{review.role}</span>
+                  <div className="flex-1">
+                    <div className="flex items-center flex-wrap gap-2 mb-1">
+                      <h4 className="font-bold text-slate-900 text-base">{review.name}</h4>
+                      <span className="text-[10px] text-teal-700 bg-teal-50 border border-teal-150 px-2.5 py-0.5 rounded-full font-extrabold uppercase tracking-wider">{review.role}</span>
                     </div>
-                    <div className="text-xs text-slate-400 mb-3">{review.date}</div>
-                    <p className="text-black leading-relaxed">{review.comment}</p>
+                    <div className="text-[11px] font-semibold text-slate-400 mb-3">{review.date}</div>
+                    <p className="text-slate-700 text-sm leading-relaxed font-medium">{review.comment}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200">
-              <h4 className="text-xl font-bold text-black mb-6">Leave a Reply</h4>
-              <p className="text-sm text-slate-500 mb-6">Your email address will not be published. Required fields are marked *</p>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your comment! It is pending moderation."); }}>
+            <div className="bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] border border-slate-200/80 shadow-md">
+              <h4 className="text-xl font-bold text-slate-950 mb-1">Leave a Reply</h4>
+              <p className="text-xs text-slate-500 mb-6">Your email address will not be published. Required fields are marked *</p>
+              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your comment! It is pending moderation."); }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-bold text-black mb-2">Name *</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
+                    <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Name *</label>
+                    <input 
+                      type="text" 
+                      required 
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all" 
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-black mb-2">Email *</label>
-                    <input type="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500" />
+                    <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Email *</label>
+                    <input 
+                      type="email" 
+                      required 
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all" 
+                    />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-black mb-2">Comment *</label>
-                  <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 resize-none"></textarea>
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-500 mb-2">Comment *</label>
+                  <textarea 
+                    required 
+                    rows={4} 
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all resize-none"
+                  ></textarea>
                 </div>
-                <button title="Interactive Button" aria-label="Interactive Button" type="submit" className="mt-4 bg-slate-900 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md">
+                <button 
+                  title="Post Comment" 
+                  aria-label="Post Comment" 
+                  type="submit" 
+                  className="mt-2 w-full sm:w-auto bg-slate-900 hover:bg-teal-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:scale-[1.01] transform"
+                >
                   Post Comment
                 </button>
               </form>
