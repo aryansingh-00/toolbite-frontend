@@ -24,6 +24,29 @@ const TemplateDetails = () => {
     }
   }, [id, template]);
 
+  const handleIframeLoad = (e) => {
+    try {
+      const doc = e.target.contentDocument || e.target.contentWindow?.document;
+      if (doc) {
+        const style = doc.createElement('style');
+        style.textContent = `
+          ::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+          }
+          html, body {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+          }
+        `;
+        doc.head.appendChild(style);
+      }
+    } catch (err) {
+      console.warn("Could not style iframe scrollbars:", err);
+    }
+  };
+
   if (loading) {
     return (
       <div className="pt-32 pb-24 min-h-screen bg-slate-50 flex flex-col justify-center items-center">
@@ -80,31 +103,49 @@ const TemplateDetails = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col gap-6 sticky top-28"
           >
-            <div className="relative flex flex-col bg-white rounded-[2rem] p-2 border border-slate-200 shadow-xl overflow-hidden group">
-              {/* Template Image Display */}
-              <div className="relative bg-slate-100 rounded-[2rem] overflow-hidden flex justify-center items-center shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <img 
-                  src={template.imageUrl} 
-                  alt={template.title} 
-                  className="w-full h-auto aspect-[4/3] object-cover transform hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute top-6 left-6 flex gap-2">
-                  <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-black text-xs font-black tracking-widest uppercase rounded-full shadow-md border border-slate-100">
-                    {template.category}
-                  </span>
-                </div>
+            {/* Device Switcher Buttons (Only shown if previewLink is available) */}
+            {template.previewLink && !isLabOpen && (
+              <div className="flex justify-center items-center gap-1.5 p-1.5 bg-slate-100 rounded-2xl border border-slate-200/80 w-fit mx-auto shadow-inner">
+                {[
+                  { id: 'desktop', label: 'Desktop', icon: Monitor },
+                  { id: 'tablet', label: 'Tablet', icon: Tablet },
+                  { id: 'smartphone', label: 'Mobile', icon: Smartphone }
+                ].map((dev) => {
+                  const Icon = dev.icon;
+                  const isActive = deviceView === dev.id;
+                  return (
+                    <button
+                      key={dev.id}
+                      onClick={() => setDeviceView(dev.id)}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${
+                        isActive
+                          ? 'bg-white text-teal-600 shadow-md border border-slate-200'
+                          : 'text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-teal-600' : 'text-slate-400'}`} />
+                      <span>{dev.label}</span>
+                    </button>
+                  );
+                })}
               </div>
+            )}
 
-              {/* Design Lab Preview Overlay (when lab is open) */}
-              <AnimatePresence>
-                {isLabOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="absolute inset-0 z-20 bg-white dark:bg-slate-900 overflow-hidden flex flex-col design-lab-preview"
-                  >
+            {/* Device Frame Chassis Wrapper */}
+            <div className="w-full flex justify-center items-center">
+              <div 
+                className="transition-all duration-500 ease-in-out w-full"
+                style={{
+                  maxWidth: (isLabOpen || deviceView === 'desktop' || !template.previewLink) 
+                    ? '100%' 
+                    : deviceView === 'tablet' 
+                      ? '420px' 
+                      : '310px'
+                }}
+              >
+                {isLabOpen ? (
+                  /* Design Lab Preview Card */
+                  <div className="relative flex flex-col bg-white rounded-[2rem] p-2 border border-slate-200 shadow-xl overflow-hidden h-[480px] w-full">
                     <div className="h-12 border-b border-slate-100 dark:border-slate-800 flex items-center px-6 gap-4">
                       <div className="flex gap-1">
                         <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
@@ -113,10 +154,10 @@ const TemplateDetails = () => {
                       </div>
                       <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Live Customization Preview</span>
                     </div>
-                    <div className="flex-1 p-10 flex flex-col">
+                    <div className="flex-1 p-10 flex flex-col bg-white dark:bg-slate-900">
                       <nav className="flex justify-between items-center mb-16">
                         <div className="text-xl font-black tracking-tighter" style={{ color: 'var(--design-accent, #0f172a)' }}>
-                          <span className="text-xl inline-block after:content-[attr(data-brand)]" data-brand="My Brand" id="preview-brand-name"></span>
+                          <span className="text-xl inline-block brand-text after:content-[attr(data-brand)]" data-brand="My Brand" id="preview-brand-name"></span>
                         </div>
                         <div className="flex gap-4">
                           <div className="w-8 h-2 rounded-full bg-slate-100 dark:bg-slate-800"></div>
@@ -125,7 +166,7 @@ const TemplateDetails = () => {
                       </nav>
                       <div className="space-y-6">
                         <div className="w-20 h-2 bg-teal-500 rounded-full" style={{ backgroundColor: 'var(--design-primary, #14b8a6)' }}></div>
-                        <h2 className="text-4xl font-black max-w-sm leading-tight" style={{ color: 'var(--design-accent, #0f172a)' }}>
+                        <h2 className="text-4xl font-black max-w-sm leading-tight text-slate-900 dark:text-white" style={{ color: 'var(--design-accent, #0f172a)' }}>
                           The future of your brand starts here.
                         </h2>
                         <div className="w-40 h-12 rounded-xl flex items-center justify-center font-bold text-white shadow-xl" style={{ backgroundColor: 'var(--design-primary, #14b8a6)' }}>
@@ -138,18 +179,114 @@ const TemplateDetails = () => {
                          <div className="aspect-video rounded-2xl bg-slate-50 dark:bg-slate-800"></div>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
+                ) : (
+                  /* Simulator Chassis Selection */
+                  <>
+                    {(deviceView === 'desktop' || !template.previewLink) && (
+                      /* Desktop Browser Frame */
+                      <div className="w-full bg-white rounded-[2rem] p-2 border border-slate-200 shadow-xl overflow-hidden flex flex-col group">
+                        <div className="bg-slate-50 rounded-[1.8rem] overflow-hidden flex flex-col border border-slate-150">
+                          {/* Browser Top Bar */}
+                          <div className="h-10 bg-slate-100/80 px-4 flex items-center justify-between border-b border-slate-200">
+                            <div className="flex gap-1.5 items-center">
+                              <div className="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                              <div className="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                              <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                            </div>
+                            <div className="flex-1 max-w-[280px] mx-auto bg-slate-200/50 text-[10px] text-slate-500 py-1 rounded-md text-center truncate font-medium flex items-center justify-center gap-1">
+                              <span className="text-[8px]">🔒</span>
+                              <span>toolbite.io{template.previewLink || `/templates/${template._id}`}</span>
+                            </div>
+                            <div className="w-10"></div>
+                          </div>
+                          
+                          {/* Viewport */}
+                          <div className="relative bg-white h-[450px] overflow-hidden">
+                            {template.previewLink ? (
+                              <iframe 
+                                src={template.previewLink} 
+                                title={`${template.title} Live Preview`}
+                                className="w-full h-full border-0 hide-scrollbar"
+                                sandbox="allow-scripts allow-same-origin"
+                                onLoad={handleIframeLoad}
+                              />
+                            ) : (
+                              <div className="relative w-full h-full overflow-hidden flex justify-center items-center bg-slate-100">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                                <img 
+                                  src={template.imageUrl} 
+                                  alt={template.title} 
+                                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute top-6 left-6 flex gap-2">
+                                  <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-black text-xs font-black tracking-widest uppercase rounded-full shadow-md border border-slate-100">
+                                    {template.category}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {template.previewLink && deviceView === 'tablet' && (
+                      /* Tablet Chassis */
+                      <div className="w-full bg-slate-950 p-3 rounded-[2.5rem] border-[4px] border-slate-800 shadow-2xl flex flex-col relative">
+                        {/* Speaker slot notch */}
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-1.5 bg-slate-800 rounded-full"></div>
+                        
+                        {/* Screen Viewport */}
+                        <div className="relative bg-white h-[520px] rounded-[1.8rem] overflow-hidden border border-slate-900">
+                          <iframe 
+                            src={template.previewLink} 
+                            title={`${template.title} Live Tablet Preview`}
+                            className="w-full h-full border-0 hide-scrollbar"
+                            sandbox="allow-scripts allow-same-origin"
+                            onLoad={handleIframeLoad}
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    {template.previewLink && deviceView === 'smartphone' && (
+                      /* Smartphone Chassis */
+                      <div className="w-full bg-slate-950 p-3.5 rounded-[3.2rem] border-[4px] border-slate-800 shadow-2xl flex flex-col relative">
+                        {/* Dynamic Island Notch */}
+                        <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full flex items-center justify-between px-3.5 z-30 shadow-inner">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-900/60 border border-slate-800/40"></div>
+                          <div className="w-3.5 h-1 bg-slate-900/40 rounded-full"></div>
+                        </div>
+                        
+                        {/* Screen Viewport */}
+                        <div className="relative bg-white h-[550px] rounded-[2.4rem] overflow-hidden border border-slate-900">
+                          <iframe 
+                            src={template.previewLink} 
+                            title={`${template.title} Live Smartphone Preview`}
+                            className="w-full h-full border-0 hide-scrollbar"
+                            sandbox="allow-scripts allow-same-origin"
+                            onLoad={handleIframeLoad}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
 
             <div className="flex gap-4">
-               <button title="Interactive Button" aria-label="Interactive Button" 
-                 onClick={() => setIsLabOpen(true)}
-                 className="flex-1 flex items-center justify-center gap-2 py-4 bg-teal-500 text-white font-bold rounded-2xl hover:bg-teal-600 transition shadow-xl shadow-teal-500/20 group"
+               <button title={isLabOpen ? "Close Design Lab" : "Open Design Lab"} aria-label={isLabOpen ? "Close Design Lab" : "Open Design Lab"} 
+                 onClick={() => setIsLabOpen(!isLabOpen)}
+                 className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold rounded-2xl transition shadow-xl group ${
+                   isLabOpen 
+                     ? 'bg-slate-800 hover:bg-slate-700 text-white shadow-slate-800/20' 
+                     : 'bg-teal-500 hover:bg-teal-600 text-white shadow-teal-500/20'
+                 }`}
                >
-                 <Palette className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                 Open Design Lab
+                 <Palette className={`w-5 h-5 transition-transform ${isLabOpen ? 'rotate-180' : 'group-hover:rotate-12'}`} />
+                 {isLabOpen ? 'Close Design Lab' : 'Open Design Lab'}
                </button>
                {template.previewLink && (
                   <a 

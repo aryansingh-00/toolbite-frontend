@@ -145,7 +145,7 @@ const MegaDropdown = ({ groups, seeAll, onClose }) => (
   </motion.div>
 );
 
-const NavItem = ({ item, isDarkNavbar, onCloseAll }) => {
+const NavItem = ({ item, onCloseAll }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const location = useLocation();
@@ -166,9 +166,7 @@ const NavItem = ({ item, isDarkNavbar, onCloseAll }) => {
   const baseClass = `flex items-center gap-1 text-sm font-semibold transition-colors whitespace-nowrap ${
       isActive
         ? 'text-[#B19CD9]'
-        : isDarkNavbar
-          ? 'text-white hover:text-[#B19CD9]'
-          : 'text-black hover:text-[#B19CD9]'
+        : 'text-black dark:text-slate-200 hover:text-[#B19CD9]'
   }`;
 
   return (
@@ -242,9 +240,6 @@ const Navbar = () => {
     setMobileExpanded(null);
   }
 
-  const isHomepage = location.pathname === '/';
-  const isDarkNavbar = isScrolled || isHomepage;
-
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'py-0' : 'py-2'} ${isHidden ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
       <div className={`transition-all duration-500 ease-in-out ${isScrolled ? 'glass-dark-premium shadow-2xl border-b border-white/5 backdrop-blur-3xl' : 'bg-transparent border-b border-transparent'}`}>
@@ -258,20 +253,20 @@ const Navbar = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 80 80"
                   fill="none"
-                  className={`w-8 h-8 group-hover:scale-110 transition-transform duration-300 ${isDarkNavbar ? 'text-white' : 'text-black'}`}
+                  className="w-8 h-8 text-black group-hover:scale-110 transition-transform duration-300"
                 >
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="4.5" />
                   <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="currentColor" strokeWidth="4" />
                   <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="currentColor" />
                 </motion.svg>
-                <span className={`text-3xl font-bold tracking-tight ml-2 ${isDarkNavbar ? 'text-white' : 'text-black'}`}>ToolBite</span>
+                <span className="text-3xl font-bold tracking-tight text-black ml-2">ToolBite</span>
               </Link>
             </div>
 
             {/* Desktop Nav Links */}
             <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navMenu.map((item) => (
-                <NavItem key={item.label} item={item} isDarkNavbar={isDarkNavbar} onCloseAll={() => {}} />
+                <NavItem key={item.label} item={item} onCloseAll={() => {}} />
               ))}
             </div>
 
@@ -279,16 +274,12 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center gap-3">
               <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-                className={`flex items-center gap-2.5 px-4 py-2 rounded-xl transition-all border group ${
-                  isDarkNavbar 
-                    ? 'text-slate-300 hover:text-white hover:bg-white/10 border-white/20' 
-                    : 'text-slate-500 hover:text-black hover:bg-slate-100 border-slate-200'
-                }`}
+                className="flex items-center gap-2.5 px-4 py-2 rounded-xl text-slate-500 hover:text-black hover:bg-slate-100 transition-all border border-slate-200 group"
                 title="Search Tools & Services (⌘K)"
               >
-                <Search size={18} className={isDarkNavbar ? "text-slate-400 group-hover:text-white" : "text-slate-400 group-hover:text-black"} />
-                <span className={`text-xs font-semibold transition-colors ${isDarkNavbar ? "text-slate-400 group-hover:text-white" : "text-slate-400 group-hover:text-black"}`}>Search Tools...</span>
-                <div className={`hidden xl:flex items-center gap-1.5 px-1.5 py-0.5 rounded border ${isDarkNavbar ? "bg-white/5 border-white/10" : "bg-slate-50 border-slate-200"}`}>
+                <Search size={18} className="text-slate-400 group-hover:text-black" />
+                <span className="text-xs font-semibold text-slate-400 group-hover:text-black transition-colors">Search Tools...</span>
+                <div className="hidden xl:flex items-center gap-1.5 px-1.5 py-0.5 rounded bg-slate-50 border border-slate-200">
                   <Command size={10} className="text-slate-400" />
                   <span className="text-[10px] font-bold text-slate-400">K</span>
                 </div>
@@ -296,22 +287,14 @@ const Navbar = () => {
 
               <Link
                 to="/client-login"
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border transition-all ${
-                  isDarkNavbar 
-                    ? 'text-white border-white/20 hover:border-white hover:text-white' 
-                    : 'text-black border-slate-200 hover:border-black hover:text-black'
-                }`}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold text-black dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:border-black hover:text-black transition-all"
               >
                 <User size={15} />
                 Login
               </Link>
               <Link
                 to="/start-project"
-                className={`px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md ${
-                  isDarkNavbar
-                    ? 'bg-white text-slate-900 hover:bg-slate-100 hover:text-black'
-                    : 'bg-slate-900 text-white hover:bg-black'
-                }`}
+                className="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-black transition-all shadow-md"
               >
                 Claim Free Blueprint
               </Link>
@@ -321,7 +304,7 @@ const Navbar = () => {
             <div className="flex lg:hidden items-center gap-2">
               <button title="Interactive Button" aria-label="Interactive Button" 
                 onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
-                className={`p-2 rounded-full transition ${isDarkNavbar ? 'text-white hover:bg-white/10' : 'text-black hover:bg-slate-100'}`}
+                className="p-2 rounded-full text-black dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Search"
                 title="Search Tools & Services"
               >
@@ -330,7 +313,7 @@ const Navbar = () => {
 
               <button title="Interactive Button" aria-label="Interactive Button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className={`p-2 rounded-full transition ${isDarkNavbar ? 'text-white hover:bg-white/10' : 'text-black hover:bg-slate-100'}`}
+                className="p-2 rounded-full text-black dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition"
                 aria-label="Toggle menu"
                 title="Toggle menu"
               >
