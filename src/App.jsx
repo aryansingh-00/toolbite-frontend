@@ -25,6 +25,7 @@ const TemplateDetails = React.lazy(() => import('./pages/TemplateDetails'));
 const PrivacyPolicy = React.lazy(() => import('./pages/legal/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('./pages/legal/TermsOfService'));
 const CookiePolicy = React.lazy(() => import('./pages/legal/CookiePolicy'));
+const Disclaimer = React.lazy(() => import('./pages/legal/Disclaimer'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const BlogPage = React.lazy(() => import('./pages/BlogPage'));
@@ -119,6 +120,7 @@ function App() {
                   <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
                   <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
                   <Route path="/cookie-policy" element={<PageTransition><CookiePolicy /></PageTransition>} />
+                  <Route path="/disclaimer" element={<PageTransition><Disclaimer /></PageTransition>} />
                   <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />

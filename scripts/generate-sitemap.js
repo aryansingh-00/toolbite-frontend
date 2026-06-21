@@ -86,6 +86,7 @@ const entries = [
   url('/privacy-policy',   '0.3', 'yearly'),
   url('/terms-of-service', '0.3', 'yearly'),
   url('/cookie-policy',    '0.3', 'yearly'),
+  url('/disclaimer',       '0.3', 'yearly'),
 
   // All tool pages
   ...TOOL_SLUGS.map(slug => url(`/tools/${slug}`, '0.8', 'weekly')),
