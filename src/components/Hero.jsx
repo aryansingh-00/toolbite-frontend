@@ -16,6 +16,49 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const y3 = useTransform(scrollY, [0, 500], [0, 50]);
 
+  const vantaRef = React.useRef(null);
+
+  React.useEffect(() => {
+    let vantaEffect = null;
+    const initVanta = async () => {
+      try {
+        const THREE = await import('three');
+        window.THREE = THREE;
+        const { default: NET } = await import('vanta/dist/vanta.net.min');
+        
+        if (vantaRef.current && !vantaEffect) {
+          vantaEffect = NET({
+            el: vantaRef.current,
+            THREE: THREE,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x7091E6,
+            backgroundColor: 0x0f172a,
+            backgroundAlpha: 0.0,
+            points: 10.00,
+            maxDistance: 20.00,
+            spacing: 15.00
+          });
+        }
+      } catch (err) {
+        console.error("Vanta.js Net initialization failed:", err);
+      }
+    };
+
+    initVanta();
+
+    return () => {
+      if (vantaEffect) {
+        vantaEffect.destroy();
+      }
+    };
+  }, []);
+
   const getPersonaContent = () => {
     switch (persona) {
       case 'templates':
@@ -40,6 +83,11 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative pt-16 pb-0 lg:pt-24 lg:pb-0 overflow-hidden bg-transparent">
+      {/* Vanta.js 3D Mesh Background */}
+      <div 
+        ref={vantaRef} 
+        className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-60" 
+      />
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 

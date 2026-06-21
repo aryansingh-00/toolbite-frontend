@@ -45,6 +45,10 @@ export const blogPosts = [
       <h3>Mobile-First Layouts</h3>
       <p>With over 80% of e-commerce traffic now coming from mobile devices, your site must be designed with a mobile-first mindset. This means thumb-friendly buttons, fast-loading images, and intuitive mobile navigation.</p>
       
+      <h3>Evaluate Your E-commerce Revenue Leak</h3>
+      <p>Use our interactive calculator below to estimate how much revenue you might be losing to poor load times and low conversion rates, and see how much optimization can save you.</p>
+      [ROI_CALCULATOR_WIDGET]
+
       <p>By focusing on these key areas, you can transform your e-commerce platform into a high-converting sales machine.</p>
     `
   },

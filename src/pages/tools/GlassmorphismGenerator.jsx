@@ -8,6 +8,7 @@ const GlassmorphismGenerator = () => {
   const [transparency, setTransparency] = useState(0.2);
   const [color, setColor] = useState('#ffffff');
   const [outline, setOutline] = useState(0.1);
+  const [activeTab, setActiveTab] = useState('css');
 
   const glassStyle = {
     backgroundColor: `${color}${Math.round(transparency * 255).toString(16).padStart(2, '0')}`,
@@ -22,9 +23,12 @@ backdrop-filter: blur(${blur}px);
 border: 1px solid rgba(255, 255, 255, ${outline});
 border-radius: 24px;`;
 
+  const tailwindCode = `bg-[${color}]/[${transparency}] backdrop-blur-[${blur}px] border border-white/[${outline}] rounded-[24px]`;
+
   const handleCopy = () => {
-    navigator.clipboard.writeText(cssCode);
-    toast.success('CSS copied to clipboard!');
+    const codeToCopy = activeTab === 'css' ? cssCode : tailwindCode;
+    navigator.clipboard.writeText(codeToCopy);
+    toast.success(`${activeTab === 'css' ? 'CSS' : 'Tailwind CSS'} copied to clipboard!`);
   };
 
   return (
@@ -119,15 +123,39 @@ border-radius: 24px;`;
           </div>
 
           <div className="pt-6 border-t border-slate-100">
-            <h4 className="font-bold text-black mb-4">Generated CSS</h4>
+            <div className="flex justify-between items-center mb-4">
+              <h4 className="font-bold text-black">Generated Styles</h4>
+              <div className="flex bg-slate-100 p-1 rounded-xl">
+                <button
+                  onClick={() => setActiveTab('css')}
+                  className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
+                    activeTab === 'css'
+                      ? 'bg-white text-black shadow-sm'
+                      : 'text-slate-500 hover:text-black'
+                  }`}
+                >
+                  CSS
+                </button>
+                <button
+                  onClick={() => setActiveTab('tailwind')}
+                  className={`px-3 py-1 rounded-lg text-xs font-black transition-all ${
+                    activeTab === 'tailwind'
+                      ? 'bg-white text-black shadow-sm'
+                      : 'text-slate-500 hover:text-black'
+                  }`}
+                >
+                  Tailwind CSS
+                </button>
+              </div>
+            </div>
             <div className="relative">
               <pre className="bg-slate-900 text-teal-400 p-6 rounded-2xl font-mono text-sm overflow-x-auto whitespace-pre-wrap">
-                {cssCode}
+                {activeTab === 'css' ? cssCode : tailwindCode}
               </pre>
               <button 
                 onClick={handleCopy}
                 className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all"
-                title="Copy CSS"
+                title={activeTab === 'css' ? "Copy CSS" : "Copy Tailwind Classes"}
               >
                 <Copy size={18} />
               </button>

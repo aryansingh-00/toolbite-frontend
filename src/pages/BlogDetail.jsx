@@ -1,8 +1,109 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, User, Share2 } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Share2, TrendingUp, AlertTriangle, Zap, Calculator as CalcIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
+
+const BlogCalculatorWidget = () => {
+  const [traffic, setTraffic] = React.useState(10000);
+  const [convRate, setConvRate] = React.useState(1.5);
+  const [aov, setAov] = React.useState(75);
+
+  const currentRevenue = traffic * (convRate / 100) * aov;
+  const optimizedRevenue = currentRevenue * 1.35 * 1.15;
+  const monthlyLeak = optimizedRevenue - currentRevenue;
+  const annualLeak = monthlyLeak * 12;
+
+  return (
+    <div className="bg-slate-900 text-white rounded-[32px] p-6 md:p-8 border border-slate-800 shadow-2xl relative overflow-hidden my-12 not-prose">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="relative z-10 space-y-6">
+        <div className="flex items-center gap-2 text-teal-400 text-xs font-black uppercase tracking-widest">
+          <CalcIcon size={14} />
+          Interactive Revenue Leak Calculator
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Sliders */}
+          <div className="space-y-6">
+            {/* Traffic */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-bold text-slate-400">Monthly Traffic</span>
+                <span className="font-black text-teal-400">{traffic.toLocaleString()}</span>
+              </div>
+              <input
+                type="range" min="1000" max="100000" step="1000"
+                value={traffic} onChange={(e) => setTraffic(Number(e.target.value))}
+                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500"
+              />
+            </div>
+
+            {/* Conv Rate */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-bold text-slate-400">Conversion Rate</span>
+                <span className="font-black text-teal-400">{convRate}%</span>
+              </div>
+              <input
+                type="range" min="0.1" max="10" step="0.1"
+                value={convRate} onChange={(e) => setConvRate(Number(e.target.value))}
+                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500"
+              />
+            </div>
+
+            {/* AOV */}
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-sm">
+                <span className="font-bold text-slate-400">Average Order Value ($)</span>
+                <span className="font-black text-teal-400">${aov}</span>
+              </div>
+              <input
+                type="range" min="10" max="500" step="5"
+                value={aov} onChange={(e) => setAov(Number(e.target.value))}
+                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-500"
+              />
+            </div>
+          </div>
+
+          {/* Results */}
+          <div className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/80 text-center space-y-4">
+            <div className="flex items-center justify-center gap-2 text-rose-500 text-xs font-black uppercase tracking-widest">
+              <AlertTriangle size={14} className="animate-pulse" />
+              Annual Revenue Leak
+            </div>
+            
+            <div>
+              <motion.span
+                key={annualLeak}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-4xl md:text-5xl font-black text-white tracking-tighter block"
+              >
+                ${Math.round(annualLeak).toLocaleString()}
+              </motion.span>
+              <span className="text-slate-500 text-xs font-bold block mt-1">Lost to suboptimal speed & conversion funnel</span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-800">
+              <div className="text-left">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-wider block">Speed Boost</span>
+                <span className="text-sm font-black text-emerald-400">+${Math.round(currentRevenue * 0.15 * 12).toLocaleString()}/yr</span>
+              </div>
+              <div className="text-left">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-wider block">CRO Lift (35%)</span>
+                <span className="text-sm font-black text-teal-400">+${Math.round(currentRevenue * 0.35 * 12).toLocaleString()}/yr</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -28,6 +129,38 @@ const BlogDetail = () => {
   }, [post, navigate]);
 
   if (!post) return null;
+
+  const renderContent = () => {
+    if (!post.content) return null;
+    const parts = post.content.split('[ROI_CALCULATOR_WIDGET]');
+    if (parts.length > 1) {
+      return (
+        <section 
+          className="px-8 md:px-16 pb-16 prose prose-slate prose-xl max-w-none 
+          prose-headings:text-black prose-headings:font-black prose-headings:tracking-tight
+          prose-p:text-black prose-p:leading-relaxed prose-p:font-medium
+          prose-strong:text-black prose-strong:font-black
+          prose-blockquote:border-l-4 prose-blockquote:border-teal-500 prose-blockquote:bg-teal-50/50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl
+          prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline"
+        >
+          <div dangerouslySetInnerHTML={{ __html: parts[0] }} />
+          <BlogCalculatorWidget />
+          <div dangerouslySetInnerHTML={{ __html: parts[1] }} />
+        </section>
+      );
+    }
+    return (
+      <section 
+        className="px-8 md:px-16 pb-16 prose prose-slate prose-xl max-w-none 
+        prose-headings:text-black prose-headings:font-black prose-headings:tracking-tight
+        prose-p:text-black prose-p:leading-relaxed prose-p:font-medium
+        prose-strong:text-black prose-strong:font-black
+        prose-blockquote:border-l-4 prose-blockquote:border-teal-500 prose-blockquote:bg-teal-50/50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl
+        prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+    );
+  };
 
   return (
     <div className="min-h-screen bg-slate-50/50">
@@ -85,15 +218,7 @@ const BlogDetail = () => {
             </div>
           </header>
 
-          <section 
-            className="px-8 md:px-16 pb-16 prose prose-slate prose-xl max-w-none 
-            prose-headings:text-black prose-headings:font-black prose-headings:tracking-tight
-            prose-p:text-black prose-p:leading-relaxed prose-p:font-medium
-            prose-strong:text-black prose-strong:font-black
-            prose-blockquote:border-l-4 prose-blockquote:border-teal-500 prose-blockquote:bg-teal-50/50 prose-blockquote:py-2 prose-blockquote:rounded-r-2xl
-            prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          {renderContent()}
 
           <footer className="px-8 md:px-16 pb-16 border-t border-slate-50 pt-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-8 bg-slate-50 rounded-[32px]">

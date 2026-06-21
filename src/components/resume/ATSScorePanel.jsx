@@ -4,6 +4,7 @@ import {
   CheckCircle2, XCircle, AlertCircle, ChevronDown, ChevronUp,
   Target, Zap, FileText, BarChart3, TrendingUp, X, Sparkles
 } from 'lucide-react';
+import { toast } from 'react-hot-toast';
 
 // ─── ATS Scoring Engine ───────────────────────────────────────────────────────
 const ACTION_VERBS = [
@@ -182,7 +183,78 @@ export default function ATSScorePanel({ formData, onClose }) {
   const [showJDInput, setShowJDInput] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState(null);
 
-  const result = useMemo(() => calculateATSScore(formData, jobDescription), [formData, jobDescription]);
+  // Scan states
+  const [isScanning, setIsScanning] = useState(false);
+  const [scanStage, setScanStage] = useState('');
+  const [scanProgress, setScanProgress] = useState(0);
+  const [scannedJD, setScannedJD] = useState('');
+
+  const result = useMemo(() => calculateATSScore(formData, scannedJD), [formData, scannedJD]);
+
+  const handleScan = () => {
+    if (!jobDescription.trim()) {
+      toast.error("Please paste a job description first.");
+      return;
+    }
+    setIsScanning(true);
+    setScanProgress(10);
+    
+    const stages = [
+      { text: "Parsing Resume Structure...", progress: 25 },
+      { text: "Extracting Job Description Keywords...", progress: 55 },
+      { text: "Performing Semantic Keyword Match...", progress: 85 },
+      { text: "Calculating ATS Compatibility Score...", progress: 100 }
+    ];
+    
+    let stageIndex = 0;
+    setScanStage(stages[0].text);
+    
+    const interval = setInterval(() => {
+      if (stageIndex < stages.length) {
+        setScanStage(stages[stageIndex].text);
+        setScanProgress(stages[stageIndex].progress);
+        stageIndex++;
+      } else {
+        clearInterval(interval);
+        setIsScanning(false);
+        setScannedJD(jobDescription);
+        toast.success("ATS Compatibility Audit Complete!");
+      }
+    }, 600);
+  };
+
+  // Keyword Categorization list & logic
+  const TECH_KEYWORDS = [
+    'react', 'vue', 'angular', 'javascript', 'typescript', 'python', 'java', 'c++', 'c#', 'ruby', 'php',
+    'html', 'css', 'sass', 'tailwind', 'bootstrap', 'node', 'express', 'django', 'flask', 'fastapi',
+    'spring', 'postgresql', 'mysql', 'mongodb', 'redis', 'sqlite', 'oracle', 'dynamodb', 'aws', 'azure',
+    'gcp', 'docker', 'kubernetes', 'git', 'github', 'gitlab', 'ci/cd', 'jenkins', 'terraform', 'graphql',
+    'rest', 'api', 'webpack', 'vite', 'npm', 'yarn', 'linux', 'unix', 'bash', 'powershell', 'sql', 'nosql',
+    'jira', 'confluence', 'figma', 'sketch', 'adobe', 'photoshop', 'illustrator', 'rust', 'golang', 'swift', 'flutter'
+  ];
+
+  const SOFT_KEYWORDS = [
+    'leadership', 'communication', 'collaboration', 'teamwork', 'mentoring', 'training', 'problem', 'solving',
+    'critical', 'thinking', 'creativity', 'adaptability', 'flexibility', 'organization', 'management',
+    'negotiation', 'conflict', 'presentation', 'empathy', 'listening', 'interpersonal', 'detail', 'analytical',
+    'strategic', 'customer', 'support'
+  ];
+
+  const getCategorizedKeywords = (keywords) => {
+    const tech = [];
+    const soft = [];
+    const general = [];
+    keywords.forEach(kw => {
+      if (TECH_KEYWORDS.includes(kw)) {
+        tech.push(kw);
+      } else if (SOFT_KEYWORDS.includes(kw)) {
+        soft.push(kw);
+      } else {
+        general.push(kw);
+      }
+    });
+    return { tech, soft, general };
+  };
 
   const circleR = 54;
   const circleC = 2 * Math.PI * circleR;
@@ -274,7 +346,7 @@ export default function ATSScorePanel({ formData, onClose }) {
               <Target size={16} className="text-teal-400" />
               <span className="font-bold text-white text-sm">Job Description Match</span>
             </div>
-            {jobDescription ? (
+            {scannedJD ? (
               <span className="text-xs font-black text-teal-400">{result.keywordMatchPct}% match</span>
             ) : (
               <span className="text-xs text-slate-500">Paste JD to analyze</span>
@@ -284,56 +356,149 @@ export default function ATSScorePanel({ formData, onClose }) {
           <AnimatePresence>
             {showJDInput && (
               <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
-                <div className="px-5 pb-5 space-y-3 border-t border-white/10 pt-4">
-                  <textarea
-                    value={jobDescription}
-                    onChange={e => setJobDescription(e.target.value)}
-                    placeholder="Paste the job description here to analyze keyword match..."
-                    rows={5}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-black focus:outline-none focus:border-teal-500 resize-none"
-                  />
-                  {jobDescription && (
-                    <div className="space-y-3">
-                      {/* Match % bar */}
-                      <div>
-                        <div className="flex justify-between text-xs font-bold mb-1.5">
-                          <span className="text-slate-400">Keyword Match</span>
-                          <span style={{ color: result.levelColor }}>{result.keywordMatchPct}%</span>
+                <div className="px-5 pb-5 space-y-4 border-t border-white/10 pt-4">
+                  {isScanning ? (
+                    <div className="py-8 text-center space-y-4">
+                      <div className="flex flex-col items-center justify-center space-y-3">
+                        <div className="w-12 h-12 bg-teal-500/10 rounded-full flex items-center justify-center border border-teal-500/20 shadow-[0_0_15px_rgba(20,184,166,0.2)] animate-pulse">
+                          <Sparkles className="text-teal-400 animate-spin" size={20} />
                         </div>
-                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${result.keywordMatchPct}%` }}
-                            className="h-full rounded-full"
-                            style={{ backgroundColor: result.levelColor }}
-                          />
-                        </div>
+                        <p className="text-xs font-black text-white tracking-wide">{scanStage}</p>
                       </div>
-
-                      {/* Matched Keywords */}
-                      {result.matchedKeywords.length > 0 && (
-                        <div>
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">✅ Matched Keywords</p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {result.matchedKeywords.slice(0, 12).map(k => (
-                              <span key={k} className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md text-[10px] font-bold">{k}</span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Missing Keywords */}
-                      {result.missingKeywords.length > 0 && (
-                        <div>
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">❌ Missing Keywords</p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {result.missingKeywords.map(k => (
-                              <span key={k} className="px-2 py-0.5 bg-rose-500/10 text-rose-400 border border-rose-500/20 rounded-md text-[10px] font-bold">{k}</span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden max-w-[200px] mx-auto">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${scanProgress}%` }}
+                          transition={{ duration: 0.3 }}
+                          className="h-full bg-teal-500 rounded-full"
+                        />
+                      </div>
                     </div>
+                  ) : (
+                    <>
+                      <textarea
+                        value={jobDescription}
+                        onChange={e => setJobDescription(e.target.value)}
+                        placeholder="Paste the job description here to analyze keyword match..."
+                        rows={5}
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-teal-500 resize-none font-medium"
+                      />
+                      
+                      <button
+                        onClick={handleScan}
+                        disabled={!jobDescription.trim()}
+                        className="w-full py-3 bg-teal-500 hover:bg-teal-400 disabled:bg-white/5 disabled:text-slate-600 text-black font-black rounded-xl text-xs uppercase tracking-widest transition-all shadow-lg shadow-teal-500/10 flex items-center justify-center gap-2"
+                      >
+                        <Sparkles size={14} />
+                        Analyze Compatibility
+                      </button>
+
+                      {scannedJD && (
+                        <div className="space-y-4 pt-2 border-t border-white/5">
+                          {/* Match % bar */}
+                          <div>
+                            <div className="flex justify-between text-xs font-bold mb-1.5">
+                              <span className="text-slate-400">Keyword Match Strength</span>
+                              <span style={{ color: result.levelColor }}>{result.keywordMatchPct}%</span>
+                            </div>
+                            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${result.keywordMatchPct}%` }}
+                                className="h-full rounded-full"
+                                style={{ backgroundColor: result.levelColor }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Categorized Matched Keywords */}
+                          {result.matchedKeywords.length > 0 && (() => {
+                            const cats = getCategorizedKeywords(result.matchedKeywords);
+                            return (
+                              <div className="space-y-2">
+                                <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">✅ Matched Keywords</p>
+                                
+                                {cats.tech.length > 0 && (
+                                  <div>
+                                    <span className="text-[9px] font-bold text-teal-400 uppercase tracking-wider block mb-1">Tech / Tools ({cats.tech.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.tech.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-md text-[9px] font-bold">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {cats.soft.length > 0 && (
+                                  <div className="mt-1">
+                                    <span className="text-[9px] font-bold text-blue-400 uppercase tracking-wider block mb-1">Soft Skills ({cats.soft.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.soft.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md text-[9px] font-bold">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {cats.general.length > 0 && (
+                                  <div className="mt-1">
+                                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Domain Concepts ({cats.general.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.general.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-white/5 text-slate-300 border border-white/5 rounded-md text-[9px] font-bold">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })()}
+
+                          {/* Categorized Missing Keywords */}
+                          {result.missingKeywords.length > 0 && (() => {
+                            const cats = getCategorizedKeywords(result.missingKeywords);
+                            return (
+                              <div className="space-y-2 pt-2 border-t border-white/5">
+                                <p className="text-[10px] font-black text-rose-400 uppercase tracking-widest">❌ Missing Keywords</p>
+                                
+                                {cats.tech.length > 0 && (
+                                  <div>
+                                    <span className="text-[9px] font-bold text-teal-400/80 uppercase tracking-wider block mb-1">Tech / Tools ({cats.tech.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.tech.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-rose-500/5 text-rose-300 border border-rose-500/10 rounded-md text-[9px] font-medium">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {cats.soft.length > 0 && (
+                                  <div className="mt-1">
+                                    <span className="text-[9px] font-bold text-blue-400/80 uppercase tracking-wider block mb-1">Soft Skills ({cats.soft.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.soft.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-rose-500/5 text-rose-300 border border-rose-500/10 rounded-md text-[9px] font-medium">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {cats.general.length > 0 && (
+                                  <div className="mt-1">
+                                    <span className="text-[9px] font-bold text-slate-400/80 uppercase tracking-wider block mb-1">Domain Concepts ({cats.general.length})</span>
+                                    <div className="flex flex-wrap gap-1">
+                                      {cats.general.map(k => (
+                                        <span key={k} className="px-1.5 py-0.5 bg-rose-500/5 text-rose-300 border border-rose-500/10 rounded-md text-[9px] font-medium">{k}</span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })()}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </motion.div>
