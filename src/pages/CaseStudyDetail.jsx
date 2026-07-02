@@ -42,8 +42,16 @@ const CaseStudyDetail = () => {
       />
 
       {/* Hero Section */}
-      <section className={`relative py-32 overflow-hidden ${project.image} text-white`}>
-        <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
+      <section 
+        className={`relative py-32 overflow-hidden text-white ${!project.thumbnail ? project.image : 'bg-slate-950'}`}
+        style={project.thumbnail ? {
+          backgroundImage: `url(${project.thumbnail})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        } : {}}
+      >
+        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[3px]"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <Link to="/portfolio" className="inline-flex items-center gap-2 text-white/80 hover:text-white font-bold mb-12 transition-colors group">
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
