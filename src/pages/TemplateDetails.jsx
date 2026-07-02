@@ -313,36 +313,36 @@ const TemplateDetails = () => {
             className="flex flex-col relative z-10"
           >
             {/* Category tag */}
-            <div className="inline-flex mb-3">
-              <span className="px-3.5 py-1 bg-teal-50 text-teal-700 text-[10px] font-black tracking-widest uppercase rounded-full border border-teal-200/50 shadow-sm">
+            <div className="inline-flex mb-2">
+              <span className="px-3.5 py-0.5 bg-teal-50 text-teal-700 text-[9px] font-black tracking-widest uppercase rounded-full border border-teal-200/50 shadow-sm">
                 {template.category}
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black mb-4 tracking-tight leading-tight bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-black mb-3 tracking-tight leading-tight bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 bg-clip-text text-transparent">
               {template.title}
             </h1>
             
-            <p className="text-lg text-slate-700 mb-8 font-medium leading-relaxed">
+            <p className="text-sm text-slate-600 mb-5 leading-relaxed">
               {template.shortDescription}
             </p>
 
             {/* ── Buy / Contact Section ────────────────────────────── */}
-            <div className="mb-8 pb-8 border-b border-slate-200/80">
+            <div className="mb-6 pb-6 border-b border-slate-200/80">
 
               {/* Primary WhatsApp CTA */}
               <a
                 href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\n💡 *Description:* ${template.shortDescription}\n\nCould you please guide me through the next steps?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 py-4 px-8 bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 text-white font-black text-lg rounded-2xl hover:scale-[1.02] transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 border border-teal-500/30 group mb-3"
+                className="w-full flex items-center justify-center gap-3 py-3.5 px-8 bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 text-white font-black text-base rounded-2xl hover:scale-[1.01] transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 border border-teal-500/30 group mb-3"
               >
                 <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Buy Now — Instant Delivery
               </a>
 
               {/* Secondary contact options */}
-              <p className="text-center text-xs text-slate-400 font-semibold uppercase tracking-widest mb-3">Or reach us via</p>
+              <p className="text-center text-[10px] text-slate-400 font-semibold uppercase tracking-widest mb-2.5">Or reach us via</p>
               <div className="w-full">
 
                 {/* Email → opens Gmail compose with pre-filled details */}
@@ -350,10 +350,10 @@ const TemplateDetails = () => {
                   href={`https://mail.google.com/mail/?view=cm&fs=1&to=hello.toolbite@gmail.com&su=${encodeURIComponent(`Order: ${template.title} Template`)}&body=${encodeURIComponent(`Hi ToolBite Team,\n\nI'd like to purchase the following template:\n\n🔹 Template: ${template.title}\n🔹 Category: ${template.category}\n🔹 Template ID: ${template._id}\n\nDescription:\n${template.shortDescription}\n\nPlease let me know the payment details and delivery process.\n\nThank you!`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2.5 py-3.5 px-5 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50 transition-all duration-300 shadow-sm group"
+                  className="w-full flex items-center justify-center gap-2.5 py-3 px-5 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50 transition-all duration-300 shadow-sm group"
                 >
-                  <Mail className="w-4.5 h-4.5 group-hover:scale-110 transition-transform text-blue-500" />
-                  <span className="text-sm">Email Us</span>
+                  <Mail className="w-4 h-4 group-hover:scale-110 transition-transform text-blue-500" />
+                  <span className="text-xs">Email Us</span>
                 </a>
 
               </div>
@@ -361,39 +361,39 @@ const TemplateDetails = () => {
 
 
             {template.fullDescription && (
-              <div className="mb-10 text-slate-700 leading-relaxed text-base prose prose-slate">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">About the Template</h3>
-                <p>{template.fullDescription}</p>
+              <div className="mb-6 text-slate-700 leading-relaxed text-sm prose prose-slate">
+                <h3 className="text-lg font-bold text-slate-900 mb-2.5">About the Template</h3>
+                <p className="text-slate-600 leading-relaxed">{template.fullDescription}</p>
               </div>
             )}
 
-            <div className="mb-10">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <Zap className="w-5 h-5 text-teal-500" />
+            <div className="mb-6">
+              <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <Zap className="w-4.5 h-4.5 text-teal-500" />
                 Core Features
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {template.features.map((feat, idx) => (
                   <div 
                     key={idx} 
-                    className="bg-white/70 backdrop-blur-md border border-slate-200/60 p-4.5 rounded-2xl flex items-center gap-3.5 shadow-sm hover:scale-[1.02] hover:shadow-md transition-all duration-300 relative overflow-hidden group"
+                    className="bg-white/70 backdrop-blur-md border border-slate-200/60 py-3 px-4 rounded-xl flex items-center gap-3 shadow-sm hover:scale-[1.01] hover:shadow-md transition-all duration-300 relative overflow-hidden group"
                   >
-                    <div className="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-teal-500 to-indigo-500 opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="bg-teal-50 text-teal-600 p-1.5 rounded-xl group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
-                      <Check size={14} className="stroke-[3px]" />
+                    <div className="absolute top-0 left-0 w-[2.5px] h-full bg-gradient-to-b from-teal-500 to-indigo-500 opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="bg-teal-50 text-teal-600 p-1.5 rounded-lg group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300 shrink-0">
+                      <Check size={12} className="stroke-[3px]" />
                     </div>
-                    <span className="text-slate-800 font-bold text-sm leading-snug">{feat}</span>
+                    <span className="text-slate-700 font-bold text-xs leading-snug">{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-6 flex items-start gap-4 border border-teal-500/10 shadow-sm relative overflow-hidden group hover:border-teal-500/25 transition-colors">
-              <div className="absolute top-0 left-0 w-[4px] h-full bg-gradient-to-b from-teal-500 to-emerald-400"></div>
-              <ShieldCheck className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
+            <div className="bg-white/60 backdrop-blur-xl rounded-xl p-4.5 flex items-start gap-3.5 border border-teal-500/10 shadow-sm relative overflow-hidden group hover:border-teal-500/25 transition-colors">
+              <div className="absolute top-0 left-0 w-[3px] h-full bg-gradient-to-b from-teal-500 to-emerald-400"></div>
+              <ShieldCheck className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-slate-900 mb-1 text-base">Guaranteed Premium Quality</h4>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <h4 className="font-bold text-slate-900 mb-0.5 text-sm">Guaranteed Premium Quality</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Includes full source code access, free updates for 6 months, and completely scalable architecture built by senior engineers.
                 </p>
               </div>
