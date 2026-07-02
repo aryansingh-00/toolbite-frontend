@@ -347,7 +347,7 @@ const TemplateDetails = () => {
 
                 {/* Email → opens Gmail compose with pre-filled details */}
                 <a
-                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=toolbite.in@gmail.com&su=${encodeURIComponent(`Order: ${template.title} Template`)}&body=${encodeURIComponent(`Hi ToolBite Team,\n\nI'd like to purchase the following template:\n\n🔹 Template: ${template.title}\n🔹 Category: ${template.category}\n🔹 Template ID: ${template._id}\n\nDescription:\n${template.shortDescription}\n\nPlease let me know the payment details and delivery process.\n\nThank you!`)}`}
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=hello.toolbite@gmail.com&su=${encodeURIComponent(`Order: ${template.title} Template`)}&body=${encodeURIComponent(`Hi ToolBite Team,\n\nI'd like to purchase the following template:\n\n🔹 Template: ${template.title}\n🔹 Category: ${template.category}\n🔹 Template ID: ${template._id}\n\nDescription:\n${template.shortDescription}\n\nPlease let me know the payment details and delivery process.\n\nThank you!`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2.5 py-3.5 px-5 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50 transition-all duration-300 shadow-sm group"
