@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { 
   motion, 
   useTransform, 
@@ -18,11 +18,13 @@ const wrap = (min, max, v) => {
 
 import OptimizedImage from './OptimizedImage';
 
-function ParallaxColumn({ images, baseVelocity = 100 }) {
+function ParallaxColumn({ images, baseVelocity = 100, isVisible = true }) {
   const baseX = useMotionValue(0);
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   useAnimationFrame((t, delta) => {
+    // Pause animation when the gallery is not in viewport — saves CPU/GPU
+    if (!isVisible) return;
     let moveBy = baseVelocity * (delta / 1000);
     baseX.set(baseX.get() + moveBy);
   });
@@ -51,12 +53,34 @@ function ParallaxColumn({ images, baseVelocity = 100 }) {
 }
 
 const ScrollVelocityGallery = () => {
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        // Start animating slightly before it comes into view
+        rootMargin: '100px 0px',
+        threshold: 0,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="grid grid-cols-3 gap-6 h-full w-full">
+    <div ref={containerRef} className="grid grid-cols-3 gap-6 h-full w-full">
       {/* Feed completely unique sets of images to each column so they never overlap */}
-      <ParallaxColumn images={allImages.slice(0, 5)} baseVelocity={-0.8} />
-      <ParallaxColumn images={allImages.slice(5, 10)} baseVelocity={1.2} />
-      <ParallaxColumn images={allImages.slice(10, 15)} baseVelocity={-0.6} />
+      <ParallaxColumn images={allImages.slice(0, 5)} baseVelocity={-0.8} isVisible={isVisible} />
+      <ParallaxColumn images={allImages.slice(5, 10)} baseVelocity={1.2} isVisible={isVisible} />
+      <ParallaxColumn images={allImages.slice(10, 15)} baseVelocity={-0.6} isVisible={isVisible} />
     </div>
   );
 };

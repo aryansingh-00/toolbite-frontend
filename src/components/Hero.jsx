@@ -1,7 +1,6 @@
- 
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Code, Layout, Zap, Shield, Smartphone, PenTool, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code, Layout } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import MagicText from './MagicText';
 import TypingText from './TypingText';
@@ -11,53 +10,6 @@ import MagneticButton from './MagneticButton';
 
 const Hero = () => {
   const { persona } = usePersona();
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-  const y3 = useTransform(scrollY, [0, 500], [0, 50]);
-
-  const vantaRef = React.useRef(null);
-
-  React.useEffect(() => {
-    let vantaEffect = null;
-    const initVanta = async () => {
-      try {
-        const THREE = await import('three');
-        window.THREE = THREE;
-        const { default: NET } = await import('vanta/dist/vanta.net.min');
-        
-        if (vantaRef.current && !vantaEffect) {
-          vantaEffect = NET({
-            el: vantaRef.current,
-            THREE: THREE,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x7091E6,
-            backgroundColor: 0x0f172a,
-            backgroundAlpha: 0.0,
-            points: 10.00,
-            maxDistance: 20.00,
-            spacing: 15.00
-          });
-        }
-      } catch (err) {
-        console.error("Vanta.js Net initialization failed:", err);
-      }
-    };
-
-    initVanta();
-
-    return () => {
-      if (vantaEffect) {
-        vantaEffect.destroy();
-      }
-    };
-  }, []);
 
   const getPersonaContent = () => {
     switch (persona) {
@@ -83,11 +35,9 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative pt-16 pb-0 lg:pt-24 lg:pb-0 overflow-hidden bg-transparent">
-      {/* Vanta.js 3D Mesh Background */}
-      <div 
-        ref={vantaRef} 
-        className="absolute inset-0 z-0 pointer-events-none opacity-40 dark:opacity-60" 
-      />
+      {/* CSS Animated Gradient Mesh Background — zero JS cost, replaces Vanta.js/Three.js */}
+      <div className="absolute inset-0 z-0 pointer-events-none hero-gradient-bg" aria-hidden="true" />
+
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
@@ -136,17 +86,15 @@ const Hero = () => {
               </MagneticButton>
             </motion.div>
 
-
           </div>
 
-          {/* Right Column: Scroll Velocity 3D Gallery */}
+          {/* Right Column: Scroll Velocity Gallery */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[850px] w-full mt-12 lg:mt-0 hidden lg:block xl:h-[900px]"
           >
-            {/* Gallery container with soft edge fade effect to blend seamlessly into background */}
             <div 
               className="absolute inset-0 rounded-[2.5rem] overflow-hidden"
               style={{
@@ -166,4 +114,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

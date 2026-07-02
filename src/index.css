@@ -1,7 +1,47 @@
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* ============================================================
+   FONTS — Self-hosted via @fontsource with font-display: swap
+   swap = text renders immediately in fallback, then web font swaps in.
+   Eliminates FOIT (Flash of Invisible Text) and improves LCP/CLS.
+   ============================================================ */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-800.woff2') format('woff2');
+}
 
 @layer base {
   html {
@@ -10,6 +50,8 @@
     @apply bg-white text-black;
   }
 }
+
+
 
 @layer utilities {
   .text-gradient {
@@ -133,3 +175,110 @@
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ============================================================
+   HERO GRADIENT BACKGROUND — Pure CSS, replaces Vanta.js
+   Eliminates 900KB Three.js + Vanta dependency
+   ============================================================ */
+@keyframes hero-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes hero-orb-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -40px) scale(1.05); }
+  66%       { transform: translate(-20px, 20px) scale(0.97); }
+}
+@keyframes hero-orb-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-40px, 30px) scale(1.08); }
+  66%       { transform: translate(20px, -20px) scale(0.95); }
+}
+@keyframes hero-orb-float-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(20px, 30px) scale(1.04); }
+}
+
+.hero-gradient-bg {
+  background: linear-gradient(135deg, #f0f9ff 0%, #fafafa 40%, #f0fdf4 70%, #f8f4ff 100%);
+  overflow: hidden;
+}
+
+.hero-gradient-bg::before,
+.hero-gradient-bg::after,
+.hero-gradient-bg .orb3 {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.hero-gradient-bg::before {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle, #a5b4fc 0%, #818cf8 40%, transparent 70%);
+  animation: hero-orb-float-1 12s ease-in-out infinite;
+}
+
+.hero-gradient-bg::after {
+  width: 500px;
+  height: 500px;
+  bottom: -50px;
+  left: 10%;
+  background: radial-gradient(circle, #6ee7b7 0%, #34d399 40%, transparent 70%);
+  animation: hero-orb-float-2 15s ease-in-out infinite;
+}
+
+/* Third orb via a generated child element that doesn't need ::before/::after */
+/* We use a CSS-only approach with multiple backgrounds on the parent */
+.hero-gradient-bg {
+  background:
+    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(165, 180, 252, 0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 500px at 10% 80%, rgba(110, 231, 183, 0.20) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 50% 50%, rgba(251, 191, 36, 0.10) 0%, transparent 70%),
+    linear-gradient(135deg, #f8faff 0%, #fafafa 50%, #f6fff9 100%);
+  background-size: 200% 200%;
+  animation: hero-gradient-shift 18s ease infinite;
+}
+
+/* Dark mode hero — deep slate with indigo/teal orbs */
+.dark .hero-gradient-bg {
+  background:
+    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 500px at 10% 80%, rgba(20, 184, 166, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 350px at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
+    linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #0f1f2a 100%);
+  background-size: 200% 200%;
+  animation: hero-gradient-shift 18s ease infinite;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   PERFORMANCE: Layout Containment for heavy sections
+   Isolates repaints to individual sections
+   ============================================================ */
+section {
+  contain: layout paint style;
+}
+
+/* Restore overflow visibility for sections that need it */
+section.overflow-visible,
+section[style*="overflow"] {
+  contain: layout style;
+}
+
+/* ============================================================
+   PERFORMANCE: content-visibility for below-the-fold sections
+   Browser skips rendering these until they scroll into view
+   ============================================================ */
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+

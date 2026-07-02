@@ -5,20 +5,19 @@ import { ClientAuthProvider } from './contexts/ClientAuthContext';
 import { HelmetProvider } from 'react-helmet-async';
 import { PersonalizationProvider } from './contexts/PersonalizationContext';
 import { Toaster } from 'react-hot-toast';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+const Navbar = React.lazy(() => import('./components/Navbar'));
+const Footer = React.lazy(() => import('./components/Footer'));
+const NoiseOverlay = React.lazy(() => import('./components/NoiseOverlay'));
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import PageTransition from './components/PageTransition';
-
 const FloatingChat = React.lazy(() => import('./components/FloatingChat'));
 const CookieConsent = React.lazy(() => import('./components/CookieConsent'));
 const ExitIntentModal = React.lazy(() => import('./components/ExitIntentModal'));
 const CommandPalette = React.lazy(() => import('./components/CommandPalette'));
-
-import NoiseOverlay from './components/NoiseOverlay';
 import { AnimatePresence } from 'framer-motion';
-import HomePage from './pages/HomePage';
+
+const HomePage = React.lazy(() => import('./pages/HomePage'));
 const StartProjectPage = React.lazy(() => import('./pages/StartProjectPage'));
 const TemplatesPage = React.lazy(() => import('./pages/TemplatesPage'));
 const TemplateDetails = React.lazy(() => import('./pages/TemplateDetails'));
