@@ -4,17 +4,28 @@ const NativeAdBanner = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const scriptId = 'script-e6c3136c705594e9810bbde998a3a2b4';
-    let script = document.getElementById(scriptId);
+    const container = document.getElementById('container-e6c3136c705594e9810bbde998a3a2b4');
+    if (!container) return;
 
-    if (!script) {
-      script = document.createElement('script');
-      script.id = scriptId;
-      script.async = true;
-      script.setAttribute('data-cfasync', 'false');
-      script.src = 'https://pl30167311.effectivecpmnetwork.com/e6c3136c705594e9810bbde998a3a2b4/invoke.js';
-      document.body.appendChild(script);
-    }
+    // Define option details if needed, then append the script
+    const script = document.createElement('script');
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    script.src = 'https://pl30167311.effectivecpmnetwork.com/e6c3136c705594e9810bbde998a3a2b4/invoke.js';
+    
+    // Append to container directly so it executes inside the DOM scope
+    container.appendChild(script);
+
+    return () => {
+      // Clean up the script tag when component unmounts
+      try {
+        if (container.contains(script)) {
+          container.removeChild(script);
+        }
+      } catch (e) {
+        console.warn("Clean up failed:", e);
+      }
+    };
   }, []);
 
   return (

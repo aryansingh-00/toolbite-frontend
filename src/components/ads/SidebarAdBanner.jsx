@@ -4,6 +4,7 @@ const SidebarAdBanner = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    let script = null;
     if (containerRef.current) {
       window.atOptions = {
         'key' : '6734a3c6fcb8987e6e07123dc6a479c5',
@@ -13,7 +14,7 @@ const SidebarAdBanner = () => {
         'params' : {}
       };
 
-      const script = document.createElement('script');
+      script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'https://www.highperformanceformat.com/6734a3c6fcb8987e6e07123dc6a479c5/invoke.js';
       
@@ -23,6 +24,9 @@ const SidebarAdBanner = () => {
     return () => {
       try {
         delete window.atOptions;
+        if (containerRef.current && script && containerRef.current.contains(script)) {
+          containerRef.current.removeChild(script);
+        }
       } catch (e) {
         window.atOptions = undefined;
       }
