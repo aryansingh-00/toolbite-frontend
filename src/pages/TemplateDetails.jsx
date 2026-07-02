@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone, Palette } from 'lucide-react';
+import { ArrowLeft, ExternalLink, ShoppingCart, Check, ShieldCheck, Zap, Server, Monitor, Tablet, Smartphone, Palette, Mail, MessageCircle, Send } from 'lucide-react';
 import staticTemplates from '../data/templates';
 import SEO from '../components/SEO';
 import DesignLab from '../components/DesignLab';
@@ -327,17 +327,49 @@ const TemplateDetails = () => {
               {template.shortDescription}
             </p>
 
-            <div className="flex items-center gap-6 mb-8 pb-8 border-b border-slate-200/80">
+            {/* ── Buy / Contact Section ────────────────────────────── */}
+            <div className="mb-8 pb-8 border-b border-slate-200/80">
+
+              {/* Primary WhatsApp CTA */}
               <a
-                href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\nCould you please guide me through the next steps?`)}`}
+                href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${template.title}* template.\n\n📦 *Category:* ${template.category}\n\n💡 *Description:* ${template.shortDescription}\n\nCould you please guide me through the next steps?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2.5 py-4.5 px-8 bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 text-white font-black text-lg rounded-2xl hover:scale-[1.02] transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 border border-teal-500/30 group"
+                className="w-full flex items-center justify-center gap-3 py-4 px-8 bg-gradient-to-r from-teal-600 via-emerald-500 to-teal-600 text-white font-black text-lg rounded-2xl hover:scale-[1.02] transform transition-all duration-300 shadow-xl shadow-teal-500/20 hover:shadow-teal-500/35 border border-teal-500/30 group mb-3"
               >
                 <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Buy Now — Instant Delivery
               </a>
+
+              {/* Secondary contact options */}
+              <p className="text-center text-xs text-slate-400 font-semibold uppercase tracking-widest mb-3">Or reach us via</p>
+              <div className="grid grid-cols-2 gap-3">
+
+                {/* Email → opens Gmail compose with pre-filled details */}
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=toolbite.in@gmail.com&su=${encodeURIComponent(`Order: ${template.title} Template`)}&body=${encodeURIComponent(`Hi ToolBite Team,\n\nI'd like to purchase the following template:\n\n🔹 Template: ${template.title}\n🔹 Category: ${template.category}\n🔹 Template ID: ${template._id}\n\nDescription:\n${template.shortDescription}\n\nPlease let me know the payment details and delivery process.\n\nThank you!`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 py-3.5 px-5 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl hover:border-blue-400 hover:text-blue-700 hover:bg-blue-50 transition-all duration-300 shadow-sm group"
+                >
+                  <Mail className="w-4.5 h-4.5 group-hover:scale-110 transition-transform text-blue-500" />
+                  <span className="text-sm">Email Us</span>
+                </a>
+
+                {/* Telegram */}
+                <a
+                  href={`https://t.me/toolbite?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI want to buy the *${template.title}* template (ID: ${template._id}).\n\nCategory: ${template.category}\n\nPlease share payment & delivery info. Thanks!`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 py-3.5 px-5 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-2xl hover:border-sky-400 hover:text-sky-700 hover:bg-sky-50 transition-all duration-300 shadow-sm group"
+                >
+                  <Send className="w-4.5 h-4.5 group-hover:scale-110 transition-transform text-sky-500" />
+                  <span className="text-sm">Telegram</span>
+                </a>
+
+              </div>
             </div>
+
 
             {template.fullDescription && (
               <div className="mb-10 text-slate-700 leading-relaxed text-base prose prose-slate">
