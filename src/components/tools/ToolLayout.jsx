@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
 import SEO from '../SEO';
-import NativeAdBanner from '../ads/NativeAdBanner';
 
 const ToolLayout = ({ 
   title, 
@@ -83,8 +82,7 @@ const ToolLayout = ({
           {children}
         </motion.div>
 
-        {/* Dynamic Ad Unit Banner */}
-        <NativeAdBanner />
+
 
         {/* Extended Educational Content (AdSense Value) */}
         {extendedContent && (

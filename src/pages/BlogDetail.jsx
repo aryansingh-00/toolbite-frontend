@@ -4,9 +4,6 @@ import { ArrowLeft, Calendar, User, Share2, TrendingUp, AlertTriangle, Zap, Calc
 import { motion } from 'framer-motion';
 import { blogPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
-import NativeAdBanner from '../components/ads/NativeAdBanner';
-import SidebarAdBanner from '../components/ads/SidebarAdBanner';
-import DirectLinkBanner from '../components/ads/DirectLinkBanner';
 
 const BlogCalculatorWidget = () => {
   const [traffic, setTraffic] = React.useState(10000);
@@ -221,7 +218,7 @@ const BlogDetail = () => {
             </div>
           </header>
 
-          <NativeAdBanner />
+
 
           {renderContent()}
 
@@ -246,15 +243,7 @@ const BlogDetail = () => {
           </footer>
         </article>
 
-        {/* Sidebar & Direct Link Ad Placement */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mt-16 not-prose">
-          <div className="lg:col-span-1 flex justify-center">
-            <SidebarAdBanner />
-          </div>
-          <div className="lg:col-span-2">
-            <DirectLinkBanner />
-          </div>
-        </div>
+
 
         {/* Related Posts */}
         <div className="mt-16">
