@@ -118,13 +118,28 @@ const Footer = () => {
           
           {/* Brand Column */}
           <div className="lg:col-span-4 lg:pr-8">
-            <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-glow-primary">
-                <svg viewBox="0 0 80 80" fill="none" className="w-5 h-5 text-white">
-                  <path d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="6" />
-                  <polygon points="30,28 30,52 52,40" fill="currentColor" />
-                </svg>
-              </div>
+            <Link to="/" className="inline-flex items-center gap-2 mb-6 group">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 80 80"
+                fill="none"
+                className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300"
+              >
+                <path 
+                  d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" 
+                  stroke="currentColor" 
+                  strokeWidth="4.5" 
+                />
+                <path 
+                  d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" 
+                  stroke="currentColor" 
+                  strokeWidth="4" 
+                />
+                <polygon 
+                  points="30,28 30,52 52,40" 
+                  fill="currentColor" 
+                />
+              </svg>
               <span className="text-2xl font-display font-bold tracking-tight text-white">ToolBite</span>
             </Link>
             <p className="text-secondary-text leading-relaxed mb-8 text-sm">

@@ -226,13 +226,17 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-glow-primary">
-                <svg viewBox="0 0 80 80" fill="none" className="w-5 h-5 text-white">
-                  <path d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="6" />
-                  <polygon points="30,28 30,52 52,40" fill="currentColor" />
-                </svg>
-              </div>
-              <span className="text-xl font-display font-bold tracking-tight text-text ml-3">ToolBite</span>
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 80 80"
+                fill="none"
+                className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300"
+              >
+                <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5, ease: 'easeInOut' }} d="M 68,32 L68,23 L 40,5 L 10,22 L 10,58 L 40,75 L 68,57 L 68,48" stroke="currentColor" strokeWidth="4.5" />
+                <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.2, delay: 0.5, ease: 'easeInOut' }} d="M 61,32 L 61,26 L 40,12 L 16,26 L 16,54 L 40,68 L 61,54 L 61,48" stroke="currentColor" strokeWidth="4" />
+                <motion.polygon initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 1, type: 'spring', stiffness: 200 }} points="30,28 30,52 52,40" fill="currentColor" />
+              </motion.svg>
+              <span className="text-xl font-display font-bold tracking-tight text-text ml-2">ToolBite</span>
             </Link>
           </div>
 
