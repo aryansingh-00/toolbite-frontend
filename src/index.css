@@ -2,77 +2,52 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* ============================================================
-   FONTS — Self-hosted via @fontsource with font-display: swap
-   swap = text renders immediately in fallback, then web font swaps in.
-   Eliminates FOIT (Flash of Invisible Text) and improves LCP/CLS.
-   ============================================================ */
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans-500.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans-600.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans-700.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('/fonts/plus-jakarta-sans-800.woff2') format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
+  :root {
+    --background: #050816;
+    --secondary-background: #0F172A;
+    --card: #111827;
+    --primary: #6366F1;
+    --secondary: #8B5CF6;
+    --accent: #06B6D4;
+    --success: #22C55E;
+    --text: #FFFFFF;
+    --secondary-text: #CBD5E1;
+    --border: rgba(255,255,255,0.08);
+  }
+
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    @apply bg-white text-black;
+    background-color: var(--background);
+    color: var(--text);
+    /* Default to dark mode effectively */
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-text font-sans antialiased min-h-screen selection:bg-primary/30 selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
   }
 }
-
-
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2563EB] via-[#F43F5E] to-[#14B8A6];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
   }
+  
   .glass-card {
-    @apply bg-white/5 backdrop-blur-2xl border border-white/10;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    @apply bg-card/60 backdrop-blur-2xl border border-border shadow-glass rounded-2xl;
   }
-  .glass-dark {
-    @apply bg-slate-900/40 backdrop-blur-2xl border border-slate-700/30;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  
+  .glass-panel {
+    @apply bg-secondary-background/50 backdrop-blur-3xl border border-white/5 shadow-premium rounded-3xl;
   }
-  .glass-premium {
-    @apply bg-white/5 backdrop-blur-3xl border-t border-l border-white/20 border-r border-b border-white/5;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px -10px rgba(0,0,0,0.4);
-  }
-  .glass-dark-premium {
-    @apply bg-slate-900/40 backdrop-blur-3xl border-t border-l border-slate-700/40 border-r border-b border-slate-800/20;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px -10px rgba(0,0,0,0.5);
-  }
+
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -82,203 +57,68 @@
   }
 }
 
-@layer base {
-  h1, h2, h3, h4 {
-    @apply tracking-tight;
-  }
-}
-
-::selection {
-  background-color: #000000;
-  color: #ffffff;
-}
-
+/* Custom Scrollbar for modern feel */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-slate-50 dark:bg-slate-950;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-800 rounded-full;
+  background: #1e293b;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-400 dark:bg-slate-700;
+  background: #334155;
 }
 
-:root {  
-  --sapphire: #000000;
-  --rose: #000000;
-  --teal: #000000;
-  --purple: #000000;
-  --violet: #000000;
-}
-
-@keyframes background-pan {
-  from {
-    background-position: 0% center;
-  }
-  to {
-    background-position: -200% center;
-  }
-}
-
-@keyframes scale {
-  from, to { transform: scale(0); }
-  50% { transform: scale(1); }
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(180deg); }
-}
-
-.magic {
-  display: inline-block;
+/* Premium Aurora Background Effect */
+.aurora-bg {
   position: relative;
-}
-
-.magic-star {
-  --size: clamp(20px, 1.5vw, 30px);
-  animation: scale 700ms ease forwards;
-  display: block;
-  height: var(--size);
-  left: var(--star-left);
-  position: absolute;
-  top: var(--star-top);
-  width: var(--size);
-}
-
-.magic-star > svg {
-  animation: rotate 1000ms linear infinite;
-  display: block;
-  opacity: 0.7;
-}
-
-.magic-star > svg > path {
-  fill: var(--violet);
-}
-
-.magic-text {
-  color: #000000;
-  white-space: nowrap;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* ============================================================
-   HERO GRADIENT BACKGROUND — Pure CSS, replaces Vanta.js
-   Eliminates 900KB Three.js + Vanta dependency
-   ============================================================ */
-@keyframes hero-gradient-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes hero-orb-float-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(30px, -40px) scale(1.05); }
-  66%       { transform: translate(-20px, 20px) scale(0.97); }
-}
-@keyframes hero-orb-float-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(-40px, 30px) scale(1.08); }
-  66%       { transform: translate(20px, -20px) scale(0.95); }
-}
-@keyframes hero-orb-float-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(20px, 30px) scale(1.04); }
-}
-
-.hero-gradient-bg {
-  background: linear-gradient(135deg, #f0f9ff 0%, #fafafa 40%, #f0fdf4 70%, #f8f4ff 100%);
+  background-color: var(--background);
   overflow: hidden;
 }
 
-.hero-gradient-bg::before,
-.hero-gradient-bg::after,
-.hero-gradient-bg .orb3 {
+.aurora-bg::before,
+.aurora-bg::after {
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  will-change: transform;
+  filter: blur(100px);
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.hero-gradient-bg::before {
-  width: 600px;
-  height: 600px;
-  top: -100px;
-  right: -100px;
-  background: radial-gradient(circle, #a5b4fc 0%, #818cf8 40%, transparent 70%);
-  animation: hero-orb-float-1 12s ease-in-out infinite;
+.aurora-bg::before {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  animation: float 8s ease-in-out infinite alternate;
 }
 
-.hero-gradient-bg::after {
-  width: 500px;
-  height: 500px;
-  bottom: -50px;
-  left: 10%;
-  background: radial-gradient(circle, #6ee7b7 0%, #34d399 40%, transparent 70%);
-  animation: hero-orb-float-2 15s ease-in-out infinite;
+.aurora-bg::after {
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite alternate-reverse;
 }
 
-/* Third orb via a generated child element that doesn't need ::before/::after */
-/* We use a CSS-only approach with multiple backgrounds on the parent */
-.hero-gradient-bg {
-  background:
-    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(165, 180, 252, 0.25) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 500px at 10% 80%, rgba(110, 231, 183, 0.20) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 350px at 50% 50%, rgba(251, 191, 36, 0.10) 0%, transparent 70%),
-    linear-gradient(135deg, #f8faff 0%, #fafafa 50%, #f6fff9 100%);
-  background-size: 200% 200%;
-  animation: hero-gradient-shift 18s ease infinite;
+/* Content isolation for Aurora */
+.aurora-content {
+  position: relative;
+  z-index: 1;
 }
 
-/* Dark mode hero — deep slate with indigo/teal orbs */
-.dark .hero-gradient-bg {
-  background:
-    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 600px 500px at 10% 80%, rgba(20, 184, 166, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 350px at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 70%),
-    linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #0f1f2a 100%);
-  background-size: 200% 200%;
-  animation: hero-gradient-shift 18s ease infinite;
-  opacity: 0.8;
-}
-
-/* ============================================================
-   PERFORMANCE: Layout Containment for heavy sections
-   Isolates repaints to individual sections
-   ============================================================ */
+/* Performance containments */
 section {
-  contain: layout paint style;
-}
-
-/* Restore overflow visibility for sections that need it */
-section.overflow-visible,
-section[style*="overflow"] {
   contain: layout style;
 }
-
-/* ============================================================
-   PERFORMANCE: content-visibility for below-the-fold sections
-   Browser skips rendering these until they scroll into view
-   ============================================================ */
 .below-fold {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
 }
-

@@ -1,33 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const userBrand = {
-  50: '#eef2fe',
-  100: '#e1e8fe',
-  200: '#c9d7fc',
-  300: '#a7bcfa',
-  400: '#839ef4',
-  500: '#7091E6',
-  600: '#4d6bce',
-  700: '#4256ab',
-  800: '#3b488c',
-  900: '#3D52A0',
-  950: '#242f5c',
-};
-
-const userNeutral = {
-  50: '#EDE8F5',
-  100: '#e0daf0',
-  200: '#ADBBDA',
-  300: '#9aaad0',
-  400: '#8697C4',
-  500: '#6e81b3',
-  600: '#576899',
-  700: '#46547e',
-  800: '#3b4566',
-  900: '#2c334d',
-  950: '#1a1f33', 
-};
-
 export default {
   darkMode: 'class',
   content: [
@@ -37,39 +9,40 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
-        slate: userNeutral,
-        gray: userNeutral,
-        zinc: userNeutral,
-        neutral: userNeutral,
-        stone: userNeutral,
-        teal: userBrand,
-        emerald: userBrand,
-        blue: userBrand,
-        indigo: userBrand,
-        purple: userBrand,
-        rose: userBrand,
-        pink: userBrand,
-        amber: userBrand,
-        orange: userBrand,
-        cyan: userBrand,
-        red: userBrand,
+        background: '#050816',
+        'secondary-background': '#0F172A',
+        card: '#111827',
+        primary: '#6366F1',
+        secondary: '#8B5CF6',
+        accent: '#06B6D4',
+        success: '#22C55E',
+        text: '#FFFFFF',
+        'secondary-text': '#CBD5E1',
+        border: 'rgba(255,255,255,0.08)',
+        // Keeping some legacy mappings
+        teal: { 500: '#06B6D4' },
+        emerald: { 500: '#22C55E' },
+        blue: { 500: '#6366F1' },
+        indigo: { 500: '#6366F1' },
+        purple: { 500: '#8B5CF6' },
+        slate: { 800: '#111827', 900: '#0F172A', 950: '#050816' },
       },
       boxShadow: {
-        'glass': '0 8px 32px 0 rgba(61, 82, 160, 0.05)',
-        'premium': '0 30px 60px -15px rgba(26, 31, 51, 0.15)',
-        'glow': '0 0 25px rgba(112, 145, 230, 0.4)',
-        'glow-slate': '0 0 30px rgba(44, 51, 77, 0.25)',
-        'glow-teal': '0 0 20px rgba(112, 145, 230, 0.5), 0 0 40px rgba(112, 145, 230, 0.2)',
-        'glow-emerald': '0 0 20px rgba(112, 145, 230, 0.5), 0 0 40px rgba(112, 145, 230, 0.2)',
-        'glow-purple': '0 0 20px rgba(112, 145, 230, 0.5), 0 0 40px rgba(112, 145, 230, 0.2)',
-        'glow-blue': '0 0 20px rgba(112, 145, 230, 0.5), 0 0 40px rgba(112, 145, 230, 0.2)',
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+        'premium': '0 30px 60px -15px rgba(0, 0, 0, 0.5)',
+        'glow': '0 0 25px rgba(99, 102, 241, 0.4)',
+        'glow-primary': '0 0 20px rgba(99, 102, 241, 0.5), 0 0 40px rgba(99, 102, 241, 0.2)',
+        'glow-secondary': '0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.2)',
+        'glow-accent': '0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.2)',
       },
       animation: {
         'blob': 'blob 7s infinite',
         'float': 'float 6s ease-in-out infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
       keyframes: {
         blob: {
@@ -81,6 +54,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' }
         }
       }
     },
