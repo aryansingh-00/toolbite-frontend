@@ -11,11 +11,39 @@ const SEO = ({
   toolData = null,
   serviceData = null,
   faqData = null,
+  articleData = null,
   breadcrumbs = []
 }) => {
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
   const canonicalUrl = url || `https://www.toolbite.in${currentPath === '/' ? '' : currentPath}`;
   const siteTitle = title.includes('ToolBite') ? title : `${title} | ToolBite`;
+
+  // Base Organization Schema for the Homepage
+  const isHomepage = currentPath === '/';
+  const organizationSchema = isHomepage ? {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ToolBite",
+    "url": "https://www.toolbite.in",
+    "logo": "https://www.toolbite.in/logo.png",
+    "sameAs": [
+      "https://www.twitter.com/hello.toolbite",
+      "https://www.instagram.com/hello.toolbite",
+      "https://www.linkedin.com/in/tool-bite-16ab8b3ba"
+    ],
+    "description": "ToolBite is an elite web design agency and digital engineering firm specializing in high-performance SaaS platforms, mobile applications, and premium website templates.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9598037255",
+      "contactType": "customer service",
+      "email": "hello.toolbite@gmail.com"
+    }
+  } : null;
 
   // JSON-LD for SoftwareApplication (Tools)
   const toolSchema = toolData ? {
@@ -66,6 +94,29 @@ const SEO = ({
     }))
   } : null;
 
+  // JSON-LD for Article (Blog Posts)
+  const articleSchema = articleData ? {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": articleData.title || siteTitle,
+    "description": description,
+    "image": image,
+    "author": {
+      "@type": "Organization",
+      "name": articleData.author || "ToolBite",
+      "url": "https://www.toolbite.in"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ToolBite",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.toolbite.in/logo.png"
+      }
+    },
+    "datePublished": articleData.datePublished || new Date().toISOString()
+  } : null;
+
   // JSON-LD for Breadcrumbs
   const breadcrumbSchema = breadcrumbs.length > 0 ? {
     "@context": "https://schema.org",
@@ -102,6 +153,11 @@ const SEO = ({
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Structured Data */}
+      {organizationSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+      )}
       {toolSchema && (
         <script type="application/ld+json">
           {JSON.stringify(toolSchema)}
@@ -115,6 +171,11 @@ const SEO = ({
       {faqSchema && (
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
+        </script>
+      )}
+      {articleSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
         </script>
       )}
       {breadcrumbSchema && (
