@@ -91,10 +91,10 @@ const dummyData = {
 
 const ResumeBuilder = () => {
   const seoData = {
-    title: "#1 Free AI Resume Builder | Create Professional CV Online | ToolBite",
-    description: "Build a job-winning resume in minutes with ToolBite's free AI resume builder. 40+ professional CV templates, AI content generation, and ATS optimization. Download as PDF for free.",
-    keywords: "AI resume builder, professional resume maker, free online cv builder, best resume templates 2024, ATS resume, CV generator, curriculum vitae maker, resume creator, ToolBite resume",
-    url: "https://toolbite.io/tools/resume-builder"
+    title: "Free Online Resume Builder: Create CVs Fast | ToolBite",
+    description: "Land your dream job with ToolBite's free online resume builder. Design professional, ATS-friendly resumes in minutes. Build your CV today!",
+    keywords: "free online resume builder",
+    url: "https://toolbite.in/tools/resume-builder"
   };
 
   const jsonLd = [

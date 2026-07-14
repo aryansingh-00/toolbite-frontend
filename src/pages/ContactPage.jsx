@@ -57,9 +57,9 @@ const ContactPage = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-[#030712] transition-colors duration-300">
       <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
       <SEO 
-        title="Contact Our Team"
-        description="Ready to initialize your vision? Discuss your next high-performance project with ToolBite. Contact our engineering team for custom web development, mobile apps, or digital strategy consulting."
-        keywords="contact toolbite, hire web designer, web development inquiry, contact digital agency india"
+        title="Contact ToolBite | Get a Free Project Consultation"
+        description="Ready to build your next web, app, or SaaS project? Contact ToolBite today for a free consultation and let's turn your vision into reality!"
+        keywords="contact ToolBite"
       />
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 font-sans">

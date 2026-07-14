@@ -124,7 +124,7 @@ function App() {
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
                   <Route path="/partners" element={<PageTransition><PartnerShowcase /></PageTransition>} />
-                  <Route path="/blog/:id" element={<PageTransition><BlogDetail /></PageTransition>} />
+                  <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
                   <Route path="/portfolio/:id" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
                   <Route path="/admin/login" element={<PageTransition><AdminLogin /></PageTransition>} />

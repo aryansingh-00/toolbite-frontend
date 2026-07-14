@@ -106,9 +106,9 @@ const BlogCalculatorWidget = () => {
 };
 
 const BlogDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find(p => p.id === parseInt(id));
+  const post = blogPosts.find(p => p.slug === slug);
 
   const [scrollProgress, setScrollProgress] = React.useState(0);
 
@@ -165,9 +165,14 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-slate-50/50">
       <SEO 
-        title={`${post.title} | ToolBite Blog`}
-        description={post.excerpt}
-        keywords={`${post.category}, web design tips, toolbite blog, ${post.title}`}
+        title={post.seoTitle || `${post.title} | ToolBite Blog`}
+        description={post.seoDescription || post.excerpt}
+        keywords={post.seoKeywords || `${post.category}, web design tips, toolbite blog, ${post.title}`}
+        articleData={{
+          title: post.title,
+          author: post.author,
+          datePublished: post.date
+        }}
       />
 
       {/* Reading Progress Bar */}
@@ -258,7 +263,7 @@ const BlogDetail = () => {
               .map(related => (
                 <Link 
                   key={related.id} 
-                  to={`/blog/${related.id}`}
+                  to={`/blog/${related.slug}`}
                   className="group bg-white p-6 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/30 hover:border-teal-200 transition-all"
                 >
                   <div className="aspect-video rounded-2xl overflow-hidden mb-6">

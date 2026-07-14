@@ -96,14 +96,14 @@ const BlogPage = () => {
                 </div>
               </div>
               <h2 className="text-3xl font-black text-black dark:text-white mb-6 leading-tight group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
               </h2>
               <p className="text-black dark:text-slate-400 mb-10 flex-grow leading-relaxed text-lg font-medium">
                 {post.excerpt}
               </p>
               <div className="mt-auto">
                 <Link 
-                  to={`/blog/${post.id}`} 
+                  to={`/blog/${post.slug}`} 
                   className="inline-flex items-center gap-3 text-black dark:text-white font-black text-lg group/btn"
                 >
                   <span className="bg-teal-500 group-hover/btn:bg-teal-400 p-2 rounded-xl transition-colors">

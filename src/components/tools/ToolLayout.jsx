@@ -1,4 +1,5 @@
 import React from 'react';
+import { tools } from '../../data/tools';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
@@ -114,6 +115,36 @@ const ToolLayout = ({
           <div className="p-8 glass-card rounded-3xl">
             <h3 className="font-display font-bold text-white mb-3">Fast & Modern</h3>
             <p className="text-sm text-secondary-text leading-relaxed">Built with high-performance React technology for an instant user experience.</p>
+          </div>
+        </div>
+
+        {/* Related Tools for Internal Linking (SEO) */}
+        <div className="mt-16 pt-16 border-t border-white/5">
+          <h2 className="text-2xl font-display font-bold text-white mb-8">Related Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tools
+              .filter(t => t.category === category && t.title !== title)
+              .slice(0, 3)
+              .map((relatedTool, index) => {
+                const RIcon = relatedTool.icon;
+                return (
+                  <Link 
+                    key={index}
+                    to={`/tools/${relatedTool.slug}`}
+                    className="p-6 glass-card rounded-2xl hover:border-primary/50 transition-colors group"
+                  >
+                    <div className="flex items-center gap-4 mb-3">
+                      {RIcon && (
+                        <div className="p-2 bg-white/5 rounded-lg text-primary">
+                          <RIcon size={20} />
+                        </div>
+                      )}
+                      <h3 className="font-bold text-white group-hover:text-primary transition-colors">{relatedTool.title}</h3>
+                    </div>
+                    <p className="text-sm text-secondary-text line-clamp-2">{relatedTool.description}</p>
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </div>

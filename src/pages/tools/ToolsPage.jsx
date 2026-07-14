@@ -34,9 +34,9 @@ const ToolsPage = () => {
   return (
     <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
       <SEO 
-        title="Free Online Utility Tools — Word Counter, Image Compressor & More"
-        description="Explore ToolBite's Utility Power Center. A curated collection of fast, privacy-focused online utility tools for developers, designers, and marketers. Free, secure, and browser-native."
-        keywords="free online tools, utility tools, word counter, image compressor, json formatter, qr generator, pdf to image, toolbite tools"
+        title="Free Online AI Utilities & Productivity Tools | ToolBite"
+        description="Boost your workflow with ToolBite's collection of free online AI utilities and productivity tools. Fast, efficient, and easy to use. Try them now!"
+        keywords="free AI tools"
       />
       
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">

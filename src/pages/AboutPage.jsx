@@ -17,9 +17,9 @@ const AboutPage = () => {
 
       <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto relative z-10">
         <SEO 
-          title="About ToolBite — Premier Web Design, Engineering & Utility Tools Platform"
-          description="Discover ToolBite's mission to architect the future of digital innovation. Explore our high-performance engineering stack, local sandboxing, and our commitment to E-E-A-T."
-          keywords="about toolbite, web design story, premium digital agency india, architectural web development, aryan singh toolbite, secure utility tools"
+          title="About ToolBite | Our Mission, Vision & Expert Team"
+          description="Discover the story behind ToolBite. Learn how our expert team delivers cutting-edge web, app, and AI solutions to empower your brand. Meet us today!"
+          keywords="about ToolBite"
         />
         
         {/* Header Hero */}

@@ -42,7 +42,18 @@ const TOOL_SLUGS = [
   'base64-converter',
 ];
 
-const BLOG_IDS = [1, 2, 3, 4];
+const BLOG_SLUGS = [
+  'best-free-ai-tools-business',
+  'how-to-build-saas-mvp',
+  'ats-friendly-resume-tips',
+  'web-app-vs-mobile-app',
+  'top-ai-content-generators',
+  'hire-app-developers-guide',
+  'boost-website-speed',
+  'future-of-ai-in-saas',
+  'landing-page-design-tips',
+  'career-change-resume-guide'
+];
 
 const TEMPLATE_IDS = [
   'tpl-001', 'tpl-002', 'tpl-003', 'tpl-004', 'tpl-005',
@@ -92,7 +103,7 @@ const entries = [
   ...TOOL_SLUGS.map(slug => url(`/tools/${slug}`, '0.8', 'weekly')),
 
   // All blog posts
-  ...BLOG_IDS.map(id => url(`/blog/${id}`, '0.7', 'monthly')),
+  ...BLOG_SLUGS.map(slug => url(`/blog/${slug}`, '0.7', 'monthly')),
 
   // All template detail pages
   ...TEMPLATE_IDS.map(id => url(`/template/${id}`, '0.8', 'monthly')),

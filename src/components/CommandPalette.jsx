@@ -39,7 +39,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
       desc: b.excerpt,
       category: 'Insights',
       icon: FileText,
-      href: `/blog/${b.id}`
+      href: `/blog/${b.slug}`
     }))
   ];
 

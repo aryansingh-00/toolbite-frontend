@@ -62,9 +62,9 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="Premium Web Design Agency & Ready-Made Templates"
-        description="Elevate your brand with ToolBite, a premium digital engineering agency. We build high-performance custom websites, mobile apps, and premium landing page templates designed for maximum conversion."
-        keywords="web design agency, custom website development, premium templates, landing pages, react web development, toolbite agency"
+        title="ToolBite: AI Tools, Web & App Development Agency"
+        description="Build custom websites, scale with SaaS, and boost productivity with free AI tools and a smart resume builder at ToolBite. Explore our solutions today!"
+        keywords="AI tools and development agency"
       />
       
       {/* New Premium Sections */}
