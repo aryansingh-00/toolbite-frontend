@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
-import TrustedBy from '../components/premium/TrustedBy';
 import FeaturesGrid from '../components/premium/FeaturesGrid';
 import MetricsSection from '../components/premium/MetricsSection';
 import Services from '../components/Services';
@@ -69,7 +68,6 @@ const HomePage = () => {
       
       {/* New Premium Sections */}
       <Hero />
-      <TrustedBy />
       <FeaturesGrid />
       <MetricsSection />
 

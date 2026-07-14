@@ -1,79 +1,97 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-background">
-      {/* Aurora Background Effects */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-50 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 blur-[120px] rounded-full animate-blob"></div>
+    <section 
+      id="home" 
+      className="relative min-h-[100vh] flex items-center pt-24 pb-20 overflow-hidden"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2560&q=80" 
+          alt="Professionals in a meeting" 
+          className="w-full h-full object-cover object-right"
+        />
+        {/* Dark Gradient Overlay for text readability (stronger on left) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30 md:to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-secondary-text text-sm font-medium mb-8 backdrop-blur-md"
-          >
-            <Sparkles size={14} className="text-primary" />
-            <span>The New Standard in Web Engineering</span>
-          </motion.div>
+      <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        
+        <div className="flex flex-col justify-between h-full min-h-[60vh]">
+          {/* Main Content (Left aligned) */}
+          <div className="max-w-3xl mt-12 md:mt-24">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="text-5xl md:text-7xl lg:text-[85px] font-sans font-bold tracking-tight text-white leading-[1.05] mb-8"
+            >
+              Trusted engineering for sustainable <br className="hidden lg:block"/>
+              <span className="text-[#c4f82a]">business growth.</span>
+            </motion.h1>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-[80px] font-display font-bold tracking-tighter text-white leading-[1.1] mb-8"
-          >
-            Build Digital Assets That <span className="text-gradient">Dominate.</span>
-          </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+              className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl leading-relaxed"
+            >
+              ToolBite partners with founders and executive teams to solve complex technical challenges, engineer high-performance platforms, and build digital assets that scale.
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-secondary-text mb-12 max-w-2xl mx-auto leading-relaxed"
-          >
-            We engineer high-performance web applications, SaaS platforms, and premium landing pages designed to maximize conversion and outpace the competition.
-          </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            >
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center gap-4 px-3 py-3 pr-8 rounded-full bg-white text-black font-bold hover:scale-105 transition-transform duration-300 group shadow-2xl"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#c4f82a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <ArrowRight size={18} className="text-black" />
+                </div>
+                <span className="text-sm tracking-wider uppercase">Get in touch</span>
+              </Link>
+            </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          {/* Trusted Logos (Bottom Right) */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="hidden md:flex justify-end items-center gap-8 mt-32 w-full"
           >
-            <Link to="/start-project" className="w-full sm:w-auto px-8 py-4 rounded-full bg-primary text-white font-medium flex items-center justify-center gap-2 hover:bg-primary/90 hover:scale-105 transition-all shadow-glow-primary">
-              Start Your Project <ArrowRight size={18} />
-            </Link>
-            
-            <a href="#ready-made" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 text-white font-medium flex items-center justify-center gap-2 hover:bg-white/10 border border-white/10 transition-all">
-              Browse Templates
-            </a>
+            <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-4 h-4 bg-white transform rotate-45"></div>
+              <span className="text-white font-bold text-lg">Clandestine</span>
+            </div>
+            <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-4 h-4 border-2 border-white rounded-br-lg"></div>
+              <span className="text-white font-bold text-lg">Command+R</span>
+            </div>
+            <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-4 h-4 border-[3px] border-white rounded-full border-r-transparent"></div>
+              <span className="text-white font-bold text-lg">ContrastAI</span>
+            </div>
+            <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+              <div className="w-5 h-5 flex flex-wrap gap-[2px]">
+                <div className="w-[8px] h-[8px] bg-white"></div>
+                <div className="w-[8px] h-[8px] bg-white"></div>
+                <div className="w-[8px] h-[8px] bg-white"></div>
+                <div className="w-[8px] h-[8px] bg-white"></div>
+              </div>
+              <span className="text-white font-bold text-lg">Elasticware</span>
+            </div>
           </motion.div>
         </div>
-
-        {/* Dashboard Mockup / Floating UI Element */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-20 relative mx-auto max-w-5xl"
-        >
-          <div className="relative rounded-2xl md:rounded-[2.5rem] border border-white/10 bg-card/40 p-2 md:p-4 backdrop-blur-xl shadow-premium">
-            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-2xl md:rounded-[2.5rem] pointer-events-none"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80" 
-              alt="Dashboard Preview" 
-              className="rounded-xl md:rounded-3xl w-full object-cover aspect-video border border-white/5 opacity-80 mix-blend-screen"
-            />
-          </div>
-        </motion.div>
 
       </div>
     </section>
