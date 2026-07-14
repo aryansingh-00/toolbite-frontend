@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import FeaturesGrid from '../components/premium/FeaturesGrid';
 import MetricsSection from '../components/premium/MetricsSection';
+import VideoShowcase from '../components/premium/VideoShowcase';
 import Services from '../components/Services';
 import ReadyMade from '../components/ReadyMade';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -70,6 +71,8 @@ const HomePage = () => {
       <Hero />
       <FeaturesGrid />
       <MetricsSection />
+      
+      <VideoShowcase />
 
       {/* Existing Sections (will adapt to global CSS and be restyled incrementally) */}
       <ScrollReveal><Services /></ScrollReveal>
