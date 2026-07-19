@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code2, Rocket, ShieldCheck } from 'lucide-react';
+import ShinyPill from './premium/ShinyPill';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -32,8 +33,14 @@ const Hero = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="text-5xl md:text-7xl lg:text-[85px] font-sans font-bold tracking-tight text-white leading-[1.05] mb-8"
             >
-              Trusted engineering for sustainable <br className="hidden lg:block"/>
-              <span className="text-[#c4f82a]">business growth.</span>
+              <ShinyPill 
+                textColor="#ffffff"
+                shineColor="#c4f82a"
+                speed={2.5}
+              >
+                Trusted engineering for sustainable <br className="hidden lg:block"/>
+                business growth.
+              </ShinyPill>
             </motion.h1>
 
             <motion.p

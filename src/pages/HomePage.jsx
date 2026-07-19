@@ -5,9 +5,7 @@ import { motion } from 'framer-motion';
 
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
-import FeaturesGrid from '../components/premium/FeaturesGrid';
-import MetricsSection from '../components/premium/MetricsSection';
-import VideoShowcase from '../components/premium/VideoShowcase';
+import DirectionHover from '../components/premium/DirectionHover';
 import Services from '../components/Services';
 import ReadyMade from '../components/ReadyMade';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -27,9 +25,9 @@ const PortfolioTeaser = () => {
           
           <div className="text-left">
             <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 tracking-tighter leading-[1.1]">
-              World-Class <br className="hidden md:block"/>
-              Digital Architectures
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 tracking-tighter leading-[1.1] flex flex-col items-start">
+              <DirectionHover title="World-Class" font={{ fontSize: 48, fontWeight: 'bold' }} hoverColor="#CCFF00" />
+              <DirectionHover title="Digital Architectures" font={{ fontSize: 48, fontWeight: 'bold' }} hoverColor="#CCFF00" />
             </h2>
             <p className="text-secondary-text leading-relaxed text-lg mb-10 max-w-xl">
               We don't just build websites; we engineer digital assets that drive massive ROI. 
@@ -69,10 +67,6 @@ const HomePage = () => {
       
       {/* New Premium Sections */}
       <Hero />
-      <FeaturesGrid />
-      <MetricsSection />
-      
-      <VideoShowcase />
 
       {/* Existing Sections (will adapt to global CSS and be restyled incrementally) */}
       <ScrollReveal><Services /></ScrollReveal>

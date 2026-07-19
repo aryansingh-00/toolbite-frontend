@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Lock, ArrowRight, Loader2, AlertCircle, Cpu, Shield, Sparkles } from 'lucide-react';
 import { useClientAuth } from '../../contexts/ClientAuthContext';
 import { useNavigate } from 'react-router-dom';
+import KineticGrid from '../../components/premium/KineticGrid';
 
 const PARTICLES_COUNT = 20;
 
@@ -15,58 +16,6 @@ const INITIAL_PARTICLES = [...Array(PARTICLES_COUNT)].map((_, i) => ({
   top: `${Math.random() * 100}%`
 }));
 
-const NeuralGrid = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Base Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-      
-      {/* Animated Light Trails */}
-      <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ 
-              x: ['0vw', '110vw'],
-              opacity: [0, 1, 0]
-            }}
-            transition={{ 
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              delay: i * 3,
-              ease: "linear"
-            }}
-            className="absolute h-[1px] w-40 bg-gradient-to-r from-transparent via-teal-500/50 to-transparent"
-            style={{ top: `${15 + i * 15}%` }}
-          />
-        ))}
-      </div>
-
-      {/* Floating Particles */}
-      {INITIAL_PARTICLES.map((p) => (
-        <motion.div
-          key={`p-${p.id}`}
-          animate={{
-            y: [0, -40, 0],
-            opacity: [0.2, 0.5, 0.2],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            delay: p.delay
-          }}
-          className="absolute w-1 h-1 bg-teal-400/30 rounded-full blur-[2px]"
-          style={{
-            left: p.left,
-            top: p.top
-          }}
-        />
-      ))}
-    </div>
-  );
-};
 
 const ClientLogin = () => {
   const [email, setEmail] = useState('');
@@ -99,7 +48,14 @@ const ClientLogin = () => {
     <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden font-sans">
       
       {/* Background System */}
-      <NeuralGrid />
+      <div className="absolute inset-0 z-0">
+        <KineticGrid 
+          background="transparent" 
+          dotColor="#14b8a6" 
+          lineColor="#0f766e" 
+          trailColor="#2dd4bf" 
+        />
+      </div>
       
       {/* Ambient Glows */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-teal-600/10 rounded-full blur-[120px] pointer-events-none" />

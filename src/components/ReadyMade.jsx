@@ -5,6 +5,7 @@ import { ExternalLink, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import staticTemplates from '../data/templates';
 import TiltCard from './TiltCard';
+import Smooth3DSlideshow from './premium/Smooth3DSlideshow';
 
 const ReadyMade = () => {
   // Use the first 8 from static data — no backend required
@@ -21,66 +22,8 @@ const ReadyMade = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {templates.map((tpl, i) => (
-            <TiltCard key={tpl._id}>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl hover:border-black transition-all duration-300 flex flex-col h-full overflow-hidden"
-              >
-                {/* Image */}
-                <div className="aspect-[4/3] w-full relative bg-slate-100 overflow-hidden border-b border-slate-100">
-                  <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
-                  <img
-                    src={tpl.imageUrl}
-                    alt={tpl.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="inline-block px-3 py-1 bg-white/95 backdrop-blur-sm text-xs font-extrabold text-black rounded-full shadow-sm uppercase tracking-wider">
-                      {tpl.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="mb-3">
-                    <h4 className="text-xl font-bold text-black leading-tight">{tpl.title}</h4>
-                  </div>
-
-                  <p className="text-black text-sm mb-6 h-10 line-clamp-2" title={tpl.shortDescription}>
-                    {tpl.shortDescription}
-                  </p>
-
-                  {/* Buttons */}
-                  <div className="grid grid-cols-2 gap-3 mt-auto pt-4 border-t border-slate-100">
-                    <Link
-                      to={`/template/${tpl._id}`}
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-50 text-black font-semibold text-sm hover:bg-slate-100 transition-colors border border-slate-200 hover:border-slate-300"
-                    >
-                      <ExternalLink size={16} />
-                      Details
-                    </Link>
-                    <a
-                      href={`https://wa.me/919598037255?text=${encodeURIComponent(`Hi ToolBite! 👋\n\nI'm interested in purchasing the *${tpl.title}* template.\n\n📦 *Category:* ${tpl.category}\n\nCould you please guide me through the next steps?`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-3 rounded-xl bg-black text-white font-semibold text-sm hover:bg-black/90 transition-all shadow-md"
-                    >
-                      <ShoppingCart size={16} />
-                      Buy Now
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </TiltCard>
-          ))}
+        <div className="w-full mt-12 mb-16 overflow-visible">
+            <Smooth3DSlideshow slides={templates} showTitle={false} autoplay={true} cardWidth={340} cardHeight={480} gap={10} />
         </div>
 
         <div className="mt-16 text-center">
