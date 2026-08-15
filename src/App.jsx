@@ -33,6 +33,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 const TemplateList = React.lazy(() => import('./pages/admin/TemplateList'));
 const TemplateForm = React.lazy(() => import('./pages/admin/TemplateForm'));
 import PageLoadingSkeleton from './components/PageLoadingSkeleton';
+import InitialLoader from './components/InitialLoader';
 import ClientProtectedRoute from './components/portal/ClientProtectedRoute';
 
 const ClientLogin = React.lazy(() => import('./pages/portal/ClientLogin'));
@@ -103,7 +104,7 @@ function App() {
         <AuthProvider>
           <ClientAuthProvider>
           <div className="min-h-screen relative overflow-hidden bg-white font-sans text-black flex flex-col transition-colors duration-300">
-            
+            <InitialLoader />
             <NoiseOverlay />
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}

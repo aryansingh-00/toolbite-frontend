@@ -113,7 +113,7 @@ const ContactSection = () => {
                 <a href="https://www.facebook.com/share/1AsB5SJevf/" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-black border border-slate-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">
                   <Facebook size={20} />
                 </a>
-                <a href="https://www.instagram.com/hello.toolbite?igsh=MThncHh4ejk5YzQzdg==" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-black border border-slate-100 hover:bg-rose-500 hover:text-white hover:border-rose-500 transition-all shadow-sm">
+                <a href="https://www.instagram.com/toolbite_ltd?igsh=eG9iNDUxbmw5bmRt" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-black border border-slate-100 hover:bg-rose-500 hover:text-white hover:border-rose-500 transition-all shadow-sm">
                   <Instagram size={20} />
                 </a>
                 <a href="https://www.linkedin.com/in/tool-bite-16ab8b3ba?utm_source=share_via&utm_content=profile&utm_medium=member_android" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-black border border-slate-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">

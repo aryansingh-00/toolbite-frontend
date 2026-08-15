@@ -152,7 +152,7 @@ const Footer = () => {
               <a href="https://www.facebook.com/share/1AsB5SJevf/" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-secondary-text hover:text-white hover:bg-white/10 transition-all">
                 <Facebook size={16} />
               </a>
-              <a href="https://www.instagram.com/hello.toolbite?igsh=MThncHh4ejk5YzQzdg==" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-secondary-text hover:text-white hover:bg-white/10 transition-all">
+              <a href="https://www.instagram.com/toolbite_ltd?igsh=eG9iNDUxbmw5bmRt" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-secondary-text hover:text-white hover:bg-white/10 transition-all">
                 <Instagram size={16} />
               </a>
               <a href="https://www.linkedin.com/in/tool-bite-16ab8b3ba" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-secondary-text hover:text-white hover:bg-white/10 transition-all">

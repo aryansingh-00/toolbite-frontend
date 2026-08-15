@@ -21,18 +21,14 @@ export default function ShinyPill(props = {}) {
     const shellStyle = {
         ...style,
         position: "relative",
-        display: "inline-flex",
-        alignItems: "center",
+        display: "inline-block",
         boxSizing: "border-box",
-        ...(isFixedWidth ? {} : { minWidth: "max-content", width: "auto" }),
         ...font,
     };
 
     const shineLayerStyle = {
         position: "absolute",
         inset: 0,
-        display: "flex",
-        alignItems: "center",
         color: shineColor,
         pointerEvents: "none",
         WebkitMaskImage:

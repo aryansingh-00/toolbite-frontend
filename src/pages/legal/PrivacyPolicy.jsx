@@ -98,15 +98,18 @@ const PrivacyPolicy = () => {
               Furthermore, we do not store raw passwords in our database; we utilize advanced cryptographic hashing algorithms with unique salts (e.g., bcrypt) to ensure that even in the event of a theoretical database compromise, user passwords cannot be reverse-engineered. We continuously subject our codebase to automated vulnerability scanning, dependency auditing, and periodic manual penetration testing to identify and patch potential vectors before they can be exploited. 
             </p>
 
-            <h2>6. Cookies and Tracking Technologies</h2>
+            <h2>6. Google AdSense & Third-Party Advertising Disclosures</h2>
             <p>
-              ToolBite implements advanced cookie and tracking technologies to engineer a frictionless, hyper-personalized user interface. A cookie is a minuscule encrypted text file injected into your device's storage by your web browser, allowing our servers to uniquely recognize your session across multiple page loads. We do not utilize cookies maliciously; rather, they are a fundamental requirement for the modern web applications we deploy.
+              ToolBite is a participant in the Google AdSense publisher network. Google and other third-party vendors use cookies to serve advertisements based on a user's prior visits to ToolBite or other web platforms across the internet.
             </p>
             <p>
-              We deploy "Essential Cookies" which are structurally required for our marketplace to function. Without these, our backend node server cannot authenticate your login session, nor can it remember which premium template you placed into your shopping cart. We also utilize "Performance Cookies" which aggregate completely anonymous statistical data regarding page load speeds and error occurrences, empowering our engineers to fix bottlenecks.
+              <strong>Google DART Cookie:</strong> Google's use of advertising cookies enables it and its commercial partners to serve tailored ads to users based on their browsing activity across ToolBite and other sites on the Internet.
             </p>
             <p>
-              Additionally, we employ "Marketing and Targeting Cookies" utilized primarily by our advertising partners, such as Google AdSense. These sophisticated tracking pixels record your digital interactions on ToolBite to build a general demographic profile, allowing ad networks to display highly relevant, curated advertisements to you on external websites. While you possess the complete autonomy to explicitly block or delete these cookies via your browser's security settings, doing so may degrade certain customized elements of the ToolBite experience or require you to repeatedly authenticate your account.
+              <strong>Opt-Out Options:</strong> Users may choose to opt out of personalized advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline font-semibold">Google Ad Settings</a>. Alternatively, users can opt out of third-party vendor cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-teal-600 underline font-semibold">www.aboutads.info</a>.
+            </p>
+            <p>
+              Third-party ad servers or ad networks use technology in their respective advertisements and links that appear on ToolBite, sent directly to your browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of advertising campaigns and/or to personalize advertising content that you see on websites that you visit. ToolBite has no access to or control over these cookies used by third-party advertisers.
             </p>
 
             <h2>7. User Rights</h2>

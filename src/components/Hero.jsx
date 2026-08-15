@@ -33,12 +33,8 @@ const Hero = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="text-5xl md:text-7xl lg:text-[85px] font-sans font-bold tracking-tight text-white leading-[1.05] mb-8"
             >
-              <ShinyPill 
-                textColor="#ffffff"
-                shineColor="#c4f82a"
-                speed={2.5}
-              >
-                Trusted engineering for sustainable <br className="hidden lg:block"/>
+              Trusted engineering for sustainable <br className="hidden lg:block"/>
+              <ShinyPill textColor="#c4f82a" shineColor="#ffffff" speed={2.5}>
                 business growth.
               </ShinyPill>
             </motion.h1>

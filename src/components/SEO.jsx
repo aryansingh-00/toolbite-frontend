@@ -28,7 +28,7 @@ const SEO = ({
     "logo": "https://www.toolbite.in/logo.png",
     "sameAs": [
       "https://www.twitter.com/hello.toolbite",
-      "https://www.instagram.com/hello.toolbite",
+      "https://www.instagram.com/toolbite_ltd",
       "https://www.linkedin.com/in/tool-bite-16ab8b3ba"
     ],
     "description": "ToolBite is an elite web design agency and digital engineering firm specializing in high-performance SaaS platforms, mobile applications, and premium website templates.",
