@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const LOADER_DURATION = 600; // 600ms crisp loader for instant entrance
+const LOADER_DURATION = 500; // 500ms ultra-fast loader for initial entrance
 
 const InitialLoader = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        return !sessionStorage.getItem('hasSeenInitialLoader');
+      } catch (e) {
+        return false;
+      }
+    }
+    return false;
+  });
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
+    if (!isVisible) return;
+
     // 1. Check prefers-reduced-motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
@@ -16,6 +27,9 @@ const InitialLoader = () => {
 
     // Fast, responsive entrance: exit smoothly after LOADER_DURATION
     const timer = setTimeout(() => {
+      try {
+        sessionStorage.setItem('hasSeenInitialLoader', 'true');
+      } catch (e) {}
       setIsVisible(false);
     }, LOADER_DURATION);
 
@@ -23,7 +37,9 @@ const InitialLoader = () => {
       clearTimeout(timer);
       mediaQuery.removeEventListener('change', handleMotionChange);
     };
-  }, []);
+  }, [isVisible]);
+
+  if (!isVisible) return null;
 
   return (
     <AnimatePresence>
@@ -40,12 +56,12 @@ const InitialLoader = () => {
                   opacity: 0,
                   y: -10,
                   transition: {
-                    duration: 0.5,
+                    duration: 0.4,
                     ease: [0.22, 1, 0.36, 1],
                   },
                 }
           }
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#050816] text-white select-none overflow-hidden"
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#050816] text-white select-none overflow-hidden pointer-events-none"
         >
           {/* Subtle Ambient Background Gradient Blur */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
