@@ -358,17 +358,42 @@ const Navbar = () => {
                 );
               })}
               <div className="pt-4 mt-2 border-t border-border flex flex-col gap-3">
-                <Link to="/client-login" onClick={() => setMobileOpen(false)} className="w-full py-3 flex items-center justify-center gap-2 rounded-xl border border-border text-text font-medium text-sm hover:bg-white/5 transition-all">
+                <button
+                  onClick={() => {
+                    setMobileOpen(false);
+                    window.dispatchEvent(new CustomEvent('open-appointment-modal'));
+                  }}
+                  className="w-full h-11 flex items-center justify-center gap-2 rounded-xl border border-teal-500/40 text-teal-400 font-semibold text-sm hover:bg-teal-500/10 transition-all"
+                >
+                  Book Appointment
+                </button>
+                <Link to="/client-login" onClick={() => setMobileOpen(false)} className="w-full h-11 flex items-center justify-center gap-2 rounded-xl border border-border text-text font-medium text-sm hover:bg-white/5 transition-all">
                   <User size={16} /> Client Login
                 </Link>
-                <Link to="/start-project" onClick={() => setMobileOpen(false)} className="w-full py-3 text-center rounded-xl bg-primary text-white font-medium text-sm hover:bg-primary/90 transition-all shadow-glow-primary">
-                  Get Started
+                <Link to="/start-project" onClick={() => setMobileOpen(false)} className="w-full h-11 flex items-center justify-center rounded-xl bg-teal-500 text-slate-950 font-extrabold text-sm hover:bg-teal-400 transition-all shadow-lg">
+                  Start Project
                 </Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Mobile Sticky Bottom Action Bar (<768px Viewports) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/90 backdrop-blur-2xl border-t border-slate-800 p-2.5 flex items-center gap-2 lg:hidden shadow-2xl">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('open-appointment-modal'))}
+          className="flex-1 h-11 rounded-xl border border-teal-500/40 text-teal-400 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+        >
+          Book Appointment
+        </button>
+        <Link
+          to="/start-project"
+          className="flex-1 h-11 rounded-xl bg-teal-500 text-slate-950 text-xs font-black uppercase tracking-wider flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+        >
+          Start Project
+        </Link>
+      </div>
     </nav>
   );
 };
