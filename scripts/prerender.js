@@ -67,7 +67,7 @@ async function prerender() {
     // Intercept network requests to block unnecessary resources (like ads, analytics, fonts) to speed up render
     await page.setRequestInterception(true);
     page.on('request', (request) => {
-      if (['image', 'stylesheet', 'font', 'media'].includes(request.resourceType()) || request.url().includes('google-analytics') || request.url().includes('googlesyndication')) {
+      if (['image', 'media'].includes(request.resourceType()) || request.url().includes('google-analytics') || request.url().includes('googlesyndication')) {
         request.abort();
       } else {
         request.continue();
