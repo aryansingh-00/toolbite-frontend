@@ -171,6 +171,99 @@ const MobileBlueprints = () => {
           })}
         </div>
 
+        {/* Featured Live Client Applications Showcase */}
+        <div className="mt-20 pt-16 border-t border-slate-200">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-500/10 text-teal-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-3 border border-teal-500/20">
+              <Zap size={10} className="text-teal-500" />
+              Live Client Applications
+            </div>
+            <h3 className="text-2xl md:text-4xl font-black text-black tracking-tight mb-3">
+              Featured Client Mobile Applications
+            </h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Explore live mobile applications engineered by ToolBite and available directly on official app stores.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 rounded-3xl p-8 sm:p-10 text-white shadow-2xl border border-slate-800 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+              {/* App Graphic / Mockup Preview */}
+              <div className="md:col-span-5 flex justify-center">
+                <div className="w-48 h-64 bg-gradient-to-br from-amber-500 via-orange-600 to-red-600 rounded-3xl p-1 shadow-2xl border-4 border-slate-700/50 flex flex-col justify-between overflow-hidden relative group">
+                  <div className="p-4 flex flex-col h-full justify-between bg-slate-950/80 backdrop-blur-sm rounded-[1.25rem]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xs shadow-md">
+                        DS
+                      </div>
+                      <div>
+                        <p className="font-bold text-xs text-white leading-tight">DailySpark</p>
+                        <p className="text-[9px] text-amber-400 font-medium">Daily Motivation & Quote Generator</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2 py-4">
+                      <div className="p-2.5 bg-white/5 rounded-xl border border-white/10">
+                        <p className="text-[10px] font-bold text-slate-300 mb-1">✨ Daily Curated Quote</p>
+                        <p className="text-[9px] text-slate-400">"Light tomorrow with today."</p>
+                      </div>
+                      <div className="p-2.5 bg-amber-500/10 rounded-xl border border-amber-500/20">
+                        <p className="text-[10px] font-bold text-amber-300">🎧 Ambient Soundscapes</p>
+                      </div>
+                    </div>
+
+                    <div className="text-[9px] font-mono text-slate-400 text-center">
+                      GET IT ON GOOGLE PLAY
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* App Info & Play Store Button */}
+              <div className="md:col-span-7 space-y-5 text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full text-[10px] font-bold tracking-wider uppercase border border-amber-500/20">
+                  <span>Android & Web App</span>
+                  <span>•</span>
+                  <span>Google Play Store Live</span>
+                </div>
+
+                <h4 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                  DailySpark — Motivation, Mindfulness & Quote Generator
+                </h4>
+
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  DailySpark is a modern, high-performance daily motivation, mindfulness, and quote image generator app built for Android and Web. It features daily curated quotes, interactive image card creation, gamified user streaks & achievements, ambient soundscapes, and native mobile sharing.
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <span className="text-[10px] font-semibold bg-white/10 text-slate-300 px-3 py-1 rounded-lg">Daily Curated Quotes</span>
+                  <span className="text-[10px] font-semibold bg-white/10 text-slate-300 px-3 py-1 rounded-lg">Interactive Quote Image Generator</span>
+                  <span className="text-[10px] font-semibold bg-white/10 text-slate-300 px-3 py-1 rounded-lg">Mindfulness & Ambient Audio</span>
+                  <span className="text-[10px] font-semibold bg-white/10 text-slate-300 px-3 py-1 rounded-lg">Gamified Streaks</span>
+                  <span className="text-[10px] font-semibold bg-white/10 text-slate-300 px-3 py-1 rounded-lg">Native Social Sharing</span>
+                </div>
+
+                <div className="pt-4">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.aryansingh.dailyspark&pcampaignid=web_share"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-teal-400 to-emerald-500 hover:from-teal-300 hover:to-emerald-400 text-slate-950 font-bold rounded-2xl shadow-xl transition-all text-xs uppercase tracking-wider group"
+                  >
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L14.81,13.12L4.96,22.97C5.17,23 5.4,23 5.63,22.88L16.81,15.12M16.81,8.88L5.63,1.12C5.4,1 5.17,1 4.96,1.03L14.81,10.88L16.81,8.88M20.16,10.81C20.7,11.12 21,11.54 21,12C21,12.46 20.7,12.88 20.16,13.19L17.81,14.12L15.69,12L17.81,9.88L20.16,10.81Z" />
+                    </svg>
+                    View on Google Play Store
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

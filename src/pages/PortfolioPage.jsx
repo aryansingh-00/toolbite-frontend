@@ -77,19 +77,41 @@ const PortfolioPage = () => {
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                         <p className="text-white/50 text-xs font-bold uppercase tracking-widest">Mockup Preview</p>
+                      <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                         {project.isPlayStore ? (
+                           <div className="space-y-3 flex flex-col items-center">
+                             <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-lg border border-white/30">
+                               <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24">
+                                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L14.81,13.12L4.96,22.97C5.17,23 5.4,23 5.63,22.88L16.81,15.12M16.81,8.88L5.63,1.12C5.4,1 5.17,1 4.96,1.03L14.81,10.88L16.81,8.88M20.16,10.81C20.7,11.12 21,11.54 21,12C21,12.46 20.7,12.88 20.16,13.19L17.81,14.12L15.69,12L17.81,9.88L20.16,10.81Z" />
+                               </svg>
+                             </div>
+                             <span className="text-white text-xs font-black uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-white/20">Google Play App</span>
+                           </div>
+                         ) : (
+                           <p className="text-white/50 text-xs font-bold uppercase tracking-widest">Mockup Preview</p>
+                         )}
                       </div>
                     )}
                     
+                    {/* Play Store Tag Badge on Image */}
+                    {project.isPlayStore && (
+                      <div className="absolute top-4 left-4 bg-slate-950/90 text-amber-400 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-500/30 text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L14.81,13.12L4.96,22.97C5.17,23 5.4,23 5.63,22.88L16.81,15.12M16.81,8.88L5.63,1.12C5.4,1 5.17,1 4.96,1.03L14.81,10.88L16.81,8.88M20.16,10.81C20.7,11.12 21,11.54 21,12C21,12.46 20.7,12.88 20.16,13.19L17.81,14.12L15.69,12L17.81,9.88L20.16,10.81Z" />
+                        </svg>
+                        Play Store Live
+                      </div>
+                    )}
+
                     <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                         <a 
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black hover:scale-110 transition-transform shadow-xl"
+                            className="px-5 py-2.5 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:scale-105 transition-transform shadow-xl text-xs uppercase tracking-wider"
                         >
-                            <ExternalLink size={20} />
+                            {project.isPlayStore ? 'Get App on Play Store' : 'View Live Project'}
+                            <ExternalLink size={16} />
                         </a>
                     </div>
                   </div>
@@ -108,7 +130,7 @@ const PortfolioPage = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tags.slice(0, 3).map((tag, idx) => (
+                      {project.tags.slice(0, 4).map((tag, idx) => (
                         <span key={idx} className="px-3 py-1 bg-slate-50 border border-slate-100 text-slate-500 text-[10px] font-bold uppercase tracking-wider rounded-full">
                           {tag}
                         </span>
@@ -116,13 +138,28 @@ const PortfolioPage = () => {
                     </div>
 
                     <div className="mt-auto pt-6 border-t border-slate-50">
-                      <Link
-                        to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="inline-flex items-center gap-2 text-black text-sm font-bold hover:text-teal-600 transition-colors group/btn"
-                      >
-                        View Case Study
-                        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
+                      {project.isPlayStore ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 font-extrabold rounded-xl flex items-center justify-center gap-2 hover:from-teal-400 hover:to-emerald-400 transition-all text-xs uppercase tracking-wider shadow-md"
+                        >
+                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L14.81,13.12L4.96,22.97C5.17,23 5.4,23 5.63,22.88L16.81,15.12M16.81,8.88L5.63,1.12C5.4,1 5.17,1 4.96,1.03L14.81,10.88L16.81,8.88M20.16,10.81C20.7,11.12 21,11.54 21,12C21,12.46 20.7,12.88 20.16,13.19L17.81,14.12L15.69,12L17.81,9.88L20.16,10.81Z" />
+                          </svg>
+                          Download on Google Play
+                          <ExternalLink size={14} />
+                        </a>
+                      ) : (
+                        <Link
+                          to={`/portfolio/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="inline-flex items-center gap-2 text-black text-sm font-bold hover:text-teal-600 transition-colors group/btn"
+                        >
+                          View Case Study
+                          <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </motion.div>

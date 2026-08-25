@@ -25,7 +25,7 @@ if (!routes.includes('/')) {
   routes.push('/');
 }
 
-const PORT = 3000;
+let PORT = 0;
 const server = http.createServer((request, response) => {
   return handler(request, response, {
     public: distPath,
@@ -36,8 +36,9 @@ const server = http.createServer((request, response) => {
 });
 
 async function prerender() {
-  console.log(`Starting local server on port ${PORT}...`);
-  await new Promise((resolve) => server.listen(PORT, resolve));
+  await new Promise((resolve) => server.listen(0, resolve));
+  PORT = server.address().port;
+  console.log(`Starting local server on dynamic port ${PORT}...`);
 
   console.log('Launching browser...');
   
