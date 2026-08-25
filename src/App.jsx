@@ -107,7 +107,6 @@ function App() {
         <AuthProvider>
           <ClientAuthProvider>
           <div className="min-h-screen relative overflow-hidden bg-white font-sans text-black flex flex-col transition-colors duration-300">
-            <InitialLoader />
             <NoiseOverlay />
             <Toaster position="top-right" />
             {!isCustomLayoutRoute && <Navbar />}
