@@ -40,7 +40,7 @@ export const ClientAuthProvider = ({ children }) => {
 
   return (
     <ClientAuthContext.Provider value={{ clientUser, loading, login, logout }}>
-      {!loading && children}
+      {children}
     </ClientAuthContext.Provider>
   );
 };

@@ -9,8 +9,12 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState(() => {
-    const userInfo = localStorage.getItem('adminInfo');
-    return userInfo ? JSON.parse(userInfo) : null;
+    try {
+      const userInfo = localStorage.getItem('adminInfo');
+      return userInfo ? JSON.parse(userInfo) : null;
+    } catch (e) {
+      return null;
+    }
   });
   const [loading, setLoading] = useState(false);
 
@@ -39,7 +43,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ admin, loading, login, logout }}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
