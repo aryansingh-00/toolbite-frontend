@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": ">=20.19.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender.js",
+    "build": "node -e \"fs.rmSync('dist', {recursive: true, force: true})\" && node scripts/generate-sitemap.js && vite build && node scripts/prerender.js",
     "sitemap": "node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"
