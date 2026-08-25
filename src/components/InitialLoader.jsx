@@ -19,7 +19,7 @@ const InitialLoader = () => {
   useEffect(() => {
     if (!isVisible) return;
 
-    // 1. Check prefers-reduced-motion
+    // Check prefers-reduced-motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
     const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
@@ -37,6 +37,8 @@ const InitialLoader = () => {
       clearTimeout(timer);
       mediaQuery.removeEventListener('change', handleMotionChange);
     };
+  }, [isVisible]);
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -126,7 +128,7 @@ const InitialLoader = () => {
               </span>
             </div>
 
-            {/* Option A — Technical Sweep Progress Line */}
+            {/* Technical Sweep Progress Line */}
             <div className="w-36 md:w-44 h-[2px] bg-white/10 rounded-full overflow-hidden relative mb-4">
               <motion.div
                 animate={
@@ -150,7 +152,7 @@ const InitialLoader = () => {
               Loading experience...
             </span>
 
-            {/* Optional Brand Phrase */}
+            {/* Brand Phrase */}
             <p className="mt-4 text-xs font-sans text-slate-500 font-normal tracking-wide max-w-xs leading-relaxed">
               Building digital products that move businesses forward.
             </p>
