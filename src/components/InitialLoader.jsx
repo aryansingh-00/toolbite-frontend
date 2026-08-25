@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MIN_DISPLAY_TIME = 800; // 800ms minimum display time to prevent flashing
-const MAX_FALLBACK_TIME = 5000; // 5s safety fallback
+const LOADER_DURATION = 600; // 600ms crisp loader for instant entrance
 
 const InitialLoader = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -15,35 +14,13 @@ const InitialLoader = () => {
     const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener('change', handleMotionChange);
 
-    const startTime = Date.now();
-    let minTimer = null;
-    let fallbackTimer = null;
-
-    const completeLoading = () => {
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = Math.max(0, MIN_DISPLAY_TIME - elapsedTime);
-
-      minTimer = setTimeout(() => {
-        setIsVisible(false);
-      }, remainingTime);
-    };
-
-    // Check readiness state
-    if (document.readyState === 'complete') {
-      completeLoading();
-    } else {
-      window.addEventListener('load', completeLoading, { once: true });
-    }
-
-    // Safety fallback maximum timeout (5 seconds)
-    fallbackTimer = setTimeout(() => {
+    // Fast, responsive entrance: exit smoothly after LOADER_DURATION
+    const timer = setTimeout(() => {
       setIsVisible(false);
-    }, MAX_FALLBACK_TIME);
+    }, LOADER_DURATION);
 
     return () => {
-      window.removeEventListener('load', completeLoading);
-      if (minTimer) clearTimeout(minTimer);
-      if (fallbackTimer) clearTimeout(fallbackTimer);
+      clearTimeout(timer);
       mediaQuery.removeEventListener('change', handleMotionChange);
     };
   }, []);
