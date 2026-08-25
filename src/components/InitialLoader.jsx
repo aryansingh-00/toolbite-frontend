@@ -37,10 +37,6 @@ const InitialLoader = () => {
       clearTimeout(timer);
       mediaQuery.removeEventListener('change', handleMotionChange);
     };
-  }, [isVisible]);
-
-  if (!isVisible) return null;
-
   return (
     <AnimatePresence>
       {isVisible && (
