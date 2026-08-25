@@ -70,20 +70,6 @@ export const servicesData = [
   { icon: <Lock className="w-6 h-6 text-red-500" />, title: 'Secure User Auth Logic', slug: 'auth-security', description: 'Implementing multi-tier user authentication, RBAC (Role-Based Access Control), and session security protocols for sensitive data.', bg: 'bg-red-50', border: 'border-red-200' },
   { icon: <Settings className="w-6 h-6 text-teal-500" />, title: 'Headless CMS Ecosystems', slug: 'headless-cms', description: 'Architecting dynamic content pipelines using Sanity, Contentful, or Strapi to give you total control over high-resolution assets.', bg: 'bg-teal-50', border: 'border-teal-200' },
   { 
-    icon: <FileText className="w-6 h-6 text-blue-600" />, 
-    title: 'AI-Powered Resume Builder', 
-    slug: 'resume-builder-service',
-    seoTitle: 'Professional AI Resume Builder Service | Career-Driven Design | ToolBite',
-    description: 'Engineer a career-defining presence with our AI-optimized resume building infrastructure, designed to pass ATS filters and command recruiter attention.', 
-    extendedDescription: 'We don\'t just format text; we architect career assets. Our AI-powered resume builder combines industry-leading design with semantic optimization to ensure your professional profile stands out in the most competitive talent pools.',
-    bg: 'bg-blue-50', 
-    border: 'border-blue-200',
-    faqs: [
-      { question: 'Is the resume builder ATS-friendly?', answer: 'Yes, every resume generated uses a clean, semantic structure specifically optimized to be parsed correctly by all major Applicant Tracking Systems.' },
-      { question: 'Can I export my resume to PDF?', answer: 'Absolutely. We provide high-resolution PDF exports with pixel-perfect typography and layout preservation.' }
-    ]
-  },
-  { 
     icon: <Globe className="w-6 h-6 text-indigo-600" />, 
     title: 'Ready-Made Website Builder', 
     slug: 'website-builder',

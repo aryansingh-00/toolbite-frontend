@@ -9,10 +9,10 @@ const navMenu = [
     href: '/#services',
     isHash: true,
     dropdown: [
-      { label: 'Web Design & Dev', href: '/#services', isHash: true, desc: 'Custom high-performance websites', icon: <Code size={16} className="text-primary" /> },
-      { label: 'Mobile App Development', href: '/services/mobile-app-development', isHash: false, desc: 'iOS, Android & Cross-Platform', icon: <Smartphone size={16} className="text-secondary" /> },
-      { label: 'Landing Pages', href: '/#services', isHash: true, desc: 'Conversion-focused page builds', icon: <Zap size={16} className="text-accent" /> },
-      { label: 'Brand Strategy', href: '/#services', isHash: true, desc: 'Authority & identity engineering', icon: <Palette size={16} className="text-purple-400" /> },
+      { label: 'Web Design & Dev', href: '/services/web-development', isHash: false, desc: 'Custom high-performance websites', icon: <Code size={16} className="text-primary" /> },
+      { label: 'Mobile App Development', href: '/services/app-development', isHash: false, desc: 'iOS, Android & Cross-Platform', icon: <Smartphone size={16} className="text-secondary" /> },
+      { label: 'Landing Pages', href: '/services/landing-page-design', isHash: false, desc: 'Conversion-focused page builds', icon: <Zap size={16} className="text-accent" /> },
+      { label: 'Brand Strategy', href: '/services/branding-services', isHash: false, desc: 'Authority & identity engineering', icon: <Palette size={16} className="text-purple-400" /> },
       { label: 'ROI Calculator', href: '/tools/roi-calculator', desc: 'Predict your revenue growth', icon: <TrendingUp size={16} className="text-success" /> },
       { label: 'Digital Brand Audit', href: '/tools/brand-audit', desc: 'Instant digital presence scan', icon: <ShieldAlert size={16} className="text-blue-400" /> },
     ],
@@ -40,7 +40,6 @@ const navMenu = [
     ],
     seeAll: '/tools',
   },
-  { label: 'AI Resume Builder', href: '/tools/resume-builder' },
   { label: 'Templates', href: '/templates' },
   {
     label: 'Company',
@@ -257,6 +256,12 @@ const Navbar = () => {
               title="Search (⌘K)"
             >
               <Search size={16} />
+            </button>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-appointment-modal'))}
+              className="px-4 py-2 rounded-full border border-teal-500/40 text-teal-400 text-[13px] font-semibold hover:bg-teal-500/10 transition-all flex items-center gap-1.5 shadow-sm"
+            >
+              Book Appointment
             </button>
             <Link
               to="/client-login"

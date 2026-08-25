@@ -9,9 +9,17 @@ import MobileEstimator from '../components/MobileEstimator';
 import MobileBlueprints from '../components/MobileBlueprints';
 
 
+const SLUG_ALIASES = {
+  'mobile-app-development': 'app-development',
+  'corporate-web-design': 'web-development',
+  'web-design': 'web-development',
+  'branding': 'branding-services'
+};
+
 const ServiceDetail = () => {
   const { slug } = useParams();
-  const service = servicesData.find(s => s.slug === slug);
+  const targetSlug = SLUG_ALIASES[slug] || slug;
+  const service = servicesData.find(s => s.slug === targetSlug);
 
   if (!service) {
     return <Navigate to="/#services" replace />;

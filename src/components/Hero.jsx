@@ -52,6 +52,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-wrap items-center gap-4"
             >
               <Link 
                 to="/contact" 
@@ -62,6 +63,13 @@ const Hero = () => {
                 </div>
                 <span className="text-sm tracking-wider uppercase">Get in touch</span>
               </Link>
+
+              <button 
+                onClick={() => window.dispatchEvent(new CustomEvent('open-appointment-modal'))}
+                className="inline-flex items-center gap-3 px-6 py-4 rounded-full bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 backdrop-blur-md border border-white/20 text-sm tracking-wider uppercase"
+              >
+                Book Appointment
+              </button>
             </motion.div>
           </div>
 

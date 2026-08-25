@@ -62,9 +62,7 @@ const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker')
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
-const PdfConverter = React.lazy(() => import('./pages/tools/PdfConverter'));
 const ServiceDetail = React.lazy(() => import('./pages/ServiceDetail'));
-const ResumeBuilder = React.lazy(() => import('./pages/tools/ResumeBuilder'));
 const WebsiteBuilder = React.lazy(() => import('./pages/tools/WebsiteBuilder'));
 const PartnerShowcase = React.lazy(() => import('./pages/PartnerShowcase'));
 const ColorPaletteGenerator = React.lazy(() => import('./pages/tools/ColorPaletteGenerator'));
@@ -72,10 +70,12 @@ const GlassmorphismGenerator = React.lazy(() => import('./pages/tools/Glassmorph
 const UnitConverter = React.lazy(() => import('./pages/tools/UnitConverter'));
 const MarkdownPreviewer = React.lazy(() => import('./pages/tools/MarkdownPreviewer'));
 const Base64Converter = React.lazy(() => import('./pages/tools/Base64Converter'));
+import BookAppointmentModal from './components/BookAppointmentModal';
 
 function App() {
   const location = useLocation();
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = React.useState(false);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = React.useState(false);
 
   React.useEffect(() => {
     const handleKeyDown = (e) => {
@@ -87,16 +87,19 @@ function App() {
     };
 
     const handleToggle = () => setIsCommandPaletteOpen(prev => !prev);
+    const handleAppointmentToggle = () => setIsAppointmentModalOpen(true);
 
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('toggle-command-palette', handleToggle);
+    window.addEventListener('open-appointment-modal', handleAppointmentToggle);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('toggle-command-palette', handleToggle);
+      window.removeEventListener('open-appointment-modal', handleAppointmentToggle);
     };
   }, []);
 
-  const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login' || location.pathname === '/tools/resume-builder';
+  const isCustomLayoutRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/portal') || location.pathname === '/client-login';
 
   return (
     <HelmetProvider>
@@ -158,7 +161,6 @@ function App() {
                   <Route path="/tools/brand-audit" element={<PageTransition><BrandAudit /></PageTransition>} />
                   <Route path="/tools/backlink-checker" element={<PageTransition><BacklinkChecker /></PageTransition>} />
                   <Route path="/tools/pdf-converter" element={<PageTransition><PdfConverter /></PageTransition>} />
-                  <Route path="/tools/resume-builder" element={<PageTransition><ResumeBuilder /></PageTransition>} />
                   <Route path="/tools/color-palette-generator" element={<PageTransition><ColorPaletteGenerator /></PageTransition>} />
                   <Route path="/tools/glassmorphism-generator" element={<PageTransition><GlassmorphismGenerator /></PageTransition>} />
                   <Route path="/tools/unit-converter" element={<PageTransition><UnitConverter /></PageTransition>} />
@@ -187,6 +189,7 @@ function App() {
               <CookieConsent />
               <ExitIntentModal />
               <CommandPalette isOpen={isCommandPaletteOpen} onClose={() => setIsCommandPaletteOpen(false)} />
+              <BookAppointmentModal isOpen={isAppointmentModalOpen} onClose={() => setIsAppointmentModalOpen(false)} />
             </React.Suspense>
           )}
           </div>

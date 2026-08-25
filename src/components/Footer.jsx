@@ -182,8 +182,8 @@ const Footer = () => {
           <div className="lg:col-span-3">
             <h4 className="text-white font-medium mb-6">Services</h4>
             <ul className="space-y-4 text-sm">
-              <li><Link to="/services/mobile-app-development" className="text-secondary-text hover:text-white transition-colors">Mobile App Development</Link></li>
-              <li><Link to="/services/corporate-web-design" className="text-secondary-text hover:text-white transition-colors">Corporate Web Design</Link></li>
+              <li><Link to="/services/app-development" className="text-secondary-text hover:text-white transition-colors">Mobile App Development</Link></li>
+              <li><Link to="/services/web-development" className="text-secondary-text hover:text-white transition-colors">Corporate Web Design</Link></li>
               <li><Link to="/services/ecommerce-development" className="text-secondary-text hover:text-white transition-colors">E-commerce Stores</Link></li>
               <li><Link to="/services/saas-development" className="text-secondary-text hover:text-white transition-colors">SaaS Architecture</Link></li>
               <li><Link to="/services/landing-page-design" className="text-secondary-text hover:text-white transition-colors">Landing Pages</Link></li>
@@ -207,7 +207,13 @@ const Footer = () => {
                 <a href="mailto:hello.toolbite@gmail.com" className="text-secondary-text hover:text-white transition-colors">hello.toolbite@gmail.com</a>
               </li>
             </ul>
-            <div className="mt-8">
+            <div className="mt-6 space-y-2">
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('open-appointment-modal'))}
+                className="w-full py-2.5 rounded-lg bg-teal-500/20 text-teal-300 border border-teal-500/30 hover:bg-teal-500/30 transition-all text-sm font-semibold flex items-center justify-center gap-2 shadow-sm"
+              >
+                Book an Appointment
+              </button>
               <Link to="/client-login" className="inline-flex items-center justify-center w-full py-2.5 rounded-lg border border-white/10 text-secondary-text hover:text-white hover:bg-white/5 transition-all text-sm font-medium">
                 Client Portal Login
               </Link>
