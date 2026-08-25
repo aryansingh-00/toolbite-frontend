@@ -17,7 +17,7 @@ import ExitIntentModal from './components/ExitIntentModal';
 import CommandPalette from './components/CommandPalette';
 import { AnimatePresence } from 'framer-motion';
 
-const HomePage = React.lazy(() => import('./pages/HomePage'));
+import HomePage from './pages/HomePage';
 const StartProjectPage = React.lazy(() => import('./pages/StartProjectPage'));
 const TemplatesPage = React.lazy(() => import('./pages/TemplatesPage'));
 const TemplateDetails = React.lazy(() => import('./pages/TemplateDetails'));
@@ -59,6 +59,7 @@ const ToneChanger = React.lazy(() => import('./pages/tools/ToneChanger'));
 const ROICalculator = React.lazy(() => import('./pages/tools/ROICalculator'));
 const BrandAudit = React.lazy(() => import('./pages/tools/BrandAudit'));
 const BacklinkChecker = React.lazy(() => import('./pages/tools/BacklinkChecker'));
+const PdfConverter = React.lazy(() => import('./pages/tools/PdfConverter'));
 const BlogDetail = React.lazy(() => import('./pages/BlogDetail'));
 const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetail = React.lazy(() => import('./pages/CaseStudyDetail'));
