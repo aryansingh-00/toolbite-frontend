@@ -56,25 +56,36 @@ const PortfolioTeaser = () => {
   );
 };
 
+import ProjectCostEstimator from '../components/ProjectCostEstimator';
+import ClientAppsShowcase from '../components/ClientAppsShowcase';
+
 const HomePage = () => {
   return (
     <>
       <SEO
         title="ToolBite: AI Tools, Web & App Development Agency"
-        description="Build custom websites, scale with SaaS, and boost productivity with free AI tools and a smart resume builder at ToolBite. Explore our solutions today!"
+        description="Build custom websites, scale with SaaS, and boost productivity with free AI tools at ToolBite. Explore our solutions today!"
         keywords="AI tools and development agency"
       />
       
-      {/* New Premium Sections */}
+      {/* Hero */}
       <Hero />
 
-      {/* Existing Sections (will adapt to global CSS and be restyled incrementally) */}
+      {/* Services Matrix */}
       <ScrollReveal><Services /></ScrollReveal>
+
+      {/* Live Client Applications & Proof Showcase */}
+      <ScrollReveal><ClientAppsShowcase /></ScrollReveal>
+
+      {/* Ready-Made & Blueprints */}
       <ScrollReveal><ReadyMade /></ScrollReveal>
+
+      {/* Interactive Project Cost & Timeline Estimator */}
+      <ScrollReveal><ProjectCostEstimator /></ScrollReveal>
+
       <ScrollReveal><PortfolioTeaser /></ScrollReveal>
       
-      {/* Replaced WhyChooseUs & TrustSection with new FeaturesGrid & MetricsSection functionally, 
-          but keeping Testimonials & FAQ */}
+      {/* Testimonials, Audit & FAQ */}
       <ScrollReveal><Testimonials /></ScrollReveal>
       <ScrollReveal><ProjectStrategist /></ScrollReveal>
       <ScrollReveal><GrowthAuditSection /></ScrollReveal>
