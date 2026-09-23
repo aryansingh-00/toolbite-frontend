@@ -137,6 +137,20 @@ const PrivacyPolicy = () => {
               Additionally, our platform incorporates external APIs for features like our automated live chat matrix and instantaneous email dispatch systems (e.g., SendGrid). Every third-party service provider integrated into the ToolBite ecosystem has been subjected to a rigorous security audit. However, we strongly advise you to independently review the privacy policies of these major tech providers, as their internal data processing methodologies operate independently of ToolBite’s explicit jurisdiction.
             </p>
 
+            <h2>6. Third-Party Advertising & Google AdSense Disclosures</h2>
+            <p>
+              ToolBite partners with Google AdSense and third-party advertising networks to serve relevant digital advertisements on our platform. 
+              To qualify for ad serving and ensure a transparent user experience, we explicitly adhere to the Google AdSense Program Policies, Google's Publisher Policies, and Google's EU User Consent Policy.
+            </p>
+            <p>
+              <strong>Cookies and Ad Serving:</strong> Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to ToolBite or other websites. 
+              Google's use of advertising cookies (such as the DoubleClick or DART cookie) enables it and its partners to serve ads to users based on their visit to our sites and/or other sites on the Internet.
+            </p>
+            <p>
+              <strong>User Opt-Out Rights:</strong> Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-bold underline">Google Ads Settings</a>. 
+              Alternatively, users can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-teal-600 font-bold underline">www.aboutads.info</a>.
+            </p>
+
             <h2>9. Changes to Privacy Policy</h2>
             <p>
               The technological landscape is aggressively dynamic, and global legislative frameworks concerning digital privacy are continuously evolving. Consequently, ToolBite reserves the explicit right to autonomously amend, update, or completely overhaul this Privacy Policy at our discretion to reflect new operational protocols, newly integrated third-party APIs, or shifting international legal mandates.
