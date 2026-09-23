@@ -47,6 +47,18 @@ const SHOWCASE_PROJECTS = [
     bgGradient: 'from-indigo-900 via-blue-800 to-purple-900'
   },
   {
+    id: 'neonsnake',
+    title: 'Neon Snake — Retro Arcade Game',
+    category: 'mobile',
+    categoryLabel: 'Live Android Game',
+    isPlayStore: true,
+    desc: 'Neon Snake is a high-speed retro arcade snake game built for Android featuring vibrant neon graphics, responsive touch/swipe controls, high score leaderboards, and custom color themes.',
+    tags: ['Arcade Game', 'Android App', 'Retro Physics', 'Neon Visuals'],
+    link: 'https://play.google.com/store/apps/details?id=com.aistudio.neonsnake.qrvxkp',
+    buttonText: 'Download on Google Play',
+    bgGradient: 'from-purple-600 via-pink-600 to-indigo-600'
+  },
+  {
     id: 'nexus',
     title: 'Nexus Financial Operating System',
     category: 'web',

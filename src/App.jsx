@@ -71,6 +71,7 @@ const GlassmorphismGenerator = React.lazy(() => import('./pages/tools/Glassmorph
 const UnitConverter = React.lazy(() => import('./pages/tools/UnitConverter'));
 const MarkdownPreviewer = React.lazy(() => import('./pages/tools/MarkdownPreviewer'));
 const Base64Converter = React.lazy(() => import('./pages/tools/Base64Converter'));
+const BecomeATester = React.lazy(() => import('./pages/BecomeATester'));
 import BookAppointmentModal from './components/BookAppointmentModal';
 
 function App() {
@@ -128,6 +129,7 @@ function App() {
                   <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
                   <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
                   <Route path="/partners" element={<PageTransition><PartnerShowcase /></PageTransition>} />
+                  <Route path="/become-a-tester" element={<PageTransition><BecomeATester /></PageTransition>} />
                   <Route path="/blog/:slug" element={<PageTransition><BlogDetail /></PageTransition>} />
                   <Route path="/portfolio" element={<PageTransition><PortfolioPage /></PageTransition>} />
                   <Route path="/portfolio/:id" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
