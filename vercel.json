@@ -1,7 +1,22 @@
 {
+  "headers": [
+    {
+      "source": "/ads.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!api/|demos/).*)",
+      "source": "/((?!api/|demos/|ads\\.txt|sitemap\\.xml|robots\\.txt).*)",
       "destination": "/index.html"
     }
   ]
