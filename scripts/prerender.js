@@ -68,7 +68,13 @@ async function prerender() {
     // Intercept network requests to block unnecessary resources (like ads, analytics, fonts) to speed up render
     await page.setRequestInterception(true);
     page.on('request', (request) => {
-      if (['image', 'media'].includes(request.resourceType()) || request.url().includes('google-analytics') || request.url().includes('googlesyndication')) {
+      if (
+        ['image', 'media'].includes(request.resourceType()) ||
+        request.url().includes('google-analytics') ||
+        request.url().includes('googlesyndication') ||
+        request.url().includes('quge5.com') ||
+        request.url().includes('al5sm.com')
+      ) {
         request.abort();
       } else {
         request.continue();
