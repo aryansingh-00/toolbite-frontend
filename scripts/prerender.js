@@ -72,8 +72,7 @@ async function prerender() {
         ['image', 'media'].includes(request.resourceType()) ||
         request.url().includes('google-analytics') ||
         request.url().includes('googlesyndication') ||
-        request.url().includes('quge5.com') ||
-        request.url().includes('al5sm.com')
+        request.url().includes('quge5.com')
       ) {
         request.abort();
       } else {

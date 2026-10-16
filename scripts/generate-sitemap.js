@@ -90,6 +90,7 @@ const entries = [
   url('/blog',             '0.8', 'weekly'),
   url('/start-project',    '0.9', 'monthly'),
   url('/partners',         '0.7', 'monthly'),
+  url('/become-a-tester',  '0.8', 'weekly'),
   url('/portfolio',        '0.9', 'weekly'),
   url('/services/website-builder', '0.8', 'monthly'),
 
